@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DevExtreme tooltip jQuery Example</title>
+    <link rel="stylesheet" type="text/css" href="./style.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/19.1.4/css/dx.common.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/19.1.4/css/dx.light.css"/>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.2/jszip.min.js"></script>
+    <script type="text/javascript" src="https://cdn3.devexpress.com/jslib/19.1.4/js/dx.all.js"></script>
+</head>
+<body>
+    <img id="product1" src="https://js.devexpress.com/Demos/WidgetsGallery/JSDemos/images/products/17.png">
+    <div id="tooltip1">ExcelRemote IR</div>
+
+    <script>
+        $(function(){
+            let defaultVisible = false;
+            $("#tooltip1").dxTooltip({
+                target: "#product1",
+                onOptionChanged: (e) => {
+                // NOTE: 2-way binding
+                if (e.name === 'visible') {
+                    defaultVisible = e.value;
+                }
+                }
+            });
+        
+        const handler = () => {
+            defaultVisible = !defaultVisible;
+            $("#tooltip1").dxTooltip("option", "visible", defaultVisible);
+        };
+            $("#product1").on("mouseenter", handler);
+            $("#product1").on("mouseleave", handler);
+        });
+    </script>
+</body>
+</html>
