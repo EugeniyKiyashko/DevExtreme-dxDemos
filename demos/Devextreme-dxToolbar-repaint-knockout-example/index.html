@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>DevExtreme knockout Example</title>
+
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/devextreme@16.2.5/dist/css/dx.common.css"/>
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/devextreme@16.2.5/dist/css/dx.light.css"/>
+    <script type="text/javascript" src="https://unpkg.com/jquery@3.2.1"></script>
+    <script type="text/javascript" src="https://unpkg.com/knockout@3.4.2"></script>
+    <script type="text/javascript" src="https://unpkg.com/devextreme@16.2.5/dist/js/dx.all.js"></script>
+</head>
+
+<body>
+    <div id="#toolbar" data-bind="dxToolbar: toolbarOptions"></div>
+    <div data-bind="dxButton: buttonOptions"></div>
+
+    <script>
+        $(function() {
+            var commandVisible = ko.observable(true);
+            var viewModel = {
+                buttonOptions: {
+                    text: 'Change visibility',
+                    onClick: function(e) {
+                        commandVisible(!commandVisible());
+
+                        ko.contextFor(document.getElementById("#toolbar")).$data.toolbarInstance.repaint();
+                    }
+                },
+                toolbarOptions: {
+                    onInitialized: function (e) {
+                        viewModel.toolbarInstance = e.component;    
+                    },
+                    dataSource: [{
+                        location: 'before',
+                        widget: 'dxButton',
+                        options: {
+                            type: 'back',
+                            text: 'Back',
+                            onClick: function (e) {
+                                DevExpress.ui.notify("Back button clicked", "success", 5000);
+                            }
+                        }
+                        }, {
+                            location: 'after',
+                            locateInMenu: 'none',
+                            text: "Add",
+                            onClick: function () {
+                                console.log("Add");
+                            }
+                        }, {
+                            location: 'after',
+                            locateInMenu: 'auto',
+                            text: "Change",
+                            visible: commandVisible,
+                            onClick: function () {
+                                console.log("Change");
+                            }
+                        }, {
+                            location: 'center',
+                            text: 'very very very very long title'
+                    }]
+                }, 
+
+            };
+
+            ko.applyBindings(viewModel);
+        });
+    </script>
+</body>
+</html>
