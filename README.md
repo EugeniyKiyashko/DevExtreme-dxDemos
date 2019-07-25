@@ -1,6 +1,9 @@
 # DevExtreme-Demos
 A collection of online demos showing variously scenario using DevExtreme widgets.
 
+## DevExtreme Demos - Angular approach.
+
+* [Base angular template with dxDrawer and dxToolbar widgets](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/angular-template-app/)
 
 ## DevExtreme Demos - JQuery approach.
 

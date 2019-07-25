@@ -1,0 +1,23 @@
+<div>
+  <dx-toolbar
+    [items]="toolbarContent">
+  </dx-toolbar>
+  <dx-drawer 
+    openedStateMode="shrink"
+    position="left"
+    revealMode="expand"
+    template="template"
+    [opened]="true"
+    maxSize="150">
+    <div *dxTemplate="let data of 'template'">
+        <dx-list class="panel-list dx-theme-accent-as-background-color"
+            [dataSource]="navigation"
+            [hoverStateEnabled]="false"
+            [activeStateEnabled]="false"
+            [focusStateEnabled]="false"
+            [width]="200">
+        </dx-list>
+    </div>
+    <div id="content" class="dx-theme-background-color" [innerHTML]="text"></div>
+  </dx-drawer>
+</div>
