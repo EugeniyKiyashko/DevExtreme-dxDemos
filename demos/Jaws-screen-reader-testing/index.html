@@ -16,7 +16,7 @@
     <div id="container"></div>
 
     <script>
-       $(function() {
+        $(function() {
             const widgetNames = ["dxList", "dxAutocomplete", "dxSelectBox", "dxLookup", "dxTreeView" ];
             const shortWidgetNames = widgetNames.map(widgetName => widgetName.toLowerCase().substr(2));
 
@@ -52,12 +52,12 @@
 
             // dxList, dxAutocomplete, dxSelectBox, dxLookup initialize
             let widgetNamesWithoutTreeView = widgetNames.filter(name => name !== "dxTreeView");
-            widgetNames.forEach((name, index) => {
+            widgetNamesWithoutTreeView.forEach((name, index) => {
                 $(`#${shortWidgetNames[index]}`)[name](defaultConfig);
             });
             
             // dxTreeView initialize
-            let treeview = $("#treeView").dxTreeView({
+            $("#treeview").dxTreeView({
                 items: hierarchicalProducts, 
                 searchEnabled: searchEnabledOptionValue
             });
