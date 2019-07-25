@@ -1,0 +1,15 @@
+#container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.widget-container {
+    padding-top: 20px;
+    flex: 1;
+}
+
+.widget-container > div:first-child {
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+}

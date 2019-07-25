@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DevExtreme dxList jQuery Example</title>
+    <link rel="stylesheet" type="text/css" href="./style.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/19.1.4/css/dx.common.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/19.1.4/css/dx.light.css"/>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.2/jszip.min.js"></script>
+    <script type="text/javascript" src="https://cdn3.devexpress.com/jslib/19.1.4/js/dx.all.js"></script>
+    <script type="text/javascript" src="./data.js"></script>
+    <script type="text/javascript" src="./hierarchicalData.js"></script>
+</head>
+<body>
+    <div id="changeSearchMode"></div>
+    <div id="container"></div>
+
+    <script>
+       $(function() {
+            const widgetNames = ["dxList", "dxAutocomplete", "dxSelectBox", "dxLookup", "dxTreeView" ];
+            const shortWidgetNames = widgetNames.map(widgetName => widgetName.toLowerCase().substr(2));
+
+            // markup
+            let $container = $("#container");
+            widgetNames.forEach((name, index) => {
+                
+                let widgetContainer = $("<div/>").addClass("widget-container").appendTo($container);
+                widgetContainer.append($("<div/>").text(name));
+                widgetContainer.append($("<div/>").attr("id", shortWidgetNames[index]));
+            });
+
+            // button
+            let searchEnabledOptionValue = false;
+            
+            $("#changeSearchMode").dxButton({
+                text: "Change search mode",
+                onClick: () => {
+                    widgetNames.forEach((name, index) => {
+                        searchEnabledOptionValue = !searchEnabledOptionValue;
+                        $(`#${shortWidgetNames[index]}`)[name]("instance").option("searchEnabled", !searchEnabledOptionValue);
+                    });
+                }
+            });
+
+            // dxList, dxAutocomplete, dxSelectBox, dxLookup config
+            let defaultConfig = {
+                dataSource: products,
+                searchEnabled: searchEnabledOptionValue,
+                searchExpr: "Name",
+                itemTemplate: (data) => $("<div>").text(data.Name)
+            }
+
+            // dxList, dxAutocomplete, dxSelectBox, dxLookup initialize
+            let widgetNamesWithoutTreeView = widgetNames.filter(name => name !== "dxTreeView");
+            widgetNames.forEach((name, index) => {
+                $(`#${shortWidgetNames[index]}`)[name](defaultConfig);
+            });
+            
+            // dxTreeView initialize
+            let treeview = $("#treeView").dxTreeView({
+                items: hierarchicalProducts, 
+                searchEnabled: searchEnabledOptionValue
+            });
+        });
+    </script>
+</body>
+</html>
