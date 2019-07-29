@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>dxTreeView - manually expand hierarchical item</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/19.1.4/css/dx.common.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/19.1.4/css/dx.light.css"/>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.2/jszip.min.js"></script>
+    <script type="text/javascript" src="https://cdn3.devexpress.com/jslib/19.1.4/js/dx.all.js"></script>
+    <script type="text/javascript" src="./data.js"></script>
+</head>
+<body>
+    <div id="expandButton"></div> <div id="customExpandButton"></div>
+    <div id="simple-treeview"></div>
+
+    <script>
+        function expandItem(treeView, key) {
+            function findNode(nodes, key) {
+                var i, result = null;
+                for(i = 0; i < nodes.length; i++) {
+                if(nodes[i].key == key) {
+                    result = nodes[i];
+                    break;
+                }
+                if(nodes[i].children) {
+                    result = findNode(nodes[i].children, key);
+                    if(result) {
+                    break;
+                    }
+                }
+            }
+            return result;
+        }
+        var node = findNode(treeView.getNodes(), key);
+        while(node) {
+            treeView.expandItem(node.key);
+            node = node.parent;
+        }
+        }
+
+        $(function(){
+            var treeView = $("#simple-treeview").dxTreeView({ 
+                items: products,
+            }).dxTreeView("instance");
+        
+        treeView.collapseItem("1_1_3");
+
+            $("#expandButton").dxButton({ 
+            text: "Expand (19\")",
+            onClick: () => {
+                treeView.expandItem("1_1_3_1");
+            }
+            });
+            $("#customExpandButton").dxButton({ 
+            text: "Custom Expand (19\")",
+            onClick: () => {
+                expandItem(treeView, "1_1_3_1");
+            }
+            });
+        });
+    </script>
+</body>
+</html>

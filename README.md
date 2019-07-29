@@ -11,6 +11,9 @@ A collection of online demos showing variously scenario using DevExtreme widgets
 * [dxDrawer + dxToolbar with different settings](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/Devextreme-dxDrawer-jquery-example/index.html)
 * [dxList in searchMode ](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/Devextreme-dxList-jquery-example/index.html)
 * [dxList, dxTreeView, dxSelectBox, dxLookup, dxAccordion for JAWS screen reader testing](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/Jaws-screen-reader-testing/index.html)
+* [dxTreeView - manually expand hierarchical item](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/Devextreme-dxTreeView-expand-hierarchical-item/index.html)
+
+
 ## DevExtreme Demos - Knockout approach.
 
 * [dxToolbar - show, hide toolbar buttons example](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/Devextreme-dxToolbar-repaint-knockout-example/index.html)
