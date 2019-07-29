@@ -18,24 +18,24 @@
             function findNode(nodes, key) {
                 var i, result = null;
                 for(i = 0; i < nodes.length; i++) {
-                if(nodes[i].key == key) {
-                    result = nodes[i];
-                    break;
-                }
-                if(nodes[i].children) {
-                    result = findNode(nodes[i].children, key);
-                    if(result) {
-                    break;
+                    if(nodes[i].key == key) {
+                        result = nodes[i];
+                        break;
+                    }
+                    if(nodes[i].children) {
+                        result = findNode(nodes[i].children, key);
+                        if(result) {
+                        break;
+                        }
                     }
                 }
+                return result;
             }
-            return result;
-        }
-        var node = findNode(treeView.getNodes(), key);
-        while(node) {
-            treeView.expandItem(node.key);
-            node = node.parent;
-        }
+            var node = findNode(treeView.getNodes(), key);
+            while(node) {
+                treeView.expandItem(node.key);
+                node = node.parent;
+            }
         }
 
         $(function(){
@@ -43,19 +43,19 @@
                 items: products,
             }).dxTreeView("instance");
         
-        treeView.collapseItem("1_1_3");
+            treeView.collapseItem("1_1_3");
 
             $("#expandButton").dxButton({ 
-            text: "Expand (19\")",
-            onClick: () => {
-                treeView.expandItem("1_1_3_1");
-            }
+                text: "Expand (19\")",
+                onClick: () => {
+                    treeView.expandItem("1_1_3_1");
+                }
             });
             $("#customExpandButton").dxButton({ 
-            text: "Custom Expand (19\")",
-            onClick: () => {
-                expandItem(treeView, "1_1_3_1");
-            }
+                text: "Custom Expand (19\")",
+                onClick: () => {
+                    expandItem(treeView, "1_1_3_1");
+                }
             });
         });
     </script>
