@@ -12,7 +12,7 @@ A collection of online demos showing variously scenario using DevExtreme widgets
 * [dxList in searchMode ](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/Devextreme-dxList-jquery-example/index.html)
 * [dxList, dxTreeView, dxSelectBox, dxLookup, dxAccordion for JAWS screen reader testing](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/Jaws-screen-reader-testing/index.html)
 * [dxTreeView - manually expand hierarchical item](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/Devextreme-dxTreeView-expand-hierarchical-item/index.html)
-* [dxScrollView - update the scrollbar position on scrolling its content using Tab](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/Devextreme-dxScrollable-update-scrollbar-position/index.html)
+* [dxScrollView - update the scrollbar position on scrolling its content using Tab (Native and simulated strategy)](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/Devextreme-dxScrollable-update-scrollbar-position/index.html)
 
 ## DevExtreme Demos - Knockout approach.
 
