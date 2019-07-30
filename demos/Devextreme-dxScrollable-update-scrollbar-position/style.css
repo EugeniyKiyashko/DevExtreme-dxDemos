@@ -1,0 +1,27 @@
+.main-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+#scrollview-horizontal .item,
+#scrollview-horizontal-native .item {
+    display: inline-block; 
+}
+
+.scrollview-content {
+    width: 400px;
+}
+
+.item {
+    height: 200px; 
+    width: 198px;
+    background-color: red;
+}
+
+.item:nth-child(odd) {
+    background-color: skyblue;
+}
+
+.dx-scrollable-scroll-content {
+    background-color: black;
+}

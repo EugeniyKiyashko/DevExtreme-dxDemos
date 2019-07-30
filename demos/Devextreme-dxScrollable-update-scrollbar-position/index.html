@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DevExtreme dxDrawer jQuery Example</title>
+    <link rel="stylesheet" type="text/css" href="./style.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/19.1.4/css/dx.common.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/19.1.4/css/dx.light.css"/>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.2/jszip.min.js"></script>
+    <script type="text/javascript" src="https://cdn3.devexpress.com/jslib/19.1.4/js/dx.all.js"></script>
+</head>
+<body>
+    <div class="main-container">
+        <div class="container">
+            <div><b>dxScrollView: Simulated strategy</b></div>
+            <hr>
+            <div>Horizontal:</div>
+            <div id="scrollview-horizontal">
+                <div class="scrollview-content">
+                    <div class="item" tabindex="1"></div>
+                    <div class="item" tabindex="2"></div>  
+                </div>
+            </div>
+            <div>Vertical:</div>
+            <div id="scrollview-vertical">
+                <div class="scrollview-content">
+                    <div class="item" tabindex="3"></div>
+                    <div class="item" tabindex="4"></div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div><b>dxScrollView: Native strategy</b></div>
+            <hr>
+            <div>Horizontal:</div>
+            <div id="scrollview-horizontal-native">
+                <div class="scrollview-content">
+                    <div class="item" tabindex="5"></div>
+                    <div class="item" tabindex="6"></div>  
+                </div>
+            </div>
+            <div>Vertical:</div>
+            <div id="scrollview-vertical-native">
+                <div class="scrollview-content">
+                    <div class="item" tabindex="7"></div>
+                    <div class="item" tabindex="8"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <script>
+       $(function(){
+            // simulated
+            $("#scrollview-horizontal").dxScrollView({
+                useNative: false,
+                height: 200,
+                width: 200,
+                scrollByContent: true,
+                scrollByThumb: true,
+                showScrollbar: "always",
+                direction: "horizontal"
+            }).dxScrollView("instance");
+
+            $("#scrollview-vertical").dxScrollView({
+                useNative: false,
+                height: 200,
+                width: 200,
+                scrollByContent: true,
+                scrollByThumb: true,
+                showScrollbar: "always",
+                direction: "vertical"
+            }).dxScrollView("instance");
+
+            // native
+            $("#scrollview-horizontal-native").dxScrollView({
+                useNative: true,
+                height: 200,
+                width: 200,
+                scrollByContent: true,
+                scrollByThumb: true,
+                showScrollbar: "always",
+                direction: "horizontal"
+            }).dxScrollView("instance");
+
+            $("#scrollview-vertical-native").dxScrollView({
+                useNative: true,
+                height: 200,
+                width: 200,
+                scrollByContent: true,
+                scrollByThumb: true,
+                showScrollbar: "always",
+                direction: "vertical"
+            }).dxScrollView("instance");
+        });
+    </script>
+</body>
+</html>
