@@ -9,6 +9,7 @@ A collection of online demos showing variously scenario using DevExtreme widgets
 
 * [dxTooltip example with 2-way bindings](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/Devextreme-dxTooltip-jquery-example/index.html)
 * [dxDrawer + dxToolbar with different settings](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/Devextreme-dxDrawer-jquery-example/index.html)
+* [dxDataGrid - record-grouping](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/Devextreme-dxDataGrid-record-grouping/index.html)
 * [dxList in searchMode ](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/Devextreme-dxList-jquery-example/index.html)
 * [dxList, dxTreeView, dxSelectBox, dxLookup, dxAccordion for JAWS screen reader testing](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/Jaws-screen-reader-testing/index.html)
 * [dxTreeView - manually expand hierarchical item](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/Devextreme-dxTreeView-expand-hierarchical-item/index.html)

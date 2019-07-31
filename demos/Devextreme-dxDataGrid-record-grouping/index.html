@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>dxDataGrid - record grouping</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/19.1.4/css/dx.common.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/19.1.4/css/dx.light.css"/>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.2/jszip.min.js"></script>
+    <script type="text/javascript" src="https://cdn3.devexpress.com/jslib/19.1.4/js/dx.all.js"></script>
+    <script type="text/javascript" src="./data.js"></script>
+</head>
+<body>
+    <div id="gridContainer"></div>
+
+    <script>
+        $(function(){
+            var gn_group_index = -1;
+
+            $("#gridContainer").dxDataGrid({
+                dataSource: customers,
+                allowColumnReordering: true,
+                grouping: {
+                    autoExpandAll: true
+                },
+                export: {
+                    enabled: true,
+                    fileName: 'DataGrid',
+                    allowExportSelectedData: true
+                },
+                selection: {
+                    mode: "multiple"
+                },
+                searchPanel: {
+                    visible: true
+                },
+                onContentReady: function(e) {
+                    e.component.columnOption('c_groupfield', 'groupIndex', gn_group_index === -1 ? undefined : gn_group_index);
+                },
+                paging: {
+                    pageSize: 10
+                },  
+                groupPanel: {
+                    visible: true
+                },
+                onToolbarPreparing: function (e) {
+                    e.toolbarOptions.items.unshift(      
+                        {
+                            location: "before",
+                            widget: "dxButton",
+                            locateInMenu: 'auto',
+                            options: {
+                                hint: "Group/UnGroup",
+                                onClick: function () {
+                                    if (gn_group_index === -1) {
+                                        gn_group_index = 0;                          
+                                    } else {
+                                        gn_group_index = -1;
+                                    }   
+                                    e.component.refresh();
+                                }
+                            }
+                        }
+                    );
+                },
+                columns: [
+                    "CompanyName",
+                    "Phone",
+                    "Fax",
+                    "City",
+                    {
+                        dataField: "c_groupfield",
+                        caption: "Group",
+                        groupIndex: 0,
+                        visible: false,
+                        showInColumnChooser: false,
+                        calculateCellValue: function(rowData) {
+                            return rowData.State;
+                        }
+                        /*groupCellTemplate: function(cellElelemnt, cellInfo) { cellElement.html(cellInfo.text); }*/
+                    }
+                ]
+            });
+        });
+    </script>
+</body>
+</html>
