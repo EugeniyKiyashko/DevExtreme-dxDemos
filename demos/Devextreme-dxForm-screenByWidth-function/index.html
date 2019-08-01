@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>dxForm - calls the screenByWidth function several times</title>
+    <link rel="stylesheet" type="text/css" href="./style.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/19.1.4/css/dx.common.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/19.1.4/css/dx.common.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/19.1.4/css/dx.light.css"/>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.2/jszip.min.js"></script>
+    <script type="text/javascript" src="https://cdn3.devexpress.com/jslib/19.1.4/js/dx.all.js"></script>
+    <script type="text/javascript" src="./data.js"></script>
+</head>
+<body>
+    <div id="form"></div>
+
+    <script>
+        $(function() {
+            let count = 0;
+            
+            function calculateScreenSize(width) {
+                count += 1;
+                console.log("screen size " + width + " " + count);
+                return 'md';
+            }
+            
+            $("#form").dxForm({
+                formData: employee,
+                screenByWidth: calculateScreenSize,
+                items: [{
+                    itemType: "group",
+                    cssClass: "first-group",
+                    colCount: 4,
+                    items: [{
+                        template: "<div class='form-avatar'></div>"
+                    }, {
+                        itemType: "group",
+                        colSpan: 3,
+                        items: [{
+                            dataField: "FirstName"
+                        }, {
+                            dataField: "LastName"
+                        }, {
+                            dataField: "BirthDate",
+                            editorType: "dxDateBox",
+                            editorOptions: {
+                                width: "100%"
+                            }
+                        }]
+                    }]
+                }, {
+                    itemType: "group",
+                    cssClass: "second-group",
+                    colCount: 2,
+                    items: [{
+                        itemType: "group",
+                        items: [{
+                            dataField: "Address"
+                        }, {
+                            dataField: "City"
+                        }, {
+                            dataField: "Position",
+                            editorType: "dxSelectBox",
+                            editorOptions: {
+                                items: positions,
+                                value: ""
+                            }
+                        }]
+                    }, {
+                        itemType: "group",
+                        items: [{
+                            dataField: "State",
+                            editorType: "dxSelectBox",
+                            editorOptions: {
+                                items: states
+                            },
+                        }, {
+                            dataField: "ZipCode"
+                        }, {
+                            dataField: "Mobile",
+                            label: {
+                                text: "Phone"
+                            },
+                            editorOptions: {
+                                mask: "+1 (000) 000-0000"
+                            }
+                        }]
+                    }, {
+                        colSpan: 2,
+                        dataField: "Notes",
+                        editorType: "dxTextArea",
+                        editorOptions: {
+                            height: 140
+                        }
+                    }]
+                }]
+            });
+        });
+    </script>
+</body>
+</html>
