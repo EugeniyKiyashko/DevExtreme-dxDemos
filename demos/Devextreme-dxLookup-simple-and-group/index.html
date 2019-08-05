@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DevExtreme dxList jQuery Example</title>
+    
+    <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/19.1.4/css/dx.common.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/19.1.4/css/dx.light.css"/>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.2/jszip.min.js"></script>
+    <script type="text/javascript" src="https://cdn3.devexpress.com/jslib/19.1.4/js/dx.all.js"></script>
+    <script type="text/javascript" src="./data.js"></script>
+</head>
+<body>
+    <div class="main-container">
+        <div class="container">
+            <div>Simple lookup:</div>
+            <hr>
+            <div id="lookup"></div>
+        </div>
+        <div class="container">
+            <div>Grouped lookup:</div>
+            <hr>
+            <div id="lookup-grouped"></div>
+        </div>
+    </div>
+
+    <script>
+        $(function() {
+            $("#lookup").dxLookup({
+                items: employeesList,
+                value: employeesList[0],
+                showPopupTitle: false
+            });
+    
+            $("#lookup-grouped").dxLookup({
+                dataSource: new DevExpress.data.DataSource({ 
+                    store: employeesTasks, 
+                    key: "ID", 
+                    group: "Assigned"
+                }),
+                grouped: true,
+                closeOnOutsideClick: true,
+                showPopupTitle: false,
+                displayExpr: "Subject"
+            });
+        });
+    </script>
+</body>
+</html>
