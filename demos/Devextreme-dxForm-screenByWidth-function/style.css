@@ -1,27 +1,20 @@
-.main-container {
-    display: flex;
-    justify-content: space-between;
+.first-group,
+.second-group {
+    padding: 20px;
 }
 
-#scrollview-horizontal .item,
-#scrollview-horizontal-native .item {
-    display: inline-block; 
+.second-group {
+    background-color: rgba(191, 191, 191, 0.15);
 }
 
-.scrollview-content {
-    width: 400px;
-}
-
-.item {
-    height: 200px; 
-    width: 198px;
-    background-color: red;
-}
-
-.item:nth-child(odd) {
-    background-color: skyblue;
-}
-
-.dx-scrollable-scroll-content {
-    background-color: black;
+.form-avatar {
+    height: 128px;
+    width: 128px;
+    margin-right: 10px;
+    border: 1px solid #d2d3d5;
+    border-radius: 50%;
+    background-image: url('images/petersmith.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }

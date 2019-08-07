@@ -4,6 +4,7 @@ A collection of online demos showing variously scenario using DevExtreme widgets
 ## DevExtreme Demos - Angular approach.
 
 * [Base angular template with dxDrawer and dxToolbar widgets](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/angular-template-app/)
+* [dxScheduler - Wrong positioning of appointment context menu when changed dynamically](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/angular-dxScheduler-positioning-context-menu/)
 
 ## DevExtreme Demos - JQuery approach.
 
