@@ -18,6 +18,8 @@ A collection of online demos showing variously scenario using DevExtreme widgets
 * [dxScrollView - update the scrollbar position on scrolling its content using Tab (Native and simulated strategy)](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/Devextreme-dxScrollable-update-scrollbar-position/index.html)
 * [dxForm - calls the screenByWidth function several times](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/Devextreme-dxForm-screenByWidth-function/index.html)
 
+* [dxTextEditors - custom buttons (password textbox, multi-currency numberBox, advanced databox)](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/Devextreme-dxTextEditors-custom-buttons/index.html)
+
 ## DevExtreme Demos - Knockout approach.
 
 * [dxToolbar - show, hide toolbar buttons example](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/Devextreme-dxToolbar-repaint-knockout-example/index.html)

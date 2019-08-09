@@ -1,0 +1,9 @@
+.currency {
+    min-width: 32px;
+}
+
+.dx-button.currency .dx-button-content {
+    font-size: 120%;
+    padding-left: 5px;
+    padding-right: 5px;
+}
