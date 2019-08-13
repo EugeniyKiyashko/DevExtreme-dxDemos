@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>dxFileUploader - show label text in IE and Edge</title>
+    <link rel="stylesheet" type="text/css" href="./style.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/19.1.4/css/dx.common.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/19.1.4/css/dx.light.css"/>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.2/jszip.min.js"></script>
+    <script type="text/javascript" src="https://cdn3.devexpress.com/jslib/19.1.4/js/dx.all.js"></script>
+</head>
+<body>
+    <div class="widget-container">
+        <div id="file-uploader"></div>
+        <div class="content" id="selected-files">
+            <div>
+                <h4>Selected Files:</h4>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+       $(function(){
+            var fileUploader = $("#file-uploader").dxFileUploader({
+                multiple: false,
+                accept: "*",
+                value: [],
+                labelText: "DROP FILE HERE...",
+                uploadMode: "instantly",
+                uploadUrl: "https://js.devexpress.com/Content/Services/upload.aspx",
+                onValueChanged: function(e) {
+                    var files = e.value;
+                    if(files.length > 0) {
+                        $("#selected-files .selected-item").remove();
+                        $.each(files, function(i, file) {
+                            var $selectedItem = $("<div />").addClass("selected-item");
+                            $selectedItem.append(
+                                $("<span />").html("Name: " + file.name + "<br/>"),
+                                $("<span />").html("Size " + file.size + " bytes" + "<br/>"),
+                                $("<span />").html("Type " + file.type + "<br/>"),
+                                $("<span />").html("Last Modified Date: " + file.lastModifiedDate)
+                            );
+                            $selectedItem.appendTo($("#selected-files"));
+                        });
+                        $("#selected-files").show();
+                    }
+                    else
+                        $("#selected-files").hide();
+                }
+            }).dxFileUploader("instance");
+        });
+    </script>
+</body>
+</html>

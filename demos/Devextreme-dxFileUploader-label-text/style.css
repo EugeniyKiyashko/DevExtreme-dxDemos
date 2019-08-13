@@ -1,0 +1,22 @@
+.widget-container {
+    margin-right: 320px;
+}
+
+.content h4 {
+    margin-bottom: 10px;
+    font-weight: 500;
+    font-size: 18px;
+}
+ 
+.content {
+    margin-top: 50px;
+    margin-left: 10px;
+}
+ 
+.selected-item {
+    margin-bottom: 20px;
+}
+
+#selected-files {
+    display: none;
+}

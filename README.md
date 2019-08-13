@@ -17,8 +17,9 @@ A collection of online demos showing variously scenario using DevExtreme widgets
 * [dxTreeView - manually expand hierarchical item](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/Devextreme-dxTreeView-expand-hierarchical-item/index.html)
 * [dxScrollView - update the scrollbar position on scrolling its content using Tab (Native and simulated strategy)](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/Devextreme-dxScrollable-update-scrollbar-position/index.html)
 * [dxForm - calls the screenByWidth function several times](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/Devextreme-dxForm-screenByWidth-function/index.html)
-
 * [dxTextEditors - custom buttons (password textbox, multi-currency numberBox, advanced databox)](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/Devextreme-dxTextEditors-custom-buttons/index.html)
+
+* [dxFileUploader - show label text in IE and Edge](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/Devextreme-dxFileUploader-label-text/index.html)
 
 ## DevExtreme Demos - Knockout approach.
 
