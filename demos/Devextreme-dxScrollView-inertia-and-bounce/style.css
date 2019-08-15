@@ -1,0 +1,29 @@
+.main-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+#scrollview-horizontal,
+#scrollview-vertical,
+#scrollview-horizontal-native,
+#scrollview-vertical-native {
+    border: 1px solid orangered;
+}
+
+.scrollview-content {
+    width: 400px;
+}
+
+.item {
+    height: 200px; 
+    width: 198px;
+    background-color: red;
+}
+
+.item:nth-child(odd) {
+    background-color: skyblue;
+}
+
+.dx-scrollable-scroll-content {
+    background-color: black;
+}
