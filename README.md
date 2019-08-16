@@ -21,6 +21,8 @@ A collection of online demos showing variously scenario using DevExtreme widgets
 * [dxTextEditors - custom buttons (password textbox, multi-currency numberBox, advanced databox)](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/Devextreme-dxTextEditors-custom-buttons/index.html)
 * [dxFileUploader - show label text in IE and Edge](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/Devextreme-dxFileUploader-label-text/index.html)
 
+* [dxContextMenu - testing keyboard navigation on submenu items](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/Devextreme-dxContextMenu-keyboard/index.html)
+
 ## DevExtreme Demos - Knockout approach.
 
 * [dxToolbar - show, hide toolbar buttons example](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/Devextreme-dxToolbar-repaint-knockout-example/index.html)
