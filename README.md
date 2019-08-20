@@ -22,6 +22,8 @@ A collection of online demos showing variously scenario using DevExtreme widgets
 * [dxFileUploader - show label text in IE and Edge](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/Devextreme-dxFileUploader-label-text/index.html)
 
 * [dxContextMenu - testing keyboard navigation on submenu items](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/Devextreme-dxContextMenu-keyboard/index.html)
+* [dxTreeList - close column chouser when 'escape' key was pressed (registerKeyHandler)](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/Devextreme-dxTreeList-column-chooser/index.html)
+
 
 ## DevExtreme Demos - Knockout approach.
 

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>dxTreeList - close column chouser when 'escape' key was pressed</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/19.1.4/css/dx.common.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/19.1.4/css/dx.light.css"/>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.2/jszip.min.js"></script>
+    <script type="text/javascript" src="https://cdn3.devexpress.com/jslib/19.1.4/js/dx.all.js"></script>
+    <script type="text/javascript" src="./data.js"></script>
+</head>
+<body>
+    <div class="dx-viewport demo-container">
+        <div id="employees"></div>
+    </div>
+    
+    <script>
+        $(function(){
+            var treeList = $("#employees").dxTreeList({
+                dataSource: employees,
+                keyExpr: "ID",
+                width: 400,
+                parentIdExpr: "Head_ID",
+                onContentReady: function(e) {
+                    e.component.showColumnChooser();
+                    document.getElementsByClassName("dx-overlay-content")[0].addEventListener("keydown", (e) => {
+                        if(e.which === 27) {
+                            $(".dx-popup").dxPopup("instance").hide();
+                        }
+                    })
+                },
+                columns: [{
+                        dataField: "Title",
+                        caption: "Position"
+                    }, {
+                        dataField: "Full_Name",
+                        allowHiding: false
+                    }, "City", "State", "Mobile_Phone", {
+                        dataField: "Email",
+                        visible: false
+                    }, {
+                        dataField: "Hire_Date",
+                        dataType: "date"
+                    }, {
+                        dataField: "Skype",
+                        visible: false
+                    }],
+                columnAutoWidth: true,
+                showRowLines: true,
+                showBorders: true,
+                columnChooser: {
+                    enabled: true,
+                    allowSearch: true,
+                    mode: 'select'
+                },
+                expandedRowKeys: [1]
+            }).dxTreeList("instance");
+
+            // variant 2
+            DevExpress.ui.dxPopup.defaultOptions({  
+                device: { deviceType: "desktop" },  
+                options: {  
+                    onContentReady: function(e) {  
+                        e.component.option("ignoreChildEvents", false);  
+                    }  
+                }  
+            });  
+        });
+    </script>
+</body>
+</html>
