@@ -20,10 +20,10 @@ A collection of online demos showing variously scenario using DevExtreme widgets
 * [dxForm - calls the screenByWidth function several times](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/Devextreme-dxForm-screenByWidth-function/index.html)
 * [dxTextEditors - custom buttons (password textbox, multi-currency numberBox, advanced databox)](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/Devextreme-dxTextEditors-custom-buttons/index.html)
 * [dxFileUploader - show label text in IE and Edge](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/Devextreme-dxFileUploader-label-text/index.html)
-
 * [dxContextMenu - testing keyboard navigation on submenu items](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/Devextreme-dxContextMenu-keyboard/index.html)
+* [dxMenu - testing keyboard navigation on contextMenu items](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/Devextreme-dxMenu-navigation/index.html)
 * [dxTreeList - close column chouser when 'escape' key was pressed (registerKeyHandler)](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/Devextreme-dxTreeList-column-chooser/index.html)
-
+* [dxToolbar - specified option type for button in contextMenu](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/Devextreme-dxToolbar-button-with-type/index.html)
 
 ## DevExtreme Demos - Knockout approach.
 

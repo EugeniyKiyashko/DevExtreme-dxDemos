@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>dxMenu - testing keyboard navigation on contextMenu items</title>
+    <link rel="stylesheet" type="text/css" href="./style.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/19.1.4/css/dx.common.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/19.1.4/css/dx.light.css"/>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.2/jszip.min.js"></script>
+    <script type="text/javascript" src="https://cdn3.devexpress.com/jslib/19.1.4/js/dx.all.js"></script>
+    <script type="text/javascript" src="./data.js"></script>
+</head>
+<body>
+    
+    <div id="menu"></div>
+
+    <script>
+        $(function(){
+            const dxMenu = $("#menu").dxMenu({
+                dataSource: menuData,
+                hideSubmenuOnMouseLeave: false,
+                displayExpr: "name",
+                selectionMode: "single",
+                selectByClick: true,
+                onItemClick: function (data) {
+                    const item = data.itemData;
+                    if(item.price) {
+                        $("#product-details").removeClass("hidden");
+                        $("#product-details > img").attr("src", item.icon);
+                        $("#product-details > .price").text("$" + item.price);
+                        $("#product-details > .name").text(item.name);
+                    }
+                }
+            }).dxMenu("instance");
+        });
+    </script>
+</body>
+</html>
