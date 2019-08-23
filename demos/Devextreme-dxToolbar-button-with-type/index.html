@@ -11,29 +11,8 @@
 
     <script>
         importer().then(() => {
-            debugger
             $("#toolbar").dxToolbar({
-                items: [{
-                        location: 'before',
-                        widget: 'dxButton',
-                        options: {
-                            type: 'back',
-                            text: 'Back',
-                            onClick: function() {
-                                DevExpress.ui.notify("Back button has been clicked!");
-                            }
-                        }
-                    }, {
-                        location: 'before',
-                        widget: 'dxButton',
-                        locateInMenu: 'auto',
-                        options: {
-                            icon: "refresh",
-                            onClick: function() {
-                                DevExpress.ui.notify("Refresh button has been clicked!");
-                            }
-                        }
-                    }, {
+                items: [ {
                         location: 'center',
                         locateInMenu: 'never',
                         template: function() {
@@ -48,44 +27,85 @@
                             items: productTypes,
                             valueExpr: "id",
                             displayExpr: "text",
-                            value: productTypes[0].id,
-                            onValueChanged: function(args) {
-                                if(args.value > 1) {
-                                    productsStore.filter("type" , "=", args.value);
-                                } else {
-                                    productsStore.filter(null);
-                                }
-                                productsStore.load();
-                            }
+                            value: productTypes[0].id
                         }
                     }, {
                         location: 'after',
                         widget: 'dxButton',
                         locateInMenu: 'auto',
                         options: {
-                            icon: "plus",
+                            icon: "refresh",
+                            onClick: function() {
+                                DevExpress.ui.notify("Add button has been clicked!");
+                            }
+                        }
+                    },
+                    {
+                        location: 'after',
+                        widget: 'dxButton',
+                        locateInMenu: 'auto',
+                        options: {
+                            text: "danger",
+                            type: "danger",
+                            onClick: function() {
+                                DevExpress.ui.notify("Add button has been clicked!");
+                            }
+                        }
+                    },
+                    {
+                        location: 'after',
+                        widget: 'dxButton',
+                        locateInMenu: 'auto',
+                        options: {
+                            text: "success",
+                            type: "success",
+                            onClick: function() {
+                                DevExpress.ui.notify("Add button has been clicked!");
+                            }
+                        }
+                    },
+                    {
+                        location: 'after',
+                        widget: 'dxButton',
+                        locateInMenu: 'auto',
+                        options: {
+                            text: "default",
+                            type: "default",
+                            onClick: function() {
+                                DevExpress.ui.notify("Add button has been clicked!");
+                            }
+                        }
+                    },
+                    {
+                        location: 'after',
+                        widget: 'dxButton',
+                        locateInMenu: 'auto',
+                        options: {
+                            text: "back",
+                            type: "back",
+                            onClick: function() {
+                                DevExpress.ui.notify("Add button has been clicked!");
+                            }
+                        }
+                    },
+                    {
+                        location: 'after',
+                        widget: 'dxButton',
+                        locateInMenu: 'auto',
+                        options: {
+                            text: "normal",
+                            type: "normal",
                             onClick: function() {
                                 DevExpress.ui.notify("Add button has been clicked!");
                             }
                         }
                     }, {
                         locateInMenu: 'always',
-                        text: 'Save',
-                        onClick: function() {
-                            DevExpress.ui.notify("Save option has been clicked!");
-                        }
-                    }, {
+                        text: 'Save'
+                    },
+                    {
                         locateInMenu: 'always',
-                        text: 'Print',
-                        onClick: function() {
-                            DevExpress.ui.notify("Print option has been clicked!");
-                        }
-                    }, {
-                        locateInMenu: 'always',
-                        text: 'Settings',
-                        onClick: function() {
-                            DevExpress.ui.notify("Settings option has been clicked!");
-                        }
+                        text: 'Close'
                     }
                 ]
             });
