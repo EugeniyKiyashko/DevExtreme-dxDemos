@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DataGrid.ExcelJS CTP export - How to export only selected rows from DataGrid in Excel using the exportDataGrid function</title>
+
+    <script type="text/javascript" src="../../importer.js"></script>
+    <script type="text/javascript" src="./data.js"></script>
+    <link rel="stylesheet" type="text/css" href="./style.css"/>
+</head>
+<body>
+    <div id="exportselectedRowsOnly"></div>
+    <div id="exportAllRows"></div>
+    <hr>
+    <div id="gridContainer"></div>
+
+    <script>
+        importer({useExcelJS: true}).then(() => {
+            function exportDataGrid(selectedRowsOnly) {
+                var workbook = new ExcelJS.Workbook();    
+                var worksheet = workbook.addWorksheet('Main sheet');
+
+                DevExpress.excelExporter.exportDataGrid({
+                    component: $("#gridContainer").dxDataGrid("instance"),
+                    worksheet: worksheet,
+                    selectedRowsOnly: selectedRowsOnly
+                }).then(function() {
+                    workbook.xlsx.writeBuffer().then(function(buffer) {
+                    saveAs(new Blob([buffer], { type: "application/octet-stream" }), "DataGrid.xlsx");
+                    });
+                });
+            }
+
+            $("#exportselectedRowsOnly").dxButton({
+                text: "selectedRowsOnly",
+                type: "danger",
+                onClick: () => { exportDataGrid(true) }
+            });
+            
+            $("#exportAllRows").dxButton({
+                text: "exportAllRows",
+                type: "default",
+                onClick: () => { exportDataGrid(false) }
+            });
+
+            $("#gridContainer").dxDataGrid({
+                dataSource: orders,
+                showBorders: true,
+                groupPanel: {
+                visible: true
+                },
+                selection: {
+                    mode: "multiple"
+                },
+                grouping: {
+                autoExpandAll: true,
+                },
+                sortByGroupSummaryInfo: [{
+                summaryItem: "count"
+                }],
+                columns: [
+                {
+                    dataField: "Employee",
+                    groupIndex: 0,
+                },
+                {
+                    dataField: "OrderNumber",
+                    caption: "Invoice Number",
+                    width: 130,
+                },
+                {
+                    dataField: "OrderDate",
+                    dataType: "date",
+                    width: 160
+                },
+                {
+                    caption: "City",
+                    dataField: "CustomerStoreCity",
+                    groupIndex: 1
+                },
+                {
+                    caption: "State",
+                    dataField: "CustomerStoreState"  
+                },
+                {
+                    dataField: "SaleAmount",
+                    alignment: "right",
+                    format: "currency",
+                    sortOrder: "desc"
+                }
+                ],
+                summary: {
+                totalItems: [{
+                    column: "SaleAmount",
+                    summaryType: "sum",
+                    displayFormat: "Total Sum: {0}",
+                    valueFormat: "currency"
+                }]
+                },
+                export: {
+                enabled: true,
+                allowExportSelectedData: true
+                },
+                onExporting: e => {
+                    exportDataGrid();
+                    e.cancel = true;
+                }
+            });
+        });
+    </script>
+</body>
+</html>

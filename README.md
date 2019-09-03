@@ -25,6 +25,9 @@ A collection of online demos showing variously scenario using DevExtreme widgets
 * [dxTreeList - close column chouser when 'escape' key was pressed (registerKeyHandler)](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/Devextreme-dxTreeList-column-chooser/index.html)
 * [dxToolbar - specified option type for button in contextMenu](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/Devextreme-dxToolbar-button-with-type/index.html)
 
+## DevExtreme Export DataGrid Demos using ExcelJS library
+* [DataGrid.ExcelJS CTP export - How to export only selected rows from DataGrid in Excel using the exportDataGrid function](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/datagrid-export/export-selected-rows/index.html)
+
 ## DevExtreme Demos - Knockout approach.
 
 * [dxToolbar - show, hide toolbar buttons example](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/Devextreme-dxToolbar-repaint-knockout-example/index.html)
