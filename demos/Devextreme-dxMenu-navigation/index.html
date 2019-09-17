@@ -3,19 +3,15 @@
 <head>
     <title>dxMenu - testing keyboard navigation on contextMenu items</title>
     <link rel="stylesheet" type="text/css" href="./style.css"/>
-    <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/19.1.4/css/dx.common.css"/>
-    <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/19.1.4/css/dx.light.css"/>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.2/jszip.min.js"></script>
-    <script type="text/javascript" src="https://cdn3.devexpress.com/jslib/19.1.4/js/dx.all.js"></script>
+    <script type="text/javascript" src="../importer.js"></script>
     <script type="text/javascript" src="./data.js"></script>
 </head>
-<body>
+<body class="dx-viewport Web dx-device-desktop dx-device-generic dx-theme-generic dx-theme-generic-typography dx-color-scheme-dark">
     
     <div id="menu"></div>
 
     <script>
-        $(function(){
+         importer().then(() => {
             const dxMenu = $("#menu").dxMenu({
                 dataSource: menuData,
                 hideSubmenuOnMouseLeave: false,

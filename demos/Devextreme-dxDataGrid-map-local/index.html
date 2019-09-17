@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>dxDataGrid - map zooming with local data</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/19.1.6/css/dx.common.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/19.1.6/css/dx.light.css"/>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.2/jszip.min.js"></script>
+    <script type="text/javascript" src="https://cdn3.devexpress.com/jslib/19.1.6/js/dx.all.js"></script>
+    <script type="text/javascript" src="./data.js"></script>
+</head>
+<body>
+    <div id="gridContainer"></div>
+
+    <script>
+        $(function(){
+            var url = "https://js.devexpress.com/Demos/Mvc/api/DataGridWebApi";
+            $("#gridContainer").dxDataGrid({
+                //height: 200,
+                dataSource: customers,
+                columns: ["CompanyName", "City", "State", "Phone", "Fax"],
+                scrolling: {mode: "infinite" },
+                masterDetail: {
+                    enabled: true,
+                    template: function(container, options) { 
+                        $("<div>").dxMap({
+                        key: { google: "AIzaSyAZphzrv6qaNJZQlasc-vwtmeT9rE0JglE&libraries=drawing" },
+                        zoom: 4,
+                        height: 400,
+                        width: "100%",
+                        center: {lat: -25.2744, lng: 133.7751}
+                        })
+                        .appendTo(container);
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
