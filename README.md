@@ -13,6 +13,7 @@ A collection of online demos showing variously scenario using DevExtreme widgets
 * [dxDataGrid - record-grouping](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/Devextreme-dxDataGrid-record-grouping/index.html)
 * [dxList in searchMode ](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/Devextreme-dxList-jquery-example/index.html)
 * [dxList, dxTreeView, dxSelectBox, dxLookup, dxAccordion for JAWS screen reader testing](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/Jaws-screen-reader-testing/index.html)
+* [dxForm - NVDA screen reader testing for labels](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/NVDA-screen-reader-testing-for-form-labels/index.html)
 * [dxLookup - simple and grouped](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/Devextreme-dxLookup-simple-and-group/index.html)
 * [dxTreeView - manually expand hierarchical item](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/Devextreme-dxTreeView-expand-hierarchical-item/index.html)
 * [dxScrollView - update the scrollbar position on scrolling its content using Tab (Native and simulated strategy)](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/Devextreme-dxScrollable-update-scrollbar-position/index.html)

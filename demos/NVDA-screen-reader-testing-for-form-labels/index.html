@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>dxForm - NVDA screen reader testing for labels</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/19.1.6/css/dx.common.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/19.1.6/css/dx.light.css"/>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.2/jszip.min.js"></script>
+    <script type="text/javascript" src="https://cdn3.devexpress.com/jslib/19.1.6/js/dx.all.js"></script>
+</head>
+<body>
+    <div><h3>NVDA screen reader testing</h3></div>
+    <hr>
+    <div id="form2"></div>
+    <hr>
+    <div id="form-container">
+        <div id="form"></div>
+    </div>
+
+    <script>
+        $(function() {
+            const editorTypes = ["dxAutocomplete", "dxCalendar", "dxCheckBox", "dxColorBox", "dxDateBox", "dxDropDownBox", "dxLookup", "dxNumberBox", "dxRadioGroup", "dxRangeSlider", "dxSelectBox", "dxSlider", "dxSwitch", "dxTagBox", "dxTextArea", "dxTextBox"];
+            const editorClasses = editorTypes.map(editorType => `dx-${editorType.toLowerCase().substr(2)}`);
+
+            let items = editorTypes.map((editorType, index) => {
+                let config = { dataField: `test${index}: ${editorType}`, editorType: editorType };
+                let editorOptions = {};
+
+                switch (editorType) {
+                    case "dxCalendar":
+                    case "dxDateBox":
+                    case "dxColorBox":
+                    case "dxNumberBox":
+                    case "dxRangeSlider":
+                    case "dxSlider":
+                        break;
+                    case "dxCheckBox":
+                    case "dxSwitch":
+                    case "dxTextArea":
+                    case "dxTextBox":
+                        editorOptions.value = true;
+                    case "dxDropDownBox":
+                        editorOptions.value = [ "1" ];
+                    default:
+                        editorOptions.dataSource = [ "1", "2", "3"];
+                } 
+
+                return { dataField: `test${index}: ${editorType}`, editorType: editorType, editorOptions: editorOptions }; 
+            });
+
+            $("#form2").dxForm({
+                items: items
+            });
+
+        $("#form").dxForm({
+            colCount: 2,
+            formData: employee,
+            items: [
+            {
+                dataField: "FirstName"
+            },
+            {
+                dataField: "Position",
+                editorType: "dxSelectBox",
+                editorOptions: {
+                items: positions,
+                value: ""
+                },
+                validationRules: [
+                {
+                    type: "required",
+                    message: "Position is required"
+                }
+                ]
+            },
+            {
+                dataField: "LastName"
+            },
+            {
+                editorType: "dxRadioGroup",
+                dataField: "test",
+                colSpan: 1,
+                label: { text: "Select a Car Type" },
+                editorOptions: {
+                valueExpr: "color",
+                displayExpr: "displayName",
+                dataSource: {
+                    store: new DevExpress.data.ArrayStore({
+                    data: [
+                        { displayName: "Grey Car", color: "grey" },
+                        { displayName: "Green Car", color: "green" },
+                        { displayName: "Yellow Car", color: "yellow" },
+                        { displayName: "Red Car", color: "red" }
+                    ]
+                    })
+                }
+                }
+            },
+            {
+                label: {
+                text: "",
+                visible: false
+                },
+                itemType: "simple",
+                dataField: "Test2",
+                template: (options, element) => {
+                var markup = $(`<fieldset>
+                        <legend>Choose a shipping method:</legend>
+                        <input id="overnight" type="radio" name="shipping" value="overnight">
+                        <label for="overnight">Overnight</label><br>
+                        <input id="twoday" type="radio" name="shipping" value="twoday">
+                        <label for="twoday">Two day</label><br>
+                        <input id="ground" type="radio" name="shipping" value="ground">
+                        <label for="ground">Ground</label>
+                    </fieldset>`);
+                markup.appendTo(element);
+                return element;
+                }
+            },
+            {
+                dataField: "HireDate",
+                editorType: "dxDateBox",
+                editorOptions: {
+                value: null,
+                width: "100%"
+                },
+                validationRules: [
+                {
+                    type: "required",
+                    message: "Hire date is required"
+                }
+                ]
+            }
+            ]
+        });
+
+        $("#form")
+            .dxForm("instance")
+            .validate();
+    });
+
+    var employee = {
+    ID: 1,
+    FirstName: "John",
+    LastName: "Heart",
+    Position: "CEO",
+    BirthDate: "1964/03/16",
+    HireDate: "1995/01/15",
+    Notes:
+        "John has been in the Audio/Video industry since 1990. He has led DevAv as its CEO since 2003.\r\n\r\nWhen not working hard as the CEO, John loves to golf and bowl. He once bowled a perfect game of 300.",
+    Address: "351 S Hill St., Los Angeles, CA",
+    Phone: "360-684-1334",
+    Email: "jheart@dx-email.com"
+    };
+
+    var positions = [
+    "HR Manager",
+    "IT Manager",
+    "CEO",
+    "Controller",
+    "Sales Manager",
+    "Support Manager",
+    "Shipping Manager"
+    ];
+
+    </script>
+</body>
+</html>
