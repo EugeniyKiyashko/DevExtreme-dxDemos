@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>dxContextMenu - testing keyboard navigation on submenu items</title>
+    <title>dxContextMenu - positioning</title>
     <link rel="stylesheet" type="text/css" href="./style.css"/>
     <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/19.1.4/css/dx.common.css"/>
     <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/19.1.4/css/dx.light.css"/>
@@ -10,7 +10,6 @@
     <script type="text/javascript" src="https://cdn3.devexpress.com/jslib/19.1.4/js/dx.all.js"></script>
 </head>
 <body>
-    <!-- <button id="attachMenu">Open context menu</button> -->
     <div id="context-menu"></div>
     <div id="container" style="width: 400px; height: 400px; border: 1px solid steelblue;"></div>
 
@@ -30,8 +29,6 @@
                 contextMenuInstance.show();
                 contextMenuInstance.option("position.of", e)
             })
-
-            
         });
 
         const contextMenuItems = [
