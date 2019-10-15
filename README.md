@@ -26,6 +26,8 @@ A collection of online demos showing variously scenario using DevExtreme widgets
 * [dxMenu - testing keyboard navigation on contextMenu items](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/Devextreme-dxMenu-navigation/index.html)
 * [dxTreeList - close column chouser when 'escape' key was pressed (registerKeyHandler)](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/Devextreme-dxTreeList-column-chooser/index.html)
 * [dxToolbar - specified option type for button in contextMenu](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/Devextreme-dxToolbar-button-with-type/index.html)
+* [dxContextMenu - positioning](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/Devextreme-dxContextMenu-positioning/index.html)
+
 
 * [dxDataGrid - map zooming with local data](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/Devextreme-dxDataGrid-map-local/index.html)
 * [dxDataGrid - map zooming with remote data](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/Devextreme-dxDataGrid-map-remote/index.html)
