@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>dxDataGrid - record grouping</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/19.1.4/css/dx.common.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/19.1.4/css/dx.light.css"/>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.2/jszip.min.js"></script>
+    <script type="text/javascript" src="https://cdn3.devexpress.com/jslib/19.1.7/js/dx.all.js"></script>
+    <script type="text/javascript" src="./data.js"></script>
+
+    <style>
+    #gridContainer {
+        height: 450px;
+    }
+
+    .dx-row img {
+        height: 100px;
+    }
+
+    #gridContainer tr.main-row td:not(:first-child) {
+        height: 21px;
+    }
+
+    #gridContainer tr.notes-row {
+        white-space: normal;
+        vertical-align: top;
+    }
+
+    #gridContainer tr.notes-row td {
+        height: 70px;
+        color: #999;
+    }
+
+    .dark #gridContainer tr.notes-row td {
+        color: #777;
+    }
+
+    #gridContainer tbody.employee:hover {
+        background-color: #EBEBEB;
+    }
+
+    .dark #gridContainer tbody.employee:hover {
+        background-color: #484848;
+    }
+
+    #gridContainer tbody.employee:hover tr.main-row td {
+        color: #000;
+    }
+
+    .dark #gridContainer tbody.employee:hover tr.main-row td {
+        color: #CCC;
+    }
+
+    #gridContainer tbody.employee:hover tr.notes-row td {
+        color: #888;
+    }
+    </style>
+</head>
+<body>
+    <div id="gridContainer"></div>
+
+    <script>
+       $(function(){
+            $("#gridContainer").dxDataGrid({
+                dataSource: employees,
+                onContextMenuPreparing: function(e) {
+                debugger
+                if (e.row) {
+                if (e.row.rowType) {
+                    if (e.row.rowType === "data") {
+                    e.items = [
+                        {
+                        text: "TEST",
+                        onItemClick: function(ev) {
+                            alert("CONTEXT MENU");
+                            console.log("clicked!");
+                        }
+                        }
+                    ];
+                    }
+                }
+                return;
+                }
+            },
+                rowTemplate: function(container, item) {
+                    var data = item.data,
+                        markup = "<tbody class='employee dx-row " + ((item.rowIndex % 2) ? 'dx-row-alt' : '') + "'>" +
+                            "<tr class='main-row'>" +
+                            "<td id='click'> CLICK ME</td>" +
+                        "</tr>" +
+                        "<tr class='notes-row'>" +
+                            "<td colspan='6'><div>" + data.Notes + "</div></td>" +
+                        "</tr>" +
+                    "</tbody>";
+                    $("#click").on("dxclick", function(event) {
+                    debugger
+                    var newEvent = $.extend({}, event, { type: "dxcontextmenu" });
+                    console.log(newEvent);
+                    event.stopPropagation();
+                    event.preventDefault();
+                    $(this).trigger(newEvent);
+                    });
+            
+                    container.append(markup);
+                },
+                columnAutoWidth: true,
+                showBorders: true,
+                columns: [{
+                        caption: "Photo",
+                        width: 100,
+                        allowFiltering: false,
+                        allowSorting: false
+                    }, {
+                        dataField: "Prefix",
+                        caption: "Title",
+                        width: 70
+                    },
+                    "FirstName",
+                    "LastName", 
+                    "Position", {
+                        dataField: "BirthDate",
+                        dataType: "date"
+                    }, {
+                        dataField: "HireDate",
+                        dataType: "date"
+                    }
+                ]
+            });
+        });
+    </script>
+</body>
+</html>
