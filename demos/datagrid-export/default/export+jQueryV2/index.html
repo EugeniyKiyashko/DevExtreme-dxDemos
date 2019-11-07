@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DataGrid export + jQueryV2</title>
+
+    <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/19.1.6/css/dx.common.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/19.1.6/css/dx.light.css"/>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.2/jszip.min.js"></script>
+    <script type="text/javascript" src="https://cdn3.devexpress.com/jslib/19.1.6/js/dx.all.js"></script>
+    <script type="text/javascript" src="./data.js"></script>
+    <link rel="stylesheet" type="text/css" href="./style.css"/>
+</head>
+<body>
+    <div id="gridContainer"></div>
+
+    <script>
+        $(function(){
+            $("#gridContainer").dxDataGrid({
+                dataSource: orders,
+                showBorders: true,
+                groupPanel: {
+                visible: true
+                },
+                selection: {
+                    mode: "multiple"
+                },
+                grouping: {
+                    autoExpandAll: true,
+                },
+                sortByGroupSummaryInfo: [{
+                    summaryItem: "count"
+                }],
+                columns: [
+                {
+                    dataField: "Employee",
+                    groupIndex: 0,
+                },
+                {
+                    dataField: "OrderNumber",
+                    caption: "Invoice Number",
+                    width: 130,
+                },
+                {
+                    dataField: "OrderDate",
+                    dataType: "date",
+                    width: 160
+                },
+                {
+                    caption: "City",
+                    dataField: "CustomerStoreCity",
+                    groupIndex: 1
+                },
+                {
+                    caption: "State",
+                    dataField: "CustomerStoreState"  
+                },
+                {
+                    dataField: "SaleAmount",
+                    alignment: "right",
+                    format: "currency",
+                    sortOrder: "desc"
+                }
+                ],
+                summary: {
+                totalItems: [{
+                    column: "SaleAmount",
+                    summaryType: "sum",
+                    displayFormat: "Total Sum: {0}",
+                    valueFormat: "currency"
+                }]
+                },
+                export: {
+                    enabled: true,
+                    allowExportSelectedData: true
+                }
+            });
+        });
+    </script>
+</body>
+</html>

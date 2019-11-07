@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DataGrid export + jQueryV2</title>
+
+    <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/19.2.3/css/dx.common.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/19.2.3/css/dx.light.css"/>
+    <!-- <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script> -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.2/jszip.min.js"></script>
+    <script type="text/javascript" src="https://cdn3.devexpress.com/jslib/19.2.3/js/dx.all.js"></script>
+    <script type="text/javascript" src="./data.js"></script>
+    <link rel="stylesheet" type="text/css" href="./style.css"/>
+</head>
+<body>
+    <div id="pivotgrid"></div>
+
+    <script>
+        $(function(){
+            var fields = [];  
+            fields.push({  
+                caption: "RFS Company",  
+                width: 60,  
+                dataField: "RFSCompany",  
+                area: "row",  
+                isMeasure: false,  
+                allowSorting: true,  
+                sortOrder: "asc",  
+                sortBy: "displayText"  
+            });  
+            fields.push({  
+                caption: "Sub-Originator",  
+                dataField: "Suboriginator",  
+                width: 180,  
+                area: "row",  
+                isMeasure: false,  
+                allowSorting: true,  
+                sortOrder: "asc",  
+                sortBy:"displayText"  
+            });  
+            fields.push({  
+                caption: "Financier",  
+                width: 100,  
+                dataField: "Financier",  
+                area: "row",  
+                isMeasure: false,  
+                allowSorting: true,  
+                sortOrder: "asc",  
+                sortBy: "displayText"  
+            });  
+            fields.push({  
+                caption: "Region",  
+                dataField: "Region",  
+                isMeasure: false,  
+                allowSorting: true,  
+                sortOrder: "asc",  
+                sortBy: "displayText"  
+            });  
+            fields.push({  
+                dataField: "MonthYear",  
+                dataType: "date",  
+                area: "column",  
+                isMeasure: false  
+            });  
+            fields.push({  
+                groupName: "MonthYear",  
+                groupInterval: "year"  
+            });  
+            fields.push({  
+                groupName: "MonthYear",  
+                groupInterval: "quarter"  
+            });  
+            fields.push({  
+                dataField: "TransactionPayType",  
+                isMeasure: false  
+            });  
+            fields.push({  
+                caption: "Volume",  
+                dataField: "Volume",  
+                dataType: "number",  
+                summaryType: "sum",  
+                format: "currency",  
+                area: "data"  
+            });  
+            fields.push({  
+                caption: "VBI Earned",  
+                dataField: "VBIEarned",  
+                dataType: "number",  
+                summaryType: "sum",  
+                format: "currency",  
+                area: "data"  
+            });  
+            fields.push({  
+                caption: "Bonus Share (REV)",  
+                dataField: "BonusShareREV",  
+                dataType: "number",  
+                summaryType: "sum",  
+                format: "currency",  
+                area: "data"  
+            });  
+  
+            fields.push({  
+                caption: "VBI On Paid",  
+                dataField: "VBIOnPaid",  
+                dataType: "number",  
+                summaryType: "sum",  
+                format: "currency",  
+                area: "data"  
+            });  
+
+
+            this.pivotGrid = $("#pivotgrid").dxPivotGrid({  
+                allowSortingBySummary: false,  
+                allowFiltering: true,  
+                showBorders: true,  
+                showColumnGrandTotals: false,  
+                showRowGrandTotals: false,  
+                showRowTotals: false,  
+                showColumnTotals: false,  
+                allowExpandAll:true,  
+                //showIndicator:true,  
+                fieldChooser: {  
+                    enabled: true,  
+                    height: 670,  
+                    applyChangesMode: "instantly",  
+                    allowSearch: false  
+                },  
+                scrolling: {  
+                    mode: "virtual"  
+                },  
+                "export": {  
+                    enabled: true,  
+                    fileName: "PivotTableReport"  
+                },  
+                fieldPanel: {  
+                    showColumnFields: false,  
+                    showDataFields: false,  
+                    showFilterFields: false,  
+                    showRowFields: true,  
+                    allowFieldDragging: false,  
+                    visible: true  
+                },  
+                stateStoring: {  
+                    enabled: true,  
+                    type: "localStorage",  
+                    storageKey: "dx-widget-gallery-pivotgrid-storing"  
+                },  
+                headerFilter: {  
+                    allowSearch: false  
+                },  
+                dataSource: {  
+                    fields: fields,  
+                    store: reportData  
+                }  
+            }).dxPivotGrid("instance");
+        });
+    </script>
+</body>
+</html>

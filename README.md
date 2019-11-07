@@ -27,15 +27,16 @@ A collection of online demos showing variously scenario using DevExtreme widgets
 * [dxTreeList - close column chouser when 'escape' key was pressed (registerKeyHandler)](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/Devextreme-dxTreeList-column-chooser/index.html)
 * [dxToolbar - specified option type for button in contextMenu](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/Devextreme-dxToolbar-button-with-type/index.html)
 * [dxContextMenu - positioning](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/Devextreme-dxContextMenu-positioning/index.html)
-
-
 * [dxDataGrid - map zooming with local data](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/Devextreme-dxDataGrid-map-local/index.html)
 * [dxDataGrid - map zooming with remote data](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/Devextreme-dxDataGrid-map-remote/index.html)
-
 * [dxDataGrid - rowTemplate with context menu](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/Devextreme-dxDataGrid-rowtemplate-with-contextmenu/index.html)
+* [dxDataGrid - default export with jQuery v.2](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/datagrid-export/default/export+jQueryV2/index.html)
+
+* [dxPivotGrid - default export with jQuery v.2](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/pivotgrid-export/default/export+jQueryV2/index.html)
+* [dxPivotGrid - default export with jQuery v.3](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/pivotgrid-export/default/export+jQueryV3/index.html)
 
 ## DevExtreme Export DataGrid Demos using ExcelJS library
-* [DataGrid.ExcelJS CTP export - How to export only selected rows from DataGrid in Excel using the exportDataGrid function](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/datagrid-export/export-selected-rows/index.html)
+* [DataGrid.ExcelJS CTP export - How to export only selected rows from DataGrid in Excel using the exportDataGrid function](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/datagrid-export/default/export-selected-rows/index.html)
 
 ## DevExtreme Demos - Knockout approach.
 
