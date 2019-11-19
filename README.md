@@ -43,3 +43,4 @@ A collection of online demos showing variously scenario using DevExtreme widgets
 ## DevExtreme Demos - Knockout approach.
 
 * [dxToolbar - show, hide toolbar buttons example](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/Devextreme-dxToolbar-repaint-knockout-example/index.html)
+* [dxTabPanel - the tabPanel is nested inside another tabpanel with using varios approches with templates](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/Devextreme-dxTabpanel-nesting-templ/index.html)
