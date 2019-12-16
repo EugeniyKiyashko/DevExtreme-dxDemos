@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DataGrid.ExcelJS CTP export - How to export from dataGrid cells using the exportDataGrid function</title>
+
+    <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/19.1.8/css/dx.common.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/19.1.8/css/dx.light.css"/>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/19.1.8/css/dx.light.css"/>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.2/jszip.min.js"></script>
+    <script type="text/javascript" src="https://cdn3.devexpress.com/jslib/19.1.8/js/dx.all.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/1.7.0/exceljs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.min.js"></script>
+    
+    <script src="./data.js"></script>
+</head>
+<body>
+    <div id="exceljsbutton"></div>
+    <hr>
+    <div id="gridContainer"></div>
+
+    <script>
+    $(function(){
+        function addImage(url, workbook, worksheet, excelCell, resolve) {
+            var xhr = new XMLHttpRequest()
+            xhr.open('GET', url)
+            xhr.responseType = 'blob'
+            xhr.onload = function () {
+                var reader = new FileReader();
+                reader.readAsDataURL(xhr.response);
+                reader.onloadend = function() {
+                    var base64data = reader.result;                
+                    const image = workbook.addImage({
+                        base64: base64data,
+                        extension: 'png',
+                    });
+
+                    worksheet.getRow(excelCell.row).height = 75;
+                    worksheet.addImage(image, {
+                        tl: { col: excelCell.col - 1, row: excelCell.row - 1 },
+                        br: { col: excelCell.col, row: excelCell.row }
+                    });
+
+                    resolve();
+                }
+            }
+            xhr.onerror = function () {
+                console.error('could not add image to excel cell')
+            };
+            xhr.send();
+        }
+
+        $("#exceljsbutton").dxButton({
+            type: "danger",
+            text: "ExcelJSExport",
+            onClick: () => {
+                var workbook = new ExcelJS.Workbook();
+                var worksheet = workbook.addWorksheet('Main sheet');
+                
+                var PromiseArray = [];
+                DevExpress.excelExporter.exportDataGrid({
+                    component: $("#gridContainer").dxDataGrid("instance"),
+                    worksheet: worksheet,
+                    autoFilterEnabled: true,
+                    customizeCell: (options) => {
+                        var {excelCell, gridCell} = options;
+                        if(gridCell.rowType === "data") {
+                            if(gridCell.column.dataField === "Picture") {
+                                excelCell.value = undefined;
+                                PromiseArray.push(
+                                    new Promise((resolve, reject) => {
+                                        addImage(gridCell.value, workbook, worksheet, excelCell, resolve); 
+                                    })
+                                );
+                            }
+                        }
+                        
+                    }
+                }).then(function () {
+                    console.log('PromiseArray :', PromiseArray);
+                    Promise.all(PromiseArray).then(() => {
+                        console.log('"promiseAll" :', "promiseAll");
+                        workbook.xlsx.writeBuffer().then(function (buffer) {
+                            saveAs(new Blob([buffer], { type: "application/octet-stream" }), "ExcelJSFormat.xlsx");
+                        });
+                    });
+                });
+            }
+        })
+
+        $("#gridContainer").dxDataGrid({
+            dataSource: employees,
+            showBorders: true,
+            columns: [{
+                    dataField: "Picture",
+                    width: 100,
+                    allowFiltering: false,
+                    allowSorting: false,
+                    cellTemplate: function (container, options) {
+                        $("<div>")
+                            .append($("<img>", { "src": options.value }))
+                            .appendTo(container);
+                    }
+                }, {
+                    dataField: "Prefix",
+                    caption: "Title",
+                    width: 70
+                },
+                "FirstName",
+                "LastName",
+                "Position",
+                {
+                    dataField: "BirthDate",
+                    dataType: "date"
+                }, {
+                    dataField: "HireDate",
+                    dataType: "date"
+                }
+            ],
+            export: {
+                enabled: true,
+                //excelFilterEnabled: true,
+                fileName: "DefaultFormat",
+                customizeExcelCell: function(options) {
+                    debugger
+                    if(options.gridCell.rowType === "data") {
+                        if(options.gridCell.column.dataField === "f1") {
+                            options.numberFormat = "@";
+                        }
+                    }
+
+                }
+            }
+        });
+    });
+    </script>
+</body>
+</html>
