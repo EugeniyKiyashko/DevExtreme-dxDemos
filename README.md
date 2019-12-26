@@ -17,7 +17,7 @@ A collection of online demos showing variously scenario using DevExtreme widgets
 * [dxForm - NVDA screen reader testing for labels](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/NVDA-screen-reader-testing-for-form-labels/index.html)
 * [dxLookup - simple and grouped](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/Devextreme-dxLookup-simple-and-group/index.html)
 * [dxTreeView - manually expand hierarchical item](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/Devextreme-dxTreeView-expand-hierarchical-item/index.html)
-* [dxScrollable - native strategy vs overflow](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/Devextreme-dxScrollable-overlow-vs-native/index.html)
+* [dxScrollable - native strategy, overflow, simulated strategy + rtl](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/Devextreme-dxScrollable-overlow-vs-native/index.html)
 
 * [dxScrollView - update the scrollbar position on scrolling its content using Tab (Native and simulated strategy)](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/Devextreme-dxScrollable-update-scrollbar-position/index.html)
 * [dxScrollView - inertia and bounce improvements](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/Devextreme-dxScrollView-inertia-and-bounce/index.html)

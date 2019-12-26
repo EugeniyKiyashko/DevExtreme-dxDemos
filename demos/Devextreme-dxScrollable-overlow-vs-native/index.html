@@ -10,24 +10,80 @@
     <script type="text/javascript" src="https://cdn3.devexpress.com/jslib/19.1.7/js/dx.all.js"></script>
 </head>
 <body>
-    <hr>
-        Overflow
+    <div class="main-container">
+        <div>
+            LTR direction
             <hr>
-    <div id="native-container" style="overflow: auto">
-        <div class="content"></div>
+            Overflow
+            <hr>
+            <div id="native-container" style="overflow: auto">
+                <div class="content"></div>
+            </div>
+            <hr>
+            dxScrollable
+            <hr>
+            <div id="native-scrollable">
+                <div class="content"></div>
+            </div>
+            <hr>
+            dxScrollable simulated
+            <hr>
+            <div id="simulated-scrollable">
+                <div class="content"></div>
+            </div>
+        </div>
+        <div style="padding-left: 50px;">
+            RTL direction
+            <hr>
+            Overflow
+            <hr>
+            <div id="native-container-rtl" style="overflow: auto; direction: rtl">
+                <div class="content"></div>
+            </div>
+            <hr>
+            dxScrollable native
+            <hr>
+            <div id="native-scrollable-rtl">
+                <div class="content"></div>
+            </div>
+            <hr>
+            dxScrollable simulated
+            <hr>
+            <div id="simulated-scrollable-rtl">
+                <div class="content"></div>
+            </div>
+        </div>
     </div>
-    <hr>
-    dxScrollable
-    <hr>
-    <div id="native-scrollable">
-        <div class="content"></div>
-    </div>
+    
 
     <script>
         $(function(){
+            $(".content").text('Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum для распечатки образцов. Lorem Ipsum не только успешно пережил без заметных изменений пять веков, но и перешагнул в электронный дизайн. Его популяризации в новое время послужили публикация листов Letraset с образцами Lorem Ipsum в 60-х годах и, в более недавнее время, программы электронной вёрстки типа Aldus PageMaker, в шаблонах которых используется Lorem Ipsum.');
+
             $("#native-scrollable").dxScrollable({
                 useNative: true,
                 direction: "both"
+            });
+
+            $("#simulated-scrollable").dxScrollable({
+                useNative: false,
+                direction: "both",
+                height: 200,
+                width: 200
+            });
+
+            $("#native-scrollable-rtl").dxScrollable({
+                useNative: true,
+                direction: "both",
+                rtlEnabled: true
+            });
+
+            $("#simulated-scrollable-rtl").dxScrollable({
+                useNative: false,
+                direction: "both",
+                height: 200,
+                width: 200,
+                rtlEnabled: true
             });
         });
 
