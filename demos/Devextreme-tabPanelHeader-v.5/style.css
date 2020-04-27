@@ -1,0 +1,50 @@
+#container, #tabPanel {
+    width: 50%;
+}
+#container {
+   text-align: right;
+  padding-bottom: 10px;
+}
+
+.dx-tabs-wrapper .dx-tab {
+  width: auto !important;
+  padding-left: 20px;
+}
+
+.dx-item-content.dx-tab-content span {
+  vertical-align: middle;
+  padding-right: 7px;
+}
+
+.dx-item-content.dx-tab-content .dx-icon {
+  margin-right: 0;
+}
+
+.dx-item-content.dx-tab-content .dx-icon-close {
+  opacity: 0.6;
+  font-size: 14px;
+}
+
+.dx-sortable-dragging .dx-tab {
+  box-sizing: border-box;
+  text-align:center;
+}
+
+.employeeInfo .employeePhoto {
+    height: 100px;
+    float: left;
+    padding: 10px 10px 10px 20px;
+}
+
+.caption {
+    padding: 0 0 5px 10px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.employeeInfo .employeeNotes {
+    min-height: 100px;
+    padding: 20px;
+    text-align: justify;
+    white-space: normal;
+}
