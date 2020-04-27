@@ -7,7 +7,7 @@
 }
 
 .dx-tabs-wrapper .dx-tab {
-  width: auto;
+  width: auto !important;
   padding-left: 20px;
 }
 
