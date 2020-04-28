@@ -45,7 +45,7 @@
   }).dxButton('instance');
 
   function getNextTab(tabPanelItems) {
-    var tabsID = tabPanelItems.map(item => item.ID);
+    var tabsID = tabPanelItems.map(function(item) { return item.ID });
 
     for(var i = 0; i < employees.length; i++) {
       if(tabsID.indexOf(employees[i].ID) === -1) {
