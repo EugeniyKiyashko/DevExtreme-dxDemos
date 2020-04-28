@@ -12,6 +12,9 @@ A collection of online demos showing variously scenario using DevExtreme widgets
 * [TabPanel Tabs v.2](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/Devextreme-tabPanelHeader-v.2/index.html)
 * [TabPanel Tabs v.3](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/Devextreme-tabPanelHeader-v.3/index.html)
 * [TabPanel Tabs v.4](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/Devextreme-tabPanelHeader-v.4/index.html)
+* [TabPanel Tabs v.5](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/Devextreme-tabPanelHeader-v.5/index.html)
+* [TabPanel Tabs v.6](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/Devextreme-tabPanelHeader-v.6/index.html)
+
 
 * [dxTooltip example with 2-way bindings](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/Devextreme-dxTooltip-jquery-example/index.html)
 * [dxDrawer + dxToolbar with different settings](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/Devextreme-dxDrawer-jquery-example/index.html)
