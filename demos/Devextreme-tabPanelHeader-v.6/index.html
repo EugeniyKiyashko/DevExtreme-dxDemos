@@ -55,13 +55,23 @@
   }
 
   function getItems() {
-    return tabPanel.option("dataSource");
+      var items = [];
+
+      if( tabPanel.option("dataSource") && tabPanel.option("dataSource").length > 0) {
+        tabPanel.option("dataSource").forEach(function(item) {
+          items.push(item);
+         })
+      } 
+     
+    return items;
   } 
 
   function addButtonHandler() {
     let tabPanelItems = getItems(); 
 
-    var newItem = Object.assign({ template: itemTemplate }, getNextTab(tabPanelItems));
+    var newItem = getNextTab(tabPanelItems); 
+    newItem.template = itemTemplate;
+    //Object.assign({ template: itemTemplate }, getNextTab(tabPanelItems));
     tabPanelItems.push(newItem);
     tabPanel.option("dataSource", tabPanelItems);
     tabPanel.option('selectedItem', newItem);
@@ -100,7 +110,7 @@
   $("#tabPanel").dxTabPanel({
     itemTitleTemplate: function(itemData, itemIndex, itemElement) {
       itemElement.append($("<span />").text("" + itemData.FirstName + " " + itemData.LastName + "")); 
-      $(`<i class="dx-icon dx-icon-close"></i>`).on('click', removeButtonHandler.bind(this, itemData)).appendTo(itemElement);
+      $("<i class='dx-icon dx-icon-close'></i>").on('click', removeButtonHandler.bind(this, itemData)).appendTo(itemElement);
     },
     height: 420,
     deferRendering: false,
@@ -118,7 +128,9 @@
 
         var tabPanelItems = getItems();
         for (var i = 0; i < 3; i++) {
-          tabPanelItems.push(Object.assign({ template: itemTemplate }, getNextTab(tabPanelItems)));
+            var item = getNextTab(tabPanelItems);
+            item.template = itemTemplate;
+          tabPanelItems.push(item);
         }
         
         tabPanel.option('dataSource', tabPanelItems);
