@@ -99,7 +99,7 @@
   var isFirstRender = true;
   $("#tabPanel").dxTabPanel({
     itemTitleTemplate: function(itemData, itemIndex, itemElement) {
-      itemElement.append($("<span />").text(`${itemData.FirstName} ${itemData.LastName}`)); 
+      itemElement.append($("<span />").text("" + itemData.FirstName + " " + itemData.LastName + "")); 
       $(`<i class="dx-icon dx-icon-close"></i>`).on('click', removeButtonHandler.bind(this, itemData)).appendTo(itemElement);
     },
     height: 420,
