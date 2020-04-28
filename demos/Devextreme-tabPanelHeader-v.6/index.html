@@ -55,7 +55,7 @@
   }
 
   function getItems() {
-    return [...(tabPanel.option("dataSource") || [])];
+    return tabPanel.option("dataSource");
   } 
 
   function addButtonHandler() {
