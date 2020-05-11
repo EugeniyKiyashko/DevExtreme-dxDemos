@@ -45,7 +45,7 @@ A collection of online demos showing variously scenario using DevExtreme widgets
 * [dxDataGrid - default export with jQuery v.2](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/datagrid-export/default/export+jQueryV2/index.html)
 * [dxPivotGrid - default export with jQuery v.2](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/pivotgrid-export/default/export+jQueryV2/index.html)
 * [dxPivotGrid - default export with jQuery v.3](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/pivotgrid-export/default/export+jQueryV3/index.html)
-
+* [dxPivotGrid - exceljs export sample](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/Devextreme-dxPivotGrid-exceljsexport/index.html)
 ## DevExtreme Export DataGrid Demos using ExcelJS library
 
 * [DataGrid.ExcelJS CTP export - How to export only selected rows from DataGrid in Excel using the exportDataGrid function](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/datagrid-export/default/export-selected-rows/index.html)
