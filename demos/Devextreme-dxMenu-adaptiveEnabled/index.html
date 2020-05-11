@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>dxMenu - testing keyboard navigation on contextMenu items</title>
+    <link rel="stylesheet" type="text/css" href="./style.css"/>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn3.devexpress.com/jslib/20.1.3/js/dx.all.js"></script>
+    <script type="text/javascript" src="../themeSwitcher.js"></script>
+    <script type="text/javascript" src="./data.js"></script>
+</head>
+<body class="dx-viewport">
+    <div class="dx-viewport demo-container">
+        <div class="form">
+            <div>
+                <div class="label">Catalog:</div>
+                <div id="menu"></div>
+                <div id="product-details" class="hidden">
+                    <img src="" />
+                    <div class="name"></div>
+                    <div class="price"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        addThemeSelectboxToBody();
+            var dxMenu = $("#menu").dxMenu({
+                dataSource: new DevExpress.data.CustomStore({
+                            load: function(loadOptions) {
+                                console.log("load");
+                                return new Promise((resolve) => {
+                                    setTimeout(() => {resolve(menuData)})
+                                })
+                            },
+                        }),
+                hideSubmenuOnMouseLeave: false,
+                displayExpr: "name",
+                width: 50,
+                adaptivityEnabled: true,
+            }).dxMenu("instance");
+    </script>
+</body>
+</html>
