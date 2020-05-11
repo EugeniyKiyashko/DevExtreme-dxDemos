@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>dxMenu - testing keyboard navigation on contextMenu items</title>
+   
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn3.devexpress.com/jslib/20.1.3/js/dx.all.js"></script>
+    <script type="text/javascript" src="../themeSwitcher.js"></script>
+    <script type="text/javascript" src="./data.js"></script>
+    <link rel="stylesheet" type="text/css" href="./style.css"/>
+</head>
+<body class="dx-viewport">
+    <div id="toolbar"></div>
+    <br>
+    <div id="drawer">
+        <div id="content" class="dx-theme-background-color">
+            <h2>
+                <b>Drawer Demo</b>
+            </h2>
+            <div id='innerButton'></div>
+            <input type='text' size='40'>
+            <div id='loadPanel'></div>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Penatibus et magnis dis parturient. Eget dolor morbi non arcu risus. Tristique magna sit amet purus gravida quis blandit. Auctor urna nunc id cursus metus aliquam eleifend mi in. Tellus orci ac auctor augue mauris augue neque gravida. Nullam vehicula ipsum a arcu. Nullam ac tortor vitae purus faucibus ornare suspendisse sed nisi. Cursus in hac habitasse platea dictumst. Egestas dui id ornare arcu. Dictumst vestibulum rhoncus est pellentesque elit ullamcorper dignissim.</p><p>Mauris rhoncus aenean vel elit scelerisque mauris pellentesque pulvinar. Neque volutpat ac tincidunt vitae semper quis lectus. Sed sed risus pretium quam vulputate dignissim suspendisse in. Urna nec tincidunt praesent semper feugiat nibh sed pulvinar. Ultricies lacus sed turpis tincidunt id aliquet risus feugiat. Amet cursus sit amet dictum sit amet justo donec enim. Vestibulum rhoncus est pellentesque elit ullamcorper. Id aliquet risus feugiat in ante metus dictum at.
+            </p>
+
+        </div>
+    </div>
+    <hr>
+    <div id="showOuterPopup"></div>
+    <div id="showInnerPopup"></div>
+    <div id="toggleVisibilityLoadPanel"></div>
+    <div id="popup"></div>
+    <div id="repaintButton"></div>
+
+    <script>
+        addThemeSelectboxToBody();
+
+        $(function(){
+            $("#popup").dxPopup({
+            visible: false
+        });
+
+        $("#showOuterPopup").dxButton({text: 'show Outer popup',
+        type: 'default',
+            onClick: () => {
+                $("#popup").dxPopup("instance").option("container", "body");
+                $("#popup").dxPopup("instance").option("visible", true);
+            }
+        });
+        $("#showInnerPopup").dxButton({text: 'show Inner popup',
+        type: 'default',
+            onClick: () => {
+                $("#popup").dxPopup("instance").option("container", ".dx-drawer-content");
+                $("#popup").dxPopup("instance").option("visible", true);
+                
+            }
+        });
+
+        $("#content").append($("<div id='LoadPanel'>"));
+
+        var drawer = $("#drawer").dxDrawer({
+            opened: true,
+            height: 400,
+            shading: true,
+            openedStateMode: "overlap",
+            template: function() {
+                debugger
+                var $list = $("<div>").width(200).height(400).addClass("panel-list dx-theme-accent-as-background-color");
+    
+                return $list;
+            }
+            }).dxDrawer("instance");
+ 
+    $("#repaintButton").dxButton({
+      text: "drawer repaint",
+      type: 'success',
+      onClick: function() {
+        $("#drawer").dxDrawer("instance").repaint();
+      }
+    });
+
+    $("#innerButton").dxButton({
+      text: "inner",
+      type: 'danger',
+      onClick: () => {
+          console.count();
+      }
+
+    });
+
+    $("#toggleVisibilityLoadPanel").dxButton({
+      text: "toggleVisibilityLoadPanel",
+      type: 'danger',
+      onClick: () => {
+          var loadPanelInstance = $("#loadPanel").dxLoadPanel("instance");
+          loadPanelInstance.option("visible", !loadPanelInstance.option("visible"));
+      }
+
+    });
+
+    $("#loadPanel").dxLoadPanel({
+        visible: true,
+        container: $(".dx-drawer-content"),
+        position: { my: 'center', at: 'center', of: $(".dx-drawer-content") }
+    });
+
+    $("#toolbar").dxToolbar({
+        items: [{
+            widget: "dxButton",
+            location: "before",
+            options: {
+                icon: "menu",
+                onClick: function() {
+                    drawer.toggle(); 
+                }
+            }
+        }, {
+            widget: "dxMenu",
+            location: "before",
+            options: {
+              onSubmenuShown: function(e) {
+                console.log('e.component :>> ', e.component);
+                console.log('e.component :>> ', DevExpress.ui.dxOverlay.baseZIndex());
+               // e.component._visibleSubmenu._overlay._wrapper().css('zIndex', '6000')
+              },
+              closeOnOutsideClick: false,
+                items: [{
+				        "text": "Monitors",
+				        "items": [
+				            { "text": "DesktopLCD 19", items: [
+                                { "text": "DesktopLCD 21" },
+				                { "text": "DesktopLED 21" }
+                            ] },
+				            { "text": "DesktopLCD 21" },
+				            { "text": "DesktopLED 21" }
+				        ]
+				    }
+				]
+            }
+        }]
+    });
+        })
+      
+    </script>
+</body>
+</html>
