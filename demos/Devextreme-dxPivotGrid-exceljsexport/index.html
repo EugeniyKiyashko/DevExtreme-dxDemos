@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>dxMenu - testing keyboard navigation on contextMenu items</title>
+    <link rel="stylesheet" type="text/css" href="./style.css"/>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.2/jszip.min.js"></script>
+    <script type="text/javascript" src="https://eugeniykiyashko.github.io/DevExtreme-Demos/artifacts/dx.all.exportPivotGrid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/1.7.0/exceljs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.min.js"></script>
+    <script type="text/javascript" src="../themeSwitcher.js"></script>
+    <script type="text/javascript" src="./data.js"></script>
+</head>
+<body class="dx-viewport">
+    <div id="ExcelJSExport"></div>
+    <hr>
+    <div id="pivotgrid"></div>
+
+    <script>
+        addThemeSelectboxToBody();
+
+        $(function() {
+            var fields = [];  
+            fields.push({  
+                caption: "RFS Company",  
+                width: 60,  
+                dataField: "RFSCompany",  
+                area: "row",  
+                isMeasure: false,  
+                allowSorting: true,
+                sortOrder: "asc",  
+                sortBy: "displayText"  
+            });  
+            fields.push({  
+                caption: "Sub-Originator",  
+                dataField: "Suboriginator",  
+                width: 180,  
+                area: "row",  
+                isMeasure: false,  
+                allowSorting: true,  
+                sortOrder: "asc",  
+                sortBy:"displayText"  
+            });  
+            fields.push({  
+                caption: "Financier",  
+                width: 100,  
+                dataField: "Financier",  
+                area: "row",  
+                isMeasure: false,  
+                allowSorting: true,  
+                sortOrder: "asc",  
+                sortBy: "displayText"  
+            });  
+            fields.push({  
+                caption: "Region",  
+                dataField: "Region",  
+                isMeasure: false,  
+                allowSorting: true,  
+                sortOrder: "asc",  
+                sortBy: "displayText"  
+            });  
+            fields.push({  
+                dataField: "MonthYear",  
+                dataType: "date",  
+                area: "column",  
+                isMeasure: false  
+            });  
+            fields.push({  
+                groupName: "MonthYear",  
+                groupInterval: "year"  
+            });  
+            fields.push({  
+                groupName: "MonthYear",  
+                groupInterval: "quarter"  
+            });  
+            fields.push({  
+                dataField: "TransactionPayType",  
+                isMeasure: false  
+            });  
+            fields.push({  
+                caption: "Volume",  
+                dataField: "Volume",  
+                dataType: "number",  
+                summaryType: "sum",  
+                format: "currency",  
+                area: "data"  
+            });  
+            fields.push({  
+                caption: "VBI Earned",  
+                dataField: "VBIEarned",  
+                dataType: "number",  
+                summaryType: "sum",  
+                format: "currency",  
+                area: "data"  
+            });  
+            fields.push({  
+                caption: "Bonus Share (REV)",  
+                dataField: "BonusShareREV",  
+                dataType: "number",  
+                summaryType: "sum",  
+                format: "currency",  
+                area: "data"  
+            });  
+
+            fields.push({  
+                caption: "VBI On Paid",  
+                dataField: "VBIOnPaid",  
+                dataType: "number",  
+                summaryType: "sum",  
+                format: "currency",  
+                area: "data"  
+            });  
+
+
+            this.pivotGrid = $("#pivotgrid").dxPivotGrid({  
+                allowSortingBySummary: false,  
+                allowFiltering: true,  
+                showBorders: true,  
+                showColumnGrandTotals: true,  
+                showRowGrandTotals: true,  
+                showRowTotals: true,  
+                showColumnTotals: true,  
+                allowExpandAll: true,  
+                showIndicator:true,  
+                fieldChooser: {  
+                    enabled: true,  
+                    height: 670,  
+                    applyChangesMode: "instantly",  
+                    allowSearch: false  
+                },  
+                scrolling: {  
+                    mode: "virtual"  
+                },  
+                "export": {  
+                    enabled: true,  
+                    fileName: "PivotTableReport"  
+                },  
+                fieldPanel: {  
+                    showColumnFields: false,  
+                    showDataFields: false,  
+                    showFilterFields: false,  
+                    showRowFields: true,  
+                    allowFieldDragging: false,  
+                    visible: true  
+                },  
+                stateStoring: {  
+                    enabled: true,  
+                    type: "localStorage",  
+                    storageKey: "dx-widget-gallery-pivotgrid-storing"  
+                },  
+                headerFilter: {  
+                    allowSearch: false  
+                },  
+                dataSource: {  
+                    fields: fields,  
+                    store: reportData  
+                }  
+            }).dxPivotGrid("instance");
+
+            $("#ExcelJSExport").dxButton({
+                type: 'danger',
+                text: 'Export PivotGrid using ExcelJS lib',
+                onClick: function() {
+                    var workbook = new ExcelJS.Workbook();
+                    var worksheet = workbook.addWorksheet('Employees');
+                    
+                    DevExpress.excelExporter.exportPivotGrid({
+                        component: $("#pivotgrid").dxPivotGrid("instance"),
+                        worksheet: worksheet,
+                        autoFilterEnabled: true,
+                        topLeftCell: { row: 2, column: 3 }
+                    }).then(function() {
+                        // https://github.com/exceljs/exceljs#writing-xlsx
+                        workbook.xlsx.writeBuffer().then(function(buffer) {
+                            saveAs(new Blob([buffer], { type: 'application/octet-stream' }), 'Employees.xlsx');
+                        });
+                    });
+                }
+            })
+        });
+        
+    </script>
+</body>
+</html>

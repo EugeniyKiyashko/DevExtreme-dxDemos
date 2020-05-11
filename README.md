@@ -1,4 +1,5 @@
 # DevExtreme-Demos
+
 A collection of online demos showing variously scenario using DevExtreme widgets.
 
 ## DevExtreme Demos - Angular approach.
@@ -46,6 +47,7 @@ A collection of online demos showing variously scenario using DevExtreme widgets
 * [dxPivotGrid - default export with jQuery v.3](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/pivotgrid-export/default/export+jQueryV3/index.html)
 
 ## DevExtreme Export DataGrid Demos using ExcelJS library
+
 * [DataGrid.ExcelJS CTP export - How to export only selected rows from DataGrid in Excel using the exportDataGrid function](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/datagrid-export/default/export-selected-rows/index.html)
 * [DataGrid.ExcelJS CTP export - How to export images from datagrid cells](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/datagrid-export/exceljs/export-images/index.html)
 
