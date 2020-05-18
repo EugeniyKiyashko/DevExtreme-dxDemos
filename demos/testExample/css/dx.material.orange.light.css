@@ -1,7 +1,7 @@
 /**
 * DevExtreme (dx.material.orange.light.css)
 * Version: 20.1.3
-* Build date: Fri May 15 2020
+* Build date: Mon May 18 2020
 *
 * Copyright (c) 2012 - 2020 Developer Express Inc. ALL RIGHTS RESERVED
 * Read about DevExtreme licensing here: https://js.devexpress.com/Licensing/
@@ -12184,7 +12184,6 @@
   background-color: #eb5757;
 }
 .dx-scheduler-date-time-shader-all-day {
-  margin-left: 65px;
   width: 100%;
   background-color: rgba(0,0,0,.03);
   position: absolute;
@@ -12239,9 +12238,20 @@
   margin-left: 32.5px;
 }
 .dx-scheduler-work-space-day .dx-scheduler-date-time-shader,
+.dx-scheduler-work-space-day .dx-scheduler-date-time-shader-all-day,
 .dx-scheduler-work-space-week .dx-scheduler-date-time-shader,
-.dx-scheduler-work-space-work-week .dx-scheduler-date-time-shader {
+.dx-scheduler-work-space-week .dx-scheduler-date-time-shader-all-day,
+.dx-scheduler-work-space-work-week .dx-scheduler-date-time-shader,
+.dx-scheduler-work-space-work-week .dx-scheduler-date-time-shader-all-day {
   margin-left: 65px;
+}
+.dx-scheduler-small .dx-scheduler-work-space-day .dx-scheduler-date-time-shader,
+.dx-scheduler-small .dx-scheduler-work-space-day .dx-scheduler-date-time-shader-all-day,
+.dx-scheduler-small .dx-scheduler-work-space-week .dx-scheduler-date-time-shader,
+.dx-scheduler-small .dx-scheduler-work-space-week .dx-scheduler-date-time-shader-all-day,
+.dx-scheduler-small .dx-scheduler-work-space-work-week .dx-scheduler-date-time-shader,
+.dx-scheduler-small .dx-scheduler-work-space-work-week .dx-scheduler-date-time-shader-all-day {
+  margin-left: 32.5px;
 }
 .dx-scheduler-work-space-day .dx-scheduler-date-time-shader-bottom:before,
 .dx-scheduler-work-space-day .dx-scheduler-date-time-shader-top:before,
@@ -12256,6 +12266,14 @@
   position: absolute;
   margin-left: 65px;
   background-color: rgba(0,0,0,.03);
+}
+.dx-scheduler-small .dx-scheduler-work-space-day .dx-scheduler-date-time-shader-bottom:before,
+.dx-scheduler-small .dx-scheduler-work-space-day .dx-scheduler-date-time-shader-top:before,
+.dx-scheduler-small .dx-scheduler-work-space-week .dx-scheduler-date-time-shader-bottom:before,
+.dx-scheduler-small .dx-scheduler-work-space-week .dx-scheduler-date-time-shader-top:before,
+.dx-scheduler-small .dx-scheduler-work-space-work-week .dx-scheduler-date-time-shader-bottom:before,
+.dx-scheduler-small .dx-scheduler-work-space-work-week .dx-scheduler-date-time-shader-top:before {
+  margin-left: 32.5px;
 }
 .dx-scheduler-work-space-day.dx-scheduler-work-space-odd-cells .dx-scheduler-date-table-row:nth-child(odd) .dx-scheduler-date-table-cell,
 .dx-scheduler-work-space-week.dx-scheduler-work-space-odd-cells .dx-scheduler-date-table-row:nth-child(odd) .dx-scheduler-date-table-cell,
@@ -14398,7 +14416,7 @@
   padding-left: 0;
 }
 .dx-scheduler-small .dx-rtl .dx-scheduler-agenda .dx-scheduler-scrollable-appointments {
-  padding-right: 32.5px;
+  padding-right: 35px;
 }
 .dx-rtl .dx-scheduler-agenda .dx-scheduler-group-table {
   float: right;

@@ -1,7 +1,7 @@
 /**
 * DevExtreme (dx.light.css)
 * Version: 20.1.3
-* Build date: Fri May 15 2020
+* Build date: Mon May 18 2020
 *
 * Copyright (c) 2012 - 2020 Developer Express Inc. ALL RIGHTS RESERVED
 * Read about DevExtreme licensing here: https://js.devexpress.com/Licensing/
@@ -4656,8 +4656,8 @@
 .dx-menu-adaptive-mode .dx-treeview-node.dx-state-focused .dx-treeview-toggle-item-visibility {
   color: #fff;
 }
-.dx-menu-adaptive-mode .dx-treeview-node-container:first-child > .dx-treeview-node > .dx-treeview-item {
-  border-top: 1px solid #ddd;
+.dx-menu-adaptive-mode .dx-treeview-node-container:first-child > .dx-treeview-node {
+  border-bottom: 1px solid #ddd;
 }
 .dx-selectbox-popup-wrapper .dx-overlay-content {
   -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
@@ -6358,6 +6358,10 @@
 .dx-tabpanel .dx-tabs .dx-tab .dx-tab-content {
   color: #333;
 }
+.dx-tabpanel .dx-tabs .dx-tab:after,
+.dx-tabpanel .dx-tabs .dx-tab:before {
+  content: none;
+}
 .dx-tabpanel .dx-tabs .dx-tabs-nav-button {
   color: #ddd;
 }
@@ -6369,17 +6373,6 @@
 .dx-tabpanel .dx-tabs-scrollable .dx-tabs-wrapper {
   display: block;
   border: none;
-}
-.dx-tabpanel .dx-tab {
-  width: 140px;
-  color: #ddd;
-}
-.dx-tabpanel .dx-tab .dx-tab-content {
-  color: #333;
-}
-.dx-tabpanel .dx-tab:after,
-.dx-tabpanel .dx-tab:before {
-  content: none;
 }
 .dx-tabpanel:not(.dx-empty-collection) .dx-multiview-wrapper {
   border-top: none;

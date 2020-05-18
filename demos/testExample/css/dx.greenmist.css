@@ -1,7 +1,7 @@
 /**
 * DevExtreme (dx.greenmist.css)
 * Version: 20.1.3
-* Build date: Fri May 15 2020
+* Build date: Mon May 18 2020
 *
 * Copyright (c) 2012 - 2020 Developer Express Inc. ALL RIGHTS RESERVED
 * Read about DevExtreme licensing here: https://js.devexpress.com/Licensing/
@@ -4658,8 +4658,8 @@
 .dx-menu-adaptive-mode .dx-treeview-node.dx-state-focused .dx-treeview-toggle-item-visibility {
   color: #fff;
 }
-.dx-menu-adaptive-mode .dx-treeview-node-container:first-child > .dx-treeview-node > .dx-treeview-item {
-  border-top: 1px solid #dedede;
+.dx-menu-adaptive-mode .dx-treeview-node-container:first-child > .dx-treeview-node {
+  border-bottom: 1px solid #dedede;
 }
 .dx-selectbox-popup-wrapper .dx-overlay-content {
   -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
@@ -6351,6 +6351,21 @@
   display: block;
   border: none;
   background-color: #ededed;
+  color: #dedede;
+}
+.dx-tabpanel .dx-tabs .dx-tab {
+  width: 140px;
+  color: #dedede;
+}
+.dx-tabpanel .dx-tabs .dx-tab .dx-tab-content {
+  color: #28484f;
+}
+.dx-tabpanel .dx-tabs .dx-tab:after,
+.dx-tabpanel .dx-tabs .dx-tab:before {
+  content: none;
+}
+.dx-tabpanel .dx-tabs .dx-tabs-nav-button {
+  color: #dedede;
 }
 .dx-tabpanel .dx-tabs-scrollable {
   margin-top: 0;
@@ -6361,79 +6376,80 @@
   display: block;
   border: none;
 }
-.dx-tabpanel .dx-tab {
-  width: 140px;
-}
-.dx-tabpanel .dx-tab:after,
-.dx-tabpanel .dx-tab:before {
-  content: none;
-}
 .dx-tabpanel:not(.dx-empty-collection) .dx-multiview-wrapper {
   border-top: none;
 }
 .dx-tabpanel > .dx-tabpanel-tabs .dx-tabs {
-  -webkit-box-shadow: inset 0 -1px #dedede,inset 0 1px #dedede,inset -1px 0 #dedede,inset 1px 0 #dedede;
-  box-shadow: inset 0 -1px #dedede,inset 0 1px #dedede,inset -1px 0 #dedede,inset 1px 0 #dedede;
+  -webkit-box-shadow: inset 0 -1px #dedede,inset 0 1px,inset -1px 0,inset 1px 0;
+  box-shadow: inset 0 -1px #dedede,inset 0 1px,inset -1px 0,inset 1px 0;
 }
 .dx-tabpanel > .dx-tabpanel-tabs .dx-tab {
-  -webkit-box-shadow: inset 0 1px #dedede,inset 0 -1px #dedede;
-  box-shadow: inset 0 1px #dedede,inset 0 -1px #dedede;
+  -webkit-box-shadow: inset 0 1px,inset 0 -1px #dedede;
+  box-shadow: inset 0 1px,inset 0 -1px #dedede;
 }
 .dx-tabpanel > .dx-tabpanel-tabs .dx-tab.dx-tab-selected {
   -webkit-box-shadow: inset 0 1px #dedede,inset -1px 0 #dedede,inset 1px 0 #dedede;
   box-shadow: inset 0 1px #dedede,inset -1px 0 #dedede,inset 1px 0 #dedede;
 }
+.dx-tabpanel > .dx-tabpanel-tabs .dx-tab.dx-tab-active .dx-tab-content,
+.dx-tabpanel > .dx-tabpanel-tabs .dx-tab.dx-tab-selected .dx-tab-content {
+  color: #28484f;
+}
 .dx-tabpanel > .dx-tabpanel-tabs .dx-tabs-expanded .dx-tab:not(.dx-tab-selected):first-of-type {
-  -webkit-box-shadow: inset 0 -1px #dedede,inset 1px 0 #dedede,inset 0 1px #dedede;
-  box-shadow: inset 0 -1px #dedede,inset 1px 0 #dedede,inset 0 1px #dedede;
+  -webkit-box-shadow: inset 0 -1px #dedede,inset 1px 0,inset 0 1px;
+  box-shadow: inset 0 -1px #dedede,inset 1px 0,inset 0 1px;
 }
 .dx-rtl .dx-tabpanel>.dx-tabpanel-tabs .dx-tabs-expanded .dx-tab:not(.dx-tab-selected):first-of-type,
 .dx-rtl.dx-tabpanel>.dx-tabpanel-tabs .dx-tabs-expanded .dx-tab:not(.dx-tab-selected):first-of-type,
 .dx-tabpanel>.dx-tabpanel-tabs .dx-tabs-stretched .dx-tab:not(.dx-tab-selected):last-of-type {
-  -webkit-box-shadow: inset 0 -1px #dedede,inset -1px 0 #dedede,inset 0 1px #dedede;
-  box-shadow: inset 0 -1px #dedede,inset -1px 0 #dedede,inset 0 1px #dedede;
+  -webkit-box-shadow: inset 0 -1px #dedede,inset -1px 0,inset 0 1px;
+  box-shadow: inset 0 -1px #dedede,inset -1px 0,inset 0 1px;
 }
 .dx-rtl .dx-tabpanel>.dx-tabpanel-tabs .dx-tabs-stretched .dx-tab:not(.dx-tab-selected):last-of-type,
 .dx-rtl.dx-tabpanel>.dx-tabpanel-tabs .dx-tabs-stretched .dx-tab:not(.dx-tab-selected):last-of-type,
 .dx-tabpanel>.dx-tabpanel-tabs .dx-tabs-nav-button-left {
-  -webkit-box-shadow: inset 0 -1px #dedede,inset 1px 0 #dedede,inset 0 1px #dedede;
-  box-shadow: inset 0 -1px #dedede,inset 1px 0 #dedede,inset 0 1px #dedede;
+  -webkit-box-shadow: inset 0 -1px #dedede,inset 1px 0,inset 0 1px;
+  box-shadow: inset 0 -1px #dedede,inset 1px 0,inset 0 1px;
 }
 .dx-tabpanel > .dx-tabpanel-tabs .dx-tabs-nav-button-right {
-  -webkit-box-shadow: inset 0 -1px #dedede,inset 0 1px #dedede,inset -1px 0 #dedede;
-  box-shadow: inset 0 -1px #dedede,inset 0 1px #dedede,inset -1px 0 #dedede;
+  -webkit-box-shadow: inset 0 -1px #dedede,inset 0 1px,inset -1px 0;
+  box-shadow: inset 0 -1px #dedede,inset 0 1px,inset -1px 0;
 }
 .dx-tabpanel.dx-state-focused > .dx-tabpanel-tabs .dx-tabs {
-  -webkit-box-shadow: inset 0 -1px #3cbab2,inset 0 1px #dedede,inset -1px 0 #dedede,inset 1px 0 #dedede;
-  box-shadow: inset 0 -1px #3cbab2,inset 0 1px #dedede,inset -1px 0 #dedede,inset 1px 0 #dedede;
+  -webkit-box-shadow: inset 0 -1px #3cbab2,inset 0 1px,inset -1px 0,inset 1px 0;
+  box-shadow: inset 0 -1px #3cbab2,inset 0 1px,inset -1px 0,inset 1px 0;
 }
 .dx-tabpanel.dx-state-focused > .dx-tabpanel-tabs .dx-tab {
-  -webkit-box-shadow: inset 0 1px #dedede,inset 0 -1px #3cbab2;
-  box-shadow: inset 0 1px #dedede,inset 0 -1px #3cbab2;
+  -webkit-box-shadow: inset 0 1px,inset 0 -1px #3cbab2;
+  box-shadow: inset 0 1px,inset 0 -1px #3cbab2;
 }
 .dx-tabpanel.dx-state-focused > .dx-tabpanel-tabs .dx-tab.dx-tab-selected {
   -webkit-box-shadow: inset 0 1px #3cbab2,inset -1px 0 #3cbab2,inset 1px 0 #3cbab2;
   box-shadow: inset 0 1px #3cbab2,inset -1px 0 #3cbab2,inset 1px 0 #3cbab2;
 }
+.dx-tabpanel.dx-state-focused > .dx-tabpanel-tabs .dx-tab.dx-tab-active .dx-tab-content,
+.dx-tabpanel.dx-state-focused > .dx-tabpanel-tabs .dx-tab.dx-tab-selected .dx-tab-content {
+  color: #28484f;
+}
 .dx-tabpanel.dx-state-focused > .dx-tabpanel-tabs .dx-tabs-expanded .dx-tab:not(.dx-tab-selected):first-of-type {
-  -webkit-box-shadow: inset 0 -1px #3cbab2,inset 1px 0 #dedede,inset 0 1px #dedede;
-  box-shadow: inset 0 -1px #3cbab2,inset 1px 0 #dedede,inset 0 1px #dedede;
+  -webkit-box-shadow: inset 0 -1px #3cbab2,inset 1px 0,inset 0 1px;
+  box-shadow: inset 0 -1px #3cbab2,inset 1px 0,inset 0 1px;
 }
 .dx-rtl .dx-tabpanel.dx-state-focused>.dx-tabpanel-tabs .dx-tabs-expanded .dx-tab:not(.dx-tab-selected):first-of-type,
 .dx-rtl.dx-tabpanel.dx-state-focused>.dx-tabpanel-tabs .dx-tabs-expanded .dx-tab:not(.dx-tab-selected):first-of-type,
 .dx-tabpanel.dx-state-focused>.dx-tabpanel-tabs .dx-tabs-stretched .dx-tab:not(.dx-tab-selected):last-of-type {
-  -webkit-box-shadow: inset 0 -1px #3cbab2,inset -1px 0 #dedede,inset 0 1px #dedede;
-  box-shadow: inset 0 -1px #3cbab2,inset -1px 0 #dedede,inset 0 1px #dedede;
+  -webkit-box-shadow: inset 0 -1px #3cbab2,inset -1px 0,inset 0 1px;
+  box-shadow: inset 0 -1px #3cbab2,inset -1px 0,inset 0 1px;
 }
 .dx-rtl .dx-tabpanel.dx-state-focused>.dx-tabpanel-tabs .dx-tabs-stretched .dx-tab:not(.dx-tab-selected):last-of-type,
 .dx-rtl.dx-tabpanel.dx-state-focused>.dx-tabpanel-tabs .dx-tabs-stretched .dx-tab:not(.dx-tab-selected):last-of-type,
 .dx-tabpanel.dx-state-focused>.dx-tabpanel-tabs .dx-tabs-nav-button-left {
-  -webkit-box-shadow: inset 0 -1px #3cbab2,inset 1px 0 #dedede,inset 0 1px #dedede;
-  box-shadow: inset 0 -1px #3cbab2,inset 1px 0 #dedede,inset 0 1px #dedede;
+  -webkit-box-shadow: inset 0 -1px #3cbab2,inset 1px 0,inset 0 1px;
+  box-shadow: inset 0 -1px #3cbab2,inset 1px 0,inset 0 1px;
 }
 .dx-tabpanel.dx-state-focused > .dx-tabpanel-tabs .dx-tabs-nav-button-right {
-  -webkit-box-shadow: inset 0 -1px #3cbab2,inset 0 1px #dedede,inset -1px 0 #dedede;
-  box-shadow: inset 0 -1px #3cbab2,inset 0 1px #dedede,inset -1px 0 #dedede;
+  -webkit-box-shadow: inset 0 -1px #3cbab2,inset 0 1px,inset -1px 0;
+  box-shadow: inset 0 -1px #3cbab2,inset 0 1px,inset -1px 0;
 }
 .dx-tabpanel.dx-state-focused .dx-multiview-wrapper {
   border-color: #3cbab2;
@@ -9760,7 +9776,6 @@
   background-color: #71d1cb;
 }
 .dx-scheduler-date-time-shader-all-day {
-  margin-left: 100px;
   width: 100%;
   background-color: rgba(51,51,51,.04);
   position: absolute;
@@ -9821,9 +9836,20 @@
   margin-left: 50px;
 }
 .dx-scheduler-work-space-day .dx-scheduler-date-time-shader,
+.dx-scheduler-work-space-day .dx-scheduler-date-time-shader-all-day,
 .dx-scheduler-work-space-week .dx-scheduler-date-time-shader,
-.dx-scheduler-work-space-work-week .dx-scheduler-date-time-shader {
+.dx-scheduler-work-space-week .dx-scheduler-date-time-shader-all-day,
+.dx-scheduler-work-space-work-week .dx-scheduler-date-time-shader,
+.dx-scheduler-work-space-work-week .dx-scheduler-date-time-shader-all-day {
   margin-left: 100px;
+}
+.dx-scheduler-small .dx-scheduler-work-space-day .dx-scheduler-date-time-shader,
+.dx-scheduler-small .dx-scheduler-work-space-day .dx-scheduler-date-time-shader-all-day,
+.dx-scheduler-small .dx-scheduler-work-space-week .dx-scheduler-date-time-shader,
+.dx-scheduler-small .dx-scheduler-work-space-week .dx-scheduler-date-time-shader-all-day,
+.dx-scheduler-small .dx-scheduler-work-space-work-week .dx-scheduler-date-time-shader,
+.dx-scheduler-small .dx-scheduler-work-space-work-week .dx-scheduler-date-time-shader-all-day {
+  margin-left: 50px;
 }
 .dx-scheduler-work-space-day .dx-scheduler-date-time-shader-bottom:before,
 .dx-scheduler-work-space-day .dx-scheduler-date-time-shader-top:before,
@@ -9838,6 +9864,14 @@
   position: absolute;
   margin-left: 100px;
   background-color: rgba(51,51,51,.04);
+}
+.dx-scheduler-small .dx-scheduler-work-space-day .dx-scheduler-date-time-shader-bottom:before,
+.dx-scheduler-small .dx-scheduler-work-space-day .dx-scheduler-date-time-shader-top:before,
+.dx-scheduler-small .dx-scheduler-work-space-week .dx-scheduler-date-time-shader-bottom:before,
+.dx-scheduler-small .dx-scheduler-work-space-week .dx-scheduler-date-time-shader-top:before,
+.dx-scheduler-small .dx-scheduler-work-space-work-week .dx-scheduler-date-time-shader-bottom:before,
+.dx-scheduler-small .dx-scheduler-work-space-work-week .dx-scheduler-date-time-shader-top:before {
+  margin-left: 50px;
 }
 .dx-scheduler-work-space-day.dx-scheduler-work-space-odd-cells .dx-scheduler-date-table-row:nth-child(odd) .dx-scheduler-date-table-cell,
 .dx-scheduler-work-space-week.dx-scheduler-work-space-odd-cells .dx-scheduler-date-table-row:nth-child(odd) .dx-scheduler-date-table-cell,
@@ -11945,7 +11979,7 @@
   padding-left: 0;
 }
 .dx-scheduler-small .dx-rtl .dx-scheduler-agenda .dx-scheduler-scrollable-appointments {
-  padding-right: 50px;
+  padding-right: 35px;
 }
 .dx-rtl .dx-scheduler-agenda .dx-scheduler-group-table {
   float: right;
