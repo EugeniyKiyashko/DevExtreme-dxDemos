@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TabPanel Tabs Extra Borders in Rich Editors</title>
+   
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
+    <script type="text/javascript" src="https://eugeniykiyashko.github.io/DevExtreme-Demos/artifacts/devextreme.dx.all.js"></script>
+    <script>
+        function getUrlParameter(name) {
+            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+            var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+            var results = regex.exec(location.search);
+            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        };
+
+        function getTheme(){
+            return getUrlParameter('theme') || 'dx.light.css';
+        }
+
+        function getThemesData() {
+            return [
+                {
+                    key: "generic",
+                    items: [
+                        'dx.carmine.css',
+                        'dx.contrast.css',
+                        'dx.dark.css',
+                        'dx.darkmoon.css',
+                        'dx.darkviolet.css',
+                        'dx.greenmist.css',
+                        'dx.light.css'
+                    ]
+                },
+                {
+                    key: "generic.compact",
+                    items: [
+                        'dx.carmine.compact.css',
+                        'dx.contrast.compact.css',
+                        'dx.dark.compact.css',
+                        'dx.darkmoon.compact.css',
+                        'dx.darkviolet.compact.css',
+                        'dx.greenmist.compact.css',
+                        'dx.light.compact.css'
+                    ]
+                },
+                {
+                    key: "material",
+                    items: [
+                        'dx.material.blue.dark.css',
+                        'dx.material.blue.light.css',
+                        'dx.material.lime.dark.css',
+                        'dx.material.lime.light.css',
+                        'dx.material.orange.dark.css',
+                        'dx.material.orange.light.css',
+                        'dx.material.purple.dark.css',
+                        'dx.material.purple.light.css',
+                        'dx.material.teal.dark.css',
+                        'dx.material.teal.light.css',
+                        'dx.softblue.css'
+                    ]
+                },
+                {
+                    key: "material",
+                    items: [
+                        'dx.material.blue.dark.compact.css',
+                        'dx.material.blue.light.compact.css',
+                        'dx.material.lime.dark.compact.css',
+                        'dx.material.lime.light.compact.css',
+                        'dx.material.orange.dark.compact.css',
+                        'dx.material.orange.light.compact.css',
+                        'dx.material.purple.dark.compact.css',
+                        'dx.material.purple.light.compact.css',
+                        'dx.material.teal.dark.compact.css',
+                        'dx.material.teal.light.compact.css',
+                        'dx.softblue.compact.css'
+                    ]
+                }
+            ];
+        }
+
+        document.write('<link rel="stylesheet" type="text/css" href="./css/dx.common.css?a=1"/>');  
+        document.write('<link rel="stylesheet" type="text/css" href="./css/' + getTheme() + '?a=1"/>');
+
+        function addThemeSelectboxToBody() {
+            var $themeSelectBox = $("<div id='#themeSelector'></div>").css({ 'display': 'inline-block', 'margin-bottom': '10px' });
+
+            $(".dx-viewport").eq(0).prepend($("<div>").text("Current theme: ").append($themeSelectBox).append("<hr>"));
+
+            $themeSelectBox.dxSelectBox({
+                placeholder: "Choose theme",
+                width: 200,
+                grouped: true,
+                value: getTheme(),
+                onValueChanged: function (data) {
+                    var url = window.location.href;    
+                    const themeIndex = url.indexOf('?theme');
+                    if (themeIndex !== -1){
+                        url = url.substring(0, themeIndex);
+                    }
+                    window.location.href = url + '?theme=' + data.value;
+                },                
+                items: getThemesData()
+            });
+        }
+    </script>
+    <script type="text/javascript" src="./data.js"></script>
+    <link rel="stylesheet" type="text/css" href="./style.css"/>
+</head>
+<body class="dx-viewport">
+    <div id="container">
+        <div id="addButton"></div>
+        <div id="removeButton"></div>  
+    </div>
+    <div id="ribbon">
+        <div id="tabPanel"></div>
+    </div>
+
+    <script>
+        addThemeSelectboxToBody();
+
+        $(function() {
+            var addTabButton = $("#addButton").dxButton({
+                icon: "add",
+                text: "Add Tab",
+                type: "default",
+                onClick: addButtonHandler
+            }).dxButton("instance");
+            
+            var removeTabButton = $("#removeButton").dxButton({
+                icon: "trash",
+                text: "Remove Tab",
+                type: "danger",
+                stylingMode: "outlined",
+                onClick: function() {
+                var selectedItem = tabPanel.option("selectedItem");
+                
+                selectedItem && closeButtonHandler(selectedItem);
+                }
+            }).dxButton("instance");
+            
+            function addButtonHandler() {
+                var tabPanelItems = tabPanel.option("dataSource");
+                var newItem = employees.filter(function(employee) { return tabPanelItems.indexOf(employee) === -1; })[0];
+                
+                tabPanelItems.push(newItem);
+                tabPanel.option("dataSource", tabPanelItems);
+                tabPanel.option("selectedItem", newItem);
+                
+                updateButtonsAppearance(tabPanelItems);
+            }
+            
+            function closeButtonHandler(itemData) {
+                var index = tabPanel.option("dataSource").indexOf(itemData);
+                var tabPanelItems = tabPanel.option("dataSource");
+                tabPanelItems.splice(index, 1);
+                
+                tabPanel.option("dataSource", tabPanelItems);
+                tabPanel.option("selectedItem", tabPanelItems.length ? tabPanelItems[index] ? tabPanelItems[index] : tabPanelItems[index - 1] : null);
+                
+                updateButtonsAppearance(tabPanelItems);
+            }
+            
+            function updateButtonsAppearance(items) {
+                addTabButton.option("disabled", items.length === employees.length);
+                removeTabButton.option("disabled", items.length === 0);
+            }
+            
+            var tabPanel;
+            $("#tabPanel").dxTabPanel({
+                dataSource: employees.slice(0, 3),
+                itemTitleTemplate: function(itemData, itemIndex, itemElement) {
+                itemElement
+                    .append($("<span />").text(itemData.FirstName + " " + itemData.LastName))
+                    .append(' ')
+                    .append($("<i class='dx-icon dx-icon-close'></i>").on("click", closeButtonHandler.bind(this, itemData)));
+                },
+                itemTemplate: function(itemData, itemIndex, itemElement) {
+                $('<div class="employeeInfo"><img class="employeePhoto" src="' + itemData.Picture + '"/><p class="employeeNotes"><b>Position: ' + itemData.Position + '</b><br/>' + itemData.Notes + '</p></div>').appendTo(itemElement);
+                
+                $("<div>")
+                    .addClass("caption")
+                    .text(itemData.FirstName + " " + itemData.LastName + "'s Tasks:")
+                    .appendTo(itemElement);
+                
+                $("<div>")
+                    .dxDataGrid({
+                    columnAutoWidth: true,
+                    showBorders: false,
+
+                    rowAlternationEnabled: true,
+                    showColumnLines: false,
+                    columns: ["Subject", {
+                        dataField: "StartDate",
+                        dataType: "date"
+                    }, {
+                        dataField: "DueDate",
+                        dataType: "date"
+                    }, "Priority", {
+                        caption: "Completed",
+                        dataType: "boolean",
+                        calculateCellValue: function(rowData) {
+                        return rowData.Status == "Completed";
+                        }
+                    }],
+                    dataSource: new DevExpress.data.DataSource({
+                        store: new DevExpress.data.ArrayStore({
+                        key: "ID",
+                        data: tasks
+                        }),
+                        filter: ["EmployeeID", "=", itemData.ID]
+                    })
+                    })
+                    .appendTo(itemElement);
+                },
+                height: 472,
+                deferRendering: false,
+                showNavButtons: true,
+                repaintChangesOnly: true,
+                animationEnabled: true,
+                elementAttr: { class: `dx-ribbon` },
+            // rtlEnabled: true,
+                focusStateEnabled: false,
+                swipeEnabled: true,
+                onInitialized: function(e) {
+                tabPanel = e.component;
+                }
+            });
+            
+            $("#tabPanel").dxSortable({
+                moveItemOnDrop: true,
+                filter: ".dx-tab",
+            // rtlEnabled: true,
+                itemOrientation: "horizontal",
+                onReorder: function(e) {
+                var tabPanelItems = tabPanel.option("dataSource");
+                var itemData = tabPanelItems.splice(e.fromIndex, 1)[0];
+                
+                tabPanelItems.splice(e.toIndex, 0, itemData);
+                tabPanel.option("dataSource", tabPanelItems);
+                tabPanel.option("selectedIndex", e.toIndex);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
