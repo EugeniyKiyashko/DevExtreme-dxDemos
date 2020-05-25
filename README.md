@@ -18,6 +18,7 @@ A collection of online demos showing variously scenario using DevExtreme widgets
 
 * [TabPanel Tabs Extra Borders in Rich Editors](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/Devextreme-dxTabpanel-reload-tabs-styles-for-spreadsheet/index.html)
 * [Test Example](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/testExample/index.html)
+* [Test Example_2](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/testExample2/index.html)
 
 * [dxTooltip example with 2-way bindings](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/Devextreme-dxTooltip-jquery-example/index.html)
 * [dxDrawer + dxToolbar with different settings](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/Devextreme-dxDrawer-jquery-example/index.html)
