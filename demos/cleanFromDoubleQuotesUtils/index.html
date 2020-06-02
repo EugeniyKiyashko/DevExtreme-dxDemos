@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Utility for cleaning string object from Double Quotes</title>
+    <link rel="stylesheet" type="text/css" href="./style.css"/>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.2/jszip.min.js"></script>
+    <script type="text/javascript" src="https://cdn3.devexpress.com/jslib/20.1.3/js/dx.all.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/3.3.1/exceljs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.min.js"></script>
+    <script type="text/javascript" src="../themeSwitcher.js"></script>
+    <script type="text/javascript" src="./data.js"></script>
+</head>
+<body class="dx-viewport">
+    <div id="area"></div>
+    <hr>
+    <p>Ignoring columnIndex, rowIndex, value properties...</p>
+    <p>Sorting by properties name...</p>
+    <hr>
+    <div id="areaResult"></div>
+
+    <script>
+        addThemeSelectboxToBody();
+
+        $(function() {
+            var textAreaInitial = $("#area").dxTextArea({
+               height: 300,
+               placeholder: 'INPUT DATA: \
+                {\
+                "area": "data",\
+                "colspan": 1,\
+                "columnIndex": 3,\
+                "columnPath": [\
+                    "a",\
+                    "a2"\
+                ],\
+                "columnType": "D",\
+                "dataIndex": 0,\
+                "dataType": "number",\
+                "format": undefined,\
+                "rowIndex": 3,\
+                "rowPath": [\
+                    "A",\
+                    "A2"\
+                ],\
+                "rowType": "D",\
+                "rowspan": 1,\
+                "text": "2",\
+                "value": 2\
+                }',
+               valueChangeEvent: 'keyup',
+               onValueChanged: convertFunc
+            }).dxTextArea("instance");
+            
+            function sortObject(o) {
+                const sorted = {};
+                let key; 
+                const a = [];
+
+                for(key in o) {
+                    if(o.hasOwnProperty(key)) {
+                        a.push(key);
+                    }
+                }
+
+                a.sort();
+
+                for(key = 0; key < a.length; key++) {
+                    sorted[a[key]] = o[a[key]];
+                }
+                return sorted;
+            }
+
+            function convertFunc() {
+                let value = textAreaInitial.option("value").toString();
+                value = value.replace(/\s+/g, '');
+                value = value.replace(/undefined/g, '123456');
+
+                const objValueSorted = sortObject(JSON.parse(value));
+
+                let valueAsString = Object.keys(objValueSorted).reduce((message, key) => {
+                    if(['rowIndex', 'value', 'columnIndex'].indexOf(key) !== -1) return message;
+                    return message += `, ${key}: ${JSON.stringify(objValueSorted[key])}` 
+                }, '');
+
+                valueAsString = valueAsString.slice(2);
+                valueAsString = valueAsString.replace(/"/g, "'");
+                valueAsString = "{ " + valueAsString + " }";
+                valueAsString = valueAsString.replace(/123456/g, 'undefined');
+
+                textAreaResult.option("value", valueAsString);
+                textAreaResult.focus();
+            }
+
+            var textAreaResult =$("#areaResult").dxTextArea({
+               height: 300,
+               placeholder: "OUTPUT DATA: { area: 'data', colspan: 1, columnPath: ['a','a2'], columnType: 'D', dataIndex: 0, dataType: 'number', format: undefined, rowPath: ['A','A2'], rowType: 'D', rowspan: 1, text: '2' }"
+            }).dxTextArea("instance");;
+        });
+        
+    </script>
+</body>
+</html>

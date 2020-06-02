@@ -19,6 +19,7 @@ A collection of online demos showing variously scenario using DevExtreme widgets
 * [TabPanel Tabs Extra Borders in Rich Editors](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/Devextreme-dxTabpanel-reload-tabs-styles-for-spreadsheet/index.html)
 * [Test Example](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/testExample/index.html)
 * [Test Example_2](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/testExample2/index.html)
+* [Utility for cleaning string object from Double Quotes](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/cleanFromDoubleQuotesUtils/index.html)
 
 * [dxTooltip example with 2-way bindings](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/Devextreme-dxTooltip-jquery-example/index.html)
 * [dxDrawer + dxToolbar with different settings](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/Devextreme-dxDrawer-jquery-example/index.html)
@@ -50,6 +51,7 @@ A collection of online demos showing variously scenario using DevExtreme widgets
 * [dxPivotGrid - default export with jQuery v.3](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/pivotgrid-export/default/export+jQueryV3/index.html)
 * [dxPivotGrid - exceljs export sample](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/Devextreme-dxPivotGrid-exceljsexport/index.html)
 * [dxPivotGrid - ExcelJS export sample with Totals](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/Devextreme-dxPivotGrid-exceljsexport_2/index.html)
+
 ## DevExtreme Export DataGrid Demos using ExcelJS library
 
 * [DataGrid.ExcelJS CTP export - How to export only selected rows from DataGrid in Excel using the exportDataGrid function](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/datagrid-export/default/export-selected-rows/index.html)
