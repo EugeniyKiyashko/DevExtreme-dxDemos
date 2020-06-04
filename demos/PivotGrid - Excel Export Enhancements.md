@@ -17,7 +17,7 @@ After some research, we plan to use the third-party [ExcelJS](https://github.com
 
 **Note**: At the moment, we are testing the proposed solution and want to collect feedback and find out whether this solution covers most scenarios. 
 
-# Samples
+# Scenarios
 
 ## Customize cell appearence
 
@@ -38,15 +38,9 @@ ExcelJS is a library for reading, manipulating, and writing spreadsheet data and
 
 ## Live Sandboxes
 
-1. [Add header and footer](https://codepen.io/DanIgnatov/pen/zbELOv)
-1. [Export two grids into one worksheet](https://codepen.io/DanIgnatov/pen/RdjbRa)
-1. [Export two grids each into a new worksheet](https://codepen.io/DanIgnatov/pen/JzOdpj)
-1. [Simple export scenario](https://codepen.io/DanIgnatov/pen/WmEBjy)
-1. [Customize file name](https://codepen.io/DanIgnatov/pen/ywoGrE)
-1. [Customize workbook, worksheet](https://codepen.io/DanIgnatov/pen/rRzPQa)
-1. [Customize cell](https://codepen.io/DanIgnatov/pen/XGawBJ)
-1. [Manually generate and save XLSX file](https://codepen.io/DanIgnatov/pen/RdZdEv)
-1. [Show dxLoadPanel](https://codepen.io/DanIgnatov/pen/GevLOp)
+1. [Sample 1](https://codepen.io/DanIgnatov/pen/zbELOv)
+1. [Sample 2](https://codepen.io/DanIgnatov/pen/RdjbRa)
+1. [Sample 3](https://codepen.io/DanIgnatov/pen/JzOdpj)
 
 ## Installation
 
@@ -56,7 +50,7 @@ Link [exportDxDataGrid](https://combinatronics.com/IgnatovDan/DevExtreme_DataGri
 
 ## Take a Quick Poll
 
-[Do you need these capabilities when exporting DataGrid in your projects?](https://docs.google.com/forms/d/e/1FAIpQLScMByKhqvP0IT5gBCMOG04Cx7viK0Jz5M1cN1X_tVbS5SUHWQ/viewform?usp=sf_link)
+[Do you need these capabilities when exporting PivotGrid in your projects?](https://docs.google.com/forms/d/e/1FAIpQLScMByKhqvP0IT5gBCMOG04Cx7viK0Jz5M1cN1X_tVbS5SUHWQ/viewform?usp=sf_link)
 
 # Get Notified of Updates
 
