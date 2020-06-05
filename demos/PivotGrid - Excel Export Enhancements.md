@@ -20,12 +20,78 @@ After some research, we plan to use the third-party [ExcelJS](https://github.com
 # Scenarios
 
 ## Customize cell appearence
+You can customize fonts, colors, alignment and indentation and so on in any cells:
+![cell appearence](https://user-images.githubusercontent.com/57402891/83850819-2467eb80-a71a-11ea-88d2-db4f204a57f4.png)
 
 ```js
-hello world
+    DevExpress.excelExporter.exportPivotGrid({
+        ...
+        customizeCell: function({excelCell, pivotCell}) {
+        if( pivotCell.area === 'row') {
+            if(pivotCell.type === 'GT'){
+            excelCell.font = { color: { argb: "cc0000"}, bold: true };
+            } else if (pivotCell.type === 'T') {
+            excelCell.fill = { type: 'pattern', pattern:'solid', fgColor: { argb:'94FF82'} }
+            } else {
+            excelCell.font = { italic: true, size: 10 };
+            }
+        }
+        if( pivotCell.area === 'column') {
+            excelCell.font = { color: { argb: "0000cc"}, bold: true };
+            excelCell.fill = { type: 'pattern', pattern:'solid', fgColor: { argb:'FFFF5E'} }
+            excelCell.alignment = { vertical: 'middle', horizontal: 'center' };                      
+        }
+        if (pivotCell.rowType === 'T') {
+            excelCell.fill = { type: 'pattern', pattern:'solid', fgColor: { argb:'94FF82'} }
+        }
+        if(pivotCell.rowType === 'GT') {
+            excelCell.fill = { type: 'pattern', pattern:'solid', fgColor: { argb:'5EFF5E'} }
+        }
+        if(pivotCell.columnType === 'GT') {
+            if(pivotCell.rowPath && pivotCell.rowPath[0] === 'Africa') {
+            excelCell.fill = { type: 'pattern', pattern:'solid', fgColor: { argb:'B6FF19'} }
+            } else {
+            excelCell.fill = { type: 'pattern', pattern:'solid', fgColor: { argb:'5EFF5E'} }
+            }
+        }
+    }
 ```
 
-![two_grids_one_sheet_excel_screen](https://user-images.githubusercontent.com/2094015/54295634-7d52dd80-45c4-11e9-841e-17ad139a76df.png)
+
+## Add custom headers abd footers and comments
+You can add your own text in any cell. Also you can write notes:
+
+![custom geaders and footers](https://user-images.githubusercontent.com/57402891/83851276-ca1b5a80-a71a-11ea-8f32-1164176f0a73.png)
+```js
+    DevExpress.excelExporter.exportPivotGrid({
+        ...
+        }).then(function(dataGridRange) {
+            // header
+            var headerRow = worksheet.getRow(1);
+            headerRow.height = 70; 
+            worksheet.mergeCells('D1:H1');
+            headerRow.getCell(4).value = 'Average Sales \n Amount by Region';
+            headerRow.getCell(4).font = { name: 'Segoe UI Light', size: 22, bold: true };
+            headerRow.getCell(4).alignment = { horizontal: 'center',  wrapText: true };
+            
+            // notes
+            worksheet.getCell('D1').note = 'Based on open data';
+    
+            worksheet.getRow(2).height = 40;
+
+            // footer
+            var footerRowIndex = dataGridRange.to.row + 2;
+            var footerRow = worksheet.getRow(footerRowIndex);
+            worksheet.mergeCells(footerRowIndex, 1, footerRowIndex, 8);
+
+            footerRow.getCell(1).value = 'www.wikipedia.org';
+            footerRow.getCell(1).font = { color: { argb: 'BFBFBF' }, italic: true };
+            footerRow.getCell(1).alignment = { horizontal: 'right' };
+
+            return Promise.resolve();
+        })
+```
+
 
 
 ## Implementation Details
@@ -38,7 +104,7 @@ ExcelJS is a library for reading, manipulating, and writing spreadsheet data and
 
 ## Live Sandboxes
 
-1. [Sample 1](https://codepen.io/DanIgnatov/pen/zbELOv)
+1. [Customize](https://codepen.io/SNovikov/pen/BajBgrj)
 1. [Sample 2](https://codepen.io/DanIgnatov/pen/RdjbRa)
 1. [Sample 3](https://codepen.io/DanIgnatov/pen/JzOdpj)
 
