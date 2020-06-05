@@ -5,13 +5,18 @@ Excel Export Enhancements
 The [current PivotGrid export implementation](https://js.devexpress.com/Documentation/ApiReference/UI_Widgets/dxPivotGrid/Configuration/export/) is very limited and does not allow you to customize Excel files in the following ways:
 
 - customize cell appearence
-- add a header and footer 
+- add a custom header and footer 
 - use custom format
-- export field panel
+- export the Fields Panel
+- add new worksheets
+- work with comments and notes
+- customize the workbook or worksheet
+- export several widgets into one file
+- protect files
 
 # The Proposed Solution
 
-After some research, we plan to use the third-party [ExcelJS](https://github.com/exceljs/exceljs) library in the way, similar to our DataGrid [export](https://js.devexpress.com/Demos/WidgetsGallery/Demo/DataGrid/ExcelJSOverview/React/Light/) implementation. We got very good export feedback with it.
+After some research, we plan to use the third-party [ExcelJS](https://github.com/exceljs/exceljs) library in the way, similar to our DataGrid [export  implementation](https://js.devexpress.com/Demos/WidgetsGallery/Demo/DataGrid/ExcelJSOverview/React/Light/). We got very good export feedback with it.
 
 **Note**: At the moment, we are testing the proposed solution and want to collect feedback and find out whether this solution covers most scenarios. 
 
@@ -59,7 +64,7 @@ You can customize fonts, colors, alignment and indentation and so on in any cell
 ## Add custom headers, footers and comments
 You can add your own text in any cell. Also you can write notes:
 
-![custom geaders and footers](https://user-images.githubusercontent.com/57402891/83851276-ca1b5a80-a71a-11ea-8f32-1164176f0a73.png)
+![custom headers, footers and comments](https://user-images.githubusercontent.com/57402891/83887298-ee922980-a750-11ea-815b-f7e7135d25f1.png)
 ```js
     DevExpress.excelExporter.exportPivotGrid({
         ...
@@ -74,8 +79,6 @@ You can add your own text in any cell. Also you can write notes:
             
             // notes
             worksheet.getCell('D1').note = 'Based on open data';
-    
-            worksheet.getRow(2).height = 40;
 
             // footer
             var footerRowIndex = dataGridRange.to.row + 2;
@@ -93,7 +96,7 @@ You can add your own text in any cell. Also you can write notes:
 ## Export field panel data
 You can export the Field Panel items to any cells and in any way convenient for you
 
-![export field panel](https://user-images.githubusercontent.com/57402891/83885717-6b240880-a74f-11ea-8161-c4cc7dea2180.png)
+![export field panel](https://user-images.githubusercontent.com/57402891/83886597-f56c6c80-a74f-11ea-9aba-59844f8d6166.png)
 ```js
     DevExpress.excelExporter.exportPivotGrid({
         component: e.component,
