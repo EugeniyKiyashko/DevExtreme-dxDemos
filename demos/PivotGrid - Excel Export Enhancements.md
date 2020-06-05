@@ -7,9 +7,7 @@ The [current PivotGrid export implementation](https://js.devexpress.com/Document
 - customize cell appearence
 - add a header and footer 
 - use custom format
-- add new worksheets
-- customize the workbook or worksheet
-- export several widgets into one file
+- export field panel
 
 # The Proposed Solution
 
@@ -29,11 +27,11 @@ You can customize fonts, colors, alignment and indentation and so on in any cell
         customizeCell: function({excelCell, pivotCell}) {
         if( pivotCell.area === 'row') {
             if(pivotCell.type === 'GT'){
-            excelCell.font = { color: { argb: "cc0000"}, bold: true };
+                excelCell.font = { color: { argb: "cc0000"}, bold: true };
             } else if (pivotCell.type === 'T') {
-            excelCell.fill = { type: 'pattern', pattern:'solid', fgColor: { argb:'94FF82'} }
+                excelCell.fill = { type: 'pattern', pattern:'solid', fgColor: { argb:'94FF82'} }
             } else {
-            excelCell.font = { italic: true, size: 10 };
+                excelCell.font = { italic: true, size: 10 };
             }
         }
         if( pivotCell.area === 'column') {
@@ -49,16 +47,16 @@ You can customize fonts, colors, alignment and indentation and so on in any cell
         }
         if(pivotCell.columnType === 'GT') {
             if(pivotCell.rowPath && pivotCell.rowPath[0] === 'Africa') {
-            excelCell.fill = { type: 'pattern', pattern:'solid', fgColor: { argb:'B6FF19'} }
+                excelCell.fill = { type: 'pattern', pattern:'solid', fgColor: { argb:'B6FF19'} }
             } else {
-            excelCell.fill = { type: 'pattern', pattern:'solid', fgColor: { argb:'5EFF5E'} }
+                excelCell.fill = { type: 'pattern', pattern:'solid', fgColor: { argb:'5EFF5E'} }
             }
         }
     }
 ```
 
 
-## Add custom headers abd footers and comments
+## Add custom headers, footers and comments
 You can add your own text in any cell. Also you can write notes:
 
 ![custom geaders and footers](https://user-images.githubusercontent.com/57402891/83851276-ca1b5a80-a71a-11ea-8f32-1164176f0a73.png)
@@ -92,7 +90,41 @@ You can add your own text in any cell. Also you can write notes:
         })
 ```
 
+## Export field panel data
+You can export the Field Panel items to any cells and in any way convenient for you
 
+![export field panel](https://user-images.githubusercontent.com/57402891/83885717-6b240880-a74f-11ea-8161-c4cc7dea2180.png)
+```js
+    DevExpress.excelExporter.exportPivotGrid({
+        component: e.component,
+        worksheet: worksheet,
+    })
+    .then(function(dataGridRange) {
+        var fields = grid.getDataSource().fields();      
+        var rowFields = fields.filter(r => r.area === 'row').map(r => r.dataField);
+        var columnFields = [...new Set(fields.filter(r => r.area === 'column').map(r => r.dataField))];
+        var dataFields = fields.filter(r => r.area === 'data').map(r => `[${r.summaryType}(${r.dataField}])`);        
+        var filterFields = fields.filter(r => r.area === 'filter').map(r => r.dataField);
+        var appliedFilters = fields.filter(r => r.filterValues !== undefined).map(r => `[${r.dataField}:${r.filterValues}]`);
+        var firstRow = worksheet.getRow(1),
+            fieldPanelCell = firstRow.getCell(4);
+    
+        firstRow.height = 70;
+        worksheet.mergeCells('D1:G1');
+        fieldPanelCell.value = 'Feld Panel content:'
+        + ` \n - Filter fields: [${filterFields.join(', ')}]`              
+        + ` \n - Row fields: [${rowFields.join(', ')}]`
+        + ` \n - Column fields: [${columnFields.join(', ')}]`
+        + ` \n - Data fields: [${dataFields.join(', ')}]`
+        + ` \n - Applied filters: [${appliedFilters.join(', ')}]`;
+    
+        fieldPanelCell.alignment = { horizontal: 'left', vertical: 'top',  wrapText: true };
+        fieldPanelCell.fill = { type: 'pattern', pattern:'solid', fgColor: { argb:'FFD905'}};
+
+        return Promise.resolve();
+    }) 
+```
+And so on...
 
 ## Implementation Details
 
@@ -104,9 +136,9 @@ ExcelJS is a library for reading, manipulating, and writing spreadsheet data and
 
 ## Live Sandboxes
 
-1. [Customize](https://codepen.io/SNovikov/pen/BajBgrj)
-1. [Sample 2](https://codepen.io/DanIgnatov/pen/RdjbRa)
-1. [Sample 3](https://codepen.io/DanIgnatov/pen/JzOdpj)
+1. [Customize cell appearence](https://codepen.io/SNovikov/pen/BajBgrj)
+1. [Add custom headers and footers](https://codepen.io/SNovikov/pen/BajBgrj)
+1. [Export Fields Panel](https://codepen.io/SNovikov/pen/zYrxmMr)
 
 ## Installation
 
@@ -115,8 +147,7 @@ Link [exportDxDataGrid](https://combinatronics.com/IgnatovDan/DevExtreme_DataGri
 # We Need Your Feedback
 
 ## Take a Quick Poll
-
-[Do you need these capabilities when exporting PivotGrid in your projects?](https://docs.google.com/forms/d/e/1FAIpQLScMByKhqvP0IT5gBCMOG04Cx7viK0Jz5M1cN1X_tVbS5SUHWQ/viewform?usp=sf_link)
+Wee need your feedback! [Do you need these capabilities when exporting PivotGrid in your projects?](https://docs.google.com/forms/d/e/1FAIpQLScMByKhqvP0IT5gBCMOG04Cx7viK0Jz5M1cN1X_tVbS5SUHWQ/viewform?usp=sf_link)
 
 # Get Notified of Updates
 
