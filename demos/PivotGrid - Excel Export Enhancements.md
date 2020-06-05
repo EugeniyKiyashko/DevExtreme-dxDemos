@@ -150,7 +150,7 @@ Link [exportDxDataGrid](https://combinatronics.com/IgnatovDan/DevExtreme_DataGri
 # We Need Your Feedback
 
 ## Take a Quick Poll
-Wee need your feedback! [Do you need these capabilities when exporting PivotGrid in your projects?](https://docs.google.com/forms/d/e/1FAIpQLScMByKhqvP0IT5gBCMOG04Cx7viK0Jz5M1cN1X_tVbS5SUHWQ/viewform?usp=sf_link)
+Wee need your feedback! [Do you need these capabilities when exporting PivotGrid in your projects?](https://docs.google.com/forms/d/17nP7HiGe5ILj1mK7Tjn6vojNJMIGUDdufdeDh6K547g/viewform?usp=sf_link)
 
 # Get Notified of Updates
 
