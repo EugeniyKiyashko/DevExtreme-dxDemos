@@ -38,17 +38,7 @@ By passing a function to the customizeCell option of exportPivotGrid, you can ap
                 excelCell.font = { italic: true, size: 10 };
             }
         }
-        if( pivotCell.area === 'column') {
-            excelCell.font = { color: { argb: "0000cc"}, bold: true };
-            excelCell.fill = { type: 'pattern', pattern:'solid', fgColor: { argb:'FFFF5E'} }
-            excelCell.alignment = { vertical: 'middle', horizontal: 'center' };                      
-        }
-        if (pivotCell.rowType === 'T') {
-            excelCell.fill = { type: 'pattern', pattern:'solid', fgColor: { argb:'94FF82'} }
-        }
-        if(pivotCell.rowType === 'GT') {
-            excelCell.fill = { type: 'pattern', pattern:'solid', fgColor: { argb:'5EFF5E'} }
-        }
+        ...
         if(pivotCell.columnType === 'GT') {
             if(pivotCell.rowPath && pivotCell.rowPath[0] === 'Africa') {
                 excelCell.fill = { type: 'pattern', pattern:'solid', fgColor: { argb:'B6FF19'} }
