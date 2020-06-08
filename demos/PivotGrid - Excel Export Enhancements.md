@@ -4,9 +4,9 @@ Excel Export Enhancements
 
 The [current PivotGrid export implementation](https://js.devexpress.com/Documentation/ApiReference/UI_Widgets/dxPivotGrid/Configuration/export/) is very limited and does not allow you to customize Excel files in the following ways:
 
-- customize cell appearence
+- customize cells appearence
 - add a custom header and footer 
-- use custom format
+- use custom cells format
 - export the Fields Panel
 - add new worksheets
 - work with comments and notes
@@ -22,7 +22,7 @@ After some research, we plan to use the third-party [ExcelJS](https://github.com
 
 # Scenarios
 
-## Customize cell appearence
+## Customize Cell Appearence
 You can customize fonts, colors, alignment and indentation and so on in any cells:
 ![cell appearence](https://user-images.githubusercontent.com/57402891/83850819-2467eb80-a71a-11ea-88d2-db4f204a57f4.png)
 
