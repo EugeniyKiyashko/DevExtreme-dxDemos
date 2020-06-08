@@ -2,7 +2,7 @@ Excel Export Enhancements
 
 # The Problem
 
-The [current PivotGrid export implementation](https://js.devexpress.com/Documentation/ApiReference/UI_Widgets/dxPivotGrid/Configuration/export/) is very limited and does not allow you to customize Excel files in the following ways:
+The [current PivotGrid export implementation](https://js.devexpress.com/Documentation/ApiReference/UI_Widgets/dxPivotGrid/Configuration/export/) is limited and does not allow you to customize Excel files in the following ways:
 
 - customize cells appearence
 - add a custom header and footer 
@@ -150,7 +150,7 @@ And so on...
 
 ### ExcelJS library
 
-ExcelJS is a library for reading, manipulating, and writing spreadsheet data and styles to Excel and JSON. See [ExcelJS: Browser](https://github.com/exceljs/exceljs#browser) for more information.
+ExcelJS is a library for reading, manipulating, and writing spreadsheet data and styles to Excel and JSON. See [ExcelJS](https://github.com/exceljs/exceljs) for more information.
 
 # Try It
 
@@ -160,10 +160,6 @@ ExcelJS is a library for reading, manipulating, and writing spreadsheet data and
 1. [Custom Headers and Footers](https://codepen.io/SNovikov/pen/BajBgrj)
 1. [Export Fields Panel](https://codepen.io/SNovikov/pen/zYrxmMr)
 1. [Custom Cell Format](https://codepen.io/SNovikov/pen/pogvVmZ)
-
-## Installation
-
-Link [exportDxDataGrid](https://combinatronics.com/IgnatovDan/DevExtreme_DataGridToExcel/8c823335814c26e39f62b4a31669908fc2d54250/exportDxDataGrid.js), [ExcelJS](https://github.com/exceljs/exceljs), and [FileSaver](https://github.com/eligrey/FileSaver.js/) libraries.  
 
 # We Need Your Feedback
 
