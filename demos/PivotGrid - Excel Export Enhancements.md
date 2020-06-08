@@ -2,17 +2,15 @@ Excel Export Enhancements
 
 # The Problem
 
-The [current PivotGrid export implementation](https://js.devexpress.com/Documentation/ApiReference/UI_Widgets/dxPivotGrid/Configuration/export/) is limited and does not allow you to customize Excel files in the following ways:
+The [previos PivotGrid export implementation](https://js.devexpress.com/Documentation/ApiReference/UI_Widgets/dxPivotGrid/Configuration/export/) is limited and does not allow you to customize Excel files in the following ways:
 
-- customize cells appearence
-- add a custom header and footer 
-- use custom cells format
+- customize cells (appearence, format, value)
+- customize the workbooks and worksheets (add headers, footers, comments, customize page orientation and so on)
+- use custom formats
 - export the Fields Panel
-- add new worksheets
-- work with comments and notes
-- customize the workbook or worksheet
 - export several widgets into one file
-- protect files
+- display load indicator
+- protect cells and sheets
 
 # The Proposed Solution
 
@@ -23,7 +21,7 @@ After some research, we plan to use the third-party [ExcelJS](https://github.com
 # Scenarios
 
 ## Customize Cell Appearence
-You can customize fonts, colors, alignment and indentation and so on in any cells:
+By passing a function to the customizeCell option of exportPivotGrid, you can apply flexible customizations to individual cells:
 ![cell appearence](https://user-images.githubusercontent.com/57402891/83850819-2467eb80-a71a-11ea-88d2-db4f204a57f4.png)
 
 ```js
@@ -60,43 +58,59 @@ You can customize fonts, colors, alignment and indentation and so on in any cell
     }
 ```
 
+## Display loadLoad Indicator
+You can customize a progress indicator, similar to a DataGrid's [load panel](https://js.devexpress.com/Documentation/ApiReference/UI_Widgets/dxDataGrid/Configuration/loadPanel/):
+![custom headers, footers and notes](https://user-images.githubusercontent.com/57402891/84037137-d3205c00-a9a6-11ea-8344-9a7ca018db0c.png)
 
-## Add custom headers, footers and comments
-You can add your own text in any cell. Also you can write notes:
+```js
+  DevExpress.excelExporter.exportPivotGrid({
+	  component: e.component,
+	  worksheet: worksheet,
+	  topLeftCell: { row: 2, column: 2 },
+	  loadPanel: {
+		enabled: true,
+		text: 'Export large data...'
+	  }
+  })
+```
 
-![custom headers, footers and comments](https://user-images.githubusercontent.com/57402891/83887298-ee922980-a750-11ea-815b-f7e7135d25f1.png)
+
+## Add custom headers, footers and notes
+ExcelJS library allows you to customize worksheets outside of the exported cell area. So, you can add your any text, image in any cell. Also you can write notes:
+
+![custom headers, footers and notes](https://user-images.githubusercontent.com/57402891/83887298-ee922980-a750-11ea-815b-f7e7135d25f1.png)
 ```js
     DevExpress.excelExporter.exportPivotGrid({
         ...
-        }).then(function(dataGridRange) {
-            // header
-            var headerRow = worksheet.getRow(1);
-            headerRow.height = 70; 
-            worksheet.mergeCells('D1:H1');
-            headerRow.getCell(4).value = 'Average Sales \n Amount by Region';
-            headerRow.getCell(4).font = { name: 'Segoe UI Light', size: 22, bold: true };
-            headerRow.getCell(4).alignment = { horizontal: 'center',  wrapText: true };
-            
-            // notes
-            worksheet.getCell('D1').note = 'Based on open data';
+    }).then(function(dataGridRange) {
+        //  add custom header
+        var headerRow = worksheet.getRow(1);
+        headerRow.height = 70; 
+        worksheet.mergeCells('D1:H1');
+        headerRow.getCell(4).value = 'Average Sales \n Amount by Region';
+        headerRow.getCell(4).font = { name: 'Segoe UI Light', size: 22, bold: true };
+        headerRow.getCell(4).alignment = { horizontal: 'center',  wrapText: true };
+        
+        // add a note
+        worksheet.getCell('D1').note = 'Based on open data';
 
-            // footer
-            var footerRowIndex = dataGridRange.to.row + 2;
-            var footerRow = worksheet.getRow(footerRowIndex);
-            worksheet.mergeCells(footerRowIndex, 1, footerRowIndex, 8);
+        // add custom footer
+        var footerRowIndex = dataGridRange.to.row + 2;
+        var footerRow = worksheet.getRow(footerRowIndex);
+        worksheet.mergeCells(footerRowIndex, 1, footerRowIndex, 8);
 
-            footerRow.getCell(1).value = 'www.wikipedia.org';
-            footerRow.getCell(1).font = { color: { argb: 'BFBFBF' }, italic: true };
-            footerRow.getCell(1).alignment = { horizontal: 'right' };
+        footerRow.getCell(1).value = 'www.wikipedia.org';
+        footerRow.getCell(1).font = { color: { argb: 'BFBFBF' }, italic: true };
+        footerRow.getCell(1).alignment = { horizontal: 'right' };
 
-            return Promise.resolve();
-        })
+        return Promise.resolve();
+    })
 ```
 
 ## Export field panel data
-You can export the Field Panel items to any cells and in any way convenient for you
+You can export the Field Panel items to any cells and in any way convenient for you:
 
-![export field panel](https://user-images.githubusercontent.com/57402891/83886597-f56c6c80-a74f-11ea-9aba-59844f8d6166.png)
+![export field panel](https://user-images.githubusercontent.com/57402891/84037703-a15bc500-a9a7-11ea-92b7-fb11dbb73c5a.png)
 ```js
     DevExpress.excelExporter.exportPivotGrid({
         component: e.component,
@@ -129,7 +143,7 @@ You can export the Field Panel items to any cells and in any way convenient for 
 ```
 
 ## Custom cell format
-You can use any format for any cell. You can also specify concreate custom format for concreate cells:
+You can use any format for any cell. You can also specify specific format for particular cells:
 
 ![Custom cell format](https://user-images.githubusercontent.com/57402891/84011112-54afc400-a97e-11ea-917d-e29ba7feca2d.png)
 ```js
@@ -144,7 +158,7 @@ You can use any format for any cell. You can also specify concreate custom forma
     })
 ```
 
-And so on...
+
 
 ## Implementation Details
 
@@ -156,10 +170,19 @@ ExcelJS is a library for reading, manipulating, and writing spreadsheet data and
 
 ## Live Sandboxes
 
-1. [Customize Cell Appearence](https://codepen.io/SNovikov/pen/BajBgrj)
-1. [Custom Headers and Footers](https://codepen.io/SNovikov/pen/BajBgrj)
-1. [Export Fields Panel](https://codepen.io/SNovikov/pen/zYrxmMr)
-1. [Custom Cell Format](https://codepen.io/SNovikov/pen/pogvVmZ)
+1. [Column sizing](https://codepen.io/EugeniyKiyashko/pen/LYGYzwQ)
+1. [Customize cells appearence](https://codepen.io/SNovikov/pen/BajBgrj)
+1. [Customize texts](https://codepen.io/EugeniyKiyashko/pen/mdVdqBY)
+1. [Custom headers and footers](https://codepen.io/SNovikov/pen/BajBgrj)
+1. [Export Fields panel](https://codepen.io/SNovikov/pen/zYrxmMr)
+1. [Custom cell format](https://codepen.io/SNovikov/pen/pogvVmZ)
+1. [Export chart](https://codepen.io/SNovikov/pen/XWXmXVZ)
+1. [Hide and show certain fields](https://codepen.io/EugeniyKiyashko/pen/vYLEEdL)
+1. [Export borders according to PivotGrid border settings](https://codepen.io/EugeniyKiyashko/pen/pogJEqa)
+1. [Display load panel](https://codepen.io/EugeniyKiyashko/pen/yLeNVNx)
+1. [Export using CSV format](https://codepen.io/EugeniyKiyashko/pen/xxZGREK)
+1. [Export without rows merging](https://codepen.io/EugeniyKiyashko/pen/dyGogby)
+1. [Export without columns merging](https://codepen.io/EugeniyKiyashko/pen/OJMyMYX)
 
 # We Need Your Feedback
 
