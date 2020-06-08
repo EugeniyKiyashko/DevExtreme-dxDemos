@@ -14,7 +14,7 @@ The [previos PivotGrid export implementation](https://js.devexpress.com/Document
 
 # The Proposed Solution
 
-After some research, we plan to use the third-party [ExcelJS](https://github.com/exceljs/exceljs) library in the way, similar to our DataGrid [export  implementation](https://js.devexpress.com/Demos/WidgetsGallery/Demo/DataGrid/ExcelJSOverview/React/Light/). We got very good export feedback with it.
+After some research, we plan to use the third-party [ExcelJS](https://github.com/exceljs/exceljs) library in the way, similar to our DataGrid [export  implementation](https://js.devexpress.com/Demos/WidgetsGallery/Demo/DataGrid/ExcelJSOverview/React/Light/). We have a lot of positive feedback with it. 
 
 **Note**: At the moment, we are testing the proposed solution and want to collect feedback and find out whether this solution covers most scenarios. 
 
@@ -59,10 +59,10 @@ By passing a function to the customizeCell option of exportPivotGrid, you can ap
     }
 ```
 
-## Display loadLoad Indicator
-You can customize a progress indicator, similar to a DataGrid's [load panel](https://js.devexpress.com/Documentation/ApiReference/UI_Widgets/dxDataGrid/Configuration/loadPanel/):
+## Display a Load Indicator
+You can add and customize a progress indicator, similar to a DataGrid's [load panel](https://js.devexpress.com/Documentation/ApiReference/UI_Widgets/dxDataGrid/Configuration/loadPanel/):
 
-![custom headers, footers and notes](https://user-images.githubusercontent.com/57402891/84037137-d3205c00-a9a6-11ea-8344-9a7ca018db0c.png)
+![Display a load Indicator](https://user-images.githubusercontent.com/57402891/84038980-41661e00-a9a9-11ea-838b-f93a8ebad4f2.png)
 
 ```js
   DevExpress.excelExporter.exportPivotGrid({
