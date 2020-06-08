@@ -29,13 +29,14 @@ By passing a function to the customizeCell option of exportPivotGrid, you can ap
     DevExpress.excelExporter.exportPivotGrid({
         ...
         customizeCell: function({excelCell, pivotCell}) {
-        if( pivotCell.area === 'row') {
-            if(pivotCell.type === 'GT'){
-                excelCell.font = { color: { argb: "cc0000"}, bold: true };
-            } else if (pivotCell.type === 'T') {
-                excelCell.fill = { type: 'pattern', pattern:'solid', fgColor: { argb:'94FF82'} }
-            } else {
-                excelCell.font = { italic: true, size: 10 };
+            if( pivotCell.area === 'row') {
+                if(pivotCell.type === 'GT'){
+                    excelCell.font = { color: { argb: "cc0000"}, bold: true };
+                } else if (pivotCell.type === 'T') {
+                    excelCell.fill = { type: 'pattern', pattern:'solid', fgColor: { argb:'94FF82'} }
+                } else {
+                    excelCell.font = { italic: true, size: 10 };
+                }
             }
         }
         ...
@@ -56,13 +57,13 @@ You can add and customize a progress indicator, similar to a DataGrid's [load pa
 
 ```js
   DevExpress.excelExporter.exportPivotGrid({
-	  component: e.component,
-	  worksheet: worksheet,
-	  topLeftCell: { row: 2, column: 2 },
-	  loadPanel: {
-		enabled: true,
-		text: 'Export large data...'
-	  }
+      component: e.component,
+      worksheet: worksheet,
+      topLeftCell: { row: 2, column: 2 },
+      loadPanel: {
+          enabled: true,
+	  text: 'Export large data...'
+      }
   })
 ```
 
