@@ -5,7 +5,7 @@ Excel Export Enhancements
 The [previos PivotGrid export implementation](https://js.devexpress.com/Documentation/ApiReference/UI_Widgets/dxPivotGrid/Configuration/export/) is limited and does not allow you to customize Excel files in the following ways:
 
 - customize cells (appearence, format, value)
-- customize the workbooks and worksheets (add headers, footers, comments, customize page orientation and so on)
+- customize the workbooks and worksheets
 - use custom formats
 - export the Fields Panel
 - export several widgets into one file
@@ -22,6 +22,7 @@ After some research, we plan to use the third-party [ExcelJS](https://github.com
 
 ## Customize Cell Appearence
 By passing a function to the customizeCell option of exportPivotGrid, you can apply flexible customizations to individual cells:
+
 ![cell appearence](https://user-images.githubusercontent.com/57402891/83850819-2467eb80-a71a-11ea-88d2-db4f204a57f4.png)
 
 ```js
@@ -60,6 +61,7 @@ By passing a function to the customizeCell option of exportPivotGrid, you can ap
 
 ## Display loadLoad Indicator
 You can customize a progress indicator, similar to a DataGrid's [load panel](https://js.devexpress.com/Documentation/ApiReference/UI_Widgets/dxDataGrid/Configuration/loadPanel/):
+
 ![custom headers, footers and notes](https://user-images.githubusercontent.com/57402891/84037137-d3205c00-a9a6-11ea-8344-9a7ca018db0c.png)
 
 ```js
@@ -79,6 +81,7 @@ You can customize a progress indicator, similar to a DataGrid's [load panel](htt
 ExcelJS library allows you to customize worksheets outside of the exported cell area. So, you can add your any text, image in any cell. Also you can write notes:
 
 ![custom headers, footers and notes](https://user-images.githubusercontent.com/57402891/83887298-ee922980-a750-11ea-815b-f7e7135d25f1.png)
+
 ```js
     DevExpress.excelExporter.exportPivotGrid({
         ...
@@ -111,6 +114,7 @@ ExcelJS library allows you to customize worksheets outside of the exported cell 
 You can export the Field Panel items to any cells and in any way convenient for you:
 
 ![export field panel](https://user-images.githubusercontent.com/57402891/84037703-a15bc500-a9a7-11ea-92b7-fb11dbb73c5a.png)
+
 ```js
     DevExpress.excelExporter.exportPivotGrid({
         component: e.component,
