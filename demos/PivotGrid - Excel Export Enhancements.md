@@ -100,7 +100,7 @@ You can export the Field Panel items to any cells and in any way convenient for 
 ```js
     DevExpress.excelExporter.exportPivotGrid({
         component: e.component,
-        worksheet: worksheet,
+        worksheet: worksheet
     })
     .then(function(dataGridRange) {
         var fields = grid.getDataSource().fields();      
@@ -115,11 +115,11 @@ You can export the Field Panel items to any cells and in any way convenient for 
         firstRow.height = 70;
         worksheet.mergeCells('D1:G1');
         fieldPanelCell.value = 'Feld Panel content:'
-        + ` \n - Filter fields: [${filterFields.join(', ')}]`              
-        + ` \n - Row fields: [${rowFields.join(', ')}]`
-        + ` \n - Column fields: [${columnFields.join(', ')}]`
-        + ` \n - Data fields: [${dataFields.join(', ')}]`
-        + ` \n - Applied filters: [${appliedFilters.join(', ')}]`;
+            + ` \n - Filter fields: [${filterFields.join(', ')}]`              
+            + ` \n - Row fields: [${rowFields.join(', ')}]`
+            + ` \n - Column fields: [${columnFields.join(', ')}]`
+            + ` \n - Data fields: [${dataFields.join(', ')}]`
+            + ` \n - Applied filters: [${appliedFilters.join(', ')}]`;
     
         fieldPanelCell.alignment = { horizontal: 'left', vertical: 'top',  wrapText: true };
         fieldPanelCell.fill = { type: 'pattern', pattern:'solid', fgColor: { argb:'FFD905'}};
@@ -127,6 +127,23 @@ You can export the Field Panel items to any cells and in any way convenient for 
         return Promise.resolve();
     }) 
 ```
+
+## Custom cell format
+You can use any format for any cell. You can also specify concreate custom format for concreate cells:
+
+![Custom cell format](https://user-images.githubusercontent.com/57402891/84011112-54afc400-a97e-11ea-917d-e29ba7feca2d.png)
+```js
+    DevExpress.excelExporter.exportPivotGrid({
+        component: e.component,
+        worksheet: worksheet,
+        customizeCell: function({excelCell, pivotCell}) {
+            if( pivotCell.area === 'data') {
+                excelCell.numFmt = '$ #,##';
+            }
+        }        
+    })
+```
+
 And so on...
 
 ## Implementation Details
@@ -139,9 +156,10 @@ ExcelJS is a library for reading, manipulating, and writing spreadsheet data and
 
 ## Live Sandboxes
 
-1. [Customize cell appearence](https://codepen.io/SNovikov/pen/BajBgrj)
-1. [Add custom headers and footers](https://codepen.io/SNovikov/pen/BajBgrj)
+1. [Customize Cell Appearence](https://codepen.io/SNovikov/pen/BajBgrj)
+1. [Custom Headers and Footers](https://codepen.io/SNovikov/pen/BajBgrj)
 1. [Export Fields Panel](https://codepen.io/SNovikov/pen/zYrxmMr)
+1. [Custom Cell Format](https://codepen.io/SNovikov/pen/pogvVmZ)
 
 ## Installation
 
