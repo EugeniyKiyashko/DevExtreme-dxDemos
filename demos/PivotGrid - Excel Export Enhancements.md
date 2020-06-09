@@ -79,7 +79,7 @@ ExcelJS library allows you to customize worksheets outside of the exported cell 
 You can use any format for any cell. You can also specify specific format for particular cells:
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/57402891/84130586-21d40180-aa4c-11ea-895f-16d2655095d6.png">
+  <img src="https://user-images.githubusercontent.com/57402891/84131224-f00f6a80-aa4c-11ea-99f5-da75d00f88d0.png">
 </p>
 
 ```js
