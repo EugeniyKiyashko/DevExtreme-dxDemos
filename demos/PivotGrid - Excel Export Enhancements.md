@@ -24,7 +24,7 @@ We plan to use the third-party [ExcelJS](https://github.com/exceljs/exceljs) lib
 By passing a function to the customizeCell option of exportPivotGrid, you can apply [flexible customizations](https://github.com/exceljs/exceljs#styles) to individual [cells](https://js.devexpress.com/Documentation/ApiReference/UI_Widgets/dxPivotGrid/Pivot_Grid_Cell/):
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/57402891/84128607-76c24880-aa49-11ea-94f7-5b4ac99871c4.png">
+  <img src="https://user-images.githubusercontent.com/57402891/84130962-9a3ac280-aa4c-11ea-91f5-da7a1125afbe.png">
 </p>
 
 ```js
@@ -44,7 +44,7 @@ By passing a function to the customizeCell option of exportPivotGrid, you can ap
 ExcelJS library allows you to customize worksheets outside of the exported cell area. So, you can add your own text, image in any cell:
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/57402891/84130249-b38f3f00-aa4b-11ea-95a0-2cdde7342dcc.png">
+  <img src="https://user-images.githubusercontent.com/57402891/84130445-f6e9ad80-aa4b-11ea-9980-6314db42439a.png">
 </p>
 
 ```js
@@ -79,7 +79,7 @@ ExcelJS library allows you to customize worksheets outside of the exported cell 
 You can use any format for any cell. You can also specify specific format for particular cells:
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/57402891/84129963-4bd8f400-aa4b-11ea-8efc-e3669e702ed1.png">
+  <img src="https://user-images.githubusercontent.com/57402891/84130586-21d40180-aa4c-11ea-895f-16d2655095d6.png">
 </p>
 
 ```js
