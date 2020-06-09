@@ -44,7 +44,7 @@ By passing a function to the customizeCell option of exportPivotGrid, you can ap
 ExcelJS library allows you to customize worksheets outside of the exported cell area. So, you can add your own text, image in any cell:
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/57402891/84129258-678fca80-aa4a-11ea-8c18-dd0064edc4ba.png">
+  <img src="https://user-images.githubusercontent.com/57402891/84130249-b38f3f00-aa4b-11ea-95a0-2cdde7342dcc.png">
 </p>
 
 ```js
