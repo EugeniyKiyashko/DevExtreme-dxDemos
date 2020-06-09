@@ -41,7 +41,7 @@ By passing a function to the customizeCell option of exportPivotGrid, you can ap
 ```
 
 ### Add custom headers and footers
-ExcelJS library allows you to customize worksheets outside of the exported cell area. So, you can add your own text, image in any cell:
+ExcelJS library allows you to customize worksheets outside of the exported cell area. So, you can add your own [text](https://github.com/exceljs/exceljs#rich-text-value), [image](https://github.com/exceljs/exceljs#images) in any cell:
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/57402891/84130445-f6e9ad80-aa4b-11ea-9980-6314db42439a.png">
