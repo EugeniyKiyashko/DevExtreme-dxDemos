@@ -2,14 +2,14 @@
 
 ## The Problem
 
-The [previos PivotGrid export implementation](https://js.devexpress.com/Documentation/ApiReference/UI_Widgets/dxPivotGrid/Configuration/export/) is limited and does not allow you to customize Excel files in the following ways:
+In the [current PivotGrid export implementation](https://js.devexpress.com/Documentation/ApiReference/UI_Widgets/dxPivotGrid/Configuration/export/) it is difficult to implement the following scenarios:
 
 - customize cells
-- customize the workbooks and worksheets
-- export additional sheets with custom data
+- customize workbooks and worksheets
 - export the Fields Panel
+- export additional sheets with custom data
 - use custom formats
-- display load indicator
+- export progress indicator
 - protect cells and sheets
 
 ## The Proposed Solution
@@ -21,62 +21,30 @@ We plan to use the third-party [ExcelJS](https://github.com/exceljs/exceljs) lib
 ## Use cases
 
 ### Customize Cell Appearence
-By passing a function to the customizeCell option of exportPivotGrid, you can apply flexible customizations to individual cells:
+By passing a function to the customizeCell option of exportPivotGrid, you can apply [flexible customizations](https://github.com/exceljs/exceljs#styles) to individual [cells](https://js.devexpress.com/Documentation/ApiReference/UI_Widgets/dxPivotGrid/Pivot_Grid_Cell/):
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/57402891/83850819-2467eb80-a71a-11ea-88d2-db4f204a57f4.png">
+  <img src="https://user-images.githubusercontent.com/57402891/84128607-76c24880-aa49-11ea-94f7-5b4ac99871c4.png">
 </p>
 
 ```js
     DevExpress.excelExporter.exportPivotGrid({
         ...
         customizeCell: function({excelCell, pivotCell}) {
-            if( pivotCell.area === 'row') {
-                if(pivotCell.type === 'GT'){
-                    excelCell.font = { color: { argb: "cc0000"}, bold: true };
-                } else if (pivotCell.type === 'T') {
-                    excelCell.fill = { type: 'pattern', pattern:'solid', fgColor: { argb:'94FF82'} }
-                } else {
-                    excelCell.font = { italic: true, size: 10 };
-                }
-            }
-        }
-        ...
-        if(pivotCell.columnType === 'GT') {
-            if(pivotCell.rowPath && pivotCell.rowPath[0] === 'Africa') {
-                excelCell.fill = { type: 'pattern', pattern:'solid', fgColor: { argb:'B6FF19'} }
-            } else {
-                excelCell.fill = { type: 'pattern', pattern:'solid', fgColor: { argb:'5EFF5E'} }
+            if(pivotCell.area === 'column') {
+                excelCell.font = { color: { argb: "0000cc"}, bold: true };
+                excelCell.fill = { type: 'pattern', pattern:'solid', fgColor: { argb:'FFFF5E'} }
+                excelCell.alignment = { vertical: 'middle', horizontal: 'center' };                      
             }
         }
     }
 ```
 
-### Display a Load Indicator
-You can add and customize a progress indicator, similar to a DataGrid's [load panel](https://js.devexpress.com/Documentation/ApiReference/UI_Widgets/dxDataGrid/Configuration/loadPanel/):
+### Add custom headers and footers
+ExcelJS library allows you to customize worksheets outside of the exported cell area. So, you can add your own text, image in any cell:
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/57402891/84038980-41661e00-a9a9-11ea-838b-f93a8ebad4f2.png">
-</p>
-
-```js
-    DevExpress.excelExporter.exportPivotGrid({
-        component: e.component,
-        worksheet: worksheet,
-        topLeftCell: { row: 2, column: 2 },
-        loadPanel: {
-            enabled: true,
-            text: 'Export large data...'
-        }
-    })
-```
-
-
-### Add custom headers, footers and notes
-ExcelJS library allows you to customize worksheets outside of the exported cell area. So, you can add your any text, image in any cell. Also you can write notes:
-
-<p align="center">
-  <img src="https://user-images.githubusercontent.com/57402891/83887298-ee922980-a750-11ea-815b-f7e7135d25f1.png">
+  <img src="https://user-images.githubusercontent.com/57402891/84129258-678fca80-aa4a-11ea-8c18-dd0064edc4ba.png">
 </p>
 
 ```js
@@ -84,73 +52,34 @@ ExcelJS library allows you to customize worksheets outside of the exported cell 
         ...
     }).then(function(dataGridRange) {
         //  add custom header
-        var headerRow = worksheet.getRow(1);
+        var headerRow = worksheet.getRow(1),
+            headerCell = headerRow.getCell(4);
+
+        worksheet.mergeCells('D1:H1');            
         headerRow.height = 70; 
-        worksheet.mergeCells('D1:H1');
-        headerRow.getCell(4).value = 'Average Sales \n Amount by Region';
-        headerRow.getCell(4).font = { name: 'Segoe UI Light', size: 22, bold: true };
-        headerRow.getCell(4).alignment = { horizontal: 'center',  wrapText: true };
-        
-        // add a note
-        worksheet.getCell('D1').note = 'Based on open data';
+        headerCell.value = 'Average Sales \n Amount by Region';
+        headerCell.font = { name: 'Segoe UI Light', size: 22, bold: true };
+        headerCell.alignment = { horizontal: 'center',  wrapText: true };
 
         // add custom footer
         var footerRowIndex = dataGridRange.to.row + 2;
-        var footerRow = worksheet.getRow(footerRowIndex);
+        var footerRow = worksheet.getRow(footerRowIndex),
+            footerCell = footerRow.getCell(1);
+
         worksheet.mergeCells(footerRowIndex, 1, footerRowIndex, 8);
-
-        footerRow.getCell(1).value = 'www.wikipedia.org';
-        footerRow.getCell(1).font = { color: { argb: 'BFBFBF' }, italic: true };
-        footerRow.getCell(1).alignment = { horizontal: 'right' };
+        footerCell.value = 'www.wikipedia.org';
+        footerCell.font = { color: { argb: 'BFBFBF' }, italic: true };
+        footerCell.alignment = { horizontal: 'right' };
 
         return Promise.resolve();
     })
-```
-
-### Export field panel data
-You can export the Field Panel items to any cells and in any way convenient for you:
-
-<p align="center">
-  <img src="https://user-images.githubusercontent.com/57402891/84037703-a15bc500-a9a7-11ea-92b7-fb11dbb73c5a.png">
-</p>
-
-
-```js
-    DevExpress.excelExporter.exportPivotGrid({
-        component: e.component,
-        worksheet: worksheet
-    })
-    .then(function(dataGridRange) {
-        var fields = grid.getDataSource().fields();      
-        var rowFields = fields.filter(r => r.area === 'row').map(r => r.dataField);
-        var columnFields = [...new Set(fields.filter(r => r.area === 'column').map(r => r.dataField))];
-        var dataFields = fields.filter(r => r.area === 'data').map(r => `[${r.summaryType}(${r.dataField}])`);        
-        var filterFields = fields.filter(r => r.area === 'filter').map(r => r.dataField);
-        var appliedFilters = fields.filter(r => r.filterValues !== undefined).map(r => `[${r.dataField}:${r.filterValues}]`);
-        var firstRow = worksheet.getRow(1),
-            fieldPanelCell = firstRow.getCell(4);
-    
-        firstRow.height = 70;
-        worksheet.mergeCells('D1:G1');
-        fieldPanelCell.value = 'Feld Panel content:'
-            + ` \n - Filter fields: [${filterFields.join(', ')}]`              
-            + ` \n - Row fields: [${rowFields.join(', ')}]`
-            + ` \n - Column fields: [${columnFields.join(', ')}]`
-            + ` \n - Data fields: [${dataFields.join(', ')}]`
-            + ` \n - Applied filters: [${appliedFilters.join(', ')}]`;
-    
-        fieldPanelCell.alignment = { horizontal: 'left', vertical: 'top',  wrapText: true };
-        fieldPanelCell.fill = { type: 'pattern', pattern:'solid', fgColor: { argb:'FFD905'}};
-
-        return Promise.resolve();
-    }) 
 ```
 
 ### Custom cells format
 You can use any format for any cell. You can also specify specific format for particular cells:
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/57402891/84116927-6ace8a80-aa39-11ea-9b76-332f390a6d9c.png">
+  <img src="https://user-images.githubusercontent.com/57402891/84129963-4bd8f400-aa4b-11ea-8efc-e3669e702ed1.png">
 </p>
 
 ```js
