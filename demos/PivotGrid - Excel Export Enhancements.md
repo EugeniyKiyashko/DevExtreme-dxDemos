@@ -24,7 +24,7 @@ We plan to use the third-party [ExcelJS](https://github.com/exceljs/exceljs) lib
 By passing a function to the customizeCell option of exportPivotGrid, you can apply flexible customizations to individual cells:
 
 <p align="center">
-  <img width="460" height="300" src="https://user-images.githubusercontent.com/57402891/83850819-2467eb80-a71a-11ea-88d2-db4f204a57f4.png">
+  <img src="https://user-images.githubusercontent.com/57402891/83850819-2467eb80-a71a-11ea-88d2-db4f204a57f4.png">
 </p>
 
 ```js
@@ -56,7 +56,7 @@ By passing a function to the customizeCell option of exportPivotGrid, you can ap
 You can add and customize a progress indicator, similar to a DataGrid's [load panel](https://js.devexpress.com/Documentation/ApiReference/UI_Widgets/dxDataGrid/Configuration/loadPanel/):
 
 <p align="center">
-  <img width="460" height="300" src="https://user-images.githubusercontent.com/57402891/84038980-41661e00-a9a9-11ea-838b-f93a8ebad4f2.png">
+  <img src="https://user-images.githubusercontent.com/57402891/84038980-41661e00-a9a9-11ea-838b-f93a8ebad4f2.png">
 </p>
 
 ```js
@@ -76,7 +76,7 @@ You can add and customize a progress indicator, similar to a DataGrid's [load pa
 ExcelJS library allows you to customize worksheets outside of the exported cell area. So, you can add your any text, image in any cell. Also you can write notes:
 
 <p align="center">
-  <img width="460" height="300" src="https://user-images.githubusercontent.com/57402891/83887298-ee922980-a750-11ea-815b-f7e7135d25f1.png">
+  <img src="https://user-images.githubusercontent.com/57402891/83887298-ee922980-a750-11ea-815b-f7e7135d25f1.png">
 </p>
 
 ```js
@@ -111,7 +111,7 @@ ExcelJS library allows you to customize worksheets outside of the exported cell 
 You can export the Field Panel items to any cells and in any way convenient for you:
 
 <p align="center">
-  <img width="460" height="300" src="https://user-images.githubusercontent.com/57402891/84037703-a15bc500-a9a7-11ea-92b7-fb11dbb73c5a.png">
+  <img src="https://user-images.githubusercontent.com/57402891/84037703-a15bc500-a9a7-11ea-92b7-fb11dbb73c5a.png">
 </p>
 
 
@@ -150,7 +150,7 @@ You can export the Field Panel items to any cells and in any way convenient for 
 You can use any format for any cell. You can also specify specific format for particular cells:
 
 <p align="center">
-  <img width="460" height="300" src="https://user-images.githubusercontent.com/57402891/84116927-6ace8a80-aa39-11ea-9b76-332f390a6d9c.png">
+  <img src="https://user-images.githubusercontent.com/57402891/84116927-6ace8a80-aa39-11ea-9b76-332f390a6d9c.png">
 </p>
 
 ```js
