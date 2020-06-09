@@ -1,4 +1,4 @@
-# Excel Export Enhancements
+# Pivot Grid - Excel Export Enhancements
 
 ## # The Problem
 
@@ -18,12 +18,14 @@ We plan to use the third-party [ExcelJS](https://github.com/exceljs/exceljs) lib
 
 **Note**: At the moment, we are testing the proposed solution and want to collect feedback and find out whether this solution covers most scenarios. 
 
-## # Scenarios
+## # Use cases
 
 ## Customize Cell Appearence
 By passing a function to the customizeCell option of exportPivotGrid, you can apply flexible customizations to individual cells:
 
-![cell appearence](https://user-images.githubusercontent.com/57402891/83850819-2467eb80-a71a-11ea-88d2-db4f204a57f4.png)
+<p align="center">
+  <img width="460" height="300" src="https://user-images.githubusercontent.com/57402891/83850819-2467eb80-a71a-11ea-88d2-db4f204a57f4.png">
+</p>
 
 ```js
     DevExpress.excelExporter.exportPivotGrid({
@@ -53,7 +55,9 @@ By passing a function to the customizeCell option of exportPivotGrid, you can ap
 ## Display a Load Indicator
 You can add and customize a progress indicator, similar to a DataGrid's [load panel](https://js.devexpress.com/Documentation/ApiReference/UI_Widgets/dxDataGrid/Configuration/loadPanel/):
 
-![Display a load Indicator](https://user-images.githubusercontent.com/57402891/84038980-41661e00-a9a9-11ea-838b-f93a8ebad4f2.png)
+<p align="center">
+  <img width="460" height="300" src="https://user-images.githubusercontent.com/57402891/84038980-41661e00-a9a9-11ea-838b-f93a8ebad4f2.png">
+</p>
 
 ```js
     DevExpress.excelExporter.exportPivotGrid({
@@ -71,7 +75,9 @@ You can add and customize a progress indicator, similar to a DataGrid's [load pa
 ## Add custom headers, footers and notes
 ExcelJS library allows you to customize worksheets outside of the exported cell area. So, you can add your any text, image in any cell. Also you can write notes:
 
-![custom headers, footers and notes](https://user-images.githubusercontent.com/57402891/83887298-ee922980-a750-11ea-815b-f7e7135d25f1.png)
+<p align="center">
+  <img width="460" height="300" src="https://user-images.githubusercontent.com/57402891/83887298-ee922980-a750-11ea-815b-f7e7135d25f1.png">
+</p>
 
 ```js
     DevExpress.excelExporter.exportPivotGrid({
@@ -104,7 +110,10 @@ ExcelJS library allows you to customize worksheets outside of the exported cell 
 ## Export field panel data
 You can export the Field Panel items to any cells and in any way convenient for you:
 
-![export field panel](https://user-images.githubusercontent.com/57402891/84037703-a15bc500-a9a7-11ea-92b7-fb11dbb73c5a.png)
+<p align="center">
+  <img width="460" height="300" src="https://user-images.githubusercontent.com/57402891/84037703-a15bc500-a9a7-11ea-92b7-fb11dbb73c5a.png">
+</p>
+
 
 ```js
     DevExpress.excelExporter.exportPivotGrid({
@@ -140,7 +149,10 @@ You can export the Field Panel items to any cells and in any way convenient for 
 ## Custom cell format
 You can use any format for any cell. You can also specify specific format for particular cells:
 
-![Custom cell format](https://user-images.githubusercontent.com/57402891/84116927-6ace8a80-aa39-11ea-9b76-332f390a6d9c.png)
+<p align="center">
+  <img width="460" height="300" src="https://user-images.githubusercontent.com/57402891/84116927-6ace8a80-aa39-11ea-9b76-332f390a6d9c.png">
+</p>
+
 ```js
     DevExpress.excelExporter.exportPivotGrid({
         component: e.component,
