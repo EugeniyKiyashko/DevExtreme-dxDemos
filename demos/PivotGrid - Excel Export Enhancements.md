@@ -50,7 +50,7 @@ ExcelJS library allows you to customize worksheets outside of the exported cell 
 ```js
     DevExpress.excelExporter.exportPivotGrid({
         ...
-    }).then(function(dataGridRange) {
+    }).then(function(cellsRange) {
         //  add custom header
         var headerRow = worksheet.getRow(1),
             headerCell = headerRow.getCell(4);
@@ -62,7 +62,7 @@ ExcelJS library allows you to customize worksheets outside of the exported cell 
         headerCell.alignment = { horizontal: 'center',  wrapText: true };
 
         // add custom footer
-        var footerRowIndex = dataGridRange.to.row + 2;
+        var footerRowIndex = cellsRange.to.row + 2;
         var footerRow = worksheet.getRow(footerRowIndex),
             footerCell = footerRow.getCell(1);
 
