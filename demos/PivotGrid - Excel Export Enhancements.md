@@ -1,6 +1,6 @@
 # Pivot Grid - Excel Export Enhancements
 
-## # The Problem
+## The Problem
 
 The [previos PivotGrid export implementation](https://js.devexpress.com/Documentation/ApiReference/UI_Widgets/dxPivotGrid/Configuration/export/) is limited and does not allow you to customize Excel files in the following ways:
 
@@ -12,15 +12,15 @@ The [previos PivotGrid export implementation](https://js.devexpress.com/Document
 - display load indicator
 - protect cells and sheets
 
-## # The Proposed Solution
+## The Proposed Solution
 
 We plan to use the third-party [ExcelJS](https://github.com/exceljs/exceljs) library in the way, similar to our DataGrid [export  implementation](https://js.devexpress.com/Demos/WidgetsGallery/Demo/DataGrid/ExcelJSOverview/React/Light/). We have a lot of positive feedback with it. 
 
 **Note**: At the moment, we are testing the proposed solution and want to collect feedback and find out whether this solution covers most scenarios. 
 
-## # Use cases
+## Use cases
 
-## Customize Cell Appearence
+### Customize Cell Appearence
 By passing a function to the customizeCell option of exportPivotGrid, you can apply flexible customizations to individual cells:
 
 <p align="center">
@@ -52,7 +52,7 @@ By passing a function to the customizeCell option of exportPivotGrid, you can ap
     }
 ```
 
-## Display a Load Indicator
+### Display a Load Indicator
 You can add and customize a progress indicator, similar to a DataGrid's [load panel](https://js.devexpress.com/Documentation/ApiReference/UI_Widgets/dxDataGrid/Configuration/loadPanel/):
 
 <p align="center">
@@ -72,7 +72,7 @@ You can add and customize a progress indicator, similar to a DataGrid's [load pa
 ```
 
 
-## Add custom headers, footers and notes
+### Add custom headers, footers and notes
 ExcelJS library allows you to customize worksheets outside of the exported cell area. So, you can add your any text, image in any cell. Also you can write notes:
 
 <p align="center">
@@ -107,7 +107,7 @@ ExcelJS library allows you to customize worksheets outside of the exported cell 
     })
 ```
 
-## Export field panel data
+### Export field panel data
 You can export the Field Panel items to any cells and in any way convenient for you:
 
 <p align="center">
@@ -146,7 +146,7 @@ You can export the Field Panel items to any cells and in any way convenient for 
     }) 
 ```
 
-## Custom cell format
+### Custom cells format
 You can use any format for any cell. You can also specify specific format for particular cells:
 
 <p align="center">
@@ -171,15 +171,15 @@ You can use any format for any cell. You can also specify specific format for pa
 
 
 
-## # Implementation Details
+## Implementation Details
 
 ### ExcelJS library
 
 ExcelJS is a library for reading, manipulating, and writing spreadsheet data and styles to Excel and JSON. See [ExcelJS](https://github.com/exceljs/exceljs) for more information.
 
-## # Try It
+## Try It
 
-## Live Sandboxes
+### Live Sandboxes
 
 1. [Column sizing](https://codepen.io/EugeniyKiyashko/pen/LYGYzwQ)
 1. [Customize cells appearence](https://codepen.io/SNovikov/pen/BajBgrj)
@@ -195,11 +195,11 @@ ExcelJS is a library for reading, manipulating, and writing spreadsheet data and
 1. [Export without rows merging](https://codepen.io/EugeniyKiyashko/pen/dyGogby)
 1. [Export without columns merging](https://codepen.io/EugeniyKiyashko/pen/OJMyMYX)
 
-## # We Need Your Feedback
+## We Need Your Feedback
 
-## Take a Quick Poll
+### Take a Quick Poll
 Wee need your feedback! [Do you need these capabilities when exporting PivotGrid in your projects?](https://docs.google.com/forms/d/17nP7HiGe5ILj1mK7Tjn6vojNJMIGUDdufdeDh6K547g/viewform?usp=sf_link)
 
-## # Get Notified of Updates
+### Get Notified of Updates
 
 Subscribe to this thread or to our [Facebook](https://www.facebook.com/DevExpress.DevExtreme/) and [Twitter](https://twitter.com/devextreme) accounts for updates on this topic.
