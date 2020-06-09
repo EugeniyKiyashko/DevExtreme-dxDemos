@@ -1,24 +1,24 @@
-Excel Export Enhancements
+# Excel Export Enhancements
 
-# The Problem
+## # The Problem
 
 The [previos PivotGrid export implementation](https://js.devexpress.com/Documentation/ApiReference/UI_Widgets/dxPivotGrid/Configuration/export/) is limited and does not allow you to customize Excel files in the following ways:
 
-- customize cells (appearence, format, value)
-- customize the workbooks and worksheets (add headers, footers, comments, customize page orientation and so on)
-- use custom formats
+- customize cells (appearence, format, value and so on)
+- customize the workbooks and worksheets (add headers, footers, comments, images, links, customize page orientation and so on)
+- export additional sheets with custom data
 - export the Fields Panel
-- export several widgets into one file
+- use custom formats
 - display load indicator
 - protect cells and sheets
 
-# The Proposed Solution
+## # The Proposed Solution
 
-After some research, we plan to use the third-party [ExcelJS](https://github.com/exceljs/exceljs) library in the way, similar to our DataGrid [export  implementation](https://js.devexpress.com/Demos/WidgetsGallery/Demo/DataGrid/ExcelJSOverview/React/Light/). We got very good export feedback with it.
+We plan to use the third-party [ExcelJS](https://github.com/exceljs/exceljs) library in the way, similar to our DataGrid [export  implementation](https://js.devexpress.com/Demos/WidgetsGallery/Demo/DataGrid/ExcelJSOverview/React/Light/). We got very good export feedback with it.
 
 **Note**: At the moment, we are testing the proposed solution and want to collect feedback and find out whether this solution covers most scenarios. 
 
-# Scenarios
+## # Scenarios
 
 ## Customize Cell Appearence
 By passing a function to the customizeCell option of exportPivotGrid, you can apply flexible customizations to individual cells:
@@ -37,17 +37,7 @@ By passing a function to the customizeCell option of exportPivotGrid, you can ap
                 excelCell.font = { italic: true, size: 10 };
             }
         }
-        if( pivotCell.area === 'column') {
-            excelCell.font = { color: { argb: "0000cc"}, bold: true };
-            excelCell.fill = { type: 'pattern', pattern:'solid', fgColor: { argb:'FFFF5E'} }
-            excelCell.alignment = { vertical: 'middle', horizontal: 'center' };                      
-        }
-        if (pivotCell.rowType === 'T') {
-            excelCell.fill = { type: 'pattern', pattern:'solid', fgColor: { argb:'94FF82'} }
-        }
-        if(pivotCell.rowType === 'GT') {
-            excelCell.fill = { type: 'pattern', pattern:'solid', fgColor: { argb:'5EFF5E'} }
-        }
+        ...
         if(pivotCell.columnType === 'GT') {
             if(pivotCell.rowPath && pivotCell.rowPath[0] === 'Africa') {
                 excelCell.fill = { type: 'pattern', pattern:'solid', fgColor: { argb:'B6FF19'} }
@@ -145,14 +135,18 @@ You can export the Field Panel items to any cells and in any way convenient for 
 ## Custom cell format
 You can use any format for any cell. You can also specify specific format for particular cells:
 
-![Custom cell format](https://user-images.githubusercontent.com/57402891/84011112-54afc400-a97e-11ea-917d-e29ba7feca2d.png)
+![Custom cell format](https://user-images.githubusercontent.com/57402891/84116927-6ace8a80-aa39-11ea-9b76-332f390a6d9c.png)
 ```js
     DevExpress.excelExporter.exportPivotGrid({
         component: e.component,
         worksheet: worksheet,
         customizeCell: function({excelCell, pivotCell}) {
-            if( pivotCell.area === 'data') {
-                excelCell.numFmt = '$ #,##';
+            if(pivotCell.area === 'data') {
+                if(pivotCell.dataType === 'number'){
+                    excelCell.numFmt = '$ #,##';
+                } else {
+                    excelCell.numFmt = 'dd-MM-yyyy';
+                }
             }
         }        
     })
@@ -160,13 +154,13 @@ You can use any format for any cell. You can also specify specific format for pa
 
 
 
-## Implementation Details
+## # Implementation Details
 
 ### ExcelJS library
 
 ExcelJS is a library for reading, manipulating, and writing spreadsheet data and styles to Excel and JSON. See [ExcelJS](https://github.com/exceljs/exceljs) for more information.
 
-# Try It
+## # Try It
 
 ## Live Sandboxes
 
@@ -184,11 +178,11 @@ ExcelJS is a library for reading, manipulating, and writing spreadsheet data and
 1. [Export without rows merging](https://codepen.io/EugeniyKiyashko/pen/dyGogby)
 1. [Export without columns merging](https://codepen.io/EugeniyKiyashko/pen/OJMyMYX)
 
-# We Need Your Feedback
+## # We Need Your Feedback
 
 ## Take a Quick Poll
 Wee need your feedback! [Do you need these capabilities when exporting PivotGrid in your projects?](https://docs.google.com/forms/d/17nP7HiGe5ILj1mK7Tjn6vojNJMIGUDdufdeDh6K547g/viewform?usp=sf_link)
 
-# Get Notified of Updates
+## # Get Notified of Updates
 
 Subscribe to this thread or to our [Facebook](https://www.facebook.com/DevExpress.DevExtreme/) and [Twitter](https://twitter.com/devextreme) accounts for updates on this topic.
