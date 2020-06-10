@@ -102,7 +102,7 @@ You can use any format for any cell. You can also specify specific format for pa
 You can customize the Load Panel to show the export progress:
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/57402891/84234077-396ac300-aafc-11ea-981a-713ffa391bfe.png">
+  <img src="https://user-images.githubusercontent.com/57402891/84234821-8733fb00-aafd-11ea-9574-7f03f4344f40.png">
 </p>
 
 ```js
