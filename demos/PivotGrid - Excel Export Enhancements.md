@@ -98,6 +98,24 @@ You can use any format for any cell. You can also specify specific format for pa
     })
 ```
 
+### Export progress indicator
+You can customize the Load Panel to show the export progress:
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/57402891/84234077-396ac300-aafc-11ea-981a-713ffa391bfe.png">
+</p>
+
+```js
+    DevExpress.excelExporter.exportPivotGrid({
+        component: e.component,
+        worksheet: worksheet,
+        loadPanel: {
+            enabled: true,
+            text: 'Export large data...'
+        }
+    })
+```
+
 
 
 ## Implementation Details
@@ -119,7 +137,7 @@ ExcelJS is a library for reading, manipulating, and writing spreadsheet data and
 1. [Export chart](https://codepen.io/SNovikov/pen/XWXmXVZ)
 1. [Hide and show certain fields](https://codepen.io/EugeniyKiyashko/pen/vYLEEdL)
 1. [Export borders according to PivotGrid border settings](https://codepen.io/EugeniyKiyashko/pen/pogJEqa)
-1. [Display load panel](https://codepen.io/EugeniyKiyashko/pen/yLeNVNx)
+1. [Export progress indicator](https://codepen.io/EugeniyKiyashko/pen/yLeNVNx)
 1. [Export using CSV format](https://codepen.io/EugeniyKiyashko/pen/xxZGREK)
 1. [Export without rows merging](https://codepen.io/EugeniyKiyashko/pen/dyGogby)
 1. [Export without columns merging](https://codepen.io/EugeniyKiyashko/pen/OJMyMYX)
