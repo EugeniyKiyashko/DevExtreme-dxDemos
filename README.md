@@ -52,6 +52,10 @@ A collection of online demos showing variously scenario using DevExtreme widgets
 * [dxPivotGrid - exceljs export sample](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/Devextreme-dxPivotGrid-exceljsexport/index.html)
 * [dxPivotGrid - ExcelJS export sample with Totals](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/Devextreme-dxPivotGrid-exceljsexport_2/index.html)
 
+* [dxForm - label alignment issue in 19.1(good)](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/Devextreme-dxForm-label-alignment-well/index.html)
+* [dxForm - label alignment issue in 19.1(bad)](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/Devextreme-dxForm-label-alignment-bad/index.html)
+
+
 ## DevExtreme Export DataGrid Demos using ExcelJS library
 
 * [DataGrid.ExcelJS CTP export - How to export only selected rows from DataGrid in Excel using the exportDataGrid function](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/datagrid-export/default/export-selected-rows/index.html)
