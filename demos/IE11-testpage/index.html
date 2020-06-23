@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>IE11 - ExcelJS v.4.0.1</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.10.1/polyfill.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.0.1/exceljs.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.2/FileSaver.min.js"></script>
+</head>
+<body>
+    <button onClick="saveFile()">Save file</div>
+    <script>
+		function saveFile() {
+			var workbook = new ExcelJS.Workbook();
+			var worksheet = workbook.addWorksheet('SheetName');
+
+			workbook.xlsx.writeBuffer().then(function(buffer) {
+			  saveAs(new Blob([buffer], { type: 'application/octet-stream' }), 'FileName.xlsx');
+			});
+		}
+    </script>
+</body>
+</html>
