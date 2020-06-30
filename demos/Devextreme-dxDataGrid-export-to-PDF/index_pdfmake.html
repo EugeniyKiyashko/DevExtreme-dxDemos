@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
+    <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.65/pdfmake.js'></script>
+    <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.65/vfs_fonts.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.2/jszip.min.js"></script>
+    <script type="text/javascript" src="https://cdn3.devexpress.com/jslib/20.1.4/js/dx.all.js"></script>
+    <script type="text/javascript" src="../themeSwitcher.js"></script>
+    <script type="text/javascript" src="./data.js"></script>
+</head>
+<body class="dx-viewport">
+    <h1>DevExtreme DataGrid - Export To PDF (pdfmake)</h1>
+    <hr>
+    <div id="DataGrid"></div>
+
+    <script>
+        addThemeSelectboxToBody();
+
+        $(function(){
+        function exportToPDF(doc, component, customizeCell) {
+
+          doc.docDefinition.styles['Title1'] = {
+            fontSize: 18, bold: true, alignment: 'left'
+          };
+          doc.docDefinition.styles['TableHeader'] = {
+            fillColor: '#2980ba',
+            color: 'white'
+          };
+
+          doc.docDefinition.content.push({ text: 'DataGrid Export To PDF', style: 'Title1' });
+
+          const dataProvider = component.getDataProvider(component.getController("export")._selectionOnly);
+          var matrix = [];
+          var headerRow = [];
+          var widths = [];
+          return new Promise((resolve) => {
+            dataProvider.ready().done(() => {
+                const columns = dataProvider.getColumns();
+                const headerRowCount = dataProvider.getHeaderRowCount();
+                const dataRowsCount = dataProvider.getRowsCount();
+
+                for(let i = 0; i < columns.length; i++)
+                  widths.push('*');
+
+                for(let rowIndex = 0; rowIndex < dataRowsCount; rowIndex++) {
+                    var row = [];
+                    const styles = dataProvider.getStyles();
+
+                    for(let cellIndex = 0; cellIndex < columns.length; cellIndex++) {
+                        const cellData = dataProvider.getCellData(rowIndex, cellIndex, true);
+                        const cell = cellData.cellSourceData;
+
+                        var pdfCell = { text: cellData.value };
+
+                        if(customizeCell !== undefined) {
+                            customizeCell(pdfCell, cell);
+                        }
+
+                        if(cellData.cellSourceData.rowType === 'header') {
+                            headerRow.push({ text: cellData.value, style: 'TableHeader'});
+                        } else {
+                            if(cellData.cellSourceData.rowType === 'group') {
+                                pdfCell.colSpan = 4;
+                            }
+                            row.push(pdfCell);
+                        }
+                    }
+                    if(rowIndex >= headerRowCount) {
+                        matrix.push(row);
+                    }
+                }   
+
+                resolve();
+            });
+        }).then(function() {
+          var table = {};
+
+          matrix.unshift(headerRow);
+
+          table = {
+            table: {
+                headerRows: 1,
+                body: matrix,
+                widths: widths
+              },
+              layout: {
+                hLineWidth: function (i, node) {
+                  return 0;
+                },
+                vLineWidth: function (i, node) {
+                  return 0;
+                },
+                hLineColor: function (i, node) {
+                  return 'gray';
+                },
+                vLineColor: function (i, node) {
+                  return 'gray';
+                }
+              }
+          };
+
+          doc.docDefinition.content.push(table);
+
+        });   
+      }
+
+  $('#DataGrid').dxDataGrid({
+    dataSource: employees,
+    showBorders: true,
+    keyExpr: "ID",
+    selectedRowKeys: [3, 8, 5],
+    groupPanel: {
+      visible: true
+    },
+    selection: {
+        mode: 'multiple'
+    },
+    export: {
+      enabled: true,
+      allowExportSelectedData: true
+    },
+    onExporting: function(e) {
+      var document = pdfMake.createPdf({
+            pageSize: 'A4',
+            pageOrientation: 'portrait',
+            pageMargins: [ 15, 30, 15, 30 ],
+            content: [
+            ],
+            styles: {
+            },
+            defaultStyle: {
+                fontSize: 10,
+                color: 'black'
+            }
+        });
+
+      exportToPDF(document, e.component, function(pdfCell, gridCell) {
+        if(gridCell.column.dataField === 'City') {
+          pdfCell = pdfCell || {};
+          pdfCell.fontStyle = 'italic';
+          pdfCell.fillColor = 'lightblue';
+        }
+
+        if(gridCell.rowType === 'group') {
+          pdfCell = pdfCell || {};
+          pdfCell.fillColor = 'skyblue';
+        }
+      }).then(function(){
+        // debugger
+        // document - advanced document customization
+      }).then(function() {
+        document.download("filePDF.pdf");
+      });
+
+      e.cancel = true;
+    },
+    columns: [
+      'FirstName',
+      'LastName',
+      'City',
+      {
+        dataField: 'State',
+        groupIndex: 0
+      }, {
+        dataField: 'Position',
+        width: 130
+      }
+    ]
+  });
+});
+        
+    </script>
+</body>
+</html>
