@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>dxMenu - testing keyboard navigation on contextMenu items</title>
+    <link rel="stylesheet" type="text/css" href="./style.css"/>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.2/jszip.min.js"></script>
+    <script type="text/javascript" src="https://eugeniykiyashko.github.io/DevExtreme-Demos/artifacts/dx.all.expPG.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/3.3.1/exceljs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.min.js"></script>
+    <script type="text/javascript" src="../themeSwitcher.js"></script>
+    <script type="text/javascript" src="./data.js"></script>
+</head>
+<body class="dx-viewport">
+    <div id="ExcelJSExport"></div>
+    <hr>
+    <div id="pivotgrid"></div>
+
+    <script>
+        addThemeSelectboxToBody();
+
+        $(function() {
+            this.pivotGrid = $("#pivotgrid").dxPivotGrid({  
+                allowSortingBySummary: true,
+        allowFiltering: true,
+        showBorders: true,
+        showColumnGrandTotals: true,
+        showRowGrandTotals: true,
+        showRowTotals: true,
+        showColumnTotals: true,
+        fieldChooser: {
+            enabled: true,
+            height: 400
+        },
+      fieldPanel: {
+        visible: true
+      },
+        export: {
+            enabled: true,
+            fileName: "Employees",
+            allowExportSelectedData: false
+        },
+        dataSource: {
+            fields: [{
+                caption: "Region",
+                width: 120,
+                dataField: "region",
+                area: "row",
+                expanded: true,
+                sortBySummaryField: "Total"
+            }, {
+                caption: "City",
+                dataField: "city",
+                width: 150,
+                area: "row"
+            }, {
+                dataField: "date",
+                dataType: "date",
+                expanded: true,
+                area: "column"
+            },  
+            {
+                caption: "Total",
+                dataField: "amount",
+                dataType: "number",
+                summaryType: "sum",
+                format: "currency",
+                area: "data"
+            },
+            {
+                caption:"Total x 2",
+                dataType:"number",
+                area: "data",
+                summaryType:"custom",
+                calculateCustomSummary: function(options) {
+                    if (options.summaryProcess == 'start') {
+                        options.totalValue = 0;
+                        options.amount = 0;
+
+                    }
+                    if (options.summaryProcess == 'calculate') {
+                        options.amount += options.value.amount;
+
+                    }
+                    if (options.summaryProcess == 'finalize') {
+                        options.totalValue = options.amount*2;
+                    }
+                },
+                format:{
+                    type: 'fixedPoint',
+                    precision: 2
+                }
+            }],
+            store: sales
+        }
+            }).dxPivotGrid("instance");
+
+            $("#ExcelJSExport").dxButton({
+                type: 'danger',
+                text: 'Export PivotGrid using ExcelJS lib',
+                onClick: function() {
+                    var workbook = new ExcelJS.Workbook();
+                    var worksheet = workbook.addWorksheet('Employees');
+                    
+                    DevExpress.excelExporter.exportPivotGrid({
+                        component: $("#pivotgrid").dxPivotGrid("instance"),
+                        worksheet: worksheet,
+                        autoFilterEnabled: true,
+                        topLeftCell: { row: 2, column: 3 }
+                    }).then(function() {
+                        // https://github.com/exceljs/exceljs#writing-xlsx
+                        workbook.xlsx.writeBuffer().then(function(buffer) {
+                            saveAs(new Blob([buffer], { type: 'application/octet-stream' }), 'Employees.xlsx');
+                        });
+                    });
+                }
+            })
+        });
+        
+    </script>
+</body>
+</html>

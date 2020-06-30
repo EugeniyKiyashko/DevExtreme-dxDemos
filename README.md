@@ -10,6 +10,8 @@ A collection of online demos showing variously scenario using DevExtreme widgets
 
 ## DevExtreme Demos - JQuery approach.
 
+* [DataGrid - Export To PDF](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/Devextreme-dxDataGrid-export-to-PDF/index.html)
+
 * [TabPanel Tabs v.2](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/Devextreme-tabPanelHeader-v.2/index.html)
 * [TabPanel Tabs v.3](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/Devextreme-tabPanelHeader-v.3/index.html)
 * [TabPanel Tabs v.4](https://eugeniykiyashko.github.io/DevExtreme-Demos/demos/Devextreme-tabPanelHeader-v.4/index.html)
