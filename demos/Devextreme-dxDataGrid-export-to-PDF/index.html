@@ -1,121 +1,128 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>dxMenu - testing keyboard navigation on contextMenu items</title>
-    <link rel="stylesheet" type="text/css" href="./style.css"/>
+    <h1>DevExtreme DataGrid - Export To PDF</h1>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.6/jspdf.plugin.autotable.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.2/jszip.min.js"></script>
-    <script type="text/javascript" src="https://eugeniykiyashko.github.io/DevExtreme-Demos/artifacts/dx.all.expPG.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/3.3.1/exceljs.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.min.js"></script>
+    <script type="text/javascript" src="https://cdn3.devexpress.com/jslib/20.1.4/js/dx.all.js"></script>
     <script type="text/javascript" src="../themeSwitcher.js"></script>
     <script type="text/javascript" src="./data.js"></script>
 </head>
 <body class="dx-viewport">
     <div id="ExcelJSExport"></div>
     <hr>
-    <div id="pivotgrid"></div>
+    <div id="DataGrid"></div>
 
     <script>
         addThemeSelectboxToBody();
 
-        $(function() {
-            this.pivotGrid = $("#pivotgrid").dxPivotGrid({  
-                allowSortingBySummary: true,
-        allowFiltering: true,
-        showBorders: true,
-        showColumnGrandTotals: true,
-        showRowGrandTotals: true,
-        showRowTotals: true,
-        showColumnTotals: true,
-        fieldChooser: {
-            enabled: true,
-            height: 400
-        },
-      fieldPanel: {
-        visible: true
-      },
-        export: {
-            enabled: true,
-            fileName: "Employees",
-            allowExportSelectedData: false
-        },
-        dataSource: {
-            fields: [{
-                caption: "Region",
-                width: 120,
-                dataField: "region",
-                area: "row",
-                expanded: true,
-                sortBySummaryField: "Total"
-            }, {
-                caption: "City",
-                dataField: "city",
-                width: 150,
-                area: "row"
-            }, {
-                dataField: "date",
-                dataType: "date",
-                expanded: true,
-                area: "column"
-            },  
-            {
-                caption: "Total",
-                dataField: "amount",
-                dataType: "number",
-                summaryType: "sum",
-                format: "currency",
-                area: "data"
-            },
-            {
-                caption:"Total x 2",
-                dataType:"number",
-                area: "data",
-                summaryType:"custom",
-                calculateCustomSummary: function(options) {
-                    if (options.summaryProcess == 'start') {
-                        options.totalValue = 0;
-                        options.amount = 0;
+        $(function(){
+        function exportToPDF(doc, component, customizeCell) {
+          var finalY = doc.lastAutoTable.finalY || 10
+          doc.text('DataGrid Export To PDF', 14, finalY + 15)
 
-                    }
-                    if (options.summaryProcess == 'calculate') {
-                        options.amount += options.value.amount;
+          const dataProvider = component.getDataProvider(component.getController("export")._selectionOnly);
+          var matrix = [];
+          var headerRow = [];
+          return new Promise((resolve) => {
+            dataProvider.ready().done(() => {
+                const columns = dataProvider.getColumns();
+                const headerRowCount = dataProvider.getHeaderRowCount();
+                const dataRowsCount = dataProvider.getRowsCount();
 
+                for(let rowIndex = 0; rowIndex < dataRowsCount; rowIndex++) {
+                    var row = [];
+                    const styles = dataProvider.getStyles();
+
+                    for(let cellIndex = 0; cellIndex < columns.length; cellIndex++) {
+                        const cellData = dataProvider.getCellData(rowIndex, cellIndex, true);
+                        const cell = cellData.cellSourceData;
+
+                        var pdfCell = { content: cellData.value };
+
+                        if(customizeCell !== undefined) {
+                            customizeCell(pdfCell, cell);
+                        }
+
+                        if(cellData.cellSourceData.rowType === 'header') {
+                            headerRow.push(cellData.value);
+                        } else {
+                            if(cellData.cellSourceData.rowType === 'group') {
+                                pdfCell.colSpan = 4;
+                            }
+                            row.push(pdfCell);
+                        }
                     }
-                    if (options.summaryProcess == 'finalize') {
-                        options.totalValue = options.amount*2;
+                    if(rowIndex >= headerRowCount) {
+                        matrix.push(row);
                     }
-                },
-                format:{
-                    type: 'fixedPoint',
-                    precision: 2
-                }
-            }],
-            store: sales
+                }   
+
+                resolve();
+            });
+        }).then(function() {
+          doc.autoTable({
+            startY: finalY + 20,
+            head: [headerRow],
+            body: matrix
+          });
+        });   
+      }
+
+  $('#DataGrid').dxDataGrid({
+    dataSource: employees,
+    showBorders: true,
+    keyExpr: "ID",
+    selectedRowKeys: [3, 8, 5],
+    groupPanel: {
+      visible: true
+    },
+    selection: {
+        mode: 'multiple'
+    },
+    export: {
+      enabled: true,
+      allowExportSelectedData: true
+    },
+    onExporting: function(e) {
+      var document = new jsPDF()
+
+      exportToPDF(document, e.component, function(pdfCell, gridCell) {
+        if(gridCell.column.dataField === 'City') {
+          pdfCell.styles = pdfCell.styles || {};
+          pdfCell.styles.fontStyle = 'italic';
+          pdfCell.styles.fillColor = 'lightblue';
         }
-            }).dxPivotGrid("instance");
 
-            $("#ExcelJSExport").dxButton({
-                type: 'danger',
-                text: 'Export PivotGrid using ExcelJS lib',
-                onClick: function() {
-                    var workbook = new ExcelJS.Workbook();
-                    var worksheet = workbook.addWorksheet('Employees');
-                    
-                    DevExpress.excelExporter.exportPivotGrid({
-                        component: $("#pivotgrid").dxPivotGrid("instance"),
-                        worksheet: worksheet,
-                        autoFilterEnabled: true,
-                        topLeftCell: { row: 2, column: 3 }
-                    }).then(function() {
-                        // https://github.com/exceljs/exceljs#writing-xlsx
-                        workbook.xlsx.writeBuffer().then(function(buffer) {
-                            saveAs(new Blob([buffer], { type: 'application/octet-stream' }), 'Employees.xlsx');
-                        });
-                    });
-                }
-            })
-        });
+        if(gridCell.rowType === 'group') {
+          pdfCell.styles = pdfCell.styles || {};
+          pdfCell.styles.fillColor = 'skyblue';
+        }
+      }).then(function(){
+        // debugger
+        // document - advanced document customization
+      }).then(function() {
+        document.save("filePDF.pdf");
+      });
+
+      e.cancel = true;
+    },
+    columns: [
+      'FirstName',
+      'LastName',
+      'City',
+      {
+        dataField: 'State',
+        groupIndex: 0
+      }, {
+        dataField: 'Position',
+        width: 130
+      }
+    ]
+  });
+});
         
     </script>
 </body>
