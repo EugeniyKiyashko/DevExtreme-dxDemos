@@ -86,10 +86,10 @@
               },
               layout: {
                 hLineWidth: function (i, node) {
-                  return 0;
+                  return (i === node.table.body.length) ? 1 : 0;
                 },
                 vLineWidth: function (i, node) {
-                  return 0;
+                  return 1;
                 },
                 hLineColor: function (i, node) {
                   return 'gray';
@@ -136,12 +136,13 @@
         });
 
       exportToPDF(document, e.component, function(pdfCell, gridCell) {
+        /*
         if(gridCell.column.dataField === 'City') {
           pdfCell = pdfCell || {};
           pdfCell.fontStyle = 'italic';
           pdfCell.fillColor = 'lightblue';
         }
-
+        */
         if(gridCell.rowType === 'group') {
           pdfCell = pdfCell || {};
           pdfCell.fillColor = 'skyblue';
