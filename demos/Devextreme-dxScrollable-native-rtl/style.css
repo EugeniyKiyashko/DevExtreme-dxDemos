@@ -1,15 +1,36 @@
-.main-container {
-    display: flex;
-    justify-content: center;
+fieldset {
+    border-width: 0;
 }
 
-#native-container, #native-scrollable, #native-container-rtl, #native-scrollable-rtl {
-    width: 200px;
-    height: 200px;
-    border: 1px solid grey;
+input, select {
+    margin-right: 10px;
+    margin-left: 10px;
 }
 
-.content{
-    width: 400px;
-    height: 400px;
+.scrollview-content {
+    width: 1500px;
+    height: 1500px;
+    border: 1px solid #0b837a;
 }
+
+.top-container {
+    height: 500px;
+}
+
+#element {
+    height: 50px;
+    width: 50px;
+    /* margin-left: 500px;  ltr */
+    margin-right: 500px; /* rtl */
+    background-color: #2bb97f;
+    border: 1px solid black;
+}
+
+.dx-scrollview {
+    border: 1px solid black;
+}
+/* 
+.dx-rtl .dx-scrollable-container, .dx-rtl .dx-scrollable-content {
+    direction: rtl !important;
+    float: none !important;
+} */
