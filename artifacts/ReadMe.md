@@ -1,1 +1,1 @@
-link: https://eugeniykiyashko.github.io/DevExtreme-Demos/artifacts/devextreme.dx.all.js
+link: https://eugeniykiyashko.github.io/DevExtreme-dxDemos/artifacts/devextreme.dx.all.js

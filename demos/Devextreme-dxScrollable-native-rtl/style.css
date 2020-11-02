@@ -1,0 +1,15 @@
+.main-container {
+    display: flex;
+    justify-content: center;
+}
+
+#native-container, #native-scrollable, #native-container-rtl, #native-scrollable-rtl {
+    width: 200px;
+    height: 200px;
+    border: 1px solid grey;
+}
+
+.content{
+    width: 400px;
+    height: 400px;
+}

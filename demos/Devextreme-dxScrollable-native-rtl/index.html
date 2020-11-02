@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DevExtreme jQuery Example</title>
+
+    <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/19.2.7/css/dx.common.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/19.2.7/css/dx.light.css" />
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!--<script type="text/javascript" src="../artifacts/js/cldr.js"></script>
+    <script type="text/javascript" src="../artifacts/js/cldr/event.js"></script>
+    <script type="text/javascript" src="../artifacts/js/cldr/supplemental.js"></script>
+    <script type="text/javascript" src="../artifacts/js/cldr/unresolved.js"></script>
+    <script type="text/javascript" src="../artifacts/js/globalize.js"></script>
+    <script type="text/javascript" src="../artifacts/js/globalize/message.js"></script>
+    <script type="text/javascript" src="../artifacts/js/globalize/number.js"></script>
+    <script type="text/javascript" src="../artifacts/js/globalize/currency.js"></script>
+    <script type="text/javascript" src="../artifacts/js/globalize/date.js"></script>-->
+
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/3.3.1/exceljs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.2/FileSaver.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.2/jszip.min.js"></script> -->
+
+    <!-- <script type="text/javascript" src="https://cdn3.devexpress.com/jslib/20.1.8/js/dx.all.js" charset="utf-8"></script> -->
+    <script type="text/javascript" src="https://eugeniykiyashko.github.io/DevExtreme-dxDemos/artifacts/devextreme.dx.all.js" charset="utf-8"></script>
+    <!-- RENOVATION -->
+    <!-- <script type="text/javascript" src="../artifacts/js-renovation/dx.all.debug.js" charset="utf-8"></script> -->
+</head>
+<body>
+    <div id="scrollView">
+        <div class="scrollview-content">
+            <div>
+              <div class="top-container"></div>
+              <div id="element"></div>
+            </div>
+          </div>
+    </div>
+    <div id='offset'></div>
+    <div id='realOffset'></div>
+    <div id='onScrollOffset'></div>
+    <fieldset>
+        <label htmlFor="direction">Select direction</label>
+        <select id="direction" value="direction" onChange="call(value)">
+          <option value="vertical">Vertical</option>
+          <option value="horizontal">Horizontal</option>
+          <option value="both">Both</option>
+        </select>
+      </fieldset>
+    <div id='selectBox'></div>
+    <div id="scrollToElementButton"></div>
+    <div id='dataGrid'></div>
+    <div id='dataGrid2'></div>
+
+    <div id='scheduler'></div>
+    <script>
+        
+        function call(value){$("#scrollView").dxScrollView("instance").option('direction', value);}
+
+        $(function() {
+            var scrollView = $("#scrollView").dxScrollView({
+                width: 300,
+                height: 300,
+               // disabled: true,
+               rtlEnabled: true,
+              direction: 'both',
+              useNative: true,
+                onScroll: function(e) { 
+                    console.log(e);
+                    $('#offset').text('ScrollOffset: ' + JSON.stringify(e.component.scrollOffset()));
+                    $('#realOffset').text('RealScrollOffset: ' + JSON.stringify({ top: $(".dx-scrollable-container").get(0).scrollTop, left: $(".dx-scrollable-container").get(0).scrollLeft }));
+                    $('#onScrollOffset').text('OnScroll.scrollOffset: ' + JSON.stringify(e.scrollOffset));
+                  //  console.log(e.component.scrollOffset())
+                },
+            }).dxScrollView('instance');
+            
+            $('#offset').text('ScrollOffset: ' + JSON.stringify(scrollView.scrollOffset()));
+            $('#realOffset').text('RealScrollOffset: ' + JSON.stringify({ top: $(".dx-scrollable-container").get(0).scrollTop, left: $(".dx-scrollable-container").get(0).scrollLeft }));
+            $('#onScrollOffset').text('ScrollOffset: ');
+
+            $("#selectBox").dxSelectBox({
+                dataSource: ["vertical", 'horizontal', 'both'],
+                onValueChanged: function(e) {
+                    scrollView.option("direction", e.value);
+                }
+            })
+            
+            $("#scrollToElementButton").dxButton({
+                text: 'scrollToElement',
+                onClick: function() {
+                    scrollView.scrollToElement($("#element"));
+                }
+            })
+
+            const $testElement = $('#dataGrid');
+
+$testElement.parent().attr('dir', 'rtl').css({ width: '1000px', height: '500px' });
+
+const instance = $testElement.dxDataGrid({
+    commonColumnSettings: {
+                    allowResizing: true
+                },
+                width: 500,
+                rtlEnabled: true,
+                columnResizingMode: 'widget',
+                allowColumnResizing: true,
+                loadingTimeout: undefined,
+                dataSource: [{}],
+                scrolling: { useNative: true },
+                columns: [
+                    { caption: 'Column 1', width: '125px' },
+                    { caption: 'Column 2', width: '125px' },
+                    { caption: 'Column 3', width: '125px' },
+                    { caption: 'Column 4', width: '125px' }
+                ]
+}).dxDataGrid('instance');
+
+$('#dataGrid2').dxDataGrid({
+    width: 200,
+            rtlEnabled: true,
+            scrolling: { useNative: true },
+            columns: [{ dataField: 'field1', width: 100 }, { dataField: 'field2', width: 100 }, { dataField: 'field3', width: 100 }, { dataField: 'field4', width: 100 }, { dataField: 'field5', width: 100 }],
+            dataSource: [{ field1: '1', field2: '2', field3: '3', field4: '4' }]
+}).dxDataGrid('instance');
+        });
+
+
+        //------------------scheduler
+
+        $("#scheduler").dxScheduler({
+            currentView: 'day',
+            currentDate: new Date(2015, 10, 3),
+            crossScrollingEnabled: true,
+            rtlEnabled: true
+        })
+    </script>
+</body>
+</html>
