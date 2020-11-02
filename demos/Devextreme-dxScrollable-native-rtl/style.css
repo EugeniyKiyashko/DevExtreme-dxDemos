@@ -29,8 +29,3 @@ input, select {
 .dx-scrollview {
     border: 1px solid black;
 }
-/* 
-.dx-rtl .dx-scrollable-container, .dx-rtl .dx-scrollable-content {
-    direction: rtl !important;
-    float: none !important;
-} */
