@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>dxScrollable - resize </title>
+    <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/20.1.7/css/dx.common.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/20.1.7/css/dx.light.css"/>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.2/jszip.min.js"></script>
+    <script type="text/javascript" src="https://eugeniykiyashko.github.io/DevExtreme-dxDemos/artifacts/dx.all.rtlOnResize.js"></script>
+</head>
+<body>
+    <div class="main-container">
+        <div class="dx-viewport demo-container">
+            <div id="scrollNativeStrategy">
+                <div style="width: 1000px;">ScrollView native strategy</div>
+            </div>
+            <br />
+            <br />
+            <br />
+            <div id="scrollSimulatedStrategy">
+                <div style="width: 1000px;">ScrollView simulated strategy</div>
+            </div>
+            <br />
+            <br />
+            <br />
+            <div id="scrollNative" style="width:100%; overflow-x:auto;direction:rtl;">
+                <div style="width: 1000px;">Scrollable native</div>
+            </div>
+        </div>
+    </div>
+    
+
+    <script>
+        $(function () {
+            $("#scrollNativeStrategy").dxScrollView({
+                rtlEnabled: true,
+                useNative: true,
+                direction: "horizontal",
+                showScrollbar: "always"
+            });
+
+            $("#scrollSimulatedStrategy").dxScrollView({
+                rtlEnabled: true,
+                useNative: false,
+                direction: "horizontal",
+                showScrollbar: "always"
+            });
+        });
+    </script>
+</body>
+</html>
