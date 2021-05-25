@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>dxMenu - testing keyboard navigation on contextMenu items</title>
+    <link rel="stylesheet" type="text/css" href="./style.css"/>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
+    <script type="text/javascript" src="./data.js"></script>
+    <script type="text/javascript" src="https://eugeniykiyashko.github.io/DevExtreme-dxDemos/artifacts/dx.all.debug.autocomplete.js"></script>
+</head>
+<body class="dx-viewport Web dx-device-desktop dx-device-generic dx-theme-generic dx-theme-generic-typography dx-color-scheme-dark">
+    
+    
+    <div class="dx-viewport demo-container">
+        <div class="form">
+            <div class="dx-fieldset">
+                <div class="dx-fieldset-header">Default Mode</div>
+                <div class="dx-field">
+                    <div class="dx-field-label">First Name</div>
+                    <div class="dx-field-value">
+                        <div id="first-name"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="dx-fieldset">
+                <div class="dx-fieldset-header">With Clear Button</div>
+                <div class="dx-field">
+                    <div class="dx-field-label">Last Name</div>
+                    <div class="dx-field-value">
+                        <div id="last-name"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="dx-fieldset">
+                <div class="dx-fieldset-header">Disabled</div>
+                <div class="dx-field">
+                    <div class="dx-field-label">Position</div>
+                    <div class="dx-field-value">
+                        <div id="position"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="dx-fieldset">
+                <div class="dx-fieldset-header">With Custom Search Options</div>
+                <div class="dx-field">
+                    <div class="dx-field-label">City</div>
+                    <div class="dx-field-value">
+                        <div id="city"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="dx-fieldset">
+                <div class="dx-fieldset-header">Custom Item Template and Data Source Usage</div>
+                <div class="dx-field">
+                    <div class="dx-field-label">State</div>
+                    <div class="dx-field-value">
+                        <div id="state"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="dx-fieldset">
+                <div class="dx-fieldset-header">Event Handling</div>
+                <div class="employees-data">
+                    Employee data: <span id="employee-data"></span>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+
+    <script>
+$(function(){
+            var firstName = "",
+        lastName = "",
+        position = positions[0],
+        city = "",
+        state = "";
+    
+    $("#first-name").dxAutocomplete({
+        dataSource: names,
+        placeholder: "Type first name...",
+        onValueChanged: function(data) {
+            firstName = data.value;
+            updateEmployeeInfo();
+        }
+    });
+    
+    $("#last-name").dxAutocomplete({
+        dataSource: surnames,
+        placeholder: "Type last name...",
+        showClearButton: true,
+        onValueChanged: function(data) {
+            lastName = data.value;
+            updateEmployeeInfo();
+        }
+    });
+    
+    $("#position").dxAutocomplete({
+        dataSource: positions,
+        value: position,
+        disabled: true
+    });
+    
+    $("#city").dxAutocomplete({
+        dataSource: cities,
+        minSearchLength: 2,
+        searchTimeout: 500,
+        placeholder: "Type two symbols to search...",
+        onValueChanged: function(data) {
+            city = data.value;
+            updateEmployeeInfo();
+        }
+    });
+    
+    $("#state").dxAutocomplete({
+        dataSource: new DevExpress.data.ODataStore({
+            url: "https://js.devexpress.com/Demos/DevAV/odata/States?$select=Sate_ID,State_Long,State_Short",
+            key: "Sate_ID",
+            keyType: "Int32"
+        }),
+        placeholder: "Type state name...",
+        valueExpr: "State_Long",
+        itemTemplate: function(data) {
+            return $("<div>" + data.State_Long + 
+                " (" + data.State_Short + ")" + "</div>");
+        },
+        onValueChanged: function(data) {
+            state = data.value;
+            updateEmployeeInfo();
+        }
+    });
+    
+    function updateEmployeeInfo() {
+        var result = $.trim((firstName || "") + " " + (lastName || ""));
+    
+        result += (result && position) ? (", " + position) : position;
+        result += (result && city) ? (", " + city) : city;
+        result += (result && state) ? (", " + state) : state;
+    
+        $("#employee-data").text(result);
+    }
+        });
+    </script>
+</body>
+</html>
