@@ -29,6 +29,7 @@ A collection of online demos showing variously scenario using DevExtreme widgets
 * [dxDataGrid - record-grouping](https://eugeniykiyashko.github.io/DevExtreme-dxDemos/demos/Devextreme-dxDataGrid-record-grouping/index.html)
 * [dxList in searchMode ](https://eugeniykiyashko.github.io/DevExtreme-dxDemos/demos/Devextreme-dxList-jquery-example/index.html)
 * [dxList - Item Drag&Drop ](https://eugeniykiyashko.github.io/DevExtreme-dxDemos/demos/Devextreme-dxList-dragging/index.html)
+* [dxAutocomplete](https://eugeniykiyashko.github.io/DevExtreme-dxDemos/demos/Devextreme-autocomplete/index.html)
 * [dxList, dxTreeView, dxSelectBox, dxLookup, dxAccordion for JAWS screen reader testing](https://eugeniykiyashko.github.io/DevExtreme-dxDemos/demos/Jaws-screen-reader-testing/index.html)
 * [dxForm - NVDA screen reader testing for labels](https://eugeniykiyashko.github.io/DevExtreme-dxDemos/demos/NVDA-screen-reader-testing-for-form-labels/index.html)
 * [dxLookup - simple and grouped](https://eugeniykiyashko.github.io/DevExtreme-dxDemos/demos/Devextreme-dxLookup-simple-and-group/index.html)
