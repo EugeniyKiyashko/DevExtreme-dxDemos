@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>dxRadioGroup, Checkbox</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/21.1.7/css/dx.common.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/21.1.7/css/dx.light.css"/>
+    <link rel="stylesheet" type="text/css" href="./style.css"/>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
+    <script type="text/javascript" src="./data.js"></script>
+    <script type="text/javascript" src="https://cdn3.devexpress.com/jslib/21.1.7/js/dx.all.js"></script>
+</head>
+<body class="dx-viewport Web dx-device-desktop dx-device-generic dx-theme-generic dx-theme-generic-typography dx-color-scheme-dark">
+    <div class="demo-container">
+        <div class="form">
+          <div class="dx-fieldset">
+            <div class="dx-field">
+              <div class="dx-field-label">Default mode</div>
+              <div class="dx-field-value">
+                <div id="radio-group-simple"></div>
+              </div>
+            </div>
+            <div class="dx-field">
+              <div class="dx-field-label">Disabled</div>
+              <div class="dx-field-value">
+                <div id="radio-group-disabled"></div>
+              </div>
+            </div>
+            <div class="dx-field">
+              <div class="dx-field-label">Horizontal layout</div>
+              <div class="dx-field-value">
+                <div id="radio-group-change-layout"></div>
+              </div>
+            </div>
+            <div class="dx-field">
+              <div class="dx-field-label">Custom item template</div>
+              <div class="dx-field-value">
+                <div id="radio-group-with-template"></div>
+              </div>
+            </div>
+            <div class="dx-field">
+              <div class="dx-field-label">Event handling</div>
+              <div class="dx-field-value">
+                <div id="radio-group-with-selection"></div>
+              </div>
+            </div>
+          </div>
+          <div id="tasks-list">
+            Tasks by selected priority:
+            <ul id="list"></ul>
+          </div>
+        </div>
+
+        <div class="form">
+            <div class="dx-fieldset">
+              <div class="dx-field">
+                <div class="dx-field-label">Checked</div>
+                <div class="dx-field-value">
+                  <div id="checked"></div>
+                </div>
+              </div>
+              <div class="dx-field">
+                <div class="dx-field-label">Unchecked</div>
+                <div class="dx-field-value">
+                  <div id="unchecked"></div>
+                </div>
+              </div>
+              <div class="dx-field">
+                <div class="dx-field-label">Indeterminate</div>
+                <div class="dx-field-value">
+                  <div id="indeterminate"></div>
+                </div>
+              </div>
+              <div class="dx-field">
+                <div class="dx-field-label">Handle value change</div>
+                <div class="dx-field-value">
+                  <div id="handler"></div>
+                </div>
+              </div>
+              <div class="dx-field">
+                <div class="dx-field-label">Disabled</div>
+                <div class="dx-field-value">
+                  <div id="disabled"></div>
+                </div>
+              </div>
+              <div class="dx-field">
+                <div class="dx-field-label">Custom size</div>
+                <div class="dx-field-value">
+                  <div id="customSize"></div>
+                </div>
+              </div>
+              <div class="dx-field">
+                <div class="dx-field-label">With label</div>
+                <div class="dx-field-value">
+                  <div id="withText"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+
+    <script>
+$(() => {
+  $('#radio-group-simple').dxRadioGroup({
+    items: priorities,
+    value: priorities[0],
+  });
+
+  $('#radio-group-disabled').dxRadioGroup({
+    items: priorities,
+    value: priorities[1],
+    disabled: true,
+  });
+
+  $('#radio-group-change-layout').dxRadioGroup({
+    items: priorities,
+    value: priorities[0],
+    layout: 'horizontal',
+  });
+
+  $('#radio-group-with-template').dxRadioGroup({
+    items: priorities,
+    value: priorities[2],
+    itemTemplate(itemData, _, itemElement) {
+      itemElement
+        .parent().addClass(itemData.toLowerCase())
+        .text(itemData);
+    },
+  });
+
+  const radioGroup = $('#radio-group-with-selection').dxRadioGroup({
+    items: priorityEntities,
+    valueExpr: 'id',
+    displayExpr: 'text',
+    onValueChanged(e) {
+      $('#list').children().remove();
+      $.each(tasks, (i, item) => {
+        if (item.priority === e.value) {
+          $('#list').append($('<li/>').text(tasks[i].subject));
+        }
+      });
+    },
+  }).dxRadioGroup('instance');
+
+  radioGroup.option('value', priorityEntities[0].id);
+
+  $(() => {
+  $('#checked').dxCheckBox({
+    value: true,
+  });
+
+  $('#unchecked').dxCheckBox({
+    value: false,
+  });
+
+  $('#indeterminate').dxCheckBox({
+    value: null,
+  });
+
+  $('#handler').dxCheckBox({
+    value: null,
+    onValueChanged(data) {
+      disabledCheckbox.option('value', data.value);
+    },
+  });
+
+  const disabledCheckbox = $('#disabled').dxCheckBox({
+    value: null,
+    disabled: true,
+  }).dxCheckBox('instance');
+
+  $('#customSize').dxCheckBox({
+    value: null,
+    iconSize: 30,
+  });
+
+  $('#withText').dxCheckBox({
+    value: true,
+    text: 'Label',
+  });
+});
+
+});
+
+    </script>
+</body>
+</html>
