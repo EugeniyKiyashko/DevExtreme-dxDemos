@@ -12,6 +12,8 @@ A collection of online demos showing variously scenario using DevExtreme widgets
 
 * [DataGrid - Export To PDF](https://eugeniykiyashko.github.io/DevExtreme-dxDemos/demos/Devextreme-dxDataGrid-export-to-PDF/index.html)
 
+* [Checkbox, RadioGroup - accessibility(LightHouse)](https://eugeniykiyashko.github.io/DevExtreme-dxDemos/demos/Devextreme-radiogroup-checkbox/index.html)
+
 * [TabPanel Tabs v.2](https://eugeniykiyashko.github.io/DevExtreme-dxDemos/demos/Devextreme-tabPanelHeader-v.2/index.html)
 * [TabPanel Tabs v.3](https://eugeniykiyashko.github.io/DevExtreme-dxDemos/demos/Devextreme-tabPanelHeader-v.3/index.html)
 * [TabPanel Tabs v.4](https://eugeniykiyashko.github.io/DevExtreme-dxDemos/demos/Devextreme-tabPanelHeader-v.4/index.html)
