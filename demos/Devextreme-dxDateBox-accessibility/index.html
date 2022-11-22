@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>dxDateBox - accessibility</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/19.1.6/css/dx.common.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/19.1.6/css/dx.light.css"/>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.2/jszip.min.js"></script>
+    <script type="text/javascript" src="https://eugeniykiyashko.github.io/DevExtreme-dxDemos/artifacts/dx.all.acc.js"></script>
+</head>
+<body>
+     
+  <div id="container"></div>
+
+    <script>
+        $(() => {
+            const pickerTypes = ['calendar', 'list', 'rollers'];
+            const deferRenderings = [true, false];
+
+            pickerTypes.forEach(pickerType => {
+                deferRenderings.forEach(deferRendering => {
+                [ false].forEach((opened) => {
+                    const $dateBox = $("<div>")
+                    $("#container").append($dateBox)
+                    $dateBox.dxDateBox({ deferRendering, pickerType, opened, hint: `def:${deferRendering}pick:${pickerType}open:${opened}` })
+                })
+                });
+                });
+       });
+    </script>
+</body>
+</html>
