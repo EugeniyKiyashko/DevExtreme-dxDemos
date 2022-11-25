@@ -5,8 +5,17 @@ jobs:
   example_matrix:
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest] # Defining Ubuntu and Windows OS
-        version: [10, 12, 14] # Defining versions (three Node.js versions)
+        THEME: [generic.light]
+        COMPONENT_FOLDER: [treeList, dataGrid, scheduler, editors, htmlEditor, navigation, renovation]
+        include:
+          - GUARANTINE_MODE: false
+          - GUARANTINE_MODE: true
+            COMPONENT_FOLDER: treeList
+          - PLATFORM: jquery
+            COMPONENT_FOLDER: renovation
+          - IN_PROGRESS_RENOVATION: true
+            COMPONENT_FOLDER: renovation
+            PLATFORM: jquery
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/setup-node@v3
