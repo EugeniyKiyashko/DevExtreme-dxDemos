@@ -9,6 +9,6 @@ jobs:
         COMPONENT_FOLDER: [treeList, dataGrid, scheduler, editors, htmlEditor, navigation, renovation]
         include:
           - GUARANTINE_MODE: false
-    runs-on: ${{ matrix.os }}
+    runs-on: ${{ matrix }}
     steps:
       - uses: actions/setup-node@v3
