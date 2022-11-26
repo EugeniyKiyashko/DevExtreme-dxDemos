@@ -13,12 +13,7 @@ jobs:
             COMPONENT_FOLDER: dataGrid
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/setup-node@v3
-      
-      - name: Run npm install
-        run: npm install --no-audit --no-fund
-      
-      - name: Run TestCafe
-        run:
-            all_args="--componentFolder ${{ matrix.ARGS.COMPONEN_FOLDER }}"
-           npm run test-testcafe -- $all_args
+    - name: arguments
+      run:
+        all_args="--componentFolder ${{ matrix.COMPONENT_FOLDER }}"
+        echo "$all_args"`
