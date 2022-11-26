@@ -23,5 +23,5 @@ jobs:
     steps:
     - name: arguments
       run:
-        all_args="--concurrency 2 --componentFolder ${{ matrix.COMPONENT_FOLDER }} --quarantineMode ${{ matrix.GUARANTINE_MODE }} $THEME $INDICES $PLATFORM" 
+        all_args="--concurrency 2 --componentFolder ${{ matrix.COMPONENT_FOLDER }} --quarantineMode ${{ matrix.GUARANTINE_MODE }} $THEME $INDICES --platform ${{ matrix.plarform }}" 
         echo "$all_args"`
