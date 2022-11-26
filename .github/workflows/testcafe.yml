@@ -3,6 +3,7 @@ on: push
 # The trigger to which the workflow will run 
 jobs:
   example_matrix:
+    name: ${{ matrix.COMPONENT_FOLDER }}
     strategy:
       fail-fast: false
       matrix:
