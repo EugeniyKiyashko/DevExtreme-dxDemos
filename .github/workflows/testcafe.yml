@@ -4,6 +4,7 @@ on: push
 jobs:
   example_matrix:
     strategy:
+      fail-fast: false
       matrix:
         THEME: [generic.light]
         GUARANTINE_MODE: [false]
@@ -11,6 +12,10 @@ jobs:
         include:
           - GUARANTINE_MODE: true
             COMPONENT_FOLDER: dataGrid
+          - GUARANTINE_MODE: true
+            COMPONENT_FOLDER: treeList
+          - GUARANTINE_MODE: true
+            COMPONENT_FOLDER: scheduler
     runs-on: ubuntu-latest
     steps:
     - name: arguments
