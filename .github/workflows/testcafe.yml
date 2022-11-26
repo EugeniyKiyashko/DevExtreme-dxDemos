@@ -15,6 +15,9 @@ jobs:
     steps:
       - uses: actions/setup-node@v3
       
+      - name: Run npm install
+        run: npm install --no-audit --no-fund
+      
       - name: Run TestCafe
         run:
             all_args="--componentFolder ${{ matrix.ARGS.COMPONEN_FOLDER }}"
