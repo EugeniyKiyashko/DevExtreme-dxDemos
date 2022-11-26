@@ -19,6 +19,8 @@ jobs:
             COMPONENT_FOLDER: scheduler
           - COMPONENT_FOLDER: renovation
             PLATFORM: jquery
+          - COMPONENT_FOLDER: renovation
+            PLATFORM: react
     runs-on: ubuntu-latest
     steps:
     - name: arguments
