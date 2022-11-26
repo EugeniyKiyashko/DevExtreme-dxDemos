@@ -19,11 +19,12 @@ jobs:
             COMPONENT_FOLDER: scheduler
           - COMPONENT_FOLDER: renovation
             PLATFORM: jquery
+            IN_PROGRESS_RENOVATION: true
           - COMPONENT_FOLDER: renovation
             PLATFORM: react
     runs-on: ubuntu-latest
     steps:
     - name: arguments
       run:
-        all_args="--concurrency 2 --componentFolder ${{ matrix.COMPONENT_FOLDER }} --quarantineMode ${{ matrix.GUARANTINE_MODE }} $THEME $INDICES --platform ${{ matrix.PLATFORM }}" 
+        all_args="--concurrency 2 --componentFolder ${{ matrix.COMPONENT_FOLDER }} --quarantineMode ${{ matrix.GUARANTINE_MODE }} $THEME $INDICES --platform ${{ matrix.PLATFORM }} --meta ${{ matrix.IN_PROGRESS_RENOVATION }} 
         echo "$all_args"`
