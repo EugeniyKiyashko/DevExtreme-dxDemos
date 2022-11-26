@@ -8,7 +8,7 @@ jobs:
       fail-fast: false
       matrix:
         THEME: [generic.light]
-        COMPONENT_FOLDER: [treeList, dataGrid, scheduler, editors, htmlEditor, navigation, renovation]
+        COMPONENT_FOLDER: [treeList, dataGrid, scheduler, editors, htmlEditor, navigation]
         include:
           - GUARANTINE_MODE: false
           - GUARANTINE_MODE: true
