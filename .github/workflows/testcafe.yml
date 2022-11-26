@@ -15,5 +15,5 @@ jobs:
     steps:
     - name: arguments
       run:
-        all_args="--componentFolder ${{ matrix.COMPONENT_FOLDER }}"
+        all_args="--concurrency 2 --componentFolder ${{ matrix.COMPONENT_FOLDER }} --quarantineMode ${{ matrix.GUARANTINE_MODE }} $THEME $INDICES $PLATFORM" 
         echo "$all_args"`
