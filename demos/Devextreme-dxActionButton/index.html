@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>dxActionButton</title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
+    <script type="text/javascript" src="../../artifacts/dx.all.fab.js"></script>
+    <script type="text/javascript" src="../themeSwitcher.js"></script>
+</head>
+<body class="dx-viewport">
+        <div id="action-add-visible"></div>
+        <br>
+        <div id="action-remove-visible"></div>
+        <br>
+        <div id="action-add-icon-visible"></div>
+        <br>
+        <div id="action-remove-icon-visible"></div>
+        <br>
+
+        <div id="action-add-label-visible"></div>
+        <br>
+        <div id="action-remove-label-visible"></div>
+        <br>
+        <div id="action-add-rtl"></div>
+        <br>
+        <div id="action-remove-rtl"></div>
+        <br>
+
+            <div id="action-add"></div>
+            <div id="action-remove"></div>
+
+            Direction:
+            <div id="direction"></div>
+
+    <script>
+        // addThemeSelectboxToBody();
+        $(() => {
+$("#action-add-visible").dxCheckBox({
+  text: 'Add action button is visible',
+  value: true,
+  onValueChanged(e) {
+    $('#action-add').dxSpeedDialAction('instance').option('visible', e.value);
+
+    DevExpress.ui.repaintFloatingActionButton();
+  }
+})
+
+$("#action-remove-visible").dxCheckBox({
+  text: 'Remove action button is visible',
+  value: false,
+  onValueChanged(e) {
+    $('#action-remove').dxSpeedDialAction('instance').option('visible', e.value);
+
+    DevExpress.ui.repaintFloatingActionButton();
+  }
+})
+
+$("#action-add-icon-visible").dxCheckBox({
+  text: 'Add icon in action is visible',
+  value: true,
+  onValueChanged(e) {
+    $('#action-add').dxSpeedDialAction('instance').option('icon', e.value ? 'add' : '');
+
+    DevExpress.ui.repaintFloatingActionButton();
+  }
+})
+
+$("#action-remove-icon-visible").dxCheckBox({
+  text: 'Remove icon in action is visible',
+  value: true,
+  onValueChanged(e) {
+    $('#action-remove').dxSpeedDialAction('instance').option('icon', e.value ? 'trash' : '');
+
+    DevExpress.ui.repaintFloatingActionButton();
+  }
+})
+
+$("#action-add-label-visible").dxCheckBox({
+  text: 'Add label in action is visible',
+  value: true,
+  onValueChanged(e) {
+    $('#action-add').dxSpeedDialAction('instance').option('label', e.value ? 'Add row' : '');
+
+    DevExpress.ui.repaintFloatingActionButton();
+  }
+})
+
+$("#action-remove-label-visible").dxCheckBox({
+  text: 'Remove label in action is visible',
+  value: true,
+  onValueChanged(e) {
+    $('#action-remove').dxSpeedDialAction('instance').option('label', e.value ? 'Delete row' : '');
+
+    DevExpress.ui.repaintFloatingActionButton();
+  }
+})
+
+$("#action-remove-rtl").dxCheckBox({
+  text: 'Action in RTL',
+  value: false,
+  onValueChanged(e) {
+    $('#action-remove').dxSpeedDialAction('instance').option('rtlEnabled', e.value);
+
+    DevExpress.ui.repaintFloatingActionButton();
+  }
+})
+
+
+
+  let selectedRowIndex = -1;
+ 
+  const deleteSDA = $('#action-remove').dxSpeedDialAction({
+    icon: 'trash',
+    label: 'Delete row',
+    index: 2,
+    visible: false,
+    onClick() {
+  
+    },
+  }).dxSpeedDialAction('instance');
+  
+   $('#action-add').dxSpeedDialAction({
+    label: 'Add row',
+    icon: 'add',
+    index: 1,
+    visible: true,
+    onClick() {
+
+    },
+  }).dxSpeedDialAction('instance');
+
+  $('#direction').dxSelectBox({
+    dataSource: ['auto', 'up', 'down'],
+    value: 'auto',
+    onSelectionChanged(e) {
+      DevExpress.config({
+        floatingActionButtonConfig: directions[e.selectedItem],
+      });
+
+      DevExpress.ui.repaintFloatingActionButton();
+    },
+  });
+});
+
+
+const directions = {
+  auto: {
+    icon: 'rowfield',
+    shading: true,
+    position: {
+      of: '#grid',
+      my: 'right bottom',
+      at: 'right bottom',
+      offset: '-16 -16',
+    },
+  },
+  up: {
+    icon: 'rowfield',
+    shading: true,
+    direction: 'up',
+    position: {
+      of: '#grid',
+      my: 'right bottom',
+      at: 'right bottom',
+      offset: '-16 -16',
+    },
+  },
+  down: {
+    icon: 'rowfield',
+    shading: true,
+    direction: 'down',
+    position: {
+      of: '.dx-datagrid-rowsview',
+      my: 'right top',
+      at: 'right top',
+      offset: '-16 16',
+    },
+  },
+};
+    </script>
+</body>
+</html>

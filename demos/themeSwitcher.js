@@ -70,8 +70,9 @@ function getThemesData() {
     ];
 }
 
-document.write('<link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/20.1.3/css/dx.common.css?a=1"/>');  
-document.write('<link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/20.1.3/css/' + getTheme() + '?a=1"/>');
+// document.write('<link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/22.2.3/css/dx.common.css?a=1"/>');  
+// document.write('<link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/22.2.4/css/' + getTheme() + '?a=1"/>');
+document.write('<link rel="stylesheet" type="text/css" href="https://eugeniykiyashko.github.io/DevExtreme-dxDemos/artifacts/css/' + getTheme() + '?a=1"/>');
 
 function addThemeSelectboxToBody() {
     var $themeSelectBox = $("<div id='#themeSelector'></div>").css({ 'display': 'inline-block', 'margin-bottom': '10px' });
