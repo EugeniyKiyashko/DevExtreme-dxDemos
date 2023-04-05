@@ -1,0 +1,29 @@
+name: Matrix Strategy Sample
+on: push
+# The trigger to which the workflow will run 
+jobs:
+  example_matrix:
+    name: ${{ matrix.COMPONENT_FOLDER }}
+    strategy:
+      fail-fast: false
+      matrix:
+        THEME: [generic.light]
+        COMPONENT_FOLDER: [treeList, dataGrid, scheduler, editors, htmlEditor, navigation]
+        include:
+          - COMPONENT_FOLDER: dataGrid
+            GUARANTINE_MODE: true
+          - COMPONENT_FOLDER: treeList
+            GUARANTINE_MODE: true
+          - COMPONENT_FOLDER: scheduler
+            GUARANTINE_MODE: true
+          - COMPONENT_FOLDER: renovation
+            PLATFORM: jquery
+            IN_PROGRESS_RENOVATION: true
+          - COMPONENT_FOLDER: renovation
+            PLATFORM: react
+    runs-on: ubuntu-latest
+    steps:
+    - name: arguments
+      run:
+        all_args="--concurrency 2 --componentFolder ${{ matrix.COMPONENT_FOLDER }} --quarantineMode ${{ matrix.GUARANTINE_MODE }} $THEME $INDICES --platform ${{ matrix.PLATFORM }} --meta ${{ matrix.IN_PROGRESS_RENOVATION }} 
+        echo "$all_args"`
