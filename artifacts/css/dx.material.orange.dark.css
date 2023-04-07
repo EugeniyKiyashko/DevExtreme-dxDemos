@@ -2,7 +2,7 @@
 /**
 * DevExtreme (dx.material.orange.dark.css)
 * Version: 23.1.1
-* Build date: Wed Apr 05 2023
+* Build date: Fri Apr 07 2023
 *
 * Copyright (c) 2012 - 2023 Developer Express Inc. ALL RIGHTS RESERVED
 * Read about DevExtreme licensing here: https://js.devexpress.com/Licensing/
@@ -24328,6 +24328,9 @@ input.dx-hidden {
 .dx-fa-button.dx-fa-button-main.dx-fa-button-with-label .dx-overlay-content .dx-fa-button-icon-close {
   padding: 16px 0 16px 16px;
 }
+.dx-fa-button.dx-fa-button-main.dx-fa-button-without-icon .dx-fa-button-icon {
+  width: 0;
+}
 .dx-fa-button .dx-fa-button-icon,
 .dx-fa-button .dx-fa-button-icon-close {
   padding: 8px;
@@ -24393,11 +24396,11 @@ input.dx-hidden {
   color: #fff;
   white-space: nowrap;
   border-radius: 4px;
-  padding: 0 12px;
+  padding: 4px 8px;
   margin-right: 16px;
   -webkit-box-shadow: 0 2px 6px rgba(0,0,0,.15);
   box-shadow: 0 2px 6px rgba(0,0,0,.15);
-  font-size: 12px;
+  font-size: 14px;
 }
 .dx-fa-button .dx-overlay-content .dx-fa-button-icon {
   -webkit-box-shadow: 0 3px 5px -1px rgba(0,0,0,.2),0 6px 10px 0 rgba(0,0,0,.14),0 1px 18px 0 rgba(0,0,0,.12);

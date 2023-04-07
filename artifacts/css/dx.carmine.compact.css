@@ -2,7 +2,7 @@
 /**
 * DevExtreme (dx.carmine.compact.css)
 * Version: 23.1.1
-* Build date: Wed Apr 05 2023
+* Build date: Fri Apr 07 2023
 *
 * Copyright (c) 2012 - 2023 Developer Express Inc. ALL RIGHTS RESERVED
 * Read about DevExtreme licensing here: https://js.devexpress.com/Licensing/
@@ -21063,6 +21063,9 @@ input.dx-hidden {
 .dx-fa-button.dx-fa-button-main.dx-fa-button-with-label .dx-overlay-content .dx-fa-button-icon-close {
   padding: 10px 0 10px 10px;
 }
+.dx-fa-button.dx-fa-button-main.dx-fa-button-without-icon .dx-fa-button-icon {
+  width: 0;
+}
 .dx-fa-button .dx-fa-button-icon,
 .dx-fa-button .dx-fa-button-icon-close {
   padding: 8px;
@@ -21128,11 +21131,11 @@ input.dx-hidden {
   color: #333;
   white-space: nowrap;
   border-radius: 4px;
-  padding: 0 10px;
+  padding: 5px 10px;
   margin-right: 10px;
   -webkit-box-shadow: 0 1px 4px rgba(0,0,0,.2);
   box-shadow: 0 1px 4px rgba(0,0,0,.2);
-  font-size: 10px;
+  font-size: 12px;
 }
 .dx-fa-button .dx-overlay-content .dx-fa-button-icon {
   -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.2);
