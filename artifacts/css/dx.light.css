@@ -2,7 +2,7 @@
 /**
 * DevExtreme (dx.light.css)
 * Version: 23.1.1
-* Build date: Fri Apr 07 2023
+* Build date: Fri Apr 21 2023
 *
 * Copyright (c) 2012 - 2023 Developer Express Inc. ALL RIGHTS RESERVED
 * Read about DevExtreme licensing here: https://js.devexpress.com/Licensing/
@@ -207,6 +207,7 @@
 .dx-icon-tags,
 .dx-icon-tel,
 .dx-icon-tips,
+.dx-icon-to,
 .dx-icon-todo,
 .dx-icon-toolbox,
 .dx-icon-underline,
@@ -1599,6 +1600,96 @@
 }
 .dx-icon-bell::before {
   content: "\f158";
+}
+.dx-icon-sun {
+  font: 14px/1 DXIcons;
+}
+.dx-icon-sun::before {
+  content: "\f159";
+}
+.dx-icon-send {
+  font: 14px/1 DXIcons;
+}
+.dx-icon-send::before {
+  content: "\f160";
+}
+.dx-icon-pinmap {
+  font: 14px/1 DXIcons;
+}
+.dx-icon-pinmap::before {
+  content: "\f161";
+}
+.dx-icon-photooutline {
+  font: 14px/1 DXIcons;
+}
+.dx-icon-photooutline::before {
+  content: "\f162";
+}
+.dx-icon-panelright {
+  font: 14px/1 DXIcons;
+}
+.dx-icon-panelright::before {
+  content: "\f163";
+}
+.dx-icon-panelleft {
+  font: 14px/1 DXIcons;
+}
+.dx-icon-panelleft::before {
+  content: "\f164";
+}
+.dx-icon-optionsgear {
+  font: 14px/1 DXIcons;
+}
+.dx-icon-optionsgear::before {
+  content: "\f165";
+}
+.dx-icon-moon {
+  font: 14px/1 DXIcons;
+}
+.dx-icon-moon::before {
+  content: "\f166";
+}
+.dx-icon-login {
+  font: 14px/1 DXIcons;
+}
+.dx-icon-login::before {
+  content: "\f167";
+}
+.dx-icon-eyeopen {
+  font: 14px/1 DXIcons;
+}
+.dx-icon-eyeopen::before {
+  content: "\f168";
+}
+.dx-icon-eyeclose {
+  font: 14px/1 DXIcons;
+}
+.dx-icon-eyeclose::before {
+  content: "\f169";
+}
+.dx-icon-expandform {
+  font: 14px/1 DXIcons;
+}
+.dx-icon-expandform::before {
+  content: "\f170";
+}
+.dx-icon-description {
+  font: 14px/1 DXIcons;
+}
+.dx-icon-description::before {
+  content: "\f171";
+}
+.dx-icon-belloutline {
+  font: 14px/1 DXIcons;
+}
+.dx-icon-belloutline::before {
+  content: "\f172";
+}
+.dx-icon-to {
+  font: 14px/1 DXIcons;
+}
+.dx-icon-to::before {
+  content: "\f173";
 }
 .dx-tab .dx-icon,
 .dx-tab.dx-tab-selected .dx-icon {
@@ -3966,16 +4057,6 @@
   display: inline-block;
   max-width: 100%;
 }
-.dx-tab-text {
-  display: inline-block;
-  margin: 0 auto;
-  text-align: center;
-  max-width: 100%;
-  -webkit-user-drag: none;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
 .dx-tabs-item-badge {
   display: inline-block;
   vertical-align: top;
@@ -3988,41 +4069,8 @@
   font-size: 13px;
   line-height: normal;
 }
-.dx-tabs {
-  border: 1px solid #ddd;
-}
-.dx-tabs-scrollable {
-  margin: -1px;
-  height: calc(100% + 2px);
-}
-.dx-tabs-scrollable .dx-tabs-wrapper {
-  border: 1px solid #ddd;
-}
-.dx-tabs-nav-buttons .dx-tabs-scrollable .dx-tabs-wrapper {
-  border-left: 1px solid #f7f7f7;
-  border-right: 1px solid #f7f7f7;
-}
-.dx-tabs-nav-button {
-  border: none;
-  background-color: #f7f7f7;
-  border-radius: 0;
-  -webkit-box-shadow: none;
-  box-shadow: none;
-}
-.dx-tabs-nav-button .dx-button-content {
-  padding: 0;
-}
-.dx-tabs-nav-button.dx-state-active {
-  border: none;
-}
-.dx-tabs-nav-button.dx-state-disabled {
-  opacity: 1;
-}
-.dx-tabs-nav-button.dx-state-disabled .dx-button-content {
-  opacity: .6;
-}
 .dx-tab {
-  padding: 9px;
+  padding: 10px 9px;
   background-color: #f7f7f7;
   color: #333;
 }
@@ -4040,53 +4088,26 @@
 .dx-tab.dx-state-hover {
   background-color: #fff;
 }
-.dx-tab.dx-state-active {
-  background-color: rgba(88,88,88,.2);
-  color: #333;
-}
-.dx-tab.dx-state-focused::after {
-  content: "";
-  pointer-events: none;
-  position: absolute;
-  top: -1px;
-  bottom: -1px;
-  right: -1px;
-  left: -1px;
-  border-right: 1px solid #337ab7;
-  border-left: 1px solid #337ab7;
-  border-top: 1px solid #337ab7;
-  border-bottom: 1px solid #337ab7;
-  z-index: 1;
-}
 .dx-tab.dx-tab-selected {
   background-color: #fff;
   color: #333;
 }
-.dx-tab-selected::after {
-  content: "";
-  pointer-events: none;
-  position: absolute;
-  top: -1px;
-  bottom: -1px;
-  right: -1px;
-  left: -1px;
-  border-right: 1px solid #ddd;
-  border-left: 1px solid #ddd;
-  border-top: none;
-  border-bottom: none;
-  z-index: 1;
-}
-.dx-tab-selected .dx-icon {
+.dx-tab.dx-tab-selected .dx-icon {
   color: #333;
 }
-.dx-tab-selected:not(.dx-state-focused) + .dx-tab-selected:not(.dx-state-focused)::after {
-  border-left: 1px solid #f7f7f7;
-}
-.dx-rtl .dx-tab-selected:not(.dx-state-focused) + .dx-tab-selected:not(.dx-state-focused)::after {
-  border-left: 1px solid #ddd;
-  border-right: 1px solid #f7f7f7;
+.dx-tab.dx-state-active {
+  background-color: rgba(88,88,88,.2);
+  color: #333;
 }
 .dx-tab-text {
+  display: inline-block;
+  margin: 0 auto;
+  text-align: center;
+  max-width: 100%;
+  -webkit-user-drag: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   vertical-align: middle;
   line-height: 25px;
 }
@@ -4095,6 +4116,152 @@
 }
 .dx-state-disabled .dx-tab-content {
   opacity: .3;
+}
+.dx-tabs {
+  background-color: #f7f7f7;
+  color: #ddd;
+  -webkit-box-shadow: inset 0 -1px #ddd,inset 0 1px #ddd,inset -1px 0 #ddd,inset 1px 0 #ddd;
+  box-shadow: inset 0 -1px #ddd,inset 0 1px #ddd,inset -1px 0 #ddd,inset 1px 0 #ddd;
+}
+.dx-tabs .dx-tab {
+  -webkit-box-shadow: inset 0 1px #ddd,inset 0 -1px #ddd;
+  box-shadow: inset 0 1px #ddd,inset 0 -1px #ddd;
+}
+.dx-tabs .dx-tabs-nav-button {
+  border: none;
+  background-color: #f7f7f7;
+  border-radius: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  color: #ddd;
+}
+.dx-tabs .dx-tabs-nav-button .dx-button-content {
+  padding: 0;
+}
+.dx-tabs .dx-tabs-nav-button.dx-state-active {
+  border: none;
+}
+.dx-tabs .dx-tabs-nav-button.dx-state-disabled {
+  opacity: 1;
+}
+.dx-tabs .dx-tabs-nav-button.dx-state-disabled .dx-button-content {
+  opacity: .6;
+}
+.dx-tabs .dx-tabs-scrollable {
+  height: 100%;
+}
+.dx-tabs .dx-tabs-scrollable .dx-tabs-wrapper {
+  display: block;
+}
+.dx-tabs .dx-tab.dx-tab-selected {
+  -webkit-box-shadow: inset 0 1px #ddd,inset -1px 0 #ddd,inset 1px 0 #ddd,inset 0 -1px #ddd;
+  box-shadow: inset 0 1px #ddd,inset -1px 0 #ddd,inset 1px 0 #ddd,inset 0 -1px #ddd;
+}
+.dx-tabs.dx-tabs-expanded .dx-tab:not(.dx-state-focused,.dx-tab-selected):first-of-type {
+  -webkit-box-shadow: inset 0 -1px #ddd,inset 1px 0 #ddd,inset 0 1px #ddd;
+  box-shadow: inset 0 -1px #ddd,inset 1px 0 #ddd,inset 0 1px #ddd;
+}
+.dx-rtl .dx-tabs.dx-tabs-expanded .dx-tab:not(.dx-state-focused,.dx-tab-selected):first-of-type,
+.dx-rtl.dx-tabs.dx-tabs-expanded .dx-tab:not(.dx-state-focused,.dx-tab-selected):first-of-type {
+  -webkit-box-shadow: inset 0 -1px #ddd,inset -1px 0 #ddd,inset 0 1px #ddd;
+  box-shadow: inset 0 -1px #ddd,inset -1px 0 #ddd,inset 0 1px #ddd;
+}
+.dx-tabs.dx-tabs-expanded .dx-tab:not(.dx-state-focused,.dx-tab-selected):last-of-type {
+  -webkit-box-shadow: inset 0 -1px #ddd,inset 0 1px #ddd,inset -1px 0 #ddd;
+  box-shadow: inset 0 -1px #ddd,inset 0 1px #ddd,inset -1px 0 #ddd;
+}
+.dx-rtl .dx-tabs.dx-tabs-expanded .dx-tab:not(.dx-state-focused,.dx-tab-selected):last-of-type,
+.dx-rtl.dx-tabs.dx-tabs-expanded .dx-tab:not(.dx-state-focused,.dx-tab-selected):last-of-type {
+  -webkit-box-shadow: inset 0 -1px #ddd,inset 0 1px #ddd,inset 1px 0 #ddd;
+  box-shadow: inset 0 -1px #ddd,inset 0 1px #ddd,inset 1px 0 #ddd;
+}
+.dx-rtl .dx-tabs.dx-tabs-expanded .dx-tab:not(.dx-state-focused,.dx-tab-selected):only-child,
+.dx-rtl.dx-tabs.dx-tabs-expanded .dx-tab:not(.dx-state-focused,.dx-tab-selected):only-child,
+.dx-tabs.dx-tabs-expanded .dx-tab:not(.dx-state-focused,.dx-tab-selected):only-child {
+  -webkit-box-shadow: inset 1px 0 #ddd,inset 0 1px #ddd,inset -1px 0 #ddd,inset 0 -1px #ddd;
+  box-shadow: inset 1px 0 #ddd,inset 0 1px #ddd,inset -1px 0 #ddd,inset 0 -1px #ddd;
+}
+.dx-tabs.dx-tabs-stretched .dx-tab:not(.dx-state-focused,.dx-tab-selected):last-of-type {
+  -webkit-box-shadow: inset 0 -1px #ddd,inset -1px 0 #ddd,inset 0 1px #ddd;
+  box-shadow: inset 0 -1px #ddd,inset -1px 0 #ddd,inset 0 1px #ddd;
+}
+.dx-rtl .dx-tabs.dx-tabs-stretched .dx-tab:not(.dx-state-focused,.dx-tab-selected):last-of-type,
+.dx-rtl.dx-tabs.dx-tabs-stretched .dx-tab:not(.dx-state-focused,.dx-tab-selected):last-of-type {
+  -webkit-box-shadow: inset 0 -1px #ddd,inset 1px 0 #ddd,inset 0 1px #ddd;
+  box-shadow: inset 0 -1px #ddd,inset 1px 0 #ddd,inset 0 1px #ddd;
+}
+.dx-tabs.dx-state-focused .dx-tab.dx-state-focused {
+  -webkit-box-shadow: inset 0 1px #337ab7,inset -1px 0 #337ab7,inset 1px 0 #337ab7,inset 0 -1px #337ab7;
+  box-shadow: inset 0 1px #337ab7,inset -1px 0 #337ab7,inset 1px 0 #337ab7,inset 0 -1px #337ab7;
+}
+.dx-tabs.dx-state-focused.dx-tabs-expanded .dx-tab:not(.dx-state-focused,.dx-tab-selected):first-of-type {
+  -webkit-box-shadow: inset 0 -1px #ddd,inset 1px 0 #ddd,inset 0 1px #ddd;
+  box-shadow: inset 0 -1px #ddd,inset 1px 0 #ddd,inset 0 1px #ddd;
+}
+.dx-rtl .dx-tabs.dx-state-focused.dx-tabs-expanded .dx-tab:not(.dx-state-focused,.dx-tab-selected):first-of-type,
+.dx-rtl.dx-tabs.dx-state-focused.dx-tabs-expanded .dx-tab:not(.dx-state-focused,.dx-tab-selected):first-of-type {
+  -webkit-box-shadow: inset 0 -1px #ddd,inset -1px 0 #ddd,inset 0 1px #ddd;
+  box-shadow: inset 0 -1px #ddd,inset -1px 0 #ddd,inset 0 1px #ddd;
+}
+.dx-tabs.dx-state-focused.dx-tabs-expanded .dx-tab:not(.dx-state-focused,.dx-tab-selected):last-of-type {
+  -webkit-box-shadow: inset 0 -1px #ddd,inset 0 1px #ddd,inset -1px 0 #ddd;
+  box-shadow: inset 0 -1px #ddd,inset 0 1px #ddd,inset -1px 0 #ddd;
+}
+.dx-rtl .dx-tabs.dx-state-focused.dx-tabs-expanded .dx-tab:not(.dx-state-focused,.dx-tab-selected):last-of-type,
+.dx-rtl.dx-tabs.dx-state-focused.dx-tabs-expanded .dx-tab:not(.dx-state-focused,.dx-tab-selected):last-of-type {
+  -webkit-box-shadow: inset 0 -1px #ddd,inset 0 1px #ddd,inset 1px 0 #ddd;
+  box-shadow: inset 0 -1px #ddd,inset 0 1px #ddd,inset 1px 0 #ddd;
+}
+.dx-rtl .dx-tabs.dx-state-focused.dx-tabs-expanded .dx-tab:not(.dx-state-focused,.dx-tab-selected):only-child,
+.dx-rtl.dx-tabs.dx-state-focused.dx-tabs-expanded .dx-tab:not(.dx-state-focused,.dx-tab-selected):only-child,
+.dx-tabs.dx-state-focused.dx-tabs-expanded .dx-tab:not(.dx-state-focused,.dx-tab-selected):only-child {
+  -webkit-box-shadow: inset 1px 0 #ddd,inset 0 1px #ddd,inset -1px 0 #ddd,inset 0 -1px #ddd;
+  box-shadow: inset 1px 0 #ddd,inset 0 1px #ddd,inset -1px 0 #ddd,inset 0 -1px #ddd;
+}
+.dx-tabs.dx-state-focused.dx-tabs-stretched .dx-tab:not(.dx-state-focused,.dx-tab-selected):last-of-type {
+  -webkit-box-shadow: inset 0 -1px #ddd,inset -1px 0 #ddd,inset 0 1px #ddd;
+  box-shadow: inset 0 -1px #ddd,inset -1px 0 #ddd,inset 0 1px #ddd;
+}
+.dx-rtl .dx-tabs.dx-state-focused.dx-tabs-stretched .dx-tab:not(.dx-state-focused,.dx-tab-selected):last-of-type,
+.dx-rtl.dx-tabs.dx-state-focused.dx-tabs-stretched .dx-tab:not(.dx-state-focused,.dx-tab-selected):last-of-type {
+  -webkit-box-shadow: inset 0 -1px #ddd,inset 1px 0 #ddd,inset 0 1px #ddd;
+  box-shadow: inset 0 -1px #ddd,inset 1px 0 #ddd,inset 0 1px #ddd;
+}
+.dx-tabs.dx-state-focused .dx-tab.dx-state-focused.dx-state-disabled {
+  -webkit-box-shadow: inset 0 -1px #aaa,inset 0 1px #aaa,inset -1px 0 #aaa,inset 1px 0 #aaa;
+  box-shadow: inset 0 -1px #aaa,inset 0 1px #aaa,inset -1px 0 #aaa,inset 1px 0 #aaa;
+}
+.dx-tabs.dx-state-focused .dx-tab.dx-tab-selected:not(.dx-state-focused) {
+  -webkit-box-shadow: inset 1px 0 #ddd,inset 0 1px #ddd,inset -1px 0 #ddd,inset 0 -1px #ddd;
+  box-shadow: inset 1px 0 #ddd,inset 0 1px #ddd,inset -1px 0 #ddd,inset 0 -1px #ddd;
+}
+.dx-rtl .dx-tabs.dx-state-focused .dx-tab.dx-tab-selected:not(.dx-state-focused),
+.dx-rtl.dx-tabs.dx-state-focused .dx-tab.dx-tab-selected:not(.dx-state-focused) {
+  -webkit-box-shadow: inset -1px 0 #ddd,inset 0 1px #ddd,inset 1px 0 #ddd;
+  box-shadow: inset -1px 0 #ddd,inset 0 1px #ddd,inset 1px 0 #ddd;
+}
+.dx-tabs.dx-state-focused .dx-tab.dx-state-focused + .dx-tab.dx-tab-selected:not(.dx-state-focused) {
+  -webkit-box-shadow: inset -1px 0 #ddd,inset 0 1px #ddd,inset 0 -1px #ddd;
+  box-shadow: inset -1px 0 #ddd,inset 0 1px #ddd,inset 0 -1px #ddd;
+}
+.dx-rtl .dx-tabs.dx-state-focused .dx-tab.dx-state-focused+.dx-tab.dx-tab-selected:not(.dx-state-focused),
+.dx-rtl.dx-tabs.dx-state-focused .dx-tab.dx-state-focused+.dx-tab.dx-tab-selected:not(.dx-state-focused),
+.dx-tabs.dx-state-focused .dx-tab.dx-tab-selected.dx-focused-next-tab:not(.dx-state-focused) {
+  -webkit-box-shadow: inset 1px 0 #ddd,inset 0 1px #ddd,inset 0 -1px #ddd;
+  box-shadow: inset 1px 0 #ddd,inset 0 1px #ddd,inset 0 -1px #ddd;
+}
+.dx-rtl .dx-tabs.dx-state-focused .dx-tab.dx-tab-selected.dx-focused-next-tab:not(.dx-state-focused),
+.dx-rtl.dx-tabs.dx-state-focused .dx-tab.dx-tab-selected.dx-focused-next-tab:not(.dx-state-focused) {
+  -webkit-box-shadow: inset -1px 0 #ddd,inset 0 1px #ddd,inset 0 -1px #ddd;
+  box-shadow: inset -1px 0 #ddd,inset 0 1px #ddd,inset 0 -1px #ddd;
+}
+.dx-tabs .dx-tabs-nav-button-left {
+  -webkit-box-shadow: inset 0 -1px #ddd,inset 1px 0 #ddd,inset 0 1px #ddd;
+  box-shadow: inset 0 -1px #ddd,inset 1px 0 #ddd,inset 0 1px #ddd;
+}
+.dx-tabs .dx-tabs-nav-button-right {
+  -webkit-box-shadow: inset 0 -1px #ddd,inset 0 1px #ddd,inset -1px 0 #ddd;
+  box-shadow: inset 0 -1px #ddd,inset 0 1px #ddd,inset -1px 0 #ddd;
 }
 .dx-overlay-wrapper {
   top: 0;
@@ -7802,6 +7969,63 @@
 .dx-device-ios .dx-datebox.dx-texteditor-empty .dx-texteditor-input {
   min-height: 33px;
 }
+.dx-daterangebox {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+}
+.dx-daterangebox-separator {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 0 10px;
+}
+.dx-daterangebox.dx-daterangebox-outlined {
+  background: #fff;
+  -webkit-box-shadow: 0 1px #ddd,0 -1px #ddd,-1px 0 #ddd,1px 0 #ddd;
+  box-shadow: 0 1px #ddd,0 -1px #ddd,-1px 0 #ddd,1px 0 #ddd;
+  border-radius: 4px;
+}
+.dx-daterangebox.dx-daterangebox-underlined {
+  background: 0 0;
+  -webkit-box-shadow: 0 1px #ddd;
+  box-shadow: 0 1px #ddd;
+  border-radius: 0;
+}
+.dx-daterangebox.dx-daterangebox-filled {
+  background: rgba(51,51,51,.05);
+  -webkit-box-shadow: 0 1px #ddd,0 -1px #ddd,-1px 0 #ddd,1px 0 #ddd;
+  box-shadow: 0 1px #ddd,0 -1px #ddd,-1px 0 #ddd,1px 0 #ddd;
+  border-radius: 4px;
+}
+.dx-daterangebox.dx-state-active.dx-daterangebox-filled,
+.dx-daterangebox.dx-state-active.dx-daterangebox-outlined,
+.dx-daterangebox.dx-state-focused.dx-daterangebox-filled,
+.dx-daterangebox.dx-state-focused.dx-daterangebox-outlined {
+  -webkit-box-shadow: 0 1px #337ab7,0 -1px #337ab7,-1px 0 #337ab7,1px 0 #337ab7;
+  box-shadow: 0 1px #337ab7,0 -1px #337ab7,-1px 0 #337ab7,1px 0 #337ab7;
+}
+.dx-daterangebox.dx-state-active.dx-daterangebox-underlined,
+.dx-daterangebox.dx-state-focused.dx-daterangebox-underlined {
+  -webkit-box-shadow: 0 1px #337ab7;
+  box-shadow: 0 1px #337ab7;
+}
+.dx-daterangebox.dx-state-active.dx-daterangebox-filled,
+.dx-daterangebox.dx-state-focused.dx-daterangebox-filled {
+  background-color: transparent;
+}
+.dx-daterangebox .dx-editor-underlined {
+  border-color: transparent;
+}
+.dx-start-datebox {
+  margin-left: 10px;
+}
 .dx-dropdownlist-popup-wrapper .dx-list .dx-scrollable-content {
   margin: 0;
 }
@@ -8163,7 +8387,7 @@
 .dx-treeview.dx-rtl .dx-treeview-toggle-item-visibility {
   right: -4px;
 }
-.dx-treeview.dx-rtl .dx-treeview-node-container:has(.dx-treeview-item-with-custom-expander-icon) {
+.dx-treeview.dx-rtl .dx-treeview-custom-expander-icon-item-container {
   padding-right: 4px;
 }
 .dx-treeview-search {
@@ -8356,6 +8580,15 @@
   overflow: ellipsis;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+.dx-menu-base .dx-menu-item .dx-menu-item-content .dx-menu-item-text-with-url {
+  vertical-align: baseline;
+}
+.dx-menu-base .dx-menu-item .dx-menu-item-content .dx-icon-with-url {
+  vertical-align: top;
+}
+.dx-menu-base .dx-menu-item .dx-menu-item-content .dx-item-url {
+  vertical-align: middle;
 }
 .dx-menu-base .dx-menu-item .dx-menu-item-content .dx-menu-item-popout-container {
   position: absolute;
@@ -9470,7 +9703,7 @@
   margin-left: 0;
 }
 .dx-toolbar .dx-tab {
-  padding: 4px;
+  padding: 5px 4px;
 }
 .dx-toolbar-button .dx-menu .dx-menu-item {
   border: 1px solid transparent;
@@ -11952,6 +12185,9 @@
 .dx-datagrid-column-chooser.dx-datagrid-column-chooser-mode-drag .dx-treeview-node-container:first-child > .dx-treeview-node-is-leaf {
   padding: 0;
 }
+.dx-datagrid-column-chooser.dx-datagrid-column-chooser-mode-select .dx-datagrid-column-chooser-plain .dx-treeview-select-all-item {
+  padding-left: 4px;
+}
 .dx-datagrid-column-chooser.dx-datagrid-column-chooser-mode-select .dx-datagrid-column-chooser-plain .dx-treeview-node {
   padding-left: 0;
 }
@@ -13980,6 +14216,9 @@
 }
 .dx-treelist-column-chooser.dx-treelist-column-chooser-mode-drag .dx-treeview-node-container:first-child > .dx-treeview-node-is-leaf {
   padding: 0;
+}
+.dx-treelist-column-chooser.dx-treelist-column-chooser-mode-select .dx-treelist-column-chooser-plain .dx-treeview-select-all-item {
+  padding-left: 4px;
 }
 .dx-treelist-column-chooser.dx-treelist-column-chooser-mode-select .dx-treelist-column-chooser-plain .dx-treeview-node {
   padding-left: 0;
@@ -16179,6 +16418,13 @@ input.dx-hidden {
   -ms-touch-action: pinch-zoom;
   touch-action: pinch-zoom;
 }
+.dx-pivotgrid-scrollbar-measure-element {
+  position: absolute;
+  top: -9999px;
+  width: 100px;
+  height: 100px;
+  overflow: scroll;
+}
 .dx-pivotgrid-fields-container .dx-position-indicator.dx-position-indicator-vertical {
   margin-top: -4px;
   margin-left: -1px;
@@ -16862,27 +17108,9 @@ input.dx-hidden {
   width: 100%;
   height: 100%;
 }
-.dx-tabpanel > .dx-tabpanel-tabs .dx-tabs .dx-tab {
-  color: #ddd;
-}
-.dx-tabpanel > .dx-tabpanel-tabs .dx-tabs .dx-tab .dx-tab-content {
-  color: #333;
-}
-.dx-tabpanel > .dx-tabpanel-tabs .dx-tabs .dx-tab::after,
-.dx-tabpanel > .dx-tabpanel-tabs .dx-tabs .dx-tab::before {
-  content: none;
-}
-.dx-tabpanel > .dx-tabpanel-tabs .dx-tabs .dx-tabs-nav-button {
-  color: #ddd;
-}
-.dx-tabpanel > .dx-tabpanel-tabs .dx-tabs-scrollable {
-  margin-top: 0;
-  margin-bottom: 0;
-  height: 100%;
-}
-.dx-tabpanel > .dx-tabpanel-tabs .dx-tabs-scrollable .dx-tabs-wrapper {
-  display: block;
-  border: none;
+.dx-tabpanel > .dx-tabpanel-tabs .dx-tab {
+  width: 140px;
+  padding: 9px;
 }
 .dx-tabpanel:not(.dx-empty-collection) .dx-multiview-wrapper {
   border-top: none;
@@ -16891,157 +17119,155 @@ input.dx-hidden {
   -webkit-box-shadow: inset 0 1px #ddd,inset -1px 0 #ddd,inset 1px 0 #ddd;
   box-shadow: inset 0 1px #ddd,inset -1px 0 #ddd,inset 1px 0 #ddd;
 }
-.dx-tabpanel>.dx-tabpanel-tabs .dx-tab.dx-tab-active .dx-tab-content,
-.dx-tabpanel>.dx-tabpanel-tabs .dx-tab.dx-tab-active.dx-state-disabled .dx-tab-content,
-.dx-tabpanel>.dx-tabpanel-tabs .dx-tab.dx-tab-selected .dx-tab-content,
-.dx-tabpanel>.dx-tabpanel-tabs .dx-tab.dx-tab-selected.dx-state-disabled .dx-tab-content {
-  color: #333;
-}
 .dx-tabpanel > .dx-tabpanel-tabs .dx-tabs {
   display: block;
-  border: none;
-  background-color: #f7f7f7;
-  color: #ddd;
   -webkit-box-shadow: inset 0 -1px #ddd,inset 0 1px,inset -1px 0,inset 1px 0;
   box-shadow: inset 0 -1px #ddd,inset 0 1px,inset -1px 0,inset 1px 0;
 }
-.dx-tabpanel > .dx-tabpanel-tabs .dx-tab {
-  width: 140px;
-  -webkit-box-shadow: inset 0 1px,inset 0 -1px #ddd;
-  box-shadow: inset 0 1px,inset 0 -1px #ddd;
+.dx-tabpanel > .dx-tabpanel-tabs .dx-tab.dx-state-active.dx-state-focused {
+  -webkit-box-shadow: inset 0 1px #ddd,inset -1px 0 #ddd,inset 1px 0 #ddd,inset 0 -1px #ddd;
+  box-shadow: inset 0 1px #ddd,inset -1px 0 #ddd,inset 1px 0 #ddd,inset 0 -1px #ddd;
+}
+.dx-tabpanel > .dx-tabpanel-tabs .dx-tab,
+.dx-tabpanel > .dx-tabpanel-tabs .dx-tabs-expanded .dx-tab:not(.dx-state-focused,.dx-tab-selected):only-child {
+  -webkit-box-shadow: inset 0 1px #ddd,inset 0 -1px #ddd;
+  box-shadow: inset 0 1px #ddd,inset 0 -1px #ddd;
+}
+.dx-tabpanel > .dx-tabpanel-tabs .dx-tabs-expanded .dx-tab:not(.dx-state-focused,.dx-tab-selected):last-of-type {
+  -webkit-box-shadow: inset 0 1px #ddd,inset 0 -1px #ddd,inset -1px 0 #ddd;
+  box-shadow: inset 0 1px #ddd,inset 0 -1px #ddd,inset -1px 0 #ddd;
 }
 .dx-tabpanel > .dx-tabpanel-tabs .dx-tabs-expanded .dx-tab:not(.dx-state-focused,.dx-tab-selected):first-of-type {
-  -webkit-box-shadow: inset 0 -1px #ddd,inset 1px 0,inset 0 1px;
-  box-shadow: inset 0 -1px #ddd,inset 1px 0,inset 0 1px;
+  -webkit-box-shadow: inset 0 1px #ddd,inset 0 -1px #ddd,inset 1px 0 #ddd;
+  box-shadow: inset 0 1px #ddd,inset 0 -1px #ddd,inset 1px 0 #ddd;
 }
-.dx-rtl .dx-tabpanel>.dx-tabpanel-tabs .dx-tabs-expanded .dx-tab:not(.dx-state-focused,.dx-tab-selected):first-of-type,
-.dx-rtl.dx-tabpanel>.dx-tabpanel-tabs .dx-tabs-expanded .dx-tab:not(.dx-state-focused,.dx-tab-selected):first-of-type,
-.dx-tabpanel>.dx-tabpanel-tabs .dx-tabs-stretched .dx-tab:not(.dx-state-focused,.dx-tab-selected):last-of-type {
-  -webkit-box-shadow: inset 0 -1px #ddd,inset -1px 0,inset 0 1px;
-  box-shadow: inset 0 -1px #ddd,inset -1px 0,inset 0 1px;
-}
-.dx-rtl .dx-tabpanel>.dx-tabpanel-tabs .dx-tabs-stretched .dx-tab:not(.dx-state-focused,.dx-tab-selected):last-of-type,
-.dx-rtl.dx-tabpanel>.dx-tabpanel-tabs .dx-tabs-stretched .dx-tab:not(.dx-state-focused,.dx-tab-selected):last-of-type,
-.dx-tabpanel>.dx-tabpanel-tabs .dx-tabs-nav-button-left {
-  -webkit-box-shadow: inset 0 -1px #ddd,inset 1px 0,inset 0 1px;
-  box-shadow: inset 0 -1px #ddd,inset 1px 0,inset 0 1px;
+.dx-tabpanel > .dx-tabpanel-tabs .dx-tabs-nav-button-left {
+  -webkit-box-shadow: inset 0 -1px #ddd,inset 1px 0 #ddd,inset 0 1px #ddd;
+  box-shadow: inset 0 -1px #ddd,inset 1px 0 #ddd,inset 0 1px #ddd;
 }
 .dx-tabpanel > .dx-tabpanel-tabs .dx-tabs-nav-button-right {
-  -webkit-box-shadow: inset 0 -1px #ddd,inset 0 1px,inset -1px 0;
-  box-shadow: inset 0 -1px #ddd,inset 0 1px,inset -1px 0;
+  -webkit-box-shadow: inset 0 -1px #ddd,inset 0 1px #ddd,inset -1px 0 #ddd;
+  box-shadow: inset 0 -1px #ddd,inset 0 1px #ddd,inset -1px 0 #ddd;
 }
 .dx-tabpanel.dx-disabled-focused-tab > .dx-tabpanel-tabs .dx-tabs {
   -webkit-box-shadow: inset 0 -1px #ddd,inset 0 1px,inset -1px 0,inset 1px 0;
   box-shadow: inset 0 -1px #ddd,inset 0 1px,inset -1px 0,inset 1px 0;
 }
-.dx-tabpanel.dx-disabled-focused-tab > .dx-tabpanel-tabs .dx-tab {
-  -webkit-box-shadow: inset 0 1px,inset 0 -1px #ddd;
-  box-shadow: inset 0 1px,inset 0 -1px #ddd;
+.dx-tabpanel.dx-disabled-focused-tab > .dx-tabpanel-tabs .dx-tab.dx-state-active.dx-state-focused {
+  -webkit-box-shadow: inset 0 1px #ddd,inset -1px 0 #ddd,inset 1px 0 #ddd,inset 0 -1px #ddd;
+  box-shadow: inset 0 1px #ddd,inset -1px 0 #ddd,inset 1px 0 #ddd,inset 0 -1px #ddd;
+}
+.dx-tabpanel.dx-disabled-focused-tab > .dx-tabpanel-tabs .dx-tab,
+.dx-tabpanel.dx-disabled-focused-tab > .dx-tabpanel-tabs .dx-tabs-expanded .dx-tab:not(.dx-state-focused,.dx-tab-selected):only-child {
+  -webkit-box-shadow: inset 0 1px #ddd,inset 0 -1px #ddd;
+  box-shadow: inset 0 1px #ddd,inset 0 -1px #ddd;
+}
+.dx-tabpanel.dx-disabled-focused-tab > .dx-tabpanel-tabs .dx-tabs-expanded .dx-tab:not(.dx-state-focused,.dx-tab-selected):last-of-type {
+  -webkit-box-shadow: inset 0 1px #ddd,inset 0 -1px #ddd,inset -1px 0 #ddd;
+  box-shadow: inset 0 1px #ddd,inset 0 -1px #ddd,inset -1px 0 #ddd;
 }
 .dx-tabpanel.dx-disabled-focused-tab > .dx-tabpanel-tabs .dx-tabs-expanded .dx-tab:not(.dx-state-focused,.dx-tab-selected):first-of-type {
-  -webkit-box-shadow: inset 0 -1px #ddd,inset 1px 0,inset 0 1px;
-  box-shadow: inset 0 -1px #ddd,inset 1px 0,inset 0 1px;
+  -webkit-box-shadow: inset 0 1px #ddd,inset 0 -1px #ddd,inset 1px 0 #ddd;
+  box-shadow: inset 0 1px #ddd,inset 0 -1px #ddd,inset 1px 0 #ddd;
 }
-.dx-rtl .dx-tabpanel.dx-disabled-focused-tab>.dx-tabpanel-tabs .dx-tabs-expanded .dx-tab:not(.dx-state-focused,.dx-tab-selected):first-of-type,
-.dx-rtl.dx-tabpanel.dx-disabled-focused-tab>.dx-tabpanel-tabs .dx-tabs-expanded .dx-tab:not(.dx-state-focused,.dx-tab-selected):first-of-type,
-.dx-tabpanel.dx-disabled-focused-tab>.dx-tabpanel-tabs .dx-tabs-stretched .dx-tab:not(.dx-state-focused,.dx-tab-selected):last-of-type {
-  -webkit-box-shadow: inset 0 -1px #ddd,inset -1px 0,inset 0 1px;
-  box-shadow: inset 0 -1px #ddd,inset -1px 0,inset 0 1px;
-}
-.dx-rtl .dx-tabpanel.dx-disabled-focused-tab>.dx-tabpanel-tabs .dx-tabs-stretched .dx-tab:not(.dx-state-focused,.dx-tab-selected):last-of-type,
-.dx-rtl.dx-tabpanel.dx-disabled-focused-tab>.dx-tabpanel-tabs .dx-tabs-stretched .dx-tab:not(.dx-state-focused,.dx-tab-selected):last-of-type,
 .dx-tabpanel.dx-disabled-focused-tab .dx-tabs-nav-button-left {
-  -webkit-box-shadow: inset 0 -1px #ddd,inset 1px 0,inset 0 1px;
-  box-shadow: inset 0 -1px #ddd,inset 1px 0,inset 0 1px;
+  -webkit-box-shadow: inset 0 -1px #ddd,inset 1px 0 #ddd,inset 0 1px #ddd;
+  box-shadow: inset 0 -1px #ddd,inset 1px 0 #ddd,inset 0 1px #ddd;
 }
 .dx-tabpanel.dx-disabled-focused-tab .dx-tabs-nav-button-right {
-  -webkit-box-shadow: inset 0 -1px #ddd,inset 0 1px,inset -1px 0;
-  box-shadow: inset 0 -1px #ddd,inset 0 1px,inset -1px 0;
+  -webkit-box-shadow: inset 0 -1px #ddd,inset 0 1px #ddd,inset -1px 0 #ddd;
+  box-shadow: inset 0 -1px #ddd,inset 0 1px #ddd,inset -1px 0 #ddd;
 }
 .dx-tabpanel.dx-state-focused > .dx-tabpanel-tabs .dx-tab.dx-state-focused {
   -webkit-box-shadow: inset 0 1px #337ab7,inset -1px 0 #337ab7,inset 1px 0 #337ab7;
   box-shadow: inset 0 1px #337ab7,inset -1px 0 #337ab7,inset 1px 0 #337ab7;
 }
-.dx-tabpanel.dx-state-focused>.dx-tabpanel-tabs .dx-tab.dx-state-focused .dx-tab-content,
-.dx-tabpanel.dx-state-focused>.dx-tabpanel-tabs .dx-tab.dx-state-focused.dx-state-disabled .dx-tab-content,
-.dx-tabpanel.dx-state-focused>.dx-tabpanel-tabs .dx-tab.dx-tab-active .dx-tab-content,
-.dx-tabpanel.dx-state-focused>.dx-tabpanel-tabs .dx-tab.dx-tab-active.dx-state-disabled .dx-tab-content {
-  color: #333;
-}
 .dx-tabpanel.dx-state-focused > .dx-tabpanel-tabs .dx-tabs {
+  display: block;
   -webkit-box-shadow: inset 0 -1px #337ab7,inset 0 1px,inset -1px 0,inset 1px 0;
   box-shadow: inset 0 -1px #337ab7,inset 0 1px,inset -1px 0,inset 1px 0;
 }
-.dx-tabpanel.dx-state-focused > .dx-tabpanel-tabs .dx-tab {
-  -webkit-box-shadow: inset 0 1px,inset 0 -1px #337ab7;
-  box-shadow: inset 0 1px,inset 0 -1px #337ab7;
+.dx-tabpanel.dx-state-focused > .dx-tabpanel-tabs .dx-tab.dx-state-active.dx-state-focused {
+  -webkit-box-shadow: inset 0 1px #337ab7,inset -1px 0 #337ab7,inset 1px 0 #337ab7,inset 0 -1px #ddd;
+  box-shadow: inset 0 1px #337ab7,inset -1px 0 #337ab7,inset 1px 0 #337ab7,inset 0 -1px #ddd;
+}
+.dx-tabpanel.dx-state-focused > .dx-tabpanel-tabs .dx-tab,
+.dx-tabpanel.dx-state-focused > .dx-tabpanel-tabs .dx-tabs-expanded .dx-tab:not(.dx-state-focused,.dx-tab-selected):only-child {
+  -webkit-box-shadow: inset 0 1px #ddd,inset 0 -1px #337ab7;
+  box-shadow: inset 0 1px #ddd,inset 0 -1px #337ab7;
+}
+.dx-tabpanel.dx-state-focused > .dx-tabpanel-tabs .dx-tabs-expanded .dx-tab:not(.dx-state-focused,.dx-tab-selected):last-of-type {
+  -webkit-box-shadow: inset 0 1px #ddd,inset 0 -1px #337ab7,inset -1px 0 #ddd;
+  box-shadow: inset 0 1px #ddd,inset 0 -1px #337ab7,inset -1px 0 #ddd;
 }
 .dx-tabpanel.dx-state-focused > .dx-tabpanel-tabs .dx-tabs-expanded .dx-tab:not(.dx-state-focused,.dx-tab-selected):first-of-type {
-  -webkit-box-shadow: inset 0 -1px #337ab7,inset 1px 0,inset 0 1px;
-  box-shadow: inset 0 -1px #337ab7,inset 1px 0,inset 0 1px;
+  -webkit-box-shadow: inset 0 1px #ddd,inset 0 -1px #337ab7,inset 1px 0 #ddd;
+  box-shadow: inset 0 1px #ddd,inset 0 -1px #337ab7,inset 1px 0 #ddd;
 }
-.dx-rtl .dx-tabpanel.dx-state-focused>.dx-tabpanel-tabs .dx-tabs-expanded .dx-tab:not(.dx-state-focused,.dx-tab-selected):first-of-type,
-.dx-rtl.dx-tabpanel.dx-state-focused>.dx-tabpanel-tabs .dx-tabs-expanded .dx-tab:not(.dx-state-focused,.dx-tab-selected):first-of-type,
-.dx-tabpanel.dx-state-focused>.dx-tabpanel-tabs .dx-tabs-stretched .dx-tab:not(.dx-state-focused,.dx-tab-selected):last-of-type {
-  -webkit-box-shadow: inset 0 -1px #337ab7,inset -1px 0,inset 0 1px;
-  box-shadow: inset 0 -1px #337ab7,inset -1px 0,inset 0 1px;
-}
-.dx-rtl .dx-tabpanel.dx-state-focused>.dx-tabpanel-tabs .dx-tabs-stretched .dx-tab:not(.dx-state-focused,.dx-tab-selected):last-of-type,
-.dx-rtl.dx-tabpanel.dx-state-focused>.dx-tabpanel-tabs .dx-tabs-stretched .dx-tab:not(.dx-state-focused,.dx-tab-selected):last-of-type,
-.dx-tabpanel.dx-state-focused>.dx-tabpanel-tabs .dx-tabs-nav-button-left {
-  -webkit-box-shadow: inset 0 -1px #337ab7,inset 1px 0,inset 0 1px;
-  box-shadow: inset 0 -1px #337ab7,inset 1px 0,inset 0 1px;
+.dx-tabpanel.dx-state-focused > .dx-tabpanel-tabs .dx-tabs-nav-button-left {
+  -webkit-box-shadow: inset 0 -1px #337ab7,inset 1px 0 #ddd,inset 0 1px #ddd;
+  box-shadow: inset 0 -1px #337ab7,inset 1px 0 #ddd,inset 0 1px #ddd;
 }
 .dx-tabpanel.dx-state-focused > .dx-tabpanel-tabs .dx-tabs-nav-button-right {
-  -webkit-box-shadow: inset 0 -1px #337ab7,inset 0 1px,inset -1px 0;
-  box-shadow: inset 0 -1px #337ab7,inset 0 1px,inset -1px 0;
+  -webkit-box-shadow: inset 0 -1px #337ab7,inset 0 1px #ddd,inset -1px 0 #ddd;
+  box-shadow: inset 0 -1px #337ab7,inset 0 1px #ddd,inset -1px 0 #ddd;
 }
 .dx-tabpanel.dx-state-focused.dx-disabled-focused-tab > .dx-tabpanel-tabs .dx-tabs {
   -webkit-box-shadow: inset 0 -1px #ddd,inset 0 1px,inset -1px 0,inset 1px 0;
   box-shadow: inset 0 -1px #ddd,inset 0 1px,inset -1px 0,inset 1px 0;
 }
-.dx-tabpanel.dx-state-focused.dx-disabled-focused-tab > .dx-tabpanel-tabs .dx-tab {
-  -webkit-box-shadow: inset 0 1px,inset 0 -1px #ddd;
-  box-shadow: inset 0 1px,inset 0 -1px #ddd;
+.dx-tabpanel.dx-state-focused.dx-disabled-focused-tab > .dx-tabpanel-tabs .dx-tab.dx-state-active.dx-state-focused {
+  -webkit-box-shadow: inset 0 1px #ddd,inset -1px 0 #ddd,inset 1px 0 #ddd,inset 0 -1px #ddd;
+  box-shadow: inset 0 1px #ddd,inset -1px 0 #ddd,inset 1px 0 #ddd,inset 0 -1px #ddd;
+}
+.dx-tabpanel.dx-state-focused.dx-disabled-focused-tab > .dx-tabpanel-tabs .dx-tab,
+.dx-tabpanel.dx-state-focused.dx-disabled-focused-tab > .dx-tabpanel-tabs .dx-tabs-expanded .dx-tab:not(.dx-state-focused,.dx-tab-selected):only-child {
+  -webkit-box-shadow: inset 0 1px #ddd,inset 0 -1px #ddd;
+  box-shadow: inset 0 1px #ddd,inset 0 -1px #ddd;
+}
+.dx-tabpanel.dx-state-focused.dx-disabled-focused-tab > .dx-tabpanel-tabs .dx-tabs-expanded .dx-tab:not(.dx-state-focused,.dx-tab-selected):last-of-type {
+  -webkit-box-shadow: inset 0 1px #ddd,inset 0 -1px #ddd,inset -1px 0 #ddd;
+  box-shadow: inset 0 1px #ddd,inset 0 -1px #ddd,inset -1px 0 #ddd;
 }
 .dx-tabpanel.dx-state-focused.dx-disabled-focused-tab > .dx-tabpanel-tabs .dx-tabs-expanded .dx-tab:not(.dx-state-focused,.dx-tab-selected):first-of-type {
-  -webkit-box-shadow: inset 0 -1px #ddd,inset 1px 0,inset 0 1px;
-  box-shadow: inset 0 -1px #ddd,inset 1px 0,inset 0 1px;
+  -webkit-box-shadow: inset 0 1px #ddd,inset 0 -1px #ddd,inset 1px 0 #ddd;
+  box-shadow: inset 0 1px #ddd,inset 0 -1px #ddd,inset 1px 0 #ddd;
 }
-.dx-rtl .dx-tabpanel.dx-state-focused.dx-disabled-focused-tab>.dx-tabpanel-tabs .dx-tabs-expanded .dx-tab:not(.dx-state-focused,.dx-tab-selected):first-of-type,
-.dx-rtl.dx-tabpanel.dx-state-focused.dx-disabled-focused-tab>.dx-tabpanel-tabs .dx-tabs-expanded .dx-tab:not(.dx-state-focused,.dx-tab-selected):first-of-type,
-.dx-tabpanel.dx-state-focused.dx-disabled-focused-tab>.dx-tabpanel-tabs .dx-tabs-stretched .dx-tab:not(.dx-state-focused,.dx-tab-selected):last-of-type {
-  -webkit-box-shadow: inset 0 -1px #ddd,inset -1px 0,inset 0 1px;
-  box-shadow: inset 0 -1px #ddd,inset -1px 0,inset 0 1px;
-}
-.dx-rtl .dx-tabpanel.dx-state-focused.dx-disabled-focused-tab>.dx-tabpanel-tabs .dx-tabs-stretched .dx-tab:not(.dx-state-focused,.dx-tab-selected):last-of-type,
-.dx-rtl.dx-tabpanel.dx-state-focused.dx-disabled-focused-tab>.dx-tabpanel-tabs .dx-tabs-stretched .dx-tab:not(.dx-state-focused,.dx-tab-selected):last-of-type,
 .dx-tabpanel.dx-state-focused.dx-disabled-focused-tab .dx-tabs-nav-button-left {
-  -webkit-box-shadow: inset 0 -1px #ddd,inset 1px 0,inset 0 1px;
-  box-shadow: inset 0 -1px #ddd,inset 1px 0,inset 0 1px;
+  -webkit-box-shadow: inset 0 -1px #ddd,inset 1px 0 #ddd,inset 0 1px #ddd;
+  box-shadow: inset 0 -1px #ddd,inset 1px 0 #ddd,inset 0 1px #ddd;
 }
 .dx-tabpanel.dx-state-focused.dx-disabled-focused-tab .dx-tabs-nav-button-right {
-  -webkit-box-shadow: inset 0 -1px #ddd,inset 0 1px,inset -1px 0;
-  box-shadow: inset 0 -1px #ddd,inset 0 1px,inset -1px 0;
+  -webkit-box-shadow: inset 0 -1px #ddd,inset 0 1px #ddd,inset -1px 0 #ddd;
+  box-shadow: inset 0 -1px #ddd,inset 0 1px #ddd,inset -1px 0 #ddd;
 }
 .dx-tabpanel.dx-state-focused .dx-tab.dx-state-focused.dx-state-disabled {
   -webkit-box-shadow: inset 0 -1px #aaa,inset 0 1px #aaa,inset -1px 0 #aaa,inset 1px 0 #aaa;
   box-shadow: inset 0 -1px #aaa,inset 0 1px #aaa,inset -1px 0 #aaa,inset 1px 0 #aaa;
 }
 .dx-tabpanel.dx-state-focused .dx-tab.dx-tab-selected:not(.dx-state-focused) {
-  -webkit-box-shadow: inset 1px 0,inset 0 1px;
-  box-shadow: inset 1px 0,inset 0 1px;
+  -webkit-box-shadow: inset 1px 0 #ddd,inset 0 1px #ddd,inset -1px 0 #ddd;
+  box-shadow: inset 1px 0 #ddd,inset 0 1px #ddd,inset -1px 0 #ddd;
 }
 .dx-rtl .dx-tabpanel.dx-state-focused .dx-tab.dx-tab-selected:not(.dx-state-focused),
-.dx-rtl.dx-tabpanel.dx-state-focused .dx-tab.dx-tab-selected:not(.dx-state-focused),
-.dx-tabpanel.dx-state-focused .dx-tab.dx-state-focused+.dx-tab.dx-tab-selected:not(.dx-state-focused) {
-  -webkit-box-shadow: inset -1px 0,inset 0 1px;
-  box-shadow: inset -1px 0,inset 0 1px;
+.dx-rtl.dx-tabpanel.dx-state-focused .dx-tab.dx-tab-selected:not(.dx-state-focused) {
+  -webkit-box-shadow: inset -1px 0 #ddd,inset 0 1px #ddd,inset 1px 0 #ddd;
+  box-shadow: inset -1px 0 #ddd,inset 0 1px #ddd,inset 1px 0 #ddd;
 }
-.dx-rtl .dx-tabpanel.dx-state-focused .dx-tab.dx-state-focused + .dx-tab.dx-tab-selected:not(.dx-state-focused),
-.dx-rtl.dx-tabpanel.dx-state-focused .dx-tab.dx-state-focused + .dx-tab.dx-tab-selected:not(.dx-state-focused) {
-  -webkit-box-shadow: inset 1px 0,inset 0 1px;
-  box-shadow: inset 1px 0,inset 0 1px;
+.dx-tabpanel.dx-state-focused .dx-tab.dx-state-focused + .dx-tab.dx-tab-selected:not(.dx-state-focused) {
+  -webkit-box-shadow: inset -1px 0 #ddd,inset 0 1px #ddd;
+  box-shadow: inset -1px 0 #ddd,inset 0 1px #ddd;
+}
+.dx-rtl .dx-tabpanel.dx-state-focused .dx-tab.dx-state-focused+.dx-tab.dx-tab-selected:not(.dx-state-focused),
+.dx-rtl.dx-tabpanel.dx-state-focused .dx-tab.dx-state-focused+.dx-tab.dx-tab-selected:not(.dx-state-focused),
+.dx-tabpanel.dx-state-focused .dx-tab.dx-tab-selected.dx-focused-next-tab:not(.dx-state-focused) {
+  -webkit-box-shadow: inset 1px 0 #ddd,inset 0 1px #ddd;
+  box-shadow: inset 1px 0 #ddd,inset 0 1px #ddd;
+}
+.dx-rtl .dx-tabpanel.dx-state-focused .dx-tab.dx-tab-selected.dx-focused-next-tab:not(.dx-state-focused),
+.dx-rtl.dx-tabpanel.dx-state-focused .dx-tab.dx-tab-selected.dx-focused-next-tab:not(.dx-state-focused) {
+  -webkit-box-shadow: inset -1px 0 #ddd,inset 0 1px #ddd;
+  box-shadow: inset -1px 0 #ddd,inset 0 1px #ddd;
 }
 .dx-tabpanel .dx-multiview-wrapper {
   border: 1px solid #ddd;

@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>dxDateBox all modes</title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
+    <script type="text/javascript" src="../../artifacts/dx.all.daterangebox.js"></script>
+    <script type="text/javascript" src="../themeSwitcher.js"></script>
+</head>
+<body class="dx-viewport">
+    <script>
+         addThemeSelectboxToBody();
+        $(() => {
+          ['outlined', 'underlined', 'filled'].forEach((stylingMode) => {
+          ['static', 'floating', 'hidden'].forEach((labelMode) => {
+            $('body').append($('<br>'));
+            $('body').append($('<br>'));
+            $('body').append($('<div>').text(`DateBox with stylingMode="${stylingMode}" & labelMode="${labelMode}"`));
+            
+            const $container = $('<div class="container" style="display: inline-flex; gap: 30px;"></div>');
+            $('body').append($container)
+            $container.append($('<div>').dxDateBox({
+              stylingMode, 
+              labelMode,
+              label: 'Start Date',
+              showClearButton: true,
+              width: 400
+            }));
+            $container.append($('<div>').dxDateBox({
+              stylingMode, 
+              labelMode,
+              label: 'Start Date',
+              value: new Date(2021,17,9),
+              showClearButton: true,
+              width: 400
+            }));
+
+          });
+
+       
+        });
+});
+    </script>
+</body>
+</html>
