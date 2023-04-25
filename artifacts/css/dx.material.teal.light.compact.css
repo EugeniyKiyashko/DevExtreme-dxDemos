@@ -2711,7 +2711,8 @@
 .dx-button.dx-state-disabled .dx-icon {
   opacity: .6;
 }
-.dx-button.dx-state-disabled .dx-button-text {
+.dx-button.dx-state-disabled .dx-button-text,
+.dx-button.dx-state-disabled.dx-button-mode-contained .dx-icon {
   color: rgba(0,0,0,.35);
 }
 .dx-button .dx-inkripple-wave {
@@ -2750,7 +2751,8 @@
 .dx-button.dx-button-default.dx-state-disabled .dx-icon {
   opacity: .6;
 }
-.dx-button.dx-button-default.dx-state-disabled .dx-button-text {
+.dx-button.dx-button-default.dx-state-disabled .dx-button-text,
+.dx-button.dx-button-default.dx-state-disabled.dx-button-mode-contained .dx-icon {
   color: rgba(0,0,0,.35);
 }
 .dx-button.dx-button-default .dx-inkripple-wave {
@@ -2789,7 +2791,8 @@
 .dx-button.dx-button-danger.dx-state-disabled .dx-icon {
   opacity: .6;
 }
-.dx-button.dx-button-danger.dx-state-disabled .dx-button-text {
+.dx-button.dx-button-danger.dx-state-disabled .dx-button-text,
+.dx-button.dx-button-danger.dx-state-disabled.dx-button-mode-contained .dx-icon {
   color: rgba(0,0,0,.35);
 }
 .dx-button.dx-button-danger .dx-inkripple-wave {
@@ -2828,7 +2831,8 @@
 .dx-button.dx-button-success.dx-state-disabled .dx-icon {
   opacity: .6;
 }
-.dx-button.dx-button-success.dx-state-disabled .dx-button-text {
+.dx-button.dx-button-success.dx-state-disabled .dx-button-text,
+.dx-button.dx-button-success.dx-state-disabled.dx-button-mode-contained .dx-icon {
   color: rgba(0,0,0,.35);
 }
 .dx-button.dx-button-success .dx-inkripple-wave {
@@ -2869,7 +2873,8 @@
 .dx-button.dx-button-back.dx-state-disabled .dx-icon {
   opacity: .6;
 }
-.dx-button.dx-button-back.dx-state-disabled .dx-button-text {
+.dx-button.dx-button-back.dx-state-disabled .dx-button-text,
+.dx-button.dx-button-back.dx-state-disabled.dx-button-mode-contained .dx-icon {
   color: rgba(0,0,0,.35);
 }
 .dx-button.dx-button-back .dx-inkripple-wave {
@@ -2917,7 +2922,8 @@
 .dx-button-mode-text.dx-state-disabled .dx-icon {
   opacity: .6;
 }
-.dx-button-mode-text.dx-state-disabled .dx-button-text {
+.dx-button-mode-text.dx-state-disabled .dx-button-text,
+.dx-button-mode-text.dx-state-disabled.dx-button-mode-contained .dx-icon {
   color: rgba(0,0,0,.35);
 }
 .dx-button-mode-text .dx-inkripple-wave {
@@ -2951,7 +2957,8 @@
 .dx-button-mode-text.dx-button-default.dx-state-disabled .dx-icon {
   opacity: .6;
 }
-.dx-button-mode-text.dx-button-default.dx-state-disabled .dx-button-text {
+.dx-button-mode-text.dx-button-default.dx-state-disabled .dx-button-text,
+.dx-button-mode-text.dx-button-default.dx-state-disabled.dx-button-mode-contained .dx-icon {
   color: rgba(0,0,0,.35);
 }
 .dx-button-mode-text.dx-button-default .dx-inkripple-wave {
@@ -2985,7 +2992,8 @@
 .dx-button-mode-text.dx-button-danger.dx-state-disabled .dx-icon {
   opacity: .6;
 }
-.dx-button-mode-text.dx-button-danger.dx-state-disabled .dx-button-text {
+.dx-button-mode-text.dx-button-danger.dx-state-disabled .dx-button-text,
+.dx-button-mode-text.dx-button-danger.dx-state-disabled.dx-button-mode-contained .dx-icon {
   color: rgba(0,0,0,.35);
 }
 .dx-button-mode-text.dx-button-danger .dx-inkripple-wave {
@@ -3019,7 +3027,8 @@
 .dx-button-mode-text.dx-button-success.dx-state-disabled .dx-icon {
   opacity: .6;
 }
-.dx-button-mode-text.dx-button-success.dx-state-disabled .dx-button-text {
+.dx-button-mode-text.dx-button-success.dx-state-disabled .dx-button-text,
+.dx-button-mode-text.dx-button-success.dx-state-disabled.dx-button-mode-contained .dx-icon {
   color: rgba(0,0,0,.35);
 }
 .dx-button-mode-text.dx-button-success .dx-inkripple-wave {
@@ -3054,7 +3063,8 @@
 .dx-button-mode-outlined.dx-state-disabled .dx-icon {
   opacity: .6;
 }
-.dx-button-mode-outlined.dx-state-disabled .dx-button-text {
+.dx-button-mode-outlined.dx-state-disabled .dx-button-text,
+.dx-button-mode-outlined.dx-state-disabled.dx-button-mode-contained .dx-icon {
   color: rgba(0,0,0,.35);
 }
 .dx-button-mode-outlined .dx-inkripple-wave {
@@ -3089,7 +3099,8 @@
 .dx-button-mode-outlined.dx-button-default.dx-state-disabled .dx-icon {
   opacity: .6;
 }
-.dx-button-mode-outlined.dx-button-default.dx-state-disabled .dx-button-text {
+.dx-button-mode-outlined.dx-button-default.dx-state-disabled .dx-button-text,
+.dx-button-mode-outlined.dx-button-default.dx-state-disabled.dx-button-mode-contained .dx-icon {
   color: rgba(0,0,0,.35);
 }
 .dx-button-mode-outlined.dx-button-default .dx-inkripple-wave {
@@ -3124,7 +3135,8 @@
 .dx-button-mode-outlined.dx-button-danger.dx-state-disabled .dx-icon {
   opacity: .6;
 }
-.dx-button-mode-outlined.dx-button-danger.dx-state-disabled .dx-button-text {
+.dx-button-mode-outlined.dx-button-danger.dx-state-disabled .dx-button-text,
+.dx-button-mode-outlined.dx-button-danger.dx-state-disabled.dx-button-mode-contained .dx-icon {
   color: rgba(0,0,0,.35);
 }
 .dx-button-mode-outlined.dx-button-danger .dx-inkripple-wave {
@@ -3159,7 +3171,8 @@
 .dx-button-mode-outlined.dx-button-success.dx-state-disabled .dx-icon {
   opacity: .6;
 }
-.dx-button-mode-outlined.dx-button-success.dx-state-disabled .dx-button-text {
+.dx-button-mode-outlined.dx-button-success.dx-state-disabled .dx-button-text,
+.dx-button-mode-outlined.dx-button-success.dx-state-disabled.dx-button-mode-contained .dx-icon {
   color: rgba(0,0,0,.35);
 }
 .dx-button-mode-outlined.dx-button-success .dx-inkripple-wave {
@@ -4510,7 +4523,8 @@
 .dx-tabs-nav-button.dx-button.dx-tabs-nav-button.dx-button-has-icon:not(.dx-button-has-text).dx-state-disabled .dx-icon {
   opacity: .6;
 }
-.dx-tabs-nav-button.dx-button.dx-tabs-nav-button.dx-button-has-icon:not(.dx-button-has-text).dx-state-disabled .dx-button-text {
+.dx-tabs-nav-button.dx-button.dx-tabs-nav-button.dx-button-has-icon:not(.dx-button-has-text).dx-state-disabled .dx-button-text,
+.dx-tabs-nav-button.dx-button.dx-tabs-nav-button.dx-button-has-icon:not(.dx-button-has-text).dx-state-disabled.dx-button-mode-contained .dx-icon {
   color: rgba(0,0,0,.35);
 }
 .dx-tabs-nav-button.dx-button.dx-tabs-nav-button.dx-button-has-icon:not(.dx-button-has-text) .dx-inkripple-wave {
@@ -8662,7 +8676,8 @@
 .dx-button.dx-list-switchable-delete-button.dx-state-disabled .dx-icon {
   opacity: .6;
 }
-.dx-button.dx-list-switchable-delete-button.dx-state-disabled .dx-button-text {
+.dx-button.dx-list-switchable-delete-button.dx-state-disabled .dx-button-text,
+.dx-button.dx-list-switchable-delete-button.dx-state-disabled.dx-button-mode-contained .dx-icon {
   color: rgba(0,0,0,.35);
 }
 .dx-button.dx-list-switchable-delete-button .dx-inkripple-wave {
@@ -9195,7 +9210,8 @@
 .dx-calendar-navigator .dx-button.dx-state-disabled .dx-icon {
   opacity: .6;
 }
-.dx-calendar-navigator .dx-button.dx-state-disabled .dx-button-text {
+.dx-calendar-navigator .dx-button.dx-state-disabled .dx-button-text,
+.dx-calendar-navigator .dx-button.dx-state-disabled.dx-button-mode-contained .dx-icon {
   color: rgba(0,0,0,.35);
 }
 .dx-calendar-navigator .dx-button .dx-inkripple-wave {
@@ -11266,17 +11282,29 @@
   opacity: .6;
 }
 .dx-toolbar-menu-section .dx-toolbar-hidden-button .dx-button-mode-contained.dx-button-back.dx-state-disabled .dx-button-text,
+.dx-toolbar-menu-section .dx-toolbar-hidden-button .dx-button-mode-contained.dx-button-back.dx-state-disabled.dx-button-mode-contained .dx-icon,
 .dx-toolbar-menu-section .dx-toolbar-hidden-button .dx-button-mode-contained.dx-button-normal.dx-state-disabled .dx-button-text,
+.dx-toolbar-menu-section .dx-toolbar-hidden-button .dx-button-mode-contained.dx-button-normal.dx-state-disabled.dx-button-mode-contained .dx-icon,
 .dx-toolbar-menu-section .dx-toolbar-hidden-button .dx-button-mode-outlined.dx-button-back.dx-state-disabled .dx-button-text,
+.dx-toolbar-menu-section .dx-toolbar-hidden-button .dx-button-mode-outlined.dx-button-back.dx-state-disabled.dx-button-mode-contained .dx-icon,
 .dx-toolbar-menu-section .dx-toolbar-hidden-button .dx-button-mode-outlined.dx-button-normal.dx-state-disabled .dx-button-text,
+.dx-toolbar-menu-section .dx-toolbar-hidden-button .dx-button-mode-outlined.dx-button-normal.dx-state-disabled.dx-button-mode-contained .dx-icon,
 .dx-toolbar-menu-section .dx-toolbar-hidden-button .dx-button-mode-text.dx-button-back.dx-state-disabled .dx-button-text,
+.dx-toolbar-menu-section .dx-toolbar-hidden-button .dx-button-mode-text.dx-button-back.dx-state-disabled.dx-button-mode-contained .dx-icon,
 .dx-toolbar-menu-section .dx-toolbar-hidden-button .dx-button-mode-text.dx-button-normal.dx-state-disabled .dx-button-text,
+.dx-toolbar-menu-section .dx-toolbar-hidden-button .dx-button-mode-text.dx-button-normal.dx-state-disabled.dx-button-mode-contained .dx-icon,
 .dx-toolbar-menu-section .dx-toolbar-hidden-button-group .dx-button-mode-contained.dx-button-back.dx-state-disabled .dx-button-text,
+.dx-toolbar-menu-section .dx-toolbar-hidden-button-group .dx-button-mode-contained.dx-button-back.dx-state-disabled.dx-button-mode-contained .dx-icon,
 .dx-toolbar-menu-section .dx-toolbar-hidden-button-group .dx-button-mode-contained.dx-button-normal.dx-state-disabled .dx-button-text,
+.dx-toolbar-menu-section .dx-toolbar-hidden-button-group .dx-button-mode-contained.dx-button-normal.dx-state-disabled.dx-button-mode-contained .dx-icon,
 .dx-toolbar-menu-section .dx-toolbar-hidden-button-group .dx-button-mode-outlined.dx-button-back.dx-state-disabled .dx-button-text,
+.dx-toolbar-menu-section .dx-toolbar-hidden-button-group .dx-button-mode-outlined.dx-button-back.dx-state-disabled.dx-button-mode-contained .dx-icon,
 .dx-toolbar-menu-section .dx-toolbar-hidden-button-group .dx-button-mode-outlined.dx-button-normal.dx-state-disabled .dx-button-text,
+.dx-toolbar-menu-section .dx-toolbar-hidden-button-group .dx-button-mode-outlined.dx-button-normal.dx-state-disabled.dx-button-mode-contained .dx-icon,
 .dx-toolbar-menu-section .dx-toolbar-hidden-button-group .dx-button-mode-text.dx-button-back.dx-state-disabled .dx-button-text,
-.dx-toolbar-menu-section .dx-toolbar-hidden-button-group .dx-button-mode-text.dx-button-normal.dx-state-disabled .dx-button-text {
+.dx-toolbar-menu-section .dx-toolbar-hidden-button-group .dx-button-mode-text.dx-button-back.dx-state-disabled.dx-button-mode-contained .dx-icon,
+.dx-toolbar-menu-section .dx-toolbar-hidden-button-group .dx-button-mode-text.dx-button-normal.dx-state-disabled .dx-button-text,
+.dx-toolbar-menu-section .dx-toolbar-hidden-button-group .dx-button-mode-text.dx-button-normal.dx-state-disabled.dx-button-mode-contained .dx-icon {
   color: rgba(0,0,0,.35);
 }
 .dx-toolbar-menu-section .dx-toolbar-hidden-button .dx-button-mode-contained.dx-button-back .dx-inkripple-wave,
@@ -11357,11 +11385,17 @@
   opacity: .6;
 }
 .dx-toolbar-menu-section .dx-toolbar-hidden-button .dx-button-mode-contained.dx-button-default.dx-state-disabled .dx-button-text,
+.dx-toolbar-menu-section .dx-toolbar-hidden-button .dx-button-mode-contained.dx-button-default.dx-state-disabled.dx-button-mode-contained .dx-icon,
 .dx-toolbar-menu-section .dx-toolbar-hidden-button .dx-button-mode-outlined.dx-button-default.dx-state-disabled .dx-button-text,
+.dx-toolbar-menu-section .dx-toolbar-hidden-button .dx-button-mode-outlined.dx-button-default.dx-state-disabled.dx-button-mode-contained .dx-icon,
 .dx-toolbar-menu-section .dx-toolbar-hidden-button .dx-button-mode-text.dx-button-default.dx-state-disabled .dx-button-text,
+.dx-toolbar-menu-section .dx-toolbar-hidden-button .dx-button-mode-text.dx-button-default.dx-state-disabled.dx-button-mode-contained .dx-icon,
 .dx-toolbar-menu-section .dx-toolbar-hidden-button-group .dx-button-mode-contained.dx-button-default.dx-state-disabled .dx-button-text,
+.dx-toolbar-menu-section .dx-toolbar-hidden-button-group .dx-button-mode-contained.dx-button-default.dx-state-disabled.dx-button-mode-contained .dx-icon,
 .dx-toolbar-menu-section .dx-toolbar-hidden-button-group .dx-button-mode-outlined.dx-button-default.dx-state-disabled .dx-button-text,
-.dx-toolbar-menu-section .dx-toolbar-hidden-button-group .dx-button-mode-text.dx-button-default.dx-state-disabled .dx-button-text {
+.dx-toolbar-menu-section .dx-toolbar-hidden-button-group .dx-button-mode-outlined.dx-button-default.dx-state-disabled.dx-button-mode-contained .dx-icon,
+.dx-toolbar-menu-section .dx-toolbar-hidden-button-group .dx-button-mode-text.dx-button-default.dx-state-disabled .dx-button-text,
+.dx-toolbar-menu-section .dx-toolbar-hidden-button-group .dx-button-mode-text.dx-button-default.dx-state-disabled.dx-button-mode-contained .dx-icon {
   color: rgba(0,0,0,.35);
 }
 .dx-toolbar-menu-section .dx-toolbar-hidden-button .dx-button-mode-contained.dx-button-default .dx-inkripple-wave,
@@ -11436,11 +11470,17 @@
   opacity: .6;
 }
 .dx-toolbar-menu-section .dx-toolbar-hidden-button .dx-button-mode-contained.dx-button-danger.dx-state-disabled .dx-button-text,
+.dx-toolbar-menu-section .dx-toolbar-hidden-button .dx-button-mode-contained.dx-button-danger.dx-state-disabled.dx-button-mode-contained .dx-icon,
 .dx-toolbar-menu-section .dx-toolbar-hidden-button .dx-button-mode-outlined.dx-button-danger.dx-state-disabled .dx-button-text,
+.dx-toolbar-menu-section .dx-toolbar-hidden-button .dx-button-mode-outlined.dx-button-danger.dx-state-disabled.dx-button-mode-contained .dx-icon,
 .dx-toolbar-menu-section .dx-toolbar-hidden-button .dx-button-mode-text.dx-button-danger.dx-state-disabled .dx-button-text,
+.dx-toolbar-menu-section .dx-toolbar-hidden-button .dx-button-mode-text.dx-button-danger.dx-state-disabled.dx-button-mode-contained .dx-icon,
 .dx-toolbar-menu-section .dx-toolbar-hidden-button-group .dx-button-mode-contained.dx-button-danger.dx-state-disabled .dx-button-text,
+.dx-toolbar-menu-section .dx-toolbar-hidden-button-group .dx-button-mode-contained.dx-button-danger.dx-state-disabled.dx-button-mode-contained .dx-icon,
 .dx-toolbar-menu-section .dx-toolbar-hidden-button-group .dx-button-mode-outlined.dx-button-danger.dx-state-disabled .dx-button-text,
-.dx-toolbar-menu-section .dx-toolbar-hidden-button-group .dx-button-mode-text.dx-button-danger.dx-state-disabled .dx-button-text {
+.dx-toolbar-menu-section .dx-toolbar-hidden-button-group .dx-button-mode-outlined.dx-button-danger.dx-state-disabled.dx-button-mode-contained .dx-icon,
+.dx-toolbar-menu-section .dx-toolbar-hidden-button-group .dx-button-mode-text.dx-button-danger.dx-state-disabled .dx-button-text,
+.dx-toolbar-menu-section .dx-toolbar-hidden-button-group .dx-button-mode-text.dx-button-danger.dx-state-disabled.dx-button-mode-contained .dx-icon {
   color: rgba(0,0,0,.35);
 }
 .dx-toolbar-menu-section .dx-toolbar-hidden-button .dx-button-mode-contained.dx-button-danger .dx-inkripple-wave,
@@ -11515,11 +11555,17 @@
   opacity: .6;
 }
 .dx-toolbar-menu-section .dx-toolbar-hidden-button .dx-button-mode-contained.dx-button-success.dx-state-disabled .dx-button-text,
+.dx-toolbar-menu-section .dx-toolbar-hidden-button .dx-button-mode-contained.dx-button-success.dx-state-disabled.dx-button-mode-contained .dx-icon,
 .dx-toolbar-menu-section .dx-toolbar-hidden-button .dx-button-mode-outlined.dx-button-success.dx-state-disabled .dx-button-text,
+.dx-toolbar-menu-section .dx-toolbar-hidden-button .dx-button-mode-outlined.dx-button-success.dx-state-disabled.dx-button-mode-contained .dx-icon,
 .dx-toolbar-menu-section .dx-toolbar-hidden-button .dx-button-mode-text.dx-button-success.dx-state-disabled .dx-button-text,
+.dx-toolbar-menu-section .dx-toolbar-hidden-button .dx-button-mode-text.dx-button-success.dx-state-disabled.dx-button-mode-contained .dx-icon,
 .dx-toolbar-menu-section .dx-toolbar-hidden-button-group .dx-button-mode-contained.dx-button-success.dx-state-disabled .dx-button-text,
+.dx-toolbar-menu-section .dx-toolbar-hidden-button-group .dx-button-mode-contained.dx-button-success.dx-state-disabled.dx-button-mode-contained .dx-icon,
 .dx-toolbar-menu-section .dx-toolbar-hidden-button-group .dx-button-mode-outlined.dx-button-success.dx-state-disabled .dx-button-text,
-.dx-toolbar-menu-section .dx-toolbar-hidden-button-group .dx-button-mode-text.dx-button-success.dx-state-disabled .dx-button-text {
+.dx-toolbar-menu-section .dx-toolbar-hidden-button-group .dx-button-mode-outlined.dx-button-success.dx-state-disabled.dx-button-mode-contained .dx-icon,
+.dx-toolbar-menu-section .dx-toolbar-hidden-button-group .dx-button-mode-text.dx-button-success.dx-state-disabled .dx-button-text,
+.dx-toolbar-menu-section .dx-toolbar-hidden-button-group .dx-button-mode-text.dx-button-success.dx-state-disabled.dx-button-mode-contained .dx-icon {
   color: rgba(0,0,0,.35);
 }
 .dx-toolbar-menu-section .dx-toolbar-hidden-button .dx-button-mode-contained.dx-button-success .dx-inkripple-wave,
@@ -16035,7 +16081,8 @@
 .dx-datagrid-header-panel .dx-apply-button.dx-state-disabled .dx-icon {
   opacity: .6;
 }
-.dx-datagrid-header-panel .dx-apply-button.dx-state-disabled .dx-button-text {
+.dx-datagrid-header-panel .dx-apply-button.dx-state-disabled .dx-button-text,
+.dx-datagrid-header-panel .dx-apply-button.dx-state-disabled.dx-button-mode-contained .dx-icon {
   color: rgba(0,0,0,.35);
 }
 .dx-datagrid-header-panel .dx-apply-button .dx-inkripple-wave {
@@ -16365,7 +16412,8 @@
 .dx-datagrid-revert-tooltip .dx-revert-button.dx-state-disabled .dx-icon {
   opacity: .6;
 }
-.dx-datagrid-revert-tooltip .dx-revert-button.dx-state-disabled .dx-button-text {
+.dx-datagrid-revert-tooltip .dx-revert-button.dx-state-disabled .dx-button-text,
+.dx-datagrid-revert-tooltip .dx-revert-button.dx-state-disabled.dx-button-mode-contained .dx-icon {
   color: rgba(0,0,0,.35);
 }
 .dx-datagrid-revert-tooltip .dx-revert-button .dx-inkripple-wave {
@@ -16435,7 +16483,8 @@
 .dx-datagrid-form-buttons-container .dx-button.dx-state-disabled .dx-icon {
   opacity: .6;
 }
-.dx-datagrid-form-buttons-container .dx-button.dx-state-disabled .dx-button-text {
+.dx-datagrid-form-buttons-container .dx-button.dx-state-disabled .dx-button-text,
+.dx-datagrid-form-buttons-container .dx-button.dx-state-disabled.dx-button-mode-contained .dx-icon {
   color: rgba(0,0,0,.35);
 }
 .dx-datagrid-form-buttons-container .dx-button .dx-inkripple-wave {
@@ -18399,7 +18448,8 @@ input.dx-hidden {
 .dx-treelist-header-panel .dx-apply-button.dx-state-disabled .dx-icon {
   opacity: .6;
 }
-.dx-treelist-header-panel .dx-apply-button.dx-state-disabled .dx-button-text {
+.dx-treelist-header-panel .dx-apply-button.dx-state-disabled .dx-button-text,
+.dx-treelist-header-panel .dx-apply-button.dx-state-disabled.dx-button-mode-contained .dx-icon {
   color: rgba(0,0,0,.35);
 }
 .dx-treelist-header-panel .dx-apply-button .dx-inkripple-wave {
@@ -18758,7 +18808,8 @@ input.dx-hidden {
 .dx-treelist-revert-tooltip .dx-revert-button.dx-state-disabled .dx-icon {
   opacity: .6;
 }
-.dx-treelist-revert-tooltip .dx-revert-button.dx-state-disabled .dx-button-text {
+.dx-treelist-revert-tooltip .dx-revert-button.dx-state-disabled .dx-button-text,
+.dx-treelist-revert-tooltip .dx-revert-button.dx-state-disabled.dx-button-mode-contained .dx-icon {
   color: rgba(0,0,0,.35);
 }
 .dx-treelist-revert-tooltip .dx-revert-button .dx-inkripple-wave {
@@ -18832,7 +18883,8 @@ input.dx-hidden {
 .dx-treelist-form-buttons-container .dx-button.dx-state-disabled .dx-icon {
   opacity: .6;
 }
-.dx-treelist-form-buttons-container .dx-button.dx-state-disabled .dx-button-text {
+.dx-treelist-form-buttons-container .dx-button.dx-state-disabled .dx-button-text,
+.dx-treelist-form-buttons-container .dx-button.dx-state-disabled.dx-button-mode-contained .dx-icon {
   color: rgba(0,0,0,.35);
 }
 .dx-treelist-form-buttons-container .dx-button .dx-inkripple-wave {
@@ -19795,7 +19847,8 @@ input.dx-hidden {
 .dx-pivotgrid .dx-area-description-cell .dx-pivotgrid-toolbar .dx-button.dx-state-disabled .dx-icon {
   opacity: .6;
 }
-.dx-pivotgrid .dx-area-description-cell .dx-pivotgrid-toolbar .dx-button.dx-state-disabled .dx-button-text {
+.dx-pivotgrid .dx-area-description-cell .dx-pivotgrid-toolbar .dx-button.dx-state-disabled .dx-button-text,
+.dx-pivotgrid .dx-area-description-cell .dx-pivotgrid-toolbar .dx-button.dx-state-disabled.dx-button-mode-contained .dx-icon {
   color: rgba(0,0,0,.35);
 }
 .dx-pivotgrid .dx-area-description-cell .dx-pivotgrid-toolbar .dx-button .dx-inkripple-wave {
@@ -19841,7 +19894,9 @@ input.dx-hidden {
   opacity: .6;
 }
 .dx-pivotgrid .dx-column-header .dx-pivotgrid-toolbar .dx-button.dx-state-disabled .dx-button-text,
-.dx-pivotgrid .dx-filter-header .dx-pivotgrid-toolbar .dx-button.dx-state-disabled .dx-button-text {
+.dx-pivotgrid .dx-column-header .dx-pivotgrid-toolbar .dx-button.dx-state-disabled.dx-button-mode-contained .dx-icon,
+.dx-pivotgrid .dx-filter-header .dx-pivotgrid-toolbar .dx-button.dx-state-disabled .dx-button-text,
+.dx-pivotgrid .dx-filter-header .dx-pivotgrid-toolbar .dx-button.dx-state-disabled.dx-button-mode-contained .dx-icon {
   color: rgba(0,0,0,.35);
 }
 .dx-pivotgrid .dx-column-header .dx-pivotgrid-toolbar .dx-button .dx-inkripple-wave,
@@ -22856,7 +22911,8 @@ input.dx-hidden {
 .dx-popup-content .dx-scheduler-dropdown-appointment-buttons-block .dx-button.dx-state-disabled .dx-icon {
   opacity: .6;
 }
-.dx-popup-content .dx-scheduler-dropdown-appointment-buttons-block .dx-button.dx-state-disabled .dx-button-text {
+.dx-popup-content .dx-scheduler-dropdown-appointment-buttons-block .dx-button.dx-state-disabled .dx-button-text,
+.dx-popup-content .dx-scheduler-dropdown-appointment-buttons-block .dx-button.dx-state-disabled.dx-button-mode-contained .dx-icon {
   color: rgba(0,0,0,.35);
 }
 .dx-popup-content .dx-scheduler-dropdown-appointment-buttons-block .dx-button .dx-inkripple-wave {

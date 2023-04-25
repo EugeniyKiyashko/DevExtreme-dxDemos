@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>dxDateRangeBox all modes</title>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
+  <script type="text/javascript" src="../../artifacts/dx.all.daterangebox.js"></script>
+  <script type="text/javascript" src="../themeSwitcher.js"></script>
+</head>
+<body class="dx-viewport">
+  <div class="demo-container">
+    <div id="buttons"></div>
+    <div id="toolbar"></div>
+  </div>
+  <script>
+    addThemeSelectboxToBody();
+    $(() => {
+      const labelModes = ['floating', 'static', 'hidden'];
+      const stylingModes = ['outlined', 'underlined', 'filled'];
+      
+      const items = [];
+      ['outlined', 'text',  'contained'].forEach((stylingMode) => {
+        ['default', 'normal', 'success', 'danger', ].forEach((type) => {
+          const $button = $("<div>");
+
+          $('#buttons').append($button);
+          
+          $button.dxButton({
+            text: `stMode: ${stylingMode}, type: ${type}` ,
+            icon: 'home',
+            disabled: true,
+            location: 'after',
+            locateInMenu: 'never',
+            stylingMode, 
+            type,
+          })
+          });
+        });
+      });
+    </script>
+  </body>
+  </html>
+  
