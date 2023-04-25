@@ -2,7 +2,7 @@
 /**
 * DevExtreme (dx.darkviolet.compact.css)
 * Version: 23.1.1
-* Build date: Fri Apr 21 2023
+* Build date: Tue Apr 25 2023
 *
 * Copyright (c) 2012 - 2023 Developer Express Inc. ALL RIGHTS RESERVED
 * Read about DevExtreme licensing here: https://js.devexpress.com/Licensing/
@@ -7533,9 +7533,9 @@
 .dx-calendar-cell.dx-calendar-empty-cell:not(.dx-calendar-selected-date,.dx-calendar-range-date),
 .dx-calendar-cell.dx-calendar-empty-cell:not(.dx-calendar-selected-date,.dx-calendar-range-date).dx-state-active,
 .dx-calendar-cell.dx-calendar-empty-cell:not(.dx-calendar-selected-date,.dx-calendar-range-date).dx-state-hover,
-.dx-calendar-cell.dx-calendar-other-view:not(.dx-calendar-selected-date,.dx-calendar-range-date),
-.dx-calendar-cell.dx-calendar-other-view:not(.dx-calendar-selected-date,.dx-calendar-range-date).dx-state-active,
-.dx-calendar-cell.dx-calendar-other-view:not(.dx-calendar-selected-date,.dx-calendar-range-date).dx-state-hover {
+.dx-calendar-cell.dx-calendar-other-view,
+.dx-calendar-cell.dx-calendar-other-view.dx-state-active,
+.dx-calendar-cell.dx-calendar-other-view.dx-state-hover {
   color: #6c7987;
 }
 .dx-calendar-cell.dx-calendar-empty-cell {
@@ -7554,27 +7554,27 @@
   -webkit-box-shadow: inset 0 0 0 1px #4f5662;
   box-shadow: inset 0 0 0 1px #4f5662;
 }
-.dx-calendar-cell.dx-calendar-selected-date,
-.dx-calendar-cell.dx-calendar-selected-date.dx-calendar-today {
+.dx-calendar-cell.dx-calendar-selected-date:not(.dx-calendar-other-view),
+.dx-calendar-cell.dx-calendar-selected-date:not(.dx-calendar-other-view).dx-calendar-today {
   color: #2a2a2a;
   -webkit-box-shadow: inset 0 0 0 1000px #9c63ff;
   box-shadow: inset 0 0 0 1000px #9c63ff;
   font-weight: 400;
 }
-.dx-calendar-cell.dx-calendar-selected-date.dx-calendar-contoured-date,
-.dx-calendar-cell.dx-calendar-selected-date.dx-calendar-today.dx-calendar-contoured-date {
+.dx-calendar-cell.dx-calendar-selected-date:not(.dx-calendar-other-view).dx-calendar-contoured-date,
+.dx-calendar-cell.dx-calendar-selected-date:not(.dx-calendar-other-view).dx-calendar-today.dx-calendar-contoured-date {
   -webkit-box-shadow: inset 0 0 0 1px #4f5662,inset 0 0 0 1000px #9c63ff;
   box-shadow: inset 0 0 0 1px #4f5662,inset 0 0 0 1000px #9c63ff;
 }
-.dx-calendar-cell.dx-calendar-range-date:not(.dx-calendar-selected-date),
-.dx-calendar-cell.dx-calendar-range-date:not(.dx-calendar-selected-date).dx-calendar-today {
+.dx-calendar-cell.dx-calendar-range-date:not(.dx-calendar-selected-date,.dx-calendar-other-view),
+.dx-calendar-cell.dx-calendar-range-date:not(.dx-calendar-selected-date,.dx-calendar-other-view).dx-calendar-today {
   color: #2a2a2a;
   -webkit-box-shadow: inset 0 0 0 1000px #fdfcff;
   box-shadow: inset 0 0 0 1000px #fdfcff;
   font-weight: 400;
 }
-.dx-calendar-cell.dx-calendar-range-date:not(.dx-calendar-selected-date).dx-calendar-contoured-date,
-.dx-calendar-cell.dx-calendar-range-date:not(.dx-calendar-selected-date).dx-calendar-today.dx-calendar-contoured-date {
+.dx-calendar-cell.dx-calendar-range-date:not(.dx-calendar-selected-date,.dx-calendar-other-view).dx-calendar-contoured-date,
+.dx-calendar-cell.dx-calendar-range-date:not(.dx-calendar-selected-date,.dx-calendar-other-view).dx-calendar-today.dx-calendar-contoured-date {
   -webkit-box-shadow: inset 0 0 0 1px #4f5662,inset 0 0 0 1000px #fdfcff;
   box-shadow: inset 0 0 0 1px #4f5662,inset 0 0 0 1000px #fdfcff;
 }
@@ -7968,12 +7968,13 @@
   min-height: 23px;
 }
 .dx-daterangebox {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-box-align: stretch;
-  -ms-flex-align: stretch;
-  align-items: stretch;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.dx-end-datebox,
+.dx-start-datebox {
+  width: 50%;
 }
 .dx-daterangebox-separator {
   display: -webkit-box;
@@ -8002,6 +8003,39 @@
   box-shadow: 0 1px #343840,0 -1px #343840,-1px 0 #343840,1px 0 #343840;
   border-radius: 1px;
 }
+.dx-daterangebox.dx-state-readonly {
+  border-style: none;
+}
+.dx-daterangebox.dx-state-readonly.dx-daterangebox-filled {
+  background: rgba(245,246,247,.03);
+  -webkit-box-shadow: 0 1px #343840,0 -1px #343840,-1px 0 #343840,1px 0 #343840;
+  box-shadow: 0 1px #343840,0 -1px #343840,-1px 0 #343840,1px 0 #343840;
+  border-radius: 1px;
+}
+.dx-daterangebox.dx-state-readonly.dx-state-hover.dx-daterangebox-filled {
+  background: rgba(156,99,255,.07);
+  -webkit-box-shadow: 0 1px #343840,0 -1px #343840,-1px 0 #343840,1px 0 #343840;
+  box-shadow: 0 1px #343840,0 -1px #343840,-1px 0 #343840,1px 0 #343840;
+  border-radius: 1px;
+}
+.dx-daterangebox.dx-state-hover.dx-daterangebox-outlined {
+  background: #17171f;
+  -webkit-box-shadow: 0 1px rgba(156,99,255,.4),0 -1px rgba(156,99,255,.4),-1px 0 rgba(156,99,255,.4),1px 0 rgba(156,99,255,.4);
+  box-shadow: 0 1px rgba(156,99,255,.4),0 -1px rgba(156,99,255,.4),-1px 0 rgba(156,99,255,.4),1px 0 rgba(156,99,255,.4);
+  border-radius: 1px;
+}
+.dx-daterangebox.dx-state-hover.dx-daterangebox-underlined {
+  background: 0 0;
+  -webkit-box-shadow: 0 1px rgba(156,99,255,.4);
+  box-shadow: 0 1px rgba(156,99,255,.4);
+  border-radius: 0;
+}
+.dx-daterangebox.dx-state-hover.dx-editor-filled.dx-daterangebox-filled {
+  background: rgba(156,99,255,.1);
+  -webkit-box-shadow: 0 1px #343840,0 -1px #343840,-1px 0 #343840,1px 0 #343840;
+  box-shadow: 0 1px #343840,0 -1px #343840,-1px 0 #343840,1px 0 #343840;
+  border-radius: 1px;
+}
 .dx-daterangebox.dx-state-active.dx-daterangebox-filled,
 .dx-daterangebox.dx-state-active.dx-daterangebox-outlined,
 .dx-daterangebox.dx-state-focused.dx-daterangebox-filled,
@@ -8021,7 +8055,8 @@
 .dx-daterangebox .dx-editor-underlined {
   border-color: transparent;
 }
-.dx-start-datebox {
+.dx-daterangebox-filled .dx-start-datebox,
+.dx-daterangebox-outlined .dx-start-datebox {
   margin-left: 10px;
 }
 .dx-dropdownlist-popup-wrapper .dx-list .dx-scrollable-content {
