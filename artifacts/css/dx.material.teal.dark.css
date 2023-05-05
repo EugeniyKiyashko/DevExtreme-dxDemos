@@ -9196,11 +9196,8 @@
   content: "";
   position: absolute;
   z-index: 1;
-  top: 50%;
   inset-inline-start: 50%;
   inset-inline-end: 0;
-  -webkit-transform: translateY(-50%);
-  transform: translateY(-50%);
 }
 .dx-calendar-footer {
   display: -webkit-box;
@@ -9247,11 +9244,16 @@
 }
 .dx-calendar-body table .dx-week-number-header {
   font-size: 14px;
-  width: 2em;
+  width: 2.5em;
 }
 .dx-calendar-body table .dx-calendar-week-number-cell {
   color: #fff;
   background: rgba(26,26,31,.5);
+  width: 2em;
+  margin-right: .5em;
+}
+.dx-rtl .dx-calendar-body table .dx-calendar-week-number-cell {
+  margin-left: .5em;
 }
 .dx-calendar-body thead tr {
   height: 2em;
@@ -9274,6 +9276,7 @@
   height: 4em;
   border-radius: 4px;
   word-spacing: 4em;
+  line-height: 1em;
 }
 .dx-calendar-cell.dx-calendar-today span {
   border: 2px solid #009688;
