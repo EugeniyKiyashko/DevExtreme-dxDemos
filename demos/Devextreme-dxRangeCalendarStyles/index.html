@@ -21,8 +21,8 @@
     $(() => {
       const commonOptions = {
         showWeekNumbers: true,
-        min: new Date(2021, 9, 5),
-        max: new Date(2021, 10, 25),
+        min: null,
+        max: null,
         disabledDates: [new Date(2021, 9, 25), new Date(2021, 9, 26)]
       }
 
@@ -39,6 +39,9 @@
           ...commonOptions
         });
 
+        console.log({
+            ...commonOptions
+          })
         $('#dateRangeBox').dxDateRangeBox({
           value: [new Date(2021,9,17), new Date(2021,10,17)],
           calendarOptions: {
@@ -57,13 +60,13 @@
       })
 
       $('#min').dxCheckBox({
-        value: true,
+        value: false,
         text: 'use min new Date(2021, 9, 5)',
         onValueChanged(e) {
           if(e.value) {
             commonOptions.min = new Date(2021, 9, 5);
           } else {
-            commonOptions.min = undefined;
+            commonOptions.min = null;
           }
         
           init(commonOptions)
@@ -71,13 +74,13 @@
       })
 
       $('#max').dxCheckBox({
-        value: true,
+        value: false,
         text: 'use max new Date(2021, 10, 25)',
         onValueChanged(e) {
           if(e.value) {
             commonOptions.max = new Date(2021, 10, 25);
           } else {
-            commonOptions.max = undefined;
+            commonOptions.max = null;
           }
           init(commonOptions)
         }
@@ -90,7 +93,7 @@
           if(e.value) {
             commonOptions.disabledDates = [new Date(2021, 9, 25), new Date(2021, 9, 26)];
           } else {
-            commonOptions.disabledDates = undefined;
+            commonOptions.disabledDates = [];
           }
           init(commonOptions)
         }
