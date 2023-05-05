@@ -1,0 +1,103 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DxRangeCalendar styles</title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
+    <script type="text/javascript" src="../../artifacts/dx.all.daterangebox.js"></script>
+    <script type="text/javascript" src="../themeSwitcher.js"></script>
+</head>
+<body class="dx-viewport">
+  <div id="showWeekNumbers"></div>
+  <div id="min"></div>
+  <div id="max"></div>
+  <div id="disabledDates"></div>
+  
+  <div id="calendar-multiview"></div>
+  <div id="calendar"></div>
+  <div id="dateRangeBox"></div>
+    <script>
+    addThemeSelectboxToBody();
+    $(() => {
+      const commonOptions = {
+        showWeekNumbers: true,
+        min: new Date(2021, 9, 5),
+        max: new Date(2021, 10, 25),
+        disabledDates: [new Date(2021, 9, 25), new Date(2021, 9, 26)]
+      }
+
+      const init= (commonOptions) => {
+        $('#calendar-multiview').dxCalendar({
+          values: [new Date(2021, 9, 17), new Date(2021, 10, 14)],
+          selectionMode: 'range',
+          viewsCount: 2,
+          ...commonOptions
+        });
+
+        $('#calendar').dxCalendar({
+          value: new Date(2021, 9, 17),
+          ...commonOptions
+        });
+
+        $('#dateRangeBox').dxDateRangeBox({
+          value: [new Date(2021,9,17), new Date(2021,10,17)],
+          calendarOptions: {
+            ...commonOptions
+          }
+        });
+      }
+
+      $('#showWeekNumbers').dxCheckBox({
+        value: true,
+        text: 'showWeekNumbers',
+        onValueChanged(e) {
+          commonOptions.showWeekNumbers = e.value;
+          init(commonOptions)
+        }
+      })
+
+      $('#min').dxCheckBox({
+        value: true,
+        text: 'use min new Date(2021, 9, 5)',
+        onValueChanged(e) {
+          if(e.value) {
+            commonOptions.min = new Date(2021, 9, 5);
+          } else {
+            commonOptions.min = undefined;
+          }
+        
+          init(commonOptions)
+        }
+      })
+
+      $('#max').dxCheckBox({
+        value: true,
+        text: 'use max new Date(2021, 10, 25)',
+        onValueChanged(e) {
+          if(e.value) {
+            commonOptions.max = new Date(2021, 10, 25);
+          } else {
+            commonOptions.max = undefined;
+          }
+          init(commonOptions)
+        }
+      })
+
+      $('#disabledDates').dxCheckBox({
+        value: true,
+        text: 'use disabledDates: [new Date(2021, 9, 25), new Date(2021, 9, 26)]',
+        onValueChanged(e) {
+          if(e.value) {
+            commonOptions.disabledDates = [new Date(2021, 9, 25), new Date(2021, 9, 26)];
+          } else {
+            commonOptions.disabledDates = undefined;
+          }
+          init(commonOptions)
+        }
+      });
+
+      init(commonOptions);
+    });
+    </script>
+</body>
+</html>
