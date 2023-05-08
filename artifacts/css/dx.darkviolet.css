@@ -2,7 +2,7 @@
 /**
 * DevExtreme (dx.darkviolet.css)
 * Version: 23.1.1
-* Build date: Fri May 05 2023
+* Build date: Mon May 08 2023
 *
 * Copyright (c) 2012 - 2023 Developer Express Inc. ALL RIGHTS RESERVED
 * Read about DevExtreme licensing here: https://js.devexpress.com/Licensing/
@@ -7448,13 +7448,6 @@
   width: 2em;
   height: 2em;
 }
-.dx-calendar-cell::before {
-  content: "";
-  position: absolute;
-  z-index: 1;
-  inset-inline-start: 50%;
-  inset-inline-end: 0;
-}
 .dx-calendar-footer {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -7486,11 +7479,22 @@
 .dx-calendar-multiview .dx-calendar-body table {
   padding: 0 10px;
 }
+.dx-calendar-multiview .dx-calendar-cell::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  inset-inline-start: 50%;
+  inset-inline-end: 0;
+}
 .dx-rtl.dx-calendar .dx-calendar-body table {
   left: 0;
 }
 .dx-rtl.dx-calendar .dx-calendar-body .dx-widget {
   direction: ltr;
+}
+.dx-calendar.dx-calendar-multiview {
+  width: 564px;
+  min-width: 564px;
 }
 .dx-calendar-navigator .dx-button {
   border-radius: 0;
@@ -7511,7 +7515,7 @@
 }
 .dx-calendar-body table .dx-calendar-week-number-cell {
   color: #6c7987;
-  background: rgba(0,0,0,.5);
+  background-color: rgba(0,0,0,.5);
   width: 2em;
   margin-right: .5em;
 }
@@ -7545,26 +7549,35 @@
   border: 2px solid #9c63ff;
 }
 .dx-calendar-cell.dx-state-hover span {
-  background-color: rgba(158,158,197,.3);
+  background-color: rgba(156,99,255,.24);
   color: #f5f6f7;
 }
 .dx-calendar-cell.dx-state-active span {
-  background-color: cell-active-bg;
+  background-color: rgba(156,99,255,.4);
 }
 .dx-calendar-cell.dx-state-active.dx-calendar-empty-cell span {
   background-color: transparent;
 }
 .dx-calendar-cell.dx-calendar-selected-date span {
-  color: #2a2a2a;
-  background-color: #9c63ff;
+  background-color: rgba(156,99,255,.32);
+}
+.dx-calendar-cell.dx-calendar-selected-date.dx-state-active span,
+.dx-calendar-cell.dx-calendar-selected-date.dx-state-hover span {
+  background-color: rgba(156,99,255,.4);
 }
 .dx-calendar-cell.dx-calendar-contoured-date span {
-  -webkit-box-shadow: 0 0 0 2px #4f5662;
-  box-shadow: 0 0 0 2px #4f5662;
+  -webkit-box-shadow: 0 0 0 2px rgba(156,99,255,.5);
+  box-shadow: 0 0 0 2px rgba(156,99,255,.5);
 }
 .dx-calendar-cell.dx-calendar-range-end-date span,
 .dx-calendar-cell.dx-calendar-range-start-date span {
   color: #2a2a2a;
+  background-color: #9c63ff;
+}
+.dx-calendar-cell.dx-calendar-range-end-date.dx-state-active span,
+.dx-calendar-cell.dx-calendar-range-end-date.dx-state-hover span,
+.dx-calendar-cell.dx-calendar-range-start-date.dx-state-active span,
+.dx-calendar-cell.dx-calendar-range-start-date.dx-state-hover span {
   background-color: #9c63ff;
 }
 .dx-calendar-cell.dx-calendar-cell-in-range.dx-state-active::before,
@@ -7596,7 +7609,7 @@
   inset-inline-start: 0;
   inset-inline-end: 0;
   width: 100%;
-  background-color: rgba(158,158,197,.3);
+  background-color: rgba(156,99,255,.24);
 }
 .dx-calendar-cell.dx-calendar-cell-in-range.dx-calendar-cell-range-hover-start::before {
   width: calc(50% + 1em);
@@ -7634,12 +7647,9 @@
 }
 .dx-calendar-cell.dx-calendar-empty-cell {
   cursor: default;
-  color: rgba(245,246,247,.25);
+  color: rgba(245,246,247,.24);
 }
-.dx-calendar-cell.dx-calendar-empty-cell.dx-state-hover:not(.dx-calendar-selected-date) {
-  color: rgba(245,246,247,.25);
-}
-.dx-calendar-cell.dx-calendar-empty-cell.dx-state-hover:not(.dx-calendar-selected-date) span {
+.dx-calendar-cell.dx-calendar-empty-cell.dx-state-hover span {
   background-color: transparent;
 }
 .dx-invalid.dx-calendar {

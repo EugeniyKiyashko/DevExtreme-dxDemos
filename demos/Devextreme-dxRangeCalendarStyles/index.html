@@ -13,8 +13,18 @@
   <div id="max"></div>
   <div id="disabledDates"></div>
   
+  <br>
+  <br>
+  <br>
   <div id="calendar-multiview"></div>
+
+  <br>
+  <br>
+  <br>
   <div id="calendar"></div>
+  <br>
+  <br>
+  <br>
   <div id="dateRangeBox"></div>
     <script>
     addThemeSelectboxToBody();
@@ -36,6 +46,7 @@
 
         $('#calendar').dxCalendar({
           value: new Date(2021, 9, 17),
+          showTodayButton: true,
           ...commonOptions
         });
 
@@ -44,6 +55,7 @@
           })
         $('#dateRangeBox').dxDateRangeBox({
           value: [new Date(2021,9,17), new Date(2021,10,17)],
+          showClearButton: true,
           calendarOptions: {
             ...commonOptions
           }
