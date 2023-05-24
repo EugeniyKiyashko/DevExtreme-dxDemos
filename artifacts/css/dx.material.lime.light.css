@@ -1,8 +1,8 @@
 @charset "UTF-8";
 /**
 * DevExtreme (dx.material.lime.light.css)
-* Version: 23.1.1
-* Build date: Mon May 08 2023
+* Version: 23.1.2
+* Build date: Wed May 24 2023
 *
 * Copyright (c) 2012 - 2023 Developer Express Inc. ALL RIGHTS RESERVED
 * Read about DevExtreme licensing here: https://js.devexpress.com/Licensing/
@@ -9074,7 +9074,6 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  gap: 8px;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
@@ -9083,11 +9082,12 @@
   -ms-flex-pack: justify;
   justify-content: space-between;
   border: 1px solid transparent;
-  width: 226px;
-  min-width: 226px;
-  height: 264.4px;
-  min-height: 264.4px;
+  width: 272px;
+  min-width: 272px;
+  height: 264px;
+  min-height: 264px;
   background-color: #fff;
+  gap: 8px;
 }
 .dx-calendar-views-wrapper {
   position: relative;
@@ -9111,6 +9111,7 @@
   -webkit-box-flex: 1;
   -ms-flex-positive: 1;
   flex-grow: 1;
+  overflow: hidden;
 }
 .dx-calendar-navigator .dx-button .dx-button-text {
   text-transform: none;
@@ -9131,8 +9132,8 @@
   display: -ms-flexbox;
   display: flex;
   -webkit-box-flex: 1;
-  -ms-flex: 1 0 auto;
-  flex: 1 0 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
 }
 .dx-calendar-body .dx-widget {
   position: absolute;
@@ -9145,6 +9146,7 @@
   direction: ltr;
   table-layout: fixed;
   border-spacing: 0;
+  line-height: normal;
 }
 .dx-calendar-body td,
 .dx-calendar-body th {
@@ -9203,11 +9205,6 @@
   -ms-flex-pack: center;
   justify-content: center;
 }
-.dx-calendar-today-button {
-  -webkit-box-flex: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-}
 .dx-calendar-multiview .dx-calendar-caption-button .dx-button-content {
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
@@ -9223,7 +9220,7 @@
 .dx-calendar-multiview .dx-calendar-body table {
   padding: 0 10px;
 }
-.dx-calendar-multiview .dx-calendar-cell::before {
+.dx-calendar-range .dx-calendar-cell::before {
   content: "";
   position: absolute;
   z-index: 1;
@@ -9236,9 +9233,19 @@
 .dx-rtl.dx-calendar .dx-calendar-body .dx-widget {
   direction: ltr;
 }
+.dx-calendar.dx-calendar-with-footer {
+  height: 308px;
+  min-height: 308px;
+}
 .dx-calendar.dx-calendar-multiview {
-  width: 452px;
-  min-width: 452px;
+  width: 544px;
+  min-width: 544px;
+}
+.dx-calendar.dx-invalid {
+  border-color: rgba(244,67,54,.4);
+}
+.dx-calendar.dx-invalid.dx-state-focused {
+  border-color: #f44336;
 }
 .dx-calendar-navigator-next-view.dx-button .dx-icon,
 .dx-calendar-navigator-previous-view.dx-button .dx-icon {
@@ -9251,7 +9258,7 @@
   width: 2.5em;
 }
 .dx-calendar-body table .dx-calendar-week-number-cell {
-  color: rgba(125,125,125,.87);
+  color: rgba(0,0,0,.56);
   background-color: rgba(224,224,224,.4);
   width: 2em;
   margin-right: .5em;
@@ -9292,34 +9299,20 @@
 .dx-calendar-cell.dx-state-active span {
   background-color: rgba(205,220,57,.4);
 }
-.dx-calendar-cell.dx-state-active.dx-calendar-empty-cell span {
-  background-color: transparent;
-}
 .dx-calendar-cell.dx-calendar-selected-date span {
-  background-color: rgba(205,220,57,.32);
-}
-.dx-calendar-cell.dx-calendar-selected-date.dx-state-active span,
-.dx-calendar-cell.dx-calendar-selected-date.dx-state-hover span {
-  background-color: rgba(205,220,57,.4);
+  color: #fff;
+  background-color: #cddc39;
 }
 .dx-calendar-cell.dx-calendar-contoured-date span {
   -webkit-box-shadow: 0 0 0 2px rgba(205,220,57,.5);
   box-shadow: 0 0 0 2px rgba(205,220,57,.5);
 }
-.dx-calendar-cell.dx-calendar-range-end-date span,
-.dx-calendar-cell.dx-calendar-range-start-date span {
-  color: #fff;
-  background-color: #cddc39;
-}
-.dx-calendar-cell.dx-calendar-range-end-date.dx-state-active span,
-.dx-calendar-cell.dx-calendar-range-end-date.dx-state-hover span,
-.dx-calendar-cell.dx-calendar-range-start-date.dx-state-active span,
-.dx-calendar-cell.dx-calendar-range-start-date.dx-state-hover span {
-  background-color: #cddc39;
-}
 .dx-calendar-cell.dx-calendar-cell-in-range.dx-state-active::before,
 .dx-calendar-cell.dx-calendar-cell-in-range.dx-state-hover::before,
-.dx-calendar-cell.dx-calendar-cell-in-range::before {
+.dx-calendar-cell.dx-calendar-cell-in-range::before,
+.dx-calendar-cell.dx-calendar-cell-range-hover.dx-state-active::before,
+.dx-calendar-cell.dx-calendar-cell-range-hover.dx-state-hover::before,
+.dx-calendar-cell.dx-calendar-cell-range-hover::before {
   width: 100%;
   border-radius: 0;
 }
@@ -9331,8 +9324,7 @@
   inset-inline-end: 0;
 }
 .dx-calendar-cell.dx-calendar-range-end-date.dx-state-active::before,
-.dx-calendar-cell.dx-calendar-range-end-date.dx-state-hover::before,
-.dx-calendar-cell.dx-calendar-range-end-date::before {
+.dx-calendar-cell.dx-calendar-range-end-date.dx-state-hover::before {
   width: 50%;
 }
 .dx-calendar-cell.dx-state-active::before,
@@ -9341,6 +9333,36 @@
   border-top-right-radius: 50%;
   border-bottom-right-radius: 50%;
 }
+.dx-calendar-cell.dx-calendar-cell-range-hover::before {
+  height: 2em;
+  inset-inline-start: 0;
+  inset-inline-end: 0;
+  width: 100%;
+  border-width: 1px;
+  border-style: dashed;
+  border-color: rgba(205,220,57,.6) transparent;
+  -o-border-image: initial;
+  border-image: initial;
+  border-radius: 0;
+}
+.dx-calendar-cell.dx-calendar-cell-range-hover.dx-calendar-cell-range-hover-start::before {
+  width: calc(50% + 1em);
+  inset-inline-start: auto;
+  inset-inline-end: 0;
+  border-radius: 50% 0 0 50%;
+  border-left: 1px dashed rgba(205,220,57,.6);
+}
+.dx-calendar-cell.dx-calendar-cell-range-hover.dx-calendar-cell-range-hover-end::before {
+  width: calc(50% + 1em);
+  inset-inline-start: 0;
+  inset-inline-end: 0;
+  border-radius: 0 50% 50% 0;
+  border-right: 1px dashed rgba(205,220,57,.6);
+}
+.dx-calendar-cell.dx-calendar-cell-range-hover.dx-calendar-range-end-date::before,
+.dx-calendar-cell.dx-calendar-cell-range-hover.dx-calendar-range-start-date::before {
+  border-width: 0;
+}
 .dx-calendar-cell.dx-calendar-cell-in-range::before {
   height: 2em;
   inset-inline-start: 0;
@@ -9348,19 +9370,27 @@
   width: 100%;
   background-color: rgba(205,220,57,.24);
 }
-.dx-calendar-cell.dx-calendar-cell-in-range.dx-calendar-cell-range-hover-start::before {
+.dx-calendar-cell.dx-calendar-cell-in-range.dx-calendar-range-start-date::before,
+.dx-calendar-cell.dx-calendar-cell-in-range.dx-calendar-start-day-of-month::before {
   width: calc(50% + 1em);
   inset-inline-start: auto;
   inset-inline-end: 0;
   border-radius: 50% 0 0 50%;
 }
-.dx-calendar-cell.dx-calendar-cell-in-range.dx-calendar-cell-range-hover-end::before {
+.dx-calendar-cell.dx-calendar-cell-in-range.dx-calendar-range-start-date.dx-calendar-end-day-of-month::before,
+.dx-calendar-cell.dx-calendar-cell-in-range.dx-calendar-start-day-of-month.dx-calendar-end-day-of-month::before {
+  content: none;
+}
+.dx-calendar-cell.dx-calendar-cell-in-range.dx-calendar-end-day-of-month::before,
+.dx-calendar-cell.dx-calendar-cell-in-range.dx-calendar-range-end-date::before {
   width: calc(50% + 1em);
   inset-inline-start: 0;
   inset-inline-end: 0;
   border-radius: 0 50% 50% 0;
 }
-.dx-calendar-cell.dx-calendar-cell-in-range.dx-calendar-cell-range-hover-start.dx-calendar-cell-range-hover-end::before {
+.dx-calendar-cell.dx-calendar-cell-in-range.dx-calendar-end-day-of-month.dx-calendar-start-day-of-month::before,
+.dx-calendar-cell.dx-calendar-cell-in-range.dx-calendar-range-end-date.dx-calendar-start-day-of-month::before,
+.dx-calendar-cell.dx-calendar-cell-in-range.dx-calendar-range-start-date.dx-calendar-range-end-date::before {
   content: none;
 }
 .dx-calendar-cell.dx-calendar-empty-cell,
@@ -9369,31 +9399,58 @@
 .dx-calendar-cell.dx-calendar-other-view,
 .dx-calendar-cell.dx-calendar-other-view.dx-state-active span,
 .dx-calendar-cell.dx-calendar-other-view.dx-state-hover span {
-  color: rgba(125,125,125,.87);
+  color: rgba(0,0,0,.38);
+}
+.dx-calendar-cell.dx-calendar-empty-cell.dx-calendar-selected-date span,
+.dx-calendar-cell.dx-calendar-other-view.dx-calendar-selected-date span {
+  color: #fff;
 }
 .dx-calendar-cell.dx-calendar-other-view.dx-calendar-cell-in-range::before,
+.dx-calendar-cell.dx-calendar-other-view.dx-calendar-cell-range-hover::before,
 .dx-calendar-cell.dx-calendar-other-view.dx-calendar-range-end-date::before,
 .dx-calendar-cell.dx-calendar-other-view.dx-calendar-range-start-date::before {
   content: none;
 }
+.dx-calendar-cell.dx-calendar-other-view.dx-calendar-cell-in-range.dx-state-active span,
+.dx-calendar-cell.dx-calendar-other-view.dx-calendar-cell-in-range.dx-state-hover span,
+.dx-calendar-cell.dx-calendar-other-view.dx-calendar-cell-range-hover.dx-state-active span,
+.dx-calendar-cell.dx-calendar-other-view.dx-calendar-cell-range-hover.dx-state-hover span,
+.dx-calendar-cell.dx-calendar-other-view.dx-calendar-range-end-date.dx-state-active span,
+.dx-calendar-cell.dx-calendar-other-view.dx-calendar-range-end-date.dx-state-hover span,
+.dx-calendar-cell.dx-calendar-other-view.dx-calendar-range-start-date.dx-state-active span,
+.dx-calendar-cell.dx-calendar-other-view.dx-calendar-range-start-date.dx-state-hover span {
+  color: rgba(0,0,0,.38);
+}
+.dx-calendar-cell.dx-calendar-other-view.dx-calendar-cell-in-range.dx-state-hover span,
+.dx-calendar-cell.dx-calendar-other-view.dx-calendar-cell-range-hover.dx-state-hover span,
+.dx-calendar-cell.dx-calendar-other-view.dx-calendar-range-end-date.dx-state-hover span,
+.dx-calendar-cell.dx-calendar-other-view.dx-calendar-range-start-date.dx-state-hover span {
+  background-color: rgba(205,220,57,.24);
+}
+.dx-calendar-cell.dx-calendar-other-view.dx-calendar-cell-in-range.dx-state-active span,
+.dx-calendar-cell.dx-calendar-other-view.dx-calendar-cell-range-hover.dx-state-active span,
+.dx-calendar-cell.dx-calendar-other-view.dx-calendar-range-end-date.dx-state-active span,
+.dx-calendar-cell.dx-calendar-other-view.dx-calendar-range-start-date.dx-state-active span {
+  background-color: rgba(205,220,57,.4);
+}
 .dx-calendar-cell.dx-calendar-other-view.dx-calendar-cell-in-range span,
+.dx-calendar-cell.dx-calendar-other-view.dx-calendar-cell-range-hover span,
 .dx-calendar-cell.dx-calendar-other-view.dx-calendar-range-end-date span,
 .dx-calendar-cell.dx-calendar-other-view.dx-calendar-range-start-date span {
-  color: rgba(125,125,125,.87);
+  color: rgba(0,0,0,.38);
   background-color: transparent;
 }
 .dx-calendar-cell.dx-calendar-empty-cell {
   cursor: default;
   color: rgba(0,0,0,.24);
 }
+.dx-calendar-cell.dx-calendar-empty-cell.dx-state-active span,
 .dx-calendar-cell.dx-calendar-empty-cell.dx-state-hover span {
   background-color: transparent;
 }
-.dx-invalid.dx-calendar {
-  border-color: rgba(244,67,54,.4);
-}
-.dx-invalid.dx-calendar.dx-state-focused {
-  border-color: #f44336;
+.dx-calendar-cell.dx-calendar-empty-cell.dx-state-active.dx-calendar-selected-date span,
+.dx-calendar-cell.dx-calendar-empty-cell.dx-state-hover.dx-calendar-selected-date span {
+  background-color: #cddc39;
 }
 .dx-texteditor input[type=date]::-webkit-inner-spin-button {
   height: 20px;
@@ -9845,11 +9902,67 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  height: 48px;
 }
-.dx-end-datebox,
-.dx-start-datebox {
-  width: 50%;
+.dx-daterangebox .dx-datebox {
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+}
+.dx-daterangebox .dx-datebox.dx-editor-underlined {
+  border-bottom: 0;
+}
+.dx-daterangebox .dx-datebox.dx-editor-underlined::before {
+  margin-left: 0;
+}
+.dx-daterangebox .dx-datebox.dx-editor-underlined.dx-rtl .dx-texteditor-container .dx-texteditor-input {
+  padding-right: 0;
+}
+.dx-daterangebox .dx-datebox.dx-editor-outlined {
+  border: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.dx-daterangebox .dx-datebox.dx-editor-outlined .dx-texteditor-label .dx-label,
+.dx-daterangebox .dx-datebox.dx-editor-outlined .dx-texteditor-label .dx-label-after,
+.dx-daterangebox .dx-datebox.dx-editor-outlined .dx-texteditor-label .dx-label-before {
+  border: 0!important;
+  margin: 0!important;
+  -webkit-box-shadow: none!important;
+  box-shadow: none!important;
+  -webkit-clip-path: none;
+  clip-path: none;
+}
+.dx-daterangebox .dx-datebox.dx-editor-outlined.dx-state-focused .dx-texteditor-label .dx-label,
+.dx-daterangebox .dx-datebox.dx-editor-outlined.dx-state-focused .dx-texteditor-label .dx-label-after,
+.dx-daterangebox .dx-datebox.dx-editor-outlined.dx-state-focused .dx-texteditor-label .dx-label-before,
+.dx-daterangebox .dx-datebox.dx-editor-outlined.dx-state-focused.dx-state-hover .dx-texteditor-label .dx-label,
+.dx-daterangebox .dx-datebox.dx-editor-outlined.dx-state-focused.dx-state-hover .dx-texteditor-label .dx-label-after,
+.dx-daterangebox .dx-datebox.dx-editor-outlined.dx-state-focused.dx-state-hover .dx-texteditor-label .dx-label-before,
+.dx-daterangebox .dx-datebox.dx-editor-outlined.dx-state-hover .dx-texteditor-label .dx-label,
+.dx-daterangebox .dx-datebox.dx-editor-outlined.dx-state-hover .dx-texteditor-label .dx-label-after,
+.dx-daterangebox .dx-datebox.dx-editor-outlined.dx-state-hover .dx-texteditor-label .dx-label-before {
+  -webkit-clip-path: none;
+  clip-path: none;
+}
+.dx-daterangebox .dx-datebox.dx-editor-outlined.dx-texteditor-with-floating-label,
+.dx-daterangebox .dx-datebox.dx-editor-outlined.dx-texteditor-with-label {
+  margin-top: 0;
+}
+.dx-daterangebox .dx-datebox.dx-editor-outlined.dx-state-readonly.dx-state-hover {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.dx-daterangebox .dx-datebox.dx-editor-filled {
+  background-color: transparent;
+  border: 0;
+}
+.dx-daterangebox .dx-datebox.dx-editor-filled.dx-state-readonly,
+.dx-daterangebox .dx-datebox.dx-editor-filled.dx-state-readonly.dx-state-hover {
+  background-color: transparent;
+}
+.dx-daterangebox.dx-texteditor-empty .dx-clear-button-area {
+  display: block;
+  visibility: hidden;
 }
 .dx-daterangebox-separator {
   display: -webkit-box;
@@ -9858,52 +9971,228 @@
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  padding: 0 12px;
+  padding-left: 12px;
+  opacity: .38;
 }
-.dx-daterangebox.dx-daterangebox-outlined {
-  background: 0 0;
-  -webkit-box-shadow: 0 1px rgba(0,0,0,.42),0 -1px rgba(0,0,0,.42),-1px 0 rgba(0,0,0,.42),1px 0 rgba(0,0,0,.42);
-  box-shadow: 0 1px rgba(0,0,0,.42),0 -1px rgba(0,0,0,.42),-1px 0 rgba(0,0,0,.42),1px 0 rgba(0,0,0,.42);
-  border-radius: 4px;
+.dx-rtl .dx-daterangebox-separator {
+  -webkit-transform: scale(-1,1);
+  transform: scale(-1,1);
 }
-.dx-daterangebox.dx-daterangebox-underlined {
-  background: 0 0;
-  -webkit-box-shadow: 0 1px rgba(0,0,0,.42);
-  box-shadow: 0 1px rgba(0,0,0,.42);
-  border-radius: 0;
+.dx-daterangebox-with-floating-label.dx-editor-outlined,
+.dx-daterangebox-with-label.dx-editor-outlined {
+  margin-top: 6px;
 }
-.dx-daterangebox.dx-daterangebox-filled {
-  background: rgba(0,0,0,.04);
-  -webkit-box-shadow: 0 1px rgba(0,0,0,.42),0 -1px rgba(0,0,0,.42),-1px 0 rgba(0,0,0,.42),1px 0 rgba(0,0,0,.42);
-  box-shadow: 0 1px rgba(0,0,0,.42),0 -1px rgba(0,0,0,.42),-1px 0 rgba(0,0,0,.42),1px 0 rgba(0,0,0,.42);
-  border-radius: 4px;
+.dx-daterangebox-with-floating-label.dx-editor-outlined .dx-texteditor-label .dx-label span,
+.dx-daterangebox-with-label.dx-editor-outlined .dx-texteditor-label .dx-label span {
+  background-color: #fff;
+  -webkit-box-shadow: 4px 0 #fff,-4px 0 #fff!important;
+  box-shadow: 4px 0 #fff,-4px 0 #fff!important;
+  height: 12px;
 }
-.dx-daterangebox.dx-state-active.dx-daterangebox-filled,
-.dx-daterangebox.dx-state-active.dx-daterangebox-outlined,
-.dx-daterangebox.dx-state-focused.dx-daterangebox-filled,
-.dx-daterangebox.dx-state-focused.dx-daterangebox-outlined {
-  -webkit-box-shadow: 0 1px #cddc39,0 -1px #cddc39,-1px 0 #cddc39,1px 0 #cddc39;
-  box-shadow: 0 1px #cddc39,0 -1px #cddc39,-1px 0 #cddc39,1px 0 #cddc39;
+.dx-daterangebox-with-floating-label.dx-editor-outlined.dx-state-hover .dx-texteditor-label .dx-label,
+.dx-daterangebox-with-label.dx-editor-outlined.dx-state-hover .dx-texteditor-label .dx-label {
+  padding: 0 4px;
 }
-.dx-daterangebox.dx-state-active.dx-daterangebox-underlined,
-.dx-daterangebox.dx-state-focused.dx-daterangebox-underlined {
-  -webkit-box-shadow: 0 1px #cddc39;
-  box-shadow: 0 1px #cddc39;
+.dx-daterangebox-with-floating-label.dx-editor-outlined.dx-state-hover .dx-texteditor-label .dx-label span,
+.dx-daterangebox-with-label.dx-editor-outlined.dx-state-hover .dx-texteditor-label .dx-label span {
+  height: 12px;
 }
-.dx-daterangebox.dx-state-active.dx-daterangebox-filled,
-.dx-daterangebox.dx-state-focused.dx-daterangebox-filled {
-  background-color: transparent;
+.dx-daterangebox-with-floating-label.dx-editor-outlined.dx-dropdowneditor-active .dx-texteditor-label .dx-label,
+.dx-daterangebox-with-floating-label.dx-editor-outlined.dx-dropdowneditor-active.dx-state-focused .dx-texteditor-label .dx-label,
+.dx-daterangebox-with-floating-label.dx-editor-outlined.dx-dropdowneditor-active.dx-state-focused.dx-state-hover .dx-texteditor-label .dx-label,
+.dx-daterangebox-with-floating-label.dx-editor-outlined.dx-state-focused .dx-texteditor-label .dx-label,
+.dx-daterangebox-with-floating-label.dx-editor-outlined.dx-state-focused.dx-state-hover .dx-texteditor-label .dx-label,
+.dx-daterangebox-with-label.dx-editor-outlined.dx-dropdowneditor-active .dx-texteditor-label .dx-label,
+.dx-daterangebox-with-label.dx-editor-outlined.dx-dropdowneditor-active.dx-state-focused .dx-texteditor-label .dx-label,
+.dx-daterangebox-with-label.dx-editor-outlined.dx-dropdowneditor-active.dx-state-focused.dx-state-hover .dx-texteditor-label .dx-label,
+.dx-daterangebox-with-label.dx-editor-outlined.dx-state-focused .dx-texteditor-label .dx-label,
+.dx-daterangebox-with-label.dx-editor-outlined.dx-state-focused.dx-state-hover .dx-texteditor-label .dx-label {
+  padding: 0 4px;
 }
-.dx-daterangebox .dx-dropdowneditor-button,
+.dx-daterangebox-with-floating-label.dx-editor-outlined.dx-dropdowneditor-active .dx-texteditor-label .dx-label span,
+.dx-daterangebox-with-floating-label.dx-editor-outlined.dx-dropdowneditor-active.dx-state-focused .dx-texteditor-label .dx-label span,
+.dx-daterangebox-with-floating-label.dx-editor-outlined.dx-dropdowneditor-active.dx-state-focused.dx-state-hover .dx-texteditor-label .dx-label span,
+.dx-daterangebox-with-floating-label.dx-editor-outlined.dx-state-focused .dx-texteditor-label .dx-label span,
+.dx-daterangebox-with-floating-label.dx-editor-outlined.dx-state-focused.dx-state-hover .dx-texteditor-label .dx-label span,
+.dx-daterangebox-with-label.dx-editor-outlined.dx-dropdowneditor-active .dx-texteditor-label .dx-label span,
+.dx-daterangebox-with-label.dx-editor-outlined.dx-dropdowneditor-active.dx-state-focused .dx-texteditor-label .dx-label span,
+.dx-daterangebox-with-label.dx-editor-outlined.dx-dropdowneditor-active.dx-state-focused.dx-state-hover .dx-texteditor-label .dx-label span,
+.dx-daterangebox-with-label.dx-editor-outlined.dx-state-focused .dx-texteditor-label .dx-label span,
+.dx-daterangebox-with-label.dx-editor-outlined.dx-state-focused.dx-state-hover .dx-texteditor-label .dx-label span {
+  -webkit-transform: translate(0,-6px);
+  transform: translate(0,-6px);
+  font-size: 12px;
+  margin-top: 0;
+  top: 0;
+  height: 12px;
+  line-height: 12px;
+}
+.dx-daterangebox-with-floating-label.dx-editor-outlined .dx-datebox.dx-invalid .dx-label,
+.dx-daterangebox-with-floating-label.dx-editor-outlined .dx-datebox.dx-invalid.dx-state-focused .dx-label,
+.dx-daterangebox-with-floating-label.dx-editor-outlined .dx-datebox.dx-invalid.dx-state-hover .dx-label,
+.dx-daterangebox-with-floating-label.dx-editor-outlined .dx-datebox.dx-state-disabled .dx-label,
+.dx-daterangebox-with-floating-label.dx-editor-outlined .dx-datebox.dx-state-readonly .dx-label,
+.dx-daterangebox-with-floating-label.dx-editor-outlined .dx-datebox.dx-state-readonly.dx-state-focused .dx-label,
+.dx-daterangebox-with-floating-label.dx-editor-outlined .dx-datebox.dx-state-readonly.dx-state-hover .dx-label,
+.dx-daterangebox-with-label.dx-editor-outlined .dx-datebox.dx-invalid .dx-label,
+.dx-daterangebox-with-label.dx-editor-outlined .dx-datebox.dx-invalid.dx-state-focused .dx-label,
+.dx-daterangebox-with-label.dx-editor-outlined .dx-datebox.dx-invalid.dx-state-hover .dx-label,
+.dx-daterangebox-with-label.dx-editor-outlined .dx-datebox.dx-state-disabled .dx-label,
+.dx-daterangebox-with-label.dx-editor-outlined .dx-datebox.dx-state-readonly .dx-label,
+.dx-daterangebox-with-label.dx-editor-outlined .dx-datebox.dx-state-readonly.dx-state-focused .dx-label,
+.dx-daterangebox-with-label.dx-editor-outlined .dx-datebox.dx-state-readonly.dx-state-hover .dx-label {
+  padding: 0 4px;
+}
+.dx-daterangebox-with-floating-label.dx-editor-outlined .dx-datebox.dx-invalid .dx-label span,
+.dx-daterangebox-with-floating-label.dx-editor-outlined .dx-datebox.dx-invalid.dx-state-focused .dx-label span,
+.dx-daterangebox-with-floating-label.dx-editor-outlined .dx-datebox.dx-invalid.dx-state-hover .dx-label span,
+.dx-daterangebox-with-floating-label.dx-editor-outlined .dx-datebox.dx-state-disabled .dx-label span,
+.dx-daterangebox-with-floating-label.dx-editor-outlined .dx-datebox.dx-state-readonly .dx-label span,
+.dx-daterangebox-with-floating-label.dx-editor-outlined .dx-datebox.dx-state-readonly.dx-state-focused .dx-label span,
+.dx-daterangebox-with-floating-label.dx-editor-outlined .dx-datebox.dx-state-readonly.dx-state-hover .dx-label span,
+.dx-daterangebox-with-label.dx-editor-outlined .dx-datebox.dx-invalid .dx-label span,
+.dx-daterangebox-with-label.dx-editor-outlined .dx-datebox.dx-invalid.dx-state-focused .dx-label span,
+.dx-daterangebox-with-label.dx-editor-outlined .dx-datebox.dx-invalid.dx-state-hover .dx-label span,
+.dx-daterangebox-with-label.dx-editor-outlined .dx-datebox.dx-state-disabled .dx-label span,
+.dx-daterangebox-with-label.dx-editor-outlined .dx-datebox.dx-state-readonly .dx-label span,
+.dx-daterangebox-with-label.dx-editor-outlined .dx-datebox.dx-state-readonly.dx-state-focused .dx-label span,
+.dx-daterangebox-with-label.dx-editor-outlined .dx-datebox.dx-state-readonly.dx-state-hover .dx-label span {
+  height: 12px;
+}
+.dx-daterangebox-with-floating-label.dx-editor-underlined .dx-texteditor-label {
+  height: 12px;
+  line-height: 12px;
+}
+.dx-daterangebox-with-floating-label.dx-editor-underlined.dx-dropdowneditor-active .dx-texteditor-label,
+.dx-daterangebox-with-floating-label.dx-editor-underlined.dx-state-focused .dx-texteditor-label {
+  -webkit-transform: translate(0,0);
+  transform: translate(0,0);
+  font-size: 12px;
+  height: 12px;
+  line-height: 12px;
+  top: 0;
+  margin-top: 0;
+}
+.dx-daterangebox-with-floating-label.dx-editor-filled .dx-texteditor-label {
+  height: 12px;
+  line-height: 12px;
+}
+.dx-daterangebox-with-floating-label.dx-editor-filled.dx-dropdowneditor-active .dx-texteditor-label,
+.dx-daterangebox-with-floating-label.dx-editor-filled.dx-state-focused .dx-texteditor-label {
+  font-size: 12px;
+  height: 12px;
+  line-height: 12px;
+  top: 7px;
+  margin-top: 0;
+}
 .dx-daterangebox .dx-dropdowneditor-icon {
-  width: 48px;
+  font: 24px/24px DXIcons;
+  width: 24px;
+  height: 100%;
+  text-align: center;
 }
-.dx-daterangebox .dx-datebox.dx-editor-underlined::after {
-  border: none;
+.dx-daterangebox .dx-dropdowneditor-icon::before {
+  content: "\f043";
+  position: absolute;
+  display: block;
+  width: 24px;
+  top: 50%;
+  margin-top: -12px;
+  left: 50%;
+  margin-left: -12px;
 }
-.dx-daterangebox-filled .dx-start-datebox,
-.dx-daterangebox-outlined .dx-start-datebox {
-  margin-left: 12px;
+.dx-daterangebox.dx-dropdowneditor-active .dx-dropdowneditor-icon {
+  font: 24px/24px DXIcons;
+  width: 24px;
+  height: 100%;
+  text-align: center;
+}
+.dx-daterangebox.dx-dropdowneditor-active .dx-dropdowneditor-icon::before {
+  content: "\f043";
+  position: absolute;
+  display: block;
+  width: 24px;
+  top: 50%;
+  margin-top: -12px;
+  left: 50%;
+  margin-left: -12px;
+}
+.dx-daterangebox .dx-editor-outlined::before {
+  display: block;
+  bottom: 1px;
+}
+.dx-daterangebox .dx-editor-filled::before,
+.dx-daterangebox .dx-editor-outlined::before {
+  width: calc(100% - 30px);
+  margin: 0 15px;
+}
+.dx-daterangebox.dx-editor-filled.dx-state-hover::after,
+.dx-daterangebox.dx-editor-filled::before,
+.dx-daterangebox.dx-editor-underlined.dx-state-hover::after,
+.dx-daterangebox.dx-editor-underlined::before {
+  border-bottom-width: 1px;
+  -webkit-transition: none;
+  transition: none;
+}
+.dx-daterangebox.dx-editor-filled .dx-datebox::before,
+.dx-daterangebox.dx-editor-underlined .dx-datebox::before {
+  bottom: 1px;
+}
+.dx-daterangebox.dx-editor-filled .dx-datebox::after,
+.dx-daterangebox.dx-editor-underlined .dx-datebox::after {
+  border-color: transparent;
+  bottom: 1px;
+}
+.dx-daterangebox.dx-editor-filled.dx-invalid .dx-datebox.dx-state-hover::before,
+.dx-daterangebox.dx-editor-outlined.dx-invalid .dx-datebox.dx-state-hover::before,
+.dx-daterangebox.dx-editor-underlined.dx-invalid .dx-datebox.dx-state-hover::before {
+  border-color: rgba(244,67,54,.4);
+}
+.dx-daterangebox.dx-editor-filled.dx-invalid .dx-datebox.dx-state-focused::before,
+.dx-daterangebox.dx-editor-outlined.dx-invalid .dx-datebox.dx-state-focused::before,
+.dx-daterangebox.dx-editor-underlined.dx-invalid .dx-datebox.dx-state-focused::before {
+  border-color: #f44336;
+}
+.dx-daterangebox.dx-editor-underlined .dx-daterangebox-separator {
+  padding-right: 12px;
+}
+.dx-daterangebox.dx-editor-filled > .dx-texteditor-buttons-container > .dx-button,
+.dx-daterangebox.dx-editor-filled > .dx-texteditor-buttons-container > .dx-clear-button-area,
+.dx-daterangebox.dx-editor-outlined > .dx-texteditor-buttons-container > .dx-button,
+.dx-daterangebox.dx-editor-outlined > .dx-texteditor-buttons-container > .dx-clear-button-area,
+.dx-daterangebox.dx-editor-underlined > .dx-texteditor-buttons-container > .dx-button,
+.dx-daterangebox.dx-editor-underlined > .dx-texteditor-buttons-container > .dx-clear-button-area {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.dx-daterangebox.dx-editor-filled > .dx-texteditor-buttons-container > .dx-button:first-child,
+.dx-daterangebox.dx-editor-filled > .dx-texteditor-buttons-container > .dx-clear-button-area:first-child,
+.dx-daterangebox.dx-editor-outlined > .dx-texteditor-buttons-container > .dx-button:first-child,
+.dx-daterangebox.dx-editor-outlined > .dx-texteditor-buttons-container > .dx-clear-button-area:first-child,
+.dx-daterangebox.dx-editor-underlined > .dx-texteditor-buttons-container > .dx-button:first-child,
+.dx-daterangebox.dx-editor-underlined > .dx-texteditor-buttons-container > .dx-clear-button-area:first-child {
+  margin-left: 0;
+}
+.dx-daterangebox.dx-editor-filled > .dx-texteditor-buttons-container > .dx-button:last-child,
+.dx-daterangebox.dx-editor-filled > .dx-texteditor-buttons-container > .dx-clear-button-area:last-child,
+.dx-daterangebox.dx-editor-outlined > .dx-texteditor-buttons-container > .dx-button:last-child,
+.dx-daterangebox.dx-editor-outlined > .dx-texteditor-buttons-container > .dx-clear-button-area:last-child,
+.dx-daterangebox.dx-editor-underlined > .dx-texteditor-buttons-container > .dx-button:last-child,
+.dx-daterangebox.dx-editor-underlined > .dx-texteditor-buttons-container > .dx-clear-button-area:last-child {
+  margin-right: 10px;
+}
+.dx-daterangebox.dx-editor-filled > .dx-texteditor-buttons-container > .dx-dropdowneditor-button:last-child,
+.dx-daterangebox.dx-editor-outlined > .dx-texteditor-buttons-container > .dx-dropdowneditor-button:last-child,
+.dx-daterangebox.dx-editor-underlined > .dx-texteditor-buttons-container > .dx-dropdowneditor-button:last-child {
+  margin-right: 8px;
+}
+.dx-daterangebox.dx-editor-filled > .dx-texteditor-buttons-container > .dx-clear-button-area + div:empty:last-child,
+.dx-daterangebox.dx-editor-filled > .dx-texteditor-buttons-container > .dx-clear-button-area:last-child,
+.dx-daterangebox.dx-editor-outlined > .dx-texteditor-buttons-container > .dx-clear-button-area + div:empty:last-child,
+.dx-daterangebox.dx-editor-outlined > .dx-texteditor-buttons-container > .dx-clear-button-area:last-child,
+.dx-daterangebox.dx-editor-underlined > .dx-texteditor-buttons-container > .dx-clear-button-area + div:empty:last-child,
+.dx-daterangebox.dx-editor-underlined > .dx-texteditor-buttons-container > .dx-clear-button-area:last-child {
+  margin-right: 12px;
 }
 .dx-dropdownlist-popup-wrapper .dx-list .dx-scrollable-content {
   margin: 0;
@@ -13342,9 +13631,6 @@
   -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.25);
   box-shadow: 0 6px 12px rgba(0,0,0,.25);
 }
-.dx-tagbox .dx-texteditor-input {
-  width: auto;
-}
 .dx-tagbox.dx-tagbox-default-template.dx-tagbox-only-select .dx-texteditor-input {
   border: none;
   color: transparent;
@@ -13396,12 +13682,6 @@
   color: rgba(0,0,0,.6);
   border-radius: 16px;
 }
-.dx-tag-content::before {
-  content: ".";
-  color: transparent;
-  display: inline-block;
-  width: 0;
-}
 .dx-tag-remove-button {
   position: absolute;
   top: 0;
@@ -13437,6 +13717,7 @@
   height: 100%;
 }
 .dx-tagbox .dx-texteditor-input {
+  width: auto;
   height: 32px;
 }
 .dx-tagbox.dx-editor-filled .dx-texteditor-input,
@@ -15698,10 +15979,12 @@
   background-color: #fff;
   line-height: inherit;
 }
-.dx-datagrid .dx-row-alt > td {
-  background-color: #f5f5f5;
+.dx-datagrid .dx-row-alt {
   border-top: 1px solid #f5f5f5;
   border-bottom: 1px solid #f5f5f5;
+}
+.dx-datagrid .dx-row-alt > td {
+  background-color: #f5f5f5;
 }
 .dx-datagrid .dx-row-alt.dx-row:not(.dx-row-removed) {
   border-bottom-color: transparent;
@@ -17998,10 +18281,12 @@ input.dx-hidden {
 .dx-treelist {
   line-height: inherit;
 }
-.dx-treelist .dx-row-alt > td {
-  background-color: #f5f5f5;
+.dx-treelist .dx-row-alt {
   border-top: 1px solid #f5f5f5;
   border-bottom: 1px solid #f5f5f5;
+}
+.dx-treelist .dx-row-alt > td {
+  background-color: #f5f5f5;
 }
 .dx-treelist .dx-row-alt.dx-row:not(.dx-row-removed) {
   border-bottom-color: transparent;
@@ -24567,8 +24852,8 @@ input.dx-hidden {
   color: #fff;
   overflow: visible;
   border-radius: 28px;
-  -webkit-box-shadow: 0 3px 5px -1px rgba(0,0,0,.2),0 6px 10px 0 rgba(0,0,0,.14),0 1px 18px 0 rgba(0,0,0,.12);
-  box-shadow: 0 3px 5px -1px rgba(0,0,0,.2),0 6px 10px 0 rgba(0,0,0,.14),0 1px 18px 0 rgba(0,0,0,.12);
+  -webkit-box-shadow: 0 2px 6px 0 rgba(0,0,0,.2);
+  box-shadow: 0 2px 6px 0 rgba(0,0,0,.2);
 }
 .dx-fa-button.dx-fa-button-main .dx-overlay-content.dx-state-hover {
   background-color: #b2c022;
@@ -24686,13 +24971,13 @@ input.dx-hidden {
   border-radius: 4px;
   padding: 4px 8px;
   margin-right: 16px;
-  -webkit-box-shadow: 0 2px 6px rgba(0,0,0,.15);
-  box-shadow: 0 2px 6px rgba(0,0,0,.15);
+  -webkit-box-shadow: 0 2px 6px rgba(0,0,0,.16);
+  box-shadow: 0 2px 6px rgba(0,0,0,.16);
   font-size: 14px;
 }
 .dx-fa-button .dx-overlay-content .dx-fa-button-icon {
-  -webkit-box-shadow: 0 3px 5px -1px rgba(0,0,0,.2),0 6px 10px 0 rgba(0,0,0,.14),0 1px 18px 0 rgba(0,0,0,.12);
-  box-shadow: 0 3px 5px -1px rgba(0,0,0,.2),0 6px 10px 0 rgba(0,0,0,.14),0 1px 18px 0 rgba(0,0,0,.12);
+  -webkit-box-shadow: 0 2px 6px 0 rgba(0,0,0,.2);
+  box-shadow: 0 2px 6px 0 rgba(0,0,0,.2);
   background-color: #fff;
   border-radius: 50%;
   position: relative;
