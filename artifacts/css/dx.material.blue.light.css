@@ -2,7 +2,7 @@
 /**
 * DevExtreme (dx.material.blue.light.css)
 * Version: 23.1.2
-* Build date: Thu May 25 2023
+* Build date: Fri May 26 2023
 *
 * Copyright (c) 2012 - 2023 Developer Express Inc. ALL RIGHTS RESERVED
 * Read about DevExtreme licensing here: https://js.devexpress.com/Licensing/
@@ -9619,9 +9619,7 @@
   box-shadow: none;
 }
 .dx-daterangebox .dx-datebox {
-  -webkit-box-flex: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
+  width: 100%;
 }
 .dx-daterangebox .dx-datebox.dx-editor-underlined {
   border-bottom: 0;
@@ -9651,7 +9649,7 @@
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  padding-left: 12px;
+  padding-left: 16px;
   color: rgba(148,148,148,.87);
 }
 .dx-rtl .dx-daterangebox-separator {
@@ -9770,8 +9768,10 @@
   width: calc(100% - 30px);
   margin: 0 15px;
 }
+.dx-daterangebox.dx-editor-filled.dx-state-focused.dx-invalid::before,
 .dx-daterangebox.dx-editor-filled.dx-state-hover::after,
 .dx-daterangebox.dx-editor-filled::before,
+.dx-daterangebox.dx-editor-underlined.dx-state-focused.dx-invalid::before,
 .dx-daterangebox.dx-editor-underlined.dx-state-hover::after,
 .dx-daterangebox.dx-editor-underlined::before {
   border-bottom-width: 1px;
@@ -9788,7 +9788,7 @@
   bottom: 1px;
 }
 .dx-daterangebox.dx-editor-underlined .dx-daterangebox-separator {
-  padding-right: 12px;
+  padding-right: 16px;
 }
 .dx-daterangebox.dx-editor-filled > .dx-texteditor-buttons-container > .dx-button,
 .dx-daterangebox.dx-editor-filled > .dx-texteditor-buttons-container > .dx-clear-button-area,
@@ -9827,6 +9827,60 @@
 .dx-daterangebox.dx-editor-underlined > .dx-texteditor-buttons-container > .dx-clear-button-area + div:empty:last-child,
 .dx-daterangebox.dx-editor-underlined > .dx-texteditor-buttons-container > .dx-clear-button-area:last-child {
   margin-right: 12px;
+}
+.dx-daterangebox.dx-editor-filled.dx-rtl > .dx-texteditor-buttons-container > .dx-button:first-child,
+.dx-daterangebox.dx-editor-filled.dx-rtl > .dx-texteditor-buttons-container > .dx-clear-button-area:first-child,
+.dx-daterangebox.dx-editor-outlined.dx-rtl > .dx-texteditor-buttons-container > .dx-button:first-child,
+.dx-daterangebox.dx-editor-outlined.dx-rtl > .dx-texteditor-buttons-container > .dx-clear-button-area:first-child,
+.dx-daterangebox.dx-editor-underlined.dx-rtl > .dx-texteditor-buttons-container > .dx-button:first-child,
+.dx-daterangebox.dx-editor-underlined.dx-rtl > .dx-texteditor-buttons-container > .dx-clear-button-area:first-child {
+  margin-left: 5px;
+  margin-right: 0;
+}
+.dx-daterangebox.dx-editor-filled.dx-rtl > .dx-texteditor-buttons-container > .dx-button:last-child,
+.dx-daterangebox.dx-editor-filled.dx-rtl > .dx-texteditor-buttons-container > .dx-clear-button-area:last-child,
+.dx-daterangebox.dx-editor-outlined.dx-rtl > .dx-texteditor-buttons-container > .dx-button:last-child,
+.dx-daterangebox.dx-editor-outlined.dx-rtl > .dx-texteditor-buttons-container > .dx-clear-button-area:last-child,
+.dx-daterangebox.dx-editor-underlined.dx-rtl > .dx-texteditor-buttons-container > .dx-button:last-child,
+.dx-daterangebox.dx-editor-underlined.dx-rtl > .dx-texteditor-buttons-container > .dx-clear-button-area:last-child {
+  margin-left: 10px;
+  margin-right: 5px;
+}
+.dx-daterangebox.dx-editor-filled.dx-rtl > .dx-texteditor-buttons-container > .dx-dropdowneditor-button:last-child,
+.dx-daterangebox.dx-editor-outlined.dx-rtl > .dx-texteditor-buttons-container > .dx-dropdowneditor-button:last-child,
+.dx-daterangebox.dx-editor-underlined.dx-rtl > .dx-texteditor-buttons-container > .dx-dropdowneditor-button:last-child {
+  margin-left: 8px;
+  margin-right: 0;
+}
+.dx-daterangebox.dx-editor-filled.dx-rtl > .dx-texteditor-buttons-container > .dx-clear-button-area:last-child,
+.dx-daterangebox.dx-editor-outlined.dx-rtl > .dx-texteditor-buttons-container > .dx-clear-button-area:last-child,
+.dx-daterangebox.dx-editor-underlined.dx-rtl > .dx-texteditor-buttons-container > .dx-clear-button-area:last-child {
+  margin-left: 12px;
+  margin-right: 0;
+}
+.dx-daterangebox .dx-datebox.dx-start-datebox.dx-editor-filled .dx-texteditor-input,
+.dx-daterangebox .dx-datebox.dx-start-datebox.dx-editor-outlined .dx-texteditor-input,
+.dx-daterangebox .dx-datebox.dx-start-datebox.dx-editor-underlined .dx-texteditor-input {
+  padding-right: 16px;
+}
+.dx-daterangebox .dx-datebox.dx-start-datebox.dx-editor-filled.dx-rtl .dx-texteditor-input,
+.dx-daterangebox .dx-datebox.dx-start-datebox.dx-editor-outlined.dx-rtl .dx-texteditor-input,
+.dx-daterangebox .dx-datebox.dx-start-datebox.dx-editor-underlined.dx-rtl .dx-texteditor-input {
+  padding-left: 16px;
+}
+.dx-daterangebox .dx-datebox.dx-end-datebox.dx-editor-filled.dx-invalid .dx-texteditor-input,
+.dx-daterangebox .dx-datebox.dx-end-datebox.dx-editor-outlined.dx-invalid .dx-texteditor-input,
+.dx-daterangebox .dx-datebox.dx-end-datebox.dx-editor-underlined.dx-invalid .dx-texteditor-input {
+  padding-right: 46px;
+}
+.dx-daterangebox .dx-datebox.dx-end-datebox.dx-editor-filled.dx-invalid.dx-rtl .dx-texteditor-input,
+.dx-daterangebox .dx-datebox.dx-end-datebox.dx-editor-outlined.dx-invalid.dx-rtl .dx-texteditor-input,
+.dx-daterangebox .dx-datebox.dx-end-datebox.dx-editor-underlined.dx-invalid.dx-rtl .dx-texteditor-input {
+  padding-right: 16px;
+  padding-left: 46px;
+}
+.dx-daterangebox .dx-datebox.dx-end-datebox.dx-editor-underlined.dx-invalid.dx-rtl .dx-texteditor-input {
+  padding-right: 0;
 }
 .dx-daterangebox-separator .dx-icon {
   width: 24px;

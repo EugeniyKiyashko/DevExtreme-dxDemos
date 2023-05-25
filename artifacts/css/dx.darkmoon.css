@@ -2,7 +2,7 @@
 /**
 * DevExtreme (dx.darkmoon.css)
 * Version: 23.1.2
-* Build date: Thu May 25 2023
+* Build date: Fri May 26 2023
 *
 * Copyright (c) 2012 - 2023 Developer Express Inc. ALL RIGHTS RESERVED
 * Read about DevExtreme licensing here: https://js.devexpress.com/Licensing/
@@ -8142,9 +8142,7 @@
   box-shadow: none;
 }
 .dx-daterangebox .dx-datebox {
-  -webkit-box-flex: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
+  width: 100%;
 }
 .dx-daterangebox .dx-datebox.dx-editor-underlined {
   border-bottom: 0;
@@ -8174,7 +8172,7 @@
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  padding-left: 10px;
+  padding-left: 9px;
   color: #939da1;
 }
 .dx-rtl .dx-daterangebox-separator {
@@ -8339,8 +8337,36 @@
 .dx-daterangebox .dx-editor-underlined::before {
   width: 100%;
 }
+.dx-daterangebox .dx-datebox.dx-end-datebox.dx-editor-filled .dx-texteditor-input,
+.dx-daterangebox .dx-datebox.dx-end-datebox.dx-editor-outlined .dx-texteditor-input,
+.dx-daterangebox .dx-datebox.dx-end-datebox.dx-editor-underlined .dx-texteditor-input,
+.dx-daterangebox .dx-datebox.dx-start-datebox.dx-editor-filled .dx-texteditor-input,
+.dx-daterangebox .dx-datebox.dx-start-datebox.dx-editor-outlined .dx-texteditor-input,
+.dx-daterangebox .dx-datebox.dx-start-datebox.dx-editor-underlined .dx-texteditor-input,
 .dx-daterangebox.dx-editor-underlined .dx-daterangebox-separator {
-  padding-right: 10px;
+  padding-right: 9px;
+}
+.dx-daterangebox .dx-datebox.dx-end-datebox.dx-editor-filled.dx-rtl .dx-texteditor-input,
+.dx-daterangebox .dx-datebox.dx-end-datebox.dx-editor-outlined.dx-rtl .dx-texteditor-input,
+.dx-daterangebox .dx-datebox.dx-end-datebox.dx-editor-underlined.dx-rtl .dx-texteditor-input,
+.dx-daterangebox .dx-datebox.dx-start-datebox.dx-editor-filled.dx-rtl .dx-texteditor-input,
+.dx-daterangebox .dx-datebox.dx-start-datebox.dx-editor-outlined.dx-rtl .dx-texteditor-input,
+.dx-daterangebox .dx-datebox.dx-start-datebox.dx-editor-underlined.dx-rtl .dx-texteditor-input {
+  padding-left: 9px;
+}
+.dx-daterangebox .dx-datebox.dx-end-datebox.dx-editor-filled.dx-invalid .dx-texteditor-input,
+.dx-daterangebox .dx-datebox.dx-end-datebox.dx-editor-outlined.dx-invalid .dx-texteditor-input,
+.dx-daterangebox .dx-datebox.dx-end-datebox.dx-editor-underlined.dx-invalid .dx-texteditor-input {
+  padding-right: 34px;
+}
+.dx-daterangebox .dx-datebox.dx-end-datebox.dx-editor-filled.dx-invalid.dx-rtl .dx-texteditor-input,
+.dx-daterangebox .dx-datebox.dx-end-datebox.dx-editor-outlined.dx-invalid.dx-rtl .dx-texteditor-input,
+.dx-daterangebox .dx-datebox.dx-end-datebox.dx-editor-underlined.dx-invalid.dx-rtl .dx-texteditor-input {
+  padding-right: 9px;
+  padding-left: 34px;
+}
+.dx-daterangebox .dx-datebox.dx-end-datebox.dx-editor-underlined.dx-invalid.dx-rtl .dx-texteditor-input {
+  padding-right: 0;
 }
 .dx-daterangebox-separator .dx-icon {
   width: 18px;
