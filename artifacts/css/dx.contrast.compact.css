@@ -8167,7 +8167,7 @@
   height: 16px;
   line-height: normal;
 }
-.dx-daterangebox.dx-daterangebox-with-floating-label.dx-editor-outlined.dx-texteditor-empty .dx-datebox .dx-texteditor-label .dx-label::before {
+.dx-daterangebox.dx-daterangebox-with-floating-label.dx-editor-outlined .dx-datebox.dx-texteditor-empty .dx-texteditor-label .dx-label::before {
   background-color: transparent;
 }
 .dx-daterangebox .dx-dropdowneditor-icon {
