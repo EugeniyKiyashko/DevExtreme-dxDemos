@@ -1,8 +1,8 @@
 @charset "UTF-8";
 /**
 * DevExtreme (dx.material.lime.light.compact.css)
-* Version: 23.1.2
-* Build date: Mon May 29 2023
+* Version: 23.1.3
+* Build date: Thu Jun 08 2023
 *
 * Copyright (c) 2012 - 2023 Developer Express Inc. ALL RIGHTS RESERVED
 * Read about DevExtreme licensing here: https://js.devexpress.com/Licensing/
@@ -8760,6 +8760,7 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  direction: ltr;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
@@ -8769,11 +8770,12 @@
   justify-content: space-between;
   border: 1px solid transparent;
   width: 252px;
-  min-width: 252px;
   height: 260px;
-  min-height: 260px;
   background-color: #fff;
   gap: 8px;
+}
+.dx-calendar.dx-rtl {
+  direction: rtl;
 }
 .dx-calendar-views-wrapper {
   position: relative;
@@ -8917,11 +8919,9 @@
 }
 .dx-calendar.dx-calendar-with-footer {
   height: 296px;
-  min-height: 296px;
 }
 .dx-calendar.dx-calendar-multiview {
   width: 504px;
-  min-width: 504px;
 }
 .dx-calendar.dx-invalid {
   border-color: rgba(244,67,54,.4);
@@ -13623,8 +13623,7 @@
   vertical-align: middle;
   padding-left: 0;
 }
-.dx-rtl .dx-radio-value-container,
-.dx-rtl.dx-radio-value-container {
+.dx-rtl .dx-radio-value-container {
   padding-right: 5px;
   padding-left: 10px;
 }
@@ -13641,16 +13640,37 @@
 .dx-state-disabled .dx-radiobutton {
   cursor: default;
 }
-.dx-state-disabled.dx-radiobutton {
+.dx-radiobutton.dx-state-disabled {
   cursor: default;
+  opacity: .38;
+}
+.dx-state-disabled .dx-radiobutton.dx-state-disabled {
+  opacity: 1;
 }
 .dx-radiobutton-icon {
+  position: relative;
   width: 16px;
   height: 16px;
-  position: relative;
+  border: 2px solid rgba(0,0,0,.54);
+  background-color: #fff;
+  border-radius: 50%;
+  -webkit-transition: border-color .2s cubic-bezier(.4, 0, .2, 1);
+  transition: border-color .2s cubic-bezier(.4, 0, .2, 1);
+}
+.dx-radiobutton-icon .dx-radiobutton-icon-dot {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 0 solid #fff;
+  -webkit-transform: scale(0);
+  transform: scale(0);
+  -webkit-transition: -webkit-transform 150ms cubic-bezier(0, 0, .2, 1);
+  transition: transform 150ms cubic-bezier(0, 0, .2, 1);
+  transition: transform 150ms cubic-bezier(0, 0, .2, 1),-webkit-transform 150ms cubic-bezier(0, 0, .2, 1);
 }
 .dx-radiobutton-icon::after {
   content: "";
+  position: absolute;
   width: 32px;
   height: 32px;
   top: 50%;
@@ -13658,37 +13678,20 @@
   margin-top: -16px;
   margin-left: -16px;
   border-radius: 50%;
-  display: block;
-  position: absolute;
   z-index: 1;
   -webkit-transform: scale(.5);
   transform: scale(.5);
   -webkit-transition: .4s cubic-bezier(.23, 1, .32, 1);
   transition: .4s cubic-bezier(.23, 1, .32, 1);
 }
-.dx-radiobutton-icon::before {
-  display: block;
-  width: 12px;
-  height: 12px;
-  border: 2px solid rgba(0,0,0,.54);
-  background-color: #fff;
-  content: "";
-  border-radius: 8px;
-  -webkit-box-sizing: content-box;
-  box-sizing: content-box;
-}
-.dx-radiobutton-icon-checked::before {
+.dx-radiobutton-icon-checked {
   border-color: #cddc39;
 }
 .dx-radiobutton-icon-checked .dx-radiobutton-icon-dot {
-  display: block;
-  margin-top: -12px;
-  margin-left: 4px;
-  width: 8px;
-  height: 8px;
-  background: #cddc39;
-  content: "";
-  border-radius: 4px;
+  background-color: #cddc39;
+  border-width: 2px;
+  -webkit-transform: scale(1);
+  transform: scale(1);
 }
 .dx-radiobutton.dx-state-active .dx-radiobutton-icon::after,
 .dx-radiobutton.dx-state-focused .dx-radiobutton-icon::after {
@@ -13696,36 +13699,25 @@
   -webkit-transform: scale(1);
   transform: scale(1);
 }
-.dx-radiobutton.dx-radiobutton-checked.dx-state-active .dx-radiobutton-icon-checked::after,
-.dx-radiobutton.dx-radiobutton-checked.dx-state-focused .dx-radiobutton-icon-checked::after {
+.dx-radiobutton.dx-state-active .dx-radiobutton-icon-checked::after,
+.dx-radiobutton.dx-state-focused .dx-radiobutton-icon-checked::after {
   background-color: rgba(205,220,57,.1);
   -webkit-transform: scale(1);
   transform: scale(1);
 }
-.dx-radiobutton.dx-state-disabled {
-  opacity: .38;
-}
-.dx-state-disabled .dx-radiobutton-icon-dot,
-.dx-state-readonly .dx-radiobutton-icon-dot {
-  background-color: rgba(0,0,0,.54);
-}
-.dx-state-disabled .dx-radiobutton-icon::before,
-.dx-state-readonly .dx-radiobutton-icon::before {
-  border-color: rgba(0,0,0,.54);
-}
-.dx-invalid .dx-radiobutton-icon::before {
+.dx-invalid .dx-radiobutton-icon {
   border-color: rgba(244,67,54,.4);
 }
 .dx-invalid .dx-radiobutton-icon-dot {
   background-color: rgba(244,67,54,.4);
 }
-.dx-invalid .dx-state-active.dx-radiobutton .dx-radiobutton-icon::before,
-.dx-invalid .dx-state-focused.dx-radiobutton .dx-radiobutton-icon::before {
-  border-color: #f44336;
+.dx-invalid .dx-state-active.dx-radiobutton .dx-radiobutton-icon,
+.dx-invalid .dx-state-focused.dx-radiobutton .dx-radiobutton-icon {
+  border-color: rgba(244,67,54,.1);
 }
 .dx-invalid .dx-state-active.dx-radiobutton .dx-radiobutton-icon-dot,
 .dx-invalid .dx-state-focused.dx-radiobutton .dx-radiobutton-icon-dot {
-  background-color: #f44336;
+  background-color: rgba(244,67,54,.1);
 }
 .dx-invalid .dx-state-active.dx-radiobutton .dx-radiobutton-icon::after,
 .dx-invalid .dx-state-focused.dx-radiobutton .dx-radiobutton-icon::after {
@@ -13733,13 +13725,13 @@
   -webkit-transform: scale(1);
   transform: scale(1);
 }
-.dx-state-disabled .dx-radiobutton.dx-state-disabled {
-  opacity: 1;
+.dx-state-disabled .dx-radiobutton-icon,
+.dx-state-readonly .dx-radiobutton-icon {
+  border-color: rgba(0,0,0,.54);
 }
-.dx-rtl .dx-radiobutton.dx-radiobutton-checked .dx-radiobutton-icon-dot,
-.dx-rtl.dx-radiobutton.dx-radiobutton-checked .dx-radiobutton-icon-dot {
-  margin-right: 4px;
-  margin-left: 0;
+.dx-state-disabled .dx-radiobutton-icon-dot,
+.dx-state-readonly .dx-radiobutton-icon-dot {
+  background-color: rgba(0,0,0,.54);
 }
 .dx-radiogroup .dx-radiobutton {
   margin: 6px 0;
