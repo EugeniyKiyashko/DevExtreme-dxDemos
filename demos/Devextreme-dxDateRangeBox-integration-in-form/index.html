@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>dxDateRangeBox all modes</title>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
+  <script type="text/javascript" src="../../artifacts/dx.all.daterangebox.js"></script>
+  <script type="text/javascript" src="../themeSwitcher.js"></script>
+</head>
+<body class="dx-viewport">
+  <div class="demo-container">
+    <div id="form-container">
+      <div id="form"></div>
+    </div>
+    </div>
+  
+  <script>
+    addThemeSelectboxToBody();
+    $(() => {
+     
+
+     $('#form').dxForm({
+       formData: employee,
+       labelLocation: 'left',
+       items: [{
+         dataField: 'HireDate',
+         editorType: 'dxDateRangeBox',
+         editorOptions: {
+           width: '100%',
+           value: undefined,
+         },
+         validationRules: [{
+           type: 'required',
+           message: 'Hire date is required',
+         }],
+         // label: {
+         //   template: labelTemplate('event')
+         // }
+       }, {
+         dataField: 'HireDate2',
+         editorType: 'dxDateBox',
+         editorOptions: {
+           width: '100%',
+         },
+         validationRules: [{
+           type: 'required',
+           message: 'Hire date is required',
+         }],
+         // label: {
+         //   template: labelTemplate('event')
+         // }
+       }],
+       onContentReady() {
+         debugger
+         console.log('readyForm')
+       }
+     });
+   
+     $('#form').dxForm('instance').validate();
+   
+     function labelTemplate(iconName) {
+             return (data, element) => $(`<div><i class='dx-icon dx-icon-${iconName}'></i>${data.text}</div>`);
+           }
+   });
+   const employee = {
+     ID: 1,
+     FirstName: 'John',
+     LastName: 'Heart',
+     Position: 'CEO',
+     BirthDate: '1964/03/16',
+     Notes: 'John has been in the Audio/Video industry since 1990. He has led DevAv as its CEO since 2003.\r\n\r\nWhen not working hard as the CEO, John loves to golf and bowl. He once bowled a perfect game of 300.',
+     Address: '351 S Hill St., Los Angeles, CA',
+     Phone: '360-684-1334',
+     HireDate: ['5/23/2023','5/28/2023'],
+     HireDate2: '5/23/2023',
+     Email: 'jheart@dx-email.com',
+   };
+   
+   const positions = [
+     'HR Manager',
+     'IT Manager',
+     'CEO',
+     'Controller',
+     'Sales Manager',
+     'Support Manager',
+     'Shipping Manager',
+   ];
+    </script>
+  </body>
+  </html>
+  
