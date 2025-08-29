@@ -19,7 +19,7 @@
     "@angular/platform-browser": "~8.1.2",
     "@angular/platform-browser-dynamic": "~8.1.2",
     "@angular/router": "~8.1.2",
-    "devextreme": "^19.1.4",
+    "devextreme": "^19.2.15",
     "devextreme-angular": "^19.1.4",
     "jszip": "^3.2.2",
     "rxjs": "~6.4.0",
