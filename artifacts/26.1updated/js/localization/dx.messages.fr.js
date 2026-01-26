@@ -1,7 +1,7 @@
 /*!
 * DevExtreme (dx.messages.fr.js)
 * Version: 26.1.0
-* Build date: Thu Jan 15 2026
+* Build date: Mon Jan 26 2026
 *
 * Copyright (c) 2012 - 2026 Developer Express Inc. ALL RIGHTS RESERVED
 * Read about DevExtreme licensing here: https://js.devexpress.com/Licensing/
@@ -281,9 +281,7 @@
             "dxScheduler-editPopupSaveButtonText": "Save",
             "dxScheduler-editorLabelTitle": "Titre",
             "dxScheduler-editorLabelStartDate": "Date de début",
-            "dxScheduler-editorAriaLabelStartTime": "Start time",
             "dxScheduler-editorLabelEndDate": "Date de fin",
-            "dxScheduler-editorAriaLabelEndTime": "End time",
             "dxScheduler-editorLabelDescription": "Description",
             "dxScheduler-editorLabelRecurrence": "Récurrence",
             "dxScheduler-noSubject": "(No subject)",

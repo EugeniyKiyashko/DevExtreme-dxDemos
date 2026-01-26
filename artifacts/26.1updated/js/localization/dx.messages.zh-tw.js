@@ -1,7 +1,7 @@
 /*!
 * DevExtreme (dx.messages.zh-tw.js)
 * Version: 26.1.0
-* Build date: Thu Jan 15 2026
+* Build date: Mon Jan 26 2026
 *
 * Copyright (c) 2012 - 2026 Developer Express Inc. ALL RIGHTS RESERVED
 * Read about DevExtreme licensing here: https://js.devexpress.com/Licensing/
@@ -281,9 +281,7 @@
             "dxScheduler-editPopupSaveButtonText": "Save",
             "dxScheduler-editorLabelTitle": "標題",
             "dxScheduler-editorLabelStartDate": "開始日期",
-            "dxScheduler-editorAriaLabelStartTime": "Start time",
             "dxScheduler-editorLabelEndDate": "結束日期",
-            "dxScheduler-editorAriaLabelEndTime": "End time",
             "dxScheduler-editorLabelDescription": "描述",
             "dxScheduler-editorLabelRecurrence": "重複",
             "dxScheduler-noSubject": "(No subject)",
