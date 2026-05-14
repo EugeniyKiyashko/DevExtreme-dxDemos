@@ -1,7 +1,7 @@
 /*!
 * DevExtreme (dx.ai-integration.debug.js)
 * Version: 26.1.2
-* Build date: Wed May 13 2026
+* Build date: Thu May 14 2026
 *
 * Copyright (c) 2012 - 2026 Developer Express Inc. ALL RIGHTS RESERVED
 * Read about DevExtreme licensing here: https://js.devexpress.com/Licensing/
