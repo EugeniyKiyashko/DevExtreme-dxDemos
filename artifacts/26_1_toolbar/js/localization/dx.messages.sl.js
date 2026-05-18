@@ -1,7 +1,7 @@
 /*!
 * DevExtreme (dx.messages.sl.js)
 * Version: 26.1.2
-* Build date: Thu May 14 2026
+* Build date: Mon May 18 2026
 *
 * Copyright (c) 2012 - 2026 Developer Express Inc. ALL RIGHTS RESERVED
 * Read about DevExtreme licensing here: https://js.devexpress.com/Licensing/
@@ -118,6 +118,7 @@
             "dxDataGrid-aiAssistantProcessingMessageHeader": "Request in progress",
             "dxDataGrid-aiAssistantProcessingMessage": "Processing...",
             "dxDataGrid-aiAssistantErrorMessageHeader": "Failed to process request",
+            "dxDataGrid-aiAssistantAbortMessage": "Request stopped.",
             "dxDataGrid-aiAssistantSuccessMessage": "Success",
             "dxDataGrid-aiAssistantErrorMessage": "Error",
             "dxDataGrid-aiAssistantExecutionAbortMessage": "Execution Interrupted",
