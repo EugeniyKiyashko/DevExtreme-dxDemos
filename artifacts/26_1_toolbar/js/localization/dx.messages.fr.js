@@ -1,7 +1,7 @@
 /*!
 * DevExtreme (dx.messages.fr.js)
 * Version: 26.1.2
-* Build date: Mon May 18 2026
+* Build date: Tue May 19 2026
 *
 * Copyright (c) 2012 - 2026 Developer Express Inc. ALL RIGHTS RESERVED
 * Read about DevExtreme licensing here: https://js.devexpress.com/Licensing/
@@ -124,6 +124,7 @@
             "dxDataGrid-aiAssistantExecutionAbortMessage": "Execution Interrupted",
             "dxDataGrid-aiAssistantClearButtonText": "Clear",
             "dxDataGrid-aiAssistantRegenerateButtonText": "Regenerate",
+            "dxDataGrid-aiAssistantAbortConfirmText": "Closing the AI Assistant chat aborts requests in progress. Would you like to close the chat?",
             "dxDataGrid-aiAChatEmptyViewMessage": "Chat is Empty",
             "dxDataGrid-aiChatEmptyViewPrompt": "AI Assistant is ready to answer your questions.",
             "dxDataGrid-aiPromptEditorTitle": "Éditeur de prompts IA",
