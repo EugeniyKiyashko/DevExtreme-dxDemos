@@ -1,7 +1,7 @@
 /*!
  * DevExpress Gantt (dx-gantt)
- * Version: 4.1.68
- * Build date: Mon Apr 13 2026
+ * Version: 4.1.69
+ * Build date: Wed May 20 2026
  *
  * Copyright (c) 2012 - 2026 Developer Express Inc. ALL RIGHTS RESERVED
  * Read about DevExpress licensing here: https://www.devexpress.com/Support/EULAs
@@ -11657,8 +11657,8 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.DateRange = void 0;
 var DateRange = (function () {
     function DateRange(start, end) {
-        this.start = start;
-        this.end = end;
+        this.start = new Date(start);
+        this.end = new Date(end);
     }
     DateRange.prototype.equal = function (date) {
         var result = true;

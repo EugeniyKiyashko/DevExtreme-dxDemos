@@ -1,7 +1,7 @@
 /*!
 * DevExtreme (dx.messages.ja.js)
 * Version: 26.1.2
-* Build date: Tue May 26 2026
+* Build date: Sat May 30 2026
 *
 * Copyright (c) 2012 - 2026 Developer Express Inc. ALL RIGHTS RESERVED
 * Read about DevExtreme licensing here: https://js.devexpress.com/Licensing/
@@ -122,6 +122,10 @@
             "dxDataGrid-aiAssistantSuccessMessage": "Success",
             "dxDataGrid-aiAssistantErrorMessage": "Error",
             "dxDataGrid-aiAssistantExecutionAbortMessage": "Execution Interrupted",
+            "dxDataGrid-aiAssistantExecutionInProgressMessage": "Execution already in progress. Please wait.",
+            "dxDataGrid-aiAssistantRequestInProgressMessage": "Request already in progress. Please wait.",
+            "dxDataGrid-aiAssistantUnexpectedErrorMessage": "An unexpected error occurred. Please try again.",
+            "dxDataGrid-aiAssistantInvalidResponseMessage": "Invalid response from the AI service. Please try again.",
             "dxDataGrid-aiAssistantClearButtonText": "Clear",
             "dxDataGrid-aiAssistantRegenerateButtonText": "Regenerate",
             "dxDataGrid-aiAssistantAbortConfirmText": "Closing the AI Assistant chat aborts requests in progress. Would you like to close the chat?",
