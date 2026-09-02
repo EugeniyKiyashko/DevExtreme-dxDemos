@@ -8,6 +8,11 @@ A collection of online demos showing variously scenario using DevExtreme widgets
 * [dxScheduler - Wrong positioning of appointment context menu when changed dynamically](https://eugeniykiyashko.github.io/DevExtreme-dxDemos/demos/angular-dxScheduler-positioning-context-menu/)
 * [dxDrawer - place a nested drawer inside the content panel of another drawer](https://codesandbox.io/s/drawer-as-nested-component-devextreme-drawer-eonr7)
 
+## fluent-next - theme review
+
+* [Disabled and read-only states, live comparison](https://eugeniykiyashko.github.io/DevExtreme-dxDemos/demos/Devextreme-fluent-next-disabled-states/index.html) - 123 configurations, three columns each: enabled, disabled, legacy fluent. Light and dark.
+* [The same, as measured values](https://eugeniykiyashko.github.io/DevExtreme-dxDemos/demos/Devextreme-fluent-next-disabled-states/review.html) - one static file, no library needed.
+
 ## DevExtreme Demos - JQuery approach.
 
 * [DataGrid - Export To PDF](https://eugeniykiyashko.github.io/DevExtreme-dxDemos/demos/Devextreme-dxDataGrid-export-to-PDF/index.html)
