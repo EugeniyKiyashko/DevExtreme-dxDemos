@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>dxSpeedDialAction: right offset swallowed by the scrollbar</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+// Captured on this very page load, before anything else runs.
+window.__lifecycle = [];
+(function () {
+  function snap(phase) {
+    var de = document.documentElement;
+    window.__lifecycle.push({ phase: phase, innerWidth: window.innerWidth, outerWidth: window.outerWidth, clientWidth: de.clientWidth });
+  }
+  snap('head, sync script');
+  document.addEventListener('DOMContentLoaded', function () { snap('DOMContentLoaded'); });
+  window.addEventListener('load', function () { snap('load'); if (window.__renderLifecycle) { window.__renderLifecycle(); } });
+  setTimeout(function () { snap('setTimeout 0'); }, 0);
+  requestAnimationFrame(function () { snap('requestAnimationFrame'); });
+  setTimeout(function () { if (window.__renderLifecycle) { window.__renderLifecycle(); } }, 150);
+}());
+</script>
+<style>
+  :root { color-scheme: light; }
+  body { margin: 0; font: 13px/1.6 -apple-system, "Segoe UI", Roboto, sans-serif; color: #263238; background: #fff; }
+  header { padding: 14px 18px; border-bottom: 1px solid #cfd8dc; }
+  header h1 { margin: 0 0 4px; font-size: 16px; }
+  header p { margin: 0; max-width: 105ch; color: #546e7a; }
+  code { font-family: ui-monospace, Menlo, Consolas, monospace; background: #eceff1; padding: 1px 4px; border-radius: 3px; }
+  section { padding: 12px 18px; border-bottom: 1px solid #cfd8dc; }
+  summary { cursor: pointer; }
+  summary::marker { color: #607d8b; }
+  section > h2, summary h2 { margin: 0 0 8px; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: .04em; color: #607d8b; }
+  pre { margin: 8px 0 0; padding: 10px 12px; background: #eceff1; border-radius: 4px; overflow-x: auto;
+        font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 12px; line-height: 1.5; }
+  pre .was { color: #b71c1c; }
+  pre .now { color: #1b5e20; }
+  table { border-collapse: collapse; font-size: 12px; }
+  th, td { padding: 4px 10px; border: 1px solid #cfd8dc; text-align: right; white-space: nowrap; }
+  th:first-child, td:first-child { text-align: left; }
+  thead th { background: #eceff1; font-weight: 600; }
+  tr.flag td { background: #ffebee; font-weight: 600; }
+  .bar { display: flex; gap: 20px; align-items: center; flex-wrap: wrap; }
+  .bar label { display: inline-flex; gap: 5px; align-items: center; }
+  button { font: inherit; padding: 4px 12px; border: 1px solid #90a4ae; border-radius: 4px;
+           background: #fff; color: inherit; cursor: pointer; }
+  button:hover { background: #eceff1; }
+  .cols { display: flex; align-items: stretch; }
+  .col { flex: 1 1 0; min-width: 320px; border-right: 1px solid #cfd8dc; display: flex; flex-direction: column; }
+  .col:last-child { border-right: 0; }
+  .col > h3 { margin: 0; padding: 8px 12px; font-size: 12px; font-weight: 600; background: #eceff1; border-bottom: 1px solid #cfd8dc; }
+  .col > h3 small { display: block; font-weight: 400; color: #607d8b; }
+  iframe { width: 100%; height: 460px; border: 0; }
+  .verdict { padding: 8px 12px; border-top: 1px solid #cfd8dc; font-size: 12px; }
+  .pass { color: #1b5e20; font-weight: 600; }
+  .fail { color: #b71c1c; font-weight: 600; }
+  .muted { color: #607d8b; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>dxSpeedDialAction: the 16px right offset is swallowed by the scrollbar</h1>
+  <p>The FAB is placed against the window. <code>calculatePosition</code> in
+  <code>__internal/common/core/animation/m_position.ts</code> took the window's width as
+  <code>innerWidth</code> whenever <code>innerWidth &gt; outerWidth</code>. <code>innerWidth</code> includes the
+  classic scrollbar, <code>documentElement.clientWidth</code> does not, so the whole 16px offset is spent on the
+  scrollbar and the button ends up flush against it. Chrome reports <code>outerWidth === 0</code> until the first
+  frame is painted, which is exactly when widgets are created on document ready, so the comparison fires by mistake.
+  Any later window resize repopulates <code>outerWidth</code> and the overlay re-renders its geometry, which is why
+  resizing "fixes" the button.</p>
+</header>
+
+<section>
+  <details>
+    <summary><h2 style="display:inline">The change</h2></summary>
+<pre><span class="was">- h.atSize = of[0].innerWidth &gt; of[0].outerWidth ? of[0].innerWidth : getWidth(of);
+- v.atSize = of[0].innerHeight &gt; of[0].outerHeight || IS_SAFARI ? of[0].innerHeight : getHeight(of);</span>
+<span class="now">+ const isOuterSizeKnown = of[0].outerWidth &gt; 0 &amp;&amp; of[0].outerHeight &gt; 0;
++
++ h.atSize = isOuterSizeKnown &amp;&amp; of[0].innerWidth &gt; of[0].outerWidth
++   ? of[0].innerWidth
++   : getWidth(of);
++ v.atSize = (isOuterSizeKnown &amp;&amp; of[0].innerHeight &gt; of[0].outerHeight) || IS_SAFARI
++   ? of[0].innerHeight
++   : getHeight(of);</span></pre>
+  </details>
+</section>
+
+<section>
+  <h2>What this page's own window reported while it was loading</h2>
+  <table id="lifecycle"><tbody><tr><td class="muted">measuring…</td></tr></tbody></table>
+  <p class="muted" style="margin-top:8px">
+    <code>outerWidth = 0</code> shows up when the page is the first document of a freshly created browser window;
+    on a warm reload the value is already there. Both states were reproduced in headless and headful Chrome.
+    Because a page can only watch its own pre-first-frame moment once, the frames below set the state explicitly:
+    <code>window.outerWidth</code> is <code>[Replaceable]</code>, so assigning to it is what the QUnit suite has always done.
+  </p>
+</section>
+
+<section>
+  <h2>Frames</h2>
+  <div class="bar">
+    <span>
+      <code>window.outerWidth</code> at the moment the FAB is created:
+      <label><input type="radio" name="outer" value="zero" checked> <b>0</b> &mdash; before the first frame</label>
+      <label><input type="radio" name="outer" value="auto"> as the browser reports it</label>
+      <label><input type="radio" name="outer" value="small"> 200 &mdash; smaller than innerWidth</label>
+    </span>
+    <button id="reload">Reload frames</button>
+    <button id="workaround">Restore outerWidth and resize</button>
+  </div>
+  <p class="muted" style="margin-top:8px">
+    Both frames run 26.2.0 built from the same tree; the only difference between the two bundles is the change above.
+    Each frame forces a 15px classic scrollbar so the effect looks the same on macOS as on Windows.
+    The dashed red line marks <code>clientWidth - 16</code>, where the right edge of the button belongs.
+    "Restore outerWidth and resize" reproduces the workaround from the report.
+  </p>
+</section>
+
+<div class="cols">
+  <div class="col">
+    <h3>before the fix <small>js/dx.all.debug.before.js</small></h3>
+    <iframe id="frame-before" title="before the fix"></iframe>
+    <div class="verdict" id="verdict-before">…</div>
+  </div>
+  <div class="col">
+    <h3>with the fix <small>js/dx.all.debug.after.js</small></h3>
+    <iframe id="frame-after" title="with the fix"></iframe>
+    <div class="verdict" id="verdict-after">…</div>
+  </div>
+</div>
+
+<section>
+  <h2>Measurements</h2>
+  <table id="results">
+    <thead>
+      <tr><th>build</th><th>outerWidth used</th><th>clientWidth</th><th>innerWidth</th><th>scrollbar</th>
+          <th>FAB right</th><th>expected</th><th>delta</th><th>verdict</th></tr>
+    </thead>
+    <tbody><tr><td class="muted" colspan="9">waiting for the frames…</td></tr></tbody>
+  </table>
+</section>
+
+<script>
+(function () {
+  var frames = {
+    before: document.getElementById('frame-before'),
+    after: document.getElementById('frame-after')
+  };
+  var rows = {};
+
+  window.__renderLifecycle = function () {
+    var html = '<thead><tr><th>phase</th><th>innerWidth</th><th>outerWidth</th><th>documentElement.clientWidth</th></tr></thead><tbody>';
+    window.__lifecycle.forEach(function (r) {
+      html += '<tr' + (r.outerWidth === 0 ? ' class="flag"' : '') + '><td>' + r.phase + '</td><td>' +
+        r.innerWidth + '</td><td>' + r.outerWidth + '</td><td>' + r.clientWidth + '</td></tr>';
+    });
+    document.getElementById('lifecycle').innerHTML = html + '</tbody>';
+  };
+
+  function currentOuter() {
+    return document.querySelector('input[name=outer]:checked').value;
+  }
+
+  function reload() {
+    rows = {};
+    renderResults();
+    Object.keys(frames).forEach(function (build) {
+      document.getElementById('verdict-' + build).textContent = '…';
+      frames[build].src = 'frame.html?build=' + build + '&outer=' + currentOuter() + '&t=' + Date.now();
+    });
+  }
+
+  function renderResults() {
+    var body = document.querySelector('#results tbody');
+    var order = ['before', 'after'];
+    var html = '';
+    order.forEach(function (build) {
+      var r = rows[build];
+      if (!r) { return; }
+      var ok = r.delta === 0;
+      html += '<tr><td>' + r.build + '</td><td>' + r.outerAtCreate + '</td><td>' + r.clientWidth + '</td><td>' +
+        r.innerWidth + '</td><td>' + r.scrollbar + '</td><td>' + r.fabRight + '</td><td>' + r.expectedRight +
+        '</td><td>' + (r.delta > 0 ? '+' + r.delta : r.delta) + '</td><td class="' + (ok ? 'pass' : 'fail') + '">' +
+        (ok ? 'correct' : 'under the scrollbar') + '</td></tr>';
+    });
+    body.innerHTML = html || '<tr><td class="muted" colspan="9">waiting for the frames…</td></tr>';
+  }
+
+  window.addEventListener('message', function (e) {
+    if (!e.data || e.data.type !== 'fab-probe') { return; }
+    var fromOurFrame = Object.keys(frames).some(function (b) { return frames[b].contentWindow === e.source; });
+    if (!fromOurFrame) { return; }
+
+    var r = e.data.data;
+    rows[r.build] = r;
+    renderResults();
+
+    var ok = r.delta === 0;
+    document.getElementById('verdict-' + r.build).innerHTML =
+      'right edge <b>' + r.fabRight + '</b>, expected <b>' + r.expectedRight + '</b> &mdash; ' +
+      '<span class="' + (ok ? 'pass' : 'fail') + '">' +
+      (ok ? 'gap of 16px kept' : 'off by ' + r.delta + 'px, the width of the scrollbar') + '</span>';
+  });
+
+  document.getElementById('reload').addEventListener('click', reload);
+  document.querySelectorAll('input[name=outer]').forEach(function (input) {
+    input.addEventListener('change', reload);
+  });
+
+  // The workaround from the report: once the browser has reported outerWidth,
+  // any window resize makes the overlay re-render its geometry.
+  document.getElementById('workaround').addEventListener('click', function () {
+    Object.keys(frames).forEach(function (build) {
+      try { frames[build].contentWindow.postMessage({ type: 'restore-outer' }, '*'); } catch (err) { /* not loaded */ }
+    });
+    // A real width change, so each frame gets a resize event of its own.
+    Object.keys(frames).forEach(function (build) { frames[build].style.width = 'calc(100% - 40px)'; });
+    setTimeout(function () {
+      Object.keys(frames).forEach(function (build) { frames[build].style.width = ''; });
+    }, 500);
+  });
+
+  if (window.__lifecycle.length) { window.__renderLifecycle(); }
+  reload();
+}());
+</script>
+</body>
+</html>

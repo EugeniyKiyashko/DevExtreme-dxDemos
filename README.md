@@ -13,6 +13,10 @@ A collection of online demos showing variously scenario using DevExtreme widgets
 * [Disabled and read-only states, live comparison](https://eugeniykiyashko.github.io/DevExtreme-dxDemos/demos/Devextreme-fluent-next-disabled-states/index.html) - 123 configurations, three columns each: enabled, disabled, legacy fluent. Light and dark.
 * [The same, as measured values](https://eugeniykiyashko.github.io/DevExtreme-dxDemos/demos/Devextreme-fluent-next-disabled-states/review.html) - one static file, no library needed.
 
+## Fix validation
+
+* [dxSpeedDialAction - the 16px right offset swallowed by the scrollbar](https://eugeniykiyashko.github.io/DevExtreme-dxDemos/demos/Devextreme-dxSpeedDialAction-scrollbar-offset/index.html) - the same page runs two 26.2.0 builds side by side, before and after the `m_position` fix, and measures where the button lands.
+
 ## DevExtreme Demos - JQuery approach.
 
 * [DataGrid - Export To PDF](https://eugeniykiyashko.github.io/DevExtreme-dxDemos/demos/Devextreme-dxDataGrid-export-to-PDF/index.html)

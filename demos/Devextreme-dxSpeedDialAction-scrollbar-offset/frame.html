@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>FAB frame</title>
+<link rel="stylesheet" type="text/css" href="css/dx.material.blue.light.css">
+<style>
+  /* A classic, space-taking scrollbar on every OS, so this shows the same thing
+     on macOS (overlay scrollbars by default) as it does on Windows. */
+  html { overflow-y: scroll; }
+  ::-webkit-scrollbar { width: 15px; background: #eceff1; }
+  ::-webkit-scrollbar-thumb { background: #90a4ae; border-radius: 8px; }
+
+  body { margin: 0; font: 13px/1.65 -apple-system, "Segoe UI", Roboto, sans-serif; color: #37474f; }
+  .dx-viewport h2#head { margin: 0; padding: 12px 16px; font-size: 13px; line-height: 1.4; font-weight: 600;
+           font-family: ui-monospace, Menlo, Consolas, monospace; background: #eceff1; }
+  .dx-viewport p { margin: 0 0 20px; padding: 0 16px; font-size: 13px; line-height: 1.65; }
+
+  /* Where the right edge of the FAB is supposed to land: clientWidth - 16. */
+  #guide { position: fixed; top: 0; bottom: 0; width: 0; border-left: 1px dashed #d32f2f; z-index: 2000; display: none; }
+  #guide b { position: absolute; bottom: 8px; right: 4px; font: 10px/1 -apple-system, sans-serif;
+             color: #d32f2f; white-space: nowrap; }
+</style>
+</head>
+<body>
+<div class="dx-viewport">
+  <h2 id="head">loading…</h2>
+
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+  <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit.</p>
+  <p>Integer in mauris eu nibh euismod gravida. Duis ac tellus et risus vulputate vehicula. Donec lobortis risus a elit. Etiam tempor. Ut ullamcorper, ligula eu tempor congue, eros est euismod turpis, id tincidunt sapien risus a quam.</p>
+  <p>Maecenas fermentum consequat mi. Donec fermentum. Pellentesque malesuada nulla a mi. Duis sapien sem, aliquet nec, commodo eget, consequat quis, neque. Aliquam faucibus, elit ut dictum aliquet, felis nisl adipiscing sapien.</p>
+  <p>Cras mollis scelerisque nunc. Nullam arcu. Aliquam consequat. Curabitur augue lorem, dapibus quis, laoreet et, pretium ac, nisi. Aenean magna nisl, mollis quis, molestie eu, feugiat in, orci. In hac habitasse platea dictumst.</p>
+  <p>Donec tincidunt dui vitae libero. Donec at lacus vitae velit porttitor sollicitudin. Praesent euismod, justo ac ultrices fermentum, lectus lorem tincidunt augue, sed tincidunt lectus erat non lorem.</p>
+  <p>Phasellus euismod, sapien sit amet cursus tincidunt, erat justo consequat erat, vitae posuere neque arcu non sapien. Suspendisse potenti. Nam feugiat, tortor at consequat tincidunt, neque augue interdum ipsum.</p>
+  <p>Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu. Cras consequat. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue.</p>
+  <p>Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus. Phasellus ultrices nulla quis nibh. Quisque a lectus. Donec consectetuer ligula vulputate sem tristique cursus.</p>
+  <p>Pellentesque fermentum dolor. Aliquam quam lectus, facilisis auctor, ultrices ut, elementum vulputate, nunc. Sed adipiscing ornare risus. Morbi est est, blandit sit amet, sagittis vel, euismod vel, velit.</p>
+  <p>Vestibulum volutpat, lacus a ultrices sagittis, mi neque euismod dui, eu consequat nibh lorem at libero. Fusce faucibus pellentesque sapien. Integer tempor. Vestibulum lacinia arcu eget nulla.</p>
+  <p>Praesent blandit dolor. Sed non quam. In vel mi sit amet augue congue elementum. Morbi in ipsum sit amet pede facilisis laoreet. Donec lacus nunc, viverra nec, blandit vel, egestas et, augue.</p>
+  <p>Ut ultrices ultrices enim. Curabitur sit amet mauris. Morbi in dui quis est pulvinar ullamcorper. Nulla facilisi. Integer lacinia sollicitudin massa. Cras metus. Sed aliquet risus a tortor.</p>
+  <p>Proin sodales libero eget ante. Nulla quam. Aenean laoreet. Vestibulum nisi lectus, commodo ac, facilisis ac, ultricies eu, pede. Ut orci risus, accumsan porttitor, cursus quis, aliquet eget, justo.</p>
+
+  <div id="fab"></div>
+</div>
+
+<div id="guide"><b>expected right edge</b></div>
+
+<script src="js/jquery.js"></script>
+<script>
+(function () {
+  var FAB_OFFSET = 16; // dxSpeedDialAction default position offset, see config().floatingActionButtonConfig
+
+  var params = new URLSearchParams(location.search);
+  var build = params.get('build') === 'before' ? 'before' : 'after';
+  var outer = params.get('outer') || 'auto';
+
+  document.getElementById('head').textContent = 'dx.all.debug.' + build + '.js';
+
+  var realOuterWidth = window.outerWidth;
+  var realOuterHeight = window.outerHeight;
+
+  function applyOuterState() {
+    // window.outerWidth / outerHeight are [Replaceable], so a page can overwrite them.
+    // 0 is what Chrome itself reports until the first frame is painted.
+    if (outer === 'zero') { window.outerWidth = 0; window.outerHeight = 0; }
+    if (outer === 'small') { window.outerWidth = 200; window.outerHeight = 200; }
+  }
+
+  function measure(outerAtCreate) {
+    var de = document.documentElement;
+    var content = document.querySelector('.dx-fa-button-main .dx-overlay-content');
+    var expectedRight = de.clientWidth - FAB_OFFSET;
+    var fabRight = content ? Math.round(content.getBoundingClientRect().right) : null;
+
+    var guide = document.getElementById('guide');
+    guide.style.left = expectedRight + 'px';
+    guide.style.display = 'block';
+
+    return {
+      build: build,
+      outerState: outer,
+      outerAtCreate: outerAtCreate,
+      clientWidth: de.clientWidth,
+      innerWidth: window.innerWidth,
+      scrollbar: window.innerWidth - de.clientWidth,
+      fabRight: fabRight,
+      expectedRight: expectedRight,
+      delta: fabRight === null ? null : fabRight - expectedRight
+    };
+  }
+
+  function report(data) {
+    try { parent.postMessage({ type: 'fab-probe', data: data }, '*'); } catch (e) { /* standalone */ }
+  }
+
+  function start() {
+    $(function () {
+      applyOuterState();
+      var outerAtCreate = window.outerWidth;
+
+      $('#fab').dxSpeedDialAction({ icon: 'add' });
+      DevExpress.ui.repaintFloatingActionButton();
+
+      // The FAB shows with an animation; measure once it has settled.
+      setTimeout(function () { report(measure(outerAtCreate)); }, 400);
+    });
+  }
+
+  // The workaround from the report: once the browser reports outerWidth again,
+  // any resize of this window makes the overlay re-render its geometry.
+  window.addEventListener('message', function (e) {
+    if (!e.data || e.data.type !== 'restore-outer') { return; }
+    window.outerWidth = realOuterWidth;
+    window.outerHeight = realOuterHeight;
+  });
+
+  window.addEventListener('resize', function () {
+    setTimeout(function () { report(measure(window.outerWidth)); }, 300);
+  });
+
+  var script = document.createElement('script');
+  script.src = 'js/dx.all.debug.' + build + '.js';
+  script.charset = 'utf-8';
+  script.onload = start;
+  document.head.appendChild(script);
+}());
+</script>
+</body>
+</html>
