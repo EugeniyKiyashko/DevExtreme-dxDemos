@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>theme compare frame</title>
+<script>
+  const params = new URLSearchParams(location.search);
+  const theme = params.get('theme') || 'fluent.blue.light';
+  document.write(`<link rel="stylesheet" href="css/dx.${encodeURIComponent(theme)}.css">`);
+</script>
+<script src="js/jquery.js"></script>
+<script src="js/dx-quill.js"></script>
+<script src="js/dx-diagram.js"></script>
+<script src="js/dx-gantt.js"></script>
+<script src="js/dx.all.debug.js"></script>
+<style>
+  body { margin: 12px; font-family: "Segoe UI", sans-serif; }
+  h3 { margin: 4px 0 10px; font-size: 13px; font-weight: 600; }
+  table { border-collapse: collapse; }
+  td, th { padding: 6px 10px; font-size: 11px; text-align: left; }
+  th { opacity: 0.6; font-weight: 400; }
+</style>
+</head>
+<body class="dx-viewport">
+<h3 id="title"></h3>
+<table id="grid"></table>
+<h3>dxTextBox</h3>
+<table id="editors"></table>
+<h3>dxCheckBox</h3>
+<table id="checks"></table>
+<h3>w2-primitives (switch, radioGroup, progressBar, slider, badge, loadIndicator)</h3>
+<table id="primitives"></table>
+<h3>w3-composites (menu, list, tabs, calendar, tooltip, popup)</h3>
+<div id="composites" style="display:flex; gap:24px; flex-wrap:wrap; align-items:flex-start;"></div>
+<h3>w4-editors (selectBox, tagBox, accordion, form, toolbar, filterBuilder)</h3>
+<div id="editors4" style="display:flex; gap:24px; flex-wrap:wrap; align-items:flex-start;"></div>
+<h3>w5-complex (dataGrid, treeList, pivotGrid, scheduler, htmlEditor, fileManager, gantt)</h3>
+<div id="complex5" style="display:flex; gap:24px; flex-wrap:wrap; align-items:flex-start;"></div>
+<script>
+  document.getElementById('title').textContent = new URLSearchParams(location.search).get('theme');
+
+  // Pilot scope: dxButton, dxTextBox, dxCheckBox. Extend with more widgets as migration waves land.
+  const forceState = (el, state) => {
+    if (state === 'hover') el.classList.add('dx-state-hover');
+    if (state === 'focused') el.classList.add('dx-state-focused');
+    if (state === 'active') el.classList.add('dx-state-active');
+    if (state === 'selected') el.classList.add('dx-item-selected', 'dx-state-selected');
+  };
+
+  const renderMatrix = (table, rows, states, create) => {
+    table.innerHTML = '<tr><th></th>' + states.map((s) => `<th>${s}</th>`).join('') + '</tr>';
+    rows.forEach((rowDef) => {
+      const row = document.createElement('tr');
+      row.innerHTML = `<th>${rowDef.label}</th>`;
+      states.forEach((state) => {
+        const cell = document.createElement('td');
+        const el = document.createElement('div');
+        cell.appendChild(el);
+        row.appendChild(cell);
+        create(el, rowDef, state);
+        forceState(el, state);
+      });
+      table.appendChild(row);
+    });
+  };
+
+  const buttonRows = [];
+  ['normal', 'default', 'danger', 'success'].forEach((type) => {
+    ['contained', 'outlined', 'text'].forEach((mode) => {
+      buttonRows.push({ label: `${type} / ${mode}`, type, mode });
+    });
+  });
+  renderMatrix(
+    document.getElementById('grid'),
+    buttonRows,
+    ['rest', 'hover', 'focused', 'active', 'selected', 'disabled'],
+    (el, { type, mode }, state) => {
+      $(el).dxButton({
+        text: 'Button',
+        icon: 'check',
+        type,
+        stylingMode: mode,
+        disabled: state === 'disabled',
+      });
+    },
+  );
+
+  renderMatrix(
+    document.getElementById('editors'),
+    ['outlined', 'filled', 'underlined'].map((mode) => ({ label: mode, mode })),
+    ['rest', 'placeholder', 'hover', 'focused', 'invalid', 'disabled'],
+    (el, { mode }, state) => {
+      $(el).dxTextBox({
+        value: state === 'placeholder' ? '' : 'Text value',
+        placeholder: 'Placeholder',
+        label: 'Label',
+        stylingMode: mode,
+        disabled: state === 'disabled',
+        isValid: state !== 'invalid',
+      });
+    },
+  );
+
+  renderMatrix(
+    document.getElementById('checks'),
+    [
+      { label: 'unchecked', value: false },
+      { label: 'checked', value: true },
+      { label: 'indeterminate', value: undefined },
+    ],
+    ['rest', 'hover', 'focused', 'invalid', 'disabled'],
+    (el, { value }, state) => {
+      $(el).dxCheckBox({
+        value,
+        text: 'Check',
+        disabled: state === 'disabled',
+        isValid: state !== 'invalid',
+      });
+    },
+  );
+
+  const prim = document.getElementById('primitives');
+  prim.innerHTML = '<tr><th></th><th>rest</th><th>disabled</th><th>invalid</th></tr>';
+  const primRow = (label, factory) => {
+    const row = document.createElement('tr');
+    row.innerHTML = `<th>${label}</th>`;
+    ['rest', 'disabled', 'invalid'].forEach((state) => {
+      const cell = document.createElement('td');
+      const el = document.createElement('div');
+      cell.appendChild(el);
+      row.appendChild(cell);
+      factory(el, state);
+    });
+    prim.appendChild(row);
+  };
+  primRow('switch on', (el, s) => $(el).dxSwitch({ value: true, disabled: s === 'disabled', isValid: s !== 'invalid' }));
+  primRow('switch off', (el, s) => $(el).dxSwitch({ value: false, disabled: s === 'disabled', isValid: s !== 'invalid' }));
+  primRow('radioGroup', (el, s) => $(el).dxRadioGroup({ items: ['A', 'B'], value: 'A', disabled: s === 'disabled', isValid: s !== 'invalid' }));
+  primRow('progressBar', (el, s) => $(el).dxProgressBar({ value: 60, disabled: s === 'disabled', width: 120 }));
+  primRow('slider', (el, s) => $(el).dxSlider({ value: 60, disabled: s === 'disabled', isValid: s !== 'invalid', width: 120 }));
+  primRow('badge', (el) => { $(el).dxButton({ text: 'Inbox' }); el.classList.add('dx-badge-container'); const b = document.createElement('div'); b.className = 'dx-badge'; b.textContent = '5'; el.appendChild(b); });
+  primRow('loadIndicator', (el, s) => $(el).dxLoadIndicator({ visible: s !== 'disabled' }));
+
+  const comp = document.getElementById('composites');
+  const compCell = (label, factory) => {
+    const box = document.createElement('div');
+    box.innerHTML = `<div style="font-size:11px;opacity:.6;margin-bottom:4px">${label}</div>`;
+    const el = document.createElement('div');
+    box.appendChild(el);
+    comp.appendChild(box);
+    factory(el);
+  };
+  compCell('menu', (el) => $(el).dxMenu({ items: [
+    { text: 'File', items: [{ text: 'New' }, { text: 'Open' }, { text: 'Save', disabled: true }] },
+    { text: 'Edit', items: [{ text: 'Cut' }, { text: 'Copy' }] },
+  ] }));
+  compCell('list', (el) => { el.style.width = '160px'; $(el).dxList({ items: ['Apple', 'Banana', 'Cherry', 'Date'], selectionMode: 'single', selectedItemKeys: ['Banana'] }); });
+  compCell('tabs', (el) => { el.style.width = '260px'; $(el).dxTabs({ items: ['First', 'Second', 'Third'], selectedIndex: 0 }); });
+  compCell('calendar', (el) => $(el).dxCalendar({ value: new Date() }));
+  compCell('popup', (el) => {
+    el.style.width = '220px';
+    $(el).dxPopup({ visible: true, container: el, position: { of: el }, width: 200, height: 130, title: 'Popup', shading: false, contentTemplate: () => 'Popup content' });
+  });
+
+  const ed4 = document.getElementById('editors4');
+  const ed4Cell = (label, factory) => {
+    const box = document.createElement('div');
+    box.innerHTML = `<div style="font-size:11px;opacity:.6;margin-bottom:4px">${label}</div>`;
+    const el = document.createElement('div'); el.style.width = '200px';
+    box.appendChild(el); ed4.appendChild(box); factory(el);
+  };
+  ed4Cell('selectBox', (el) => $(el).dxSelectBox({ items: ['One', 'Two', 'Three'], value: 'Two' }));
+  ed4Cell('tagBox', (el) => $(el).dxTagBox({ items: ['Red', 'Green', 'Blue'], value: ['Red', 'Blue'] }));
+  ed4Cell('accordion', (el) => $(el).dxAccordion({ items: [{ title: 'Section 1', text: 'Content one' }, { title: 'Section 2', text: 'Content two' }], selectedIndex: 0 }));
+  ed4Cell('form', (el) => $(el).dxForm({ formData: { Name: 'John', Email: '' }, items: [{ dataField: 'Name', isRequired: true }, { dataField: 'Email' }] }));
+  ed4Cell('toolbar', (el) => $(el).dxToolbar({ items: [
+    { widget: 'dxButton', options: { text: 'Add', type: 'default' }, location: 'before' },
+    { widget: 'dxButton', options: { icon: 'trash' }, location: 'before' },
+    { text: 'Title', location: 'center' },
+  ] }));
+  ed4Cell('filterBuilder', (el) => { el.style.width = '340px'; $(el).dxFilterBuilder({
+    fields: [{ dataField: 'name', caption: 'Name' }, { dataField: 'age', caption: 'Age', dataType: 'number' }],
+    value: [['name', 'contains', 'a'], 'and', ['age', '>', 18]],
+  }); });
+
+  const cx5 = document.getElementById('complex5');
+  const cx5Cell = (label, width, factory) => {
+    const box = document.createElement('div');
+    box.innerHTML = `<div style="font-size:11px;opacity:.6;margin-bottom:4px">${label}</div>`;
+    const el = document.createElement('div'); el.style.width = width;
+    box.appendChild(el); cx5.appendChild(box);
+    try { factory(el); } catch (e) { el.textContent = `${label}: ${e.message}`; }
+  };
+  const gridData = [
+    { id: 1, name: 'Alpha', category: 'A', amount: 120 },
+    { id: 2, name: 'Bravo', category: 'A', amount: 75 },
+    { id: 3, name: 'Charlie', category: 'B', amount: 220 },
+    { id: 4, name: 'Delta', category: 'B', amount: 42 },
+  ];
+  cx5Cell('dataGrid', '460px', (el) => $(el).dxDataGrid({
+    dataSource: gridData, keyExpr: 'id',
+    columns: ['name', { dataField: 'category', groupIndex: 0 }, 'amount'],
+    selection: { mode: 'multiple' }, selectedRowKeys: [2],
+    focusedRowEnabled: true, focusedRowKey: 3,
+    searchPanel: { visible: true, text: 'a' },
+    summary: { totalItems: [{ column: 'amount', summaryType: 'sum' }] },
+    showBorders: true, rowAlternationEnabled: true,
+  }));
+  cx5Cell('treeList', '320px', (el) => $(el).dxTreeList({
+    dataSource: [
+      { id: 1, parentId: 0, name: 'Root', size: 10 },
+      { id: 2, parentId: 1, name: 'Child A', size: 4 },
+      { id: 3, parentId: 1, name: 'Child B', size: 6 },
+    ],
+    keyExpr: 'id', parentIdExpr: 'parentId', autoExpandAll: true,
+    columns: ['name', 'size'], selection: { mode: 'single' }, selectedRowKeys: [2],
+    showBorders: true,
+  }));
+  cx5Cell('pivotGrid', '380px', (el) => $(el).dxPivotGrid({
+    dataSource: {
+      fields: [
+        { dataField: 'category', area: 'row' },
+        { dataField: 'name', area: 'column' },
+        { dataField: 'amount', area: 'data', summaryType: 'sum' },
+      ],
+      store: gridData,
+    },
+    showBorders: true, height: 220,
+  }));
+  cx5Cell('scheduler', '460px', (el) => {
+    const day = new Date(); day.setHours(0, 0, 0, 0);
+    const at = (h) => new Date(day.getFullYear(), day.getMonth(), day.getDate(), h);
+    $(el).dxScheduler({
+      dataSource: [
+        { text: 'Design review', startDate: at(9), endDate: at(11) },
+        { text: 'Standup', startDate: at(12), endDate: at(13), recurrenceRule: 'FREQ=DAILY' },
+      ],
+      views: ['day'], currentView: 'day', currentDate: day,
+      showCurrentTimeIndicator: true, height: 340, startDayHour: 8, endDayHour: 14,
+    });
+  });
+  cx5Cell('htmlEditor', '340px', (el) => $(el).dxHtmlEditor({
+    value: '<p>Rich <b>text</b> with a <a href="#">link</a></p>',
+    toolbar: { items: ['bold', 'italic', 'separator', 'link'] },
+    height: 160,
+  }));
+  cx5Cell('fileManager', '460px', (el) => $(el).dxFileManager({
+    fileSystemProvider: [
+      { name: 'Documents', isDirectory: true, items: [{ name: 'report.pdf' }, { name: 'notes.txt' }] },
+      { name: 'photo.png' },
+    ],
+    height: 260,
+  }));
+  cx5Cell('gantt', '560px', (el) => {
+    const d = (day) => new Date(2026, 6, day);
+    $(el).dxGantt({
+      tasks: { dataSource: [
+        { id: 1, parentId: 0, title: 'Project', start: d(1), end: d(20), progress: 40 },
+        { id: 2, parentId: 1, title: 'Analysis', start: d(1), end: d(7), progress: 80 },
+        { id: 3, parentId: 1, title: 'Development', start: d(8), end: d(18), progress: 30 },
+      ] },
+      dependencies: { dataSource: [{ id: 1, predecessorId: 2, successorId: 3, type: 0 }] },
+      toolbar: { items: ['undo', 'redo', 'separator', 'collapseAll', 'expandAll', 'separator', 'addTask', 'deleteTask', 'separator', 'zoomIn', 'zoomOut'] },
+      height: 260, scaleType: 'weeks',
+    });
+  });
+  // dxDiagram renders a black canvas in this iframe context on BOTH themes (init issue,
+  // not a color one) — verify diagram colors on the demos instead.
+</script>
+</body>
+</html>

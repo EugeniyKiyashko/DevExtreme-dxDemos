@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>fluent-next Design Tokens</title>
+<!--
+  NOTE (25.08.2026): семантический словарь обновлён до 262.10.1. Блоки-мокапы ниже, читающие
+  компонентный тир (- -dxds-button-*, - -dxds-text-input-*, - -dxds-popup-box-shadow-composite),
+  устарели раньше: компонентный тир не эмитится с e86346431f — эти строки рендерятся фолбэками.
+  Актуальный браузер значений — секции семантических ролей.
+-->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link id="theme" rel="stylesheet" href="css/dx.fluent-next.blue.light.css">
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 24px 32px 64px;
+    background: var(--dxds-color-bg);
+    color: var(--dxds-color-content);
+    font-family: var(--dxds-font-family-sans-serif, "Segoe UI", sans-serif);
+    font-size: var(--dxds-font-size-base-md);
+    line-height: var(--dxds-line-height-base-md);
+    transition: background 0.15s, color 0.15s;
+  }
+  h1 { font-size: var(--dxds-font-size-200, 20px); margin: 0 0 4px; }
+  h2 { font-size: var(--dxds-font-size-160, 16px); margin: 32px 0 12px; border-bottom: 1px solid var(--dxds-color-border); padding-bottom: 6px; }
+  .muted { color: var(--dxds-color-content-subtler, gray); font-size: 12px; }
+  #error { display: none; margin: 16px 0; padding: 10px 14px; border: 1px solid var(--dxds-color-border-danger, #c50f1f); border-radius: 4px; color: var(--dxds-color-content-danger, #c50f1f); }
+
+  .toolbar { display: flex; gap: 24px; align-items: center; flex-wrap: wrap; margin: 16px 0 8px; }
+  .toolbar fieldset { border: 1px solid var(--dxds-color-border); border-radius: var(--dxds-global-border-radius-default, 4px); padding: 6px 12px; display: flex; gap: 12px; }
+  .toolbar legend { font-size: 11px; padding: 0 4px; color: var(--dxds-color-content-subtler, gray); }
+  .toolbar label { display: flex; align-items: center; gap: 4px; cursor: pointer; }
+  #stats { font-size: 12px; }
+  #stats b { font-size: 16px; }
+
+  .row { display: flex; gap: 8px; flex-wrap: wrap; align-items: flex-end; }
+  .swatch { width: 56px; }
+  .swatch .box { height: 40px; border-radius: var(--dxds-global-border-radius-default, 4px); border: 1px solid var(--dxds-color-border); }
+  .swatch .name { font-size: 10px; text-align: center; margin-top: 2px; overflow: hidden; white-space: nowrap; }
+  .swatch .val { font-size: 9px; text-align: center; color: var(--dxds-color-content-subtler, gray); }
+
+  .sem { width: 120px; }
+  .sem .box { height: 32px; }
+
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    gap: var(--dxds-button-contained-layout-inner-box-gap);
+    padding: var(--dxds-button-contained-layout-inner-box-vertical) var(--dxds-button-contained-layout-inner-box-horizontal);
+    border-radius: var(--dxds-button-contained-borders-border-radius);
+    font: inherit;
+    font-weight: var(--dxds-button-contained-typography-font-weight);
+    cursor: pointer;
+    transition: background 0.1s;
+  }
+  .btn[disabled] { cursor: not-allowed; }
+  .btn-contained {
+    background: var(--dxds-button-contained-color-bg-rest);
+    color: var(--dxds-button-contained-color-content-rest);
+    border: var(--dxds-button-contained-borders-border-width) solid var(--dxds-button-contained-color-border-rest, transparent);
+  }
+  .btn-contained:hover { background: var(--dxds-button-contained-color-bg-hovered); }
+  .btn-contained:active { background: var(--dxds-button-contained-color-bg-active); }
+  .btn-contained[disabled] { background: var(--dxds-button-contained-color-bg-disabled); color: var(--dxds-button-contained-color-content-disabled); }
+  .btn-outline {
+    background: var(--dxds-button-outline-color-bg-rest, transparent);
+    color: var(--dxds-button-outline-color-content-rest, inherit);
+    border: var(--dxds-button-outline-borders-border-width, 1px) solid var(--dxds-button-outline-color-border-rest);
+  }
+  .btn-outline:hover { background: var(--dxds-button-outline-color-bg-hovered); border-color: var(--dxds-button-outline-color-border-hovered); }
+  .btn-outline:active { background: var(--dxds-button-outline-color-bg-active); border-color: var(--dxds-button-outline-color-border-active); }
+
+  .input {
+    font: inherit;
+    color: var(--dxds-text-input-color-default-content-rest);
+    background: var(--dxds-text-input-color-default-bg-rest);
+    border: 1px solid var(--dxds-text-input-color-default-border-rest);
+    border-bottom-color: var(--dxds-text-input-color-default-line-rest, var(--dxds-text-input-color-default-border-rest));
+    border-radius: var(--dxds-global-border-radius-default, 4px);
+    padding: var(--dxds-button-contained-layout-inner-box-vertical) var(--dxds-spacing-110);
+  }
+  .input:hover { border-color: var(--dxds-text-input-color-default-border-hovered); }
+  .input:focus { outline: none; border-color: var(--dxds-text-input-color-default-border-active); border-bottom: 2px solid var(--dxds-text-input-color-default-line-active); }
+
+  .card {
+    display: inline-block;
+    background: var(--dxds-color-bg);
+    border: 1px solid var(--dxds-color-border);
+    border-radius: var(--dxds-global-border-radius-default, 4px);
+    box-shadow: var(--dxds-popup-box-shadow-composite);
+    padding: var(--dxds-spacing-160) var(--dxds-spacing-200);
+    max-width: 360px;
+  }
+
+  .shadow-box {
+    width: 96px; height: 64px;
+    background: var(--dxds-color-bg);
+    border-radius: var(--dxds-global-border-radius-default, 4px);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px;
+  }
+
+  code { font-family: var(--dxds-font-family-system-mono, monospace); font-size: 11px; background: var(--dxds-color-bg-hovered); padding: 1px 4px; border-radius: 3px; }
+</style>
+</head>
+<body>
+  <h1>fluent-next · design tokens from @devexpress/design-tokens-internal</h1>
+  <div class="muted">Everything on this page is styled exclusively with <code>var(--dxds-*)</code> variables delivered by the compiled theme bundle (nx build:tokens &#8594; scss-build).</div>
+  <div id="error">Bundle not found. Build the fluent-next themes first: <code>pnpm nx build:ci devextreme-scss</code></div>
+
+  <div class="toolbar">
+    <fieldset><legend>color</legend>
+      <label><input type="radio" name="color" value="blue" checked> blue</label>
+    </fieldset>
+    <fieldset><legend>mode</legend>
+      <label><input type="radio" name="mode" value="light" checked> light</label>
+      <label><input type="radio" name="mode" value="dark"> dark</label>
+    </fieldset>
+    <fieldset><legend>size</legend>
+      <label><input type="radio" name="size" value="default" checked> default (medium)</label>
+      <label><input type="radio" name="size" value="compact"> compact (small)</label>
+    </fieldset>
+    <div id="stats">bundle: <code id="file"></code> &#183; --dxds-* variables: <b id="count">&#8230;</b></div>
+  </div>
+
+  <h2>Primary palette (accents/*.scss)</h2>
+  <div class="row" id="palette"></div>
+
+  <h2>Semantic colors (modes/light|dark.scss)</h2>
+  <div class="row" id="semantic"></div>
+
+  <h2>Component tokens (components/theme.scss + sizes/*.scss)</h2>
+  <div class="row" style="align-items: center; gap: 16px;">
+    <button class="btn btn-contained">Contained</button>
+    <button class="btn btn-contained" disabled>Disabled</button>
+    <button class="btn btn-outline">Outline</button>
+    <input class="input" placeholder="text-input tokens" value="">
+    <span class="muted">&#8592; paddings/radii/font react to the size switch</span>
+  </div>
+  <p></p>
+  <div class="card">
+    <b>Card</b>
+    <div class="muted" style="margin-top: 6px;">box-shadow: <code>var(--dxds-popup-box-shadow-composite)</code> &#8594; <code>var(--dxds-box-shadow-lg)</code>; background and border are semantic variables.</div>
+  </div>
+
+  <h2>Shadows (box-shadow xs&#8230;2xl)</h2>
+  <div class="row" style="gap: 24px;" id="shadows"></div>
+
+<script>
+  const link = document.getElementById('theme');
+  const error = document.getElementById('error');
+
+  const swatch = (v, wide) => {
+    const d = document.createElement('div');
+    d.className = 'swatch' + (wide ? ' sem' : '');
+    d.innerHTML = `<div class="box" style="background: var(${v})"></div><div class="name" title="${v}">${v.replace('--dxds-color-', '').replace('--dxds-', '')}</div><div class="val"></div>`;
+    d.dataset.var = v;
+    return d;
+  };
+
+  const palette = document.getElementById('palette');
+  [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150].forEach((n) => palette.appendChild(swatch(`--dxds-primary-${n}`)));
+
+  const semantic = document.getElementById('semantic');
+  ['--dxds-color-bg', '--dxds-color-bg-hovered', '--dxds-color-bg-active', '--dxds-color-bg-selected',
+   '--dxds-color-content', '--dxds-color-border',
+   '--dxds-color-bg-primary', '--dxds-color-bg-danger', '--dxds-color-bg-success', '--dxds-color-bg-warning', '--dxds-color-bg-info',
+  ].forEach((v) => semantic.appendChild(swatch(v, true)));
+
+  const shadows = document.getElementById('shadows');
+  ['xs', 'sm', 'md', 'lg', 'xl', '2xl'].forEach((s) => {
+    const d = document.createElement('div');
+    d.className = 'shadow-box';
+    d.style.boxShadow = `var(--dxds-box-shadow-${s})`;
+    d.textContent = s;
+    shadows.appendChild(d);
+  });
+
+  function refreshValues() {
+    error.style.display = 'none';
+    const cs = getComputedStyle(document.documentElement);
+    document.querySelectorAll('[data-var]').forEach((el) => {
+      el.querySelector('.val').textContent = cs.getPropertyValue(el.dataset.var).trim();
+    });
+    let count = 0;
+    for (const sheet of document.styleSheets) {
+      let rules; try { rules = sheet.cssRules; } catch { continue; }
+      for (const rule of rules) {
+        if (rule.style) for (const p of rule.style) if (p.startsWith('--dxds-')) count += 1;
+      }
+    }
+    document.getElementById('count').textContent = count;
+    document.getElementById('file').textContent = link.getAttribute('href').replace('css/', '');
+  }
+
+  function apply() {
+    const get = (n) => document.querySelector(`input[name=${n}]:checked`).value;
+    const size = get('size') === 'compact' ? '.compact' : '';
+    link.href = `css/dx.fluent-next.${get('color')}.${get('mode')}${size}.css`;
+  }
+
+  link.addEventListener('load', refreshValues);
+  link.addEventListener('error', () => { error.style.display = 'block'; });
+  document.querySelectorAll('input[type=radio]').forEach((r) => r.addEventListener('change', apply));
+  refreshValues();
+</script>
+</body>
+</html>

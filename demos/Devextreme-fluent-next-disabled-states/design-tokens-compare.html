@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Theme compare: fluent vs fluent-next</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  body { margin: 0; font-family: "Segoe UI", sans-serif; }
+  .bar { padding: 8px 12px; display: flex; gap: 16px; align-items: center; border-bottom: 1px solid #ddd; font-size: 13px; }
+  .bar .hint { opacity: 0.6; }
+  .frames { display: flex; }
+  iframe { width: 50%; height: calc(100vh - 60px); border: 0; border-right: 1px solid #ddd; }
+
+
+
+</style>
+</head>
+<body>
+  <div class="bar">
+    <b>design tokens compare</b>
+    <label><input type="radio" name="mode" value="light" checked> light</label>
+    <label><input type="radio" name="mode" value="dark"> dark</label>
+    <label><input type="radio" name="color" value="blue" checked> blue</label>
+    <label><input type="radio" name="size" value="default" checked> default</label>
+    <label><input type="radio" name="size" value="compact"> compact</label>
+    <span class="hint">left — legacy fluent, right — fluent-next on design tokens (build the bundles with `pnpm nx build:ci devextreme-scss`)</span>
+  </div>
+  <div class="frames">
+    <iframe id="left"></iframe>
+    <iframe id="right"></iframe>
+  </div>
+<script>
+  function apply() {
+    const mode = document.querySelector('input[name=mode]:checked').value;
+    const color = document.querySelector('input[name=color]:checked').value;
+    const size = document.querySelector('input[name=size]:checked').value;
+    const sizeSuffix = size === 'compact' ? '.compact' : '';
+    document.getElementById('left').src = `design-tokens-compare-frame.html?theme=fluent.${color}.${mode}${sizeSuffix}`;
+    document.getElementById('right').src = `design-tokens-compare-frame.html?theme=fluent-next.${color}.${mode}${sizeSuffix}`;
+  }
+  document.querySelectorAll('input').forEach((r) => r.addEventListener('change', apply));
+  apply();
+</script>
+</body>
+</html>
