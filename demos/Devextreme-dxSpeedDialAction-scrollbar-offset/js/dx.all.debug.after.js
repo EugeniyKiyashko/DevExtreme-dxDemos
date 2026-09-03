@@ -1,6 +1,6 @@
 /*!
 * DevExtreme (dx.all.debug.js)
-* Version: 26.2.0
+* Version: 26.1.4
 * Build date: Wed Sep 02 2026
 *
 * Copyright (c) 2012 - 2026 Developer Express Inc. ALL RIGHTS RESERVED
@@ -12,9 +12,9 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 75299
+/***/ 13130
 /*!**************************************************************************************************************************!*\
-  !*** ../../node_modules/.pnpm/@preact+signals-core@1.14.1/node_modules/@preact/signals-core/dist/signals-core.module.js ***!
+  !*** ../../node_modules/.pnpm/@preact+signals-core@1.14.4/node_modules/@preact/signals-core/dist/signals-core.module.js ***!
   \**************************************************************************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
@@ -29,9 +29,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   createModel: () => (/* binding */ T),
 /* harmony export */   effect: () => (/* binding */ j),
 /* harmony export */   signal: () => (/* binding */ y),
-/* harmony export */   untracked: () => (/* binding */ o)
+/* harmony export */   untracked: () => (/* binding */ f)
 /* harmony export */ });
-var i=Symbol.for("preact-signals");function t(){if(!(s>1)){var i,t=!1;!function(){var i=c;c=void 0;while(void 0!==i){if(i.S.v===i.v)i.S.i=i.i;i=i.o}}();while(void 0!==h){var n=h;h=void 0;v++;while(void 0!==n){var r=n.u;n.u=void 0;n.f&=-3;if(!(8&n.f)&&w(n))try{n.c()}catch(n){if(!t){i=n;t=!0}}n=r}}v=0;s--;if(t)throw i}else s--}function n(i){if(s>0)return i();e=++u;s++;try{return i()}finally{t()}}var r=void 0;function o(i){var t=r;r=void 0;try{return i()}finally{r=t}}var f,h=void 0,s=0,v=0,u=0,e=0,c=void 0,d=0;function a(i){if(void 0!==r){var t=i.n;if(void 0===t||t.t!==r){t={i:0,S:i,p:r.s,n:void 0,t:r,e:void 0,x:void 0,r:t};if(void 0!==r.s)r.s.n=t;r.s=t;i.n=t;if(32&r.f)i.S(t);return t}else if(-1===t.i){t.i=0;if(void 0!==t.n){t.n.p=t.p;if(void 0!==t.p)t.p.n=t.n;t.p=r.s;t.n=void 0;r.s.n=t;r.s=t}return t}}}function l(i,t){this.v=i;this.i=0;this.n=void 0;this.t=void 0;this.l=0;this.W=null==t?void 0:t.watched;this.Z=null==t?void 0:t.unwatched;this.name=null==t?void 0:t.name}l.prototype.brand=i;l.prototype.h=function(){return!0};l.prototype.S=function(i){var t=this,n=this.t;if(n!==i&&void 0===i.e){i.x=n;this.t=i;if(void 0!==n)n.e=i;else o(function(){var i;null==(i=t.W)||i.call(t)})}};l.prototype.U=function(i){var t=this;if(void 0!==this.t){var n=i.e,r=i.x;if(void 0!==n){n.x=r;i.e=void 0}if(void 0!==r){r.e=n;i.x=void 0}if(i===this.t){this.t=r;if(void 0===r)o(function(){var i;null==(i=t.Z)||i.call(t)})}}};l.prototype.subscribe=function(i){var t=this;return j(function(){var n=t.value,o=r;r=void 0;try{i(n)}finally{r=o}},{name:"sub"})};l.prototype.valueOf=function(){return this.value};l.prototype.toString=function(){return this.value+""};l.prototype.toJSON=function(){return this.value};l.prototype.peek=function(){var i=r;r=void 0;try{return this.value}finally{r=i}};Object.defineProperty(l.prototype,"value",{get:function(){var i=a(this);if(void 0!==i)i.i=this.i;return this.v},set:function(i){if(i!==this.v){if(v>100)throw new Error("Cycle detected");!function(i){if(0!==s&&0===v)if(i.l!==e){i.l=e;c={S:i,v:i.v,i:i.i,o:c}}}(this);this.v=i;this.i++;d++;s++;try{for(var n=this.t;void 0!==n;n=n.x)n.t.N()}finally{t()}}}});function y(i,t){return new l(i,t)}function w(i){for(var t=i.s;void 0!==t;t=t.n)if(t.S.i!==t.i||!t.S.h()||t.S.i!==t.i)return!0;return!1}function _(i){for(var t=i.s;void 0!==t;t=t.n){var n=t.S.n;if(void 0!==n)t.r=n;t.S.n=t;t.i=-1;if(void 0===t.n){i.s=t;break}}}function b(i){var t=i.s,n=void 0;while(void 0!==t){var r=t.p;if(-1===t.i){t.S.U(t);if(void 0!==r)r.n=t.n;if(void 0!==t.n)t.n.p=r}else n=t;t.S.n=t.r;if(void 0!==t.r)t.r=void 0;t=r}i.s=n}function p(i,t){l.call(this,void 0);this.x=i;this.s=void 0;this.g=d-1;this.f=4;this.W=null==t?void 0:t.watched;this.Z=null==t?void 0:t.unwatched;this.name=null==t?void 0:t.name}p.prototype=new l;p.prototype.h=function(){this.f&=-3;if(1&this.f)return!1;if(32==(36&this.f))return!0;this.f&=-5;if(this.g===d)return!0;this.g=d;this.f|=1;if(this.i>0&&!w(this)){this.f&=-2;return!0}var i=r;try{_(this);r=this;var t=this.x();if(16&this.f||this.v!==t||0===this.i){this.v=t;this.f&=-17;this.i++}}catch(i){this.v=i;this.f|=16;this.i++}r=i;b(this);this.f&=-2;return!0};p.prototype.S=function(i){if(void 0===this.t){this.f|=36;for(var t=this.s;void 0!==t;t=t.n)t.S.S(t)}l.prototype.S.call(this,i)};p.prototype.U=function(i){if(void 0!==this.t){l.prototype.U.call(this,i);if(void 0===this.t){this.f&=-33;for(var t=this.s;void 0!==t;t=t.n)t.S.U(t)}}};p.prototype.N=function(){if(!(2&this.f)){this.f|=6;for(var i=this.t;void 0!==i;i=i.x)i.t.N()}};Object.defineProperty(p.prototype,"value",{get:function(){if(1&this.f)throw new Error("Cycle detected");var i=a(this);this.h();if(void 0!==i)i.i=this.i;if(16&this.f)throw this.v;return this.v}});function g(i,t){return new p(i,t)}function S(i){var n=i.m;i.m=void 0;if("function"==typeof n){s++;var o=r;r=void 0;try{n()}catch(t){i.f&=-2;i.f|=8;m(i);throw t}finally{r=o;t()}}}function m(i){for(var t=i.s;void 0!==t;t=t.n)t.S.U(t);i.x=void 0;i.s=void 0;S(i)}function x(i){if(r!==this)throw new Error("Out-of-order effect");b(this);r=i;this.f&=-2;if(8&this.f)m(this);t()}function E(i,t){this.x=i;this.m=void 0;this.s=void 0;this.u=void 0;this.f=32;this.name=null==t?void 0:t.name;if(f)f.push(this)}E.prototype.c=function(){var i=this.S();try{if(8&this.f)return;if(void 0===this.x)return;var t=this.x();if("function"==typeof t)this.m=t}finally{i()}};E.prototype.S=function(){if(1&this.f)throw new Error("Cycle detected");this.f|=1;this.f&=-9;S(this);_(this);s++;var i=r;r=this;return x.bind(this,i)};E.prototype.N=function(){if(!(2&this.f)){this.f|=2;this.u=h;h=this}};E.prototype.d=function(){this.f|=8;if(!(1&this.f))m(this)};E.prototype.dispose=function(){this.d()};function j(i,t){var n=new E(i,t);try{n.c()}catch(i){n.d();throw i}var r=n.d.bind(n);r[Symbol.dispose]=r;return r}function C(i){return function(){var t=arguments,r=this;return n(function(){return o(function(){return i.apply(r,[].slice.call(t))})})}}function O(){var i=f;f=[];return function(){var t=f;if(f&&i)i=i.concat(f);f=i;return t}}var k=function(i){for(var t in i){var n=i[t];if("function"==typeof n)i[t]=C(n);else if("object"==typeof n&&null!==n&&!("brand"in n))k(n)}};function T(i){return function(){var t,n,r=O();try{n=i.apply(void 0,[].slice.call(arguments))}catch(i){f=void 0;throw i}finally{t=r()}k(n);n[Symbol.dispose]=C(function(){if(t)for(var i=0;i<t.length;i++)t[i].dispose();t=void 0});return n}}//# sourceMappingURL=signals-core.module.js.map
+var i=Symbol.for("preact-signals");function t(){if(!(v>1)){var i,t=!1;!function(){var i=c;c=void 0;while(void 0!==i){var t=i.S;if(t.v===i.v)for(var n=t.t;void 0!==n;n=n.x)if(n.i===i.i)n.i=t.i;i=i.o}}();while(void 0!==h){var n=h;h=void 0;s++;while(void 0!==n){var r=n.u;n.u=void 0;n.f&=-3;if(!(8&n.f)&&w(n))try{n.c()}catch(n){if(!t){i=n;t=!0}}n=r}}s=0;v--;if(t)throw i}else v--}function n(i){if(v>0)return i();e=++u;v++;try{return i()}finally{t()}}var r,o=void 0;function f(i){var t=o,n=r;o=void 0;r=void 0;try{return i()}finally{o=t;r=n}}var h=void 0,v=0,s=0,u=0,e=0,c=void 0,d=0;function a(i){if(void 0!==o){var t=i.n;if(void 0===t||t.t!==o){t={i:0,S:i,p:o.s,n:void 0,t:o,e:void 0,x:void 0,r:t};if(void 0!==o.s)o.s.n=t;o.s=t;i.n=t;if(32&o.f)i.S(t);return t}else if(-1===t.i){t.i=0;if(void 0!==t.n){t.n.p=t.p;if(void 0!==t.p)t.p.n=t.n;t.p=o.s;t.n=void 0;o.s.n=t;o.s=t}return t}}}function l(i,t){this.v=i;this.i=0;this.n=void 0;this.t=void 0;this.l=0;this.W=null==t?void 0:t.watched;this.Z=null==t?void 0:t.unwatched;this.name=null==t?void 0:t.name}l.prototype.brand=i;l.prototype.h=function(){return!0};l.prototype.S=function(i){var t=this,n=this.t;if(n!==i&&void 0===i.e){i.x=n;this.t=i;if(void 0!==n)n.e=i;else f(function(){var i;null==(i=t.W)||i.call(t)})}};l.prototype.U=function(i){var t=this;if(void 0!==this.t){var n=i.e,r=i.x;if(void 0!==n){n.x=r;i.e=void 0}if(void 0!==r){r.e=n;i.x=void 0}if(i===this.t){this.t=r;if(void 0===r)f(function(){var i;null==(i=t.Z)||i.call(t)})}}};l.prototype.subscribe=function(i){var t=this;return j(function(){var n=t.value;f(function(){return i(n)})},{name:"sub"})};l.prototype.valueOf=function(){return this.value};l.prototype.toString=function(){return this.value+""};l.prototype.toJSON=function(){return this.value};l.prototype.peek=function(){var i=this;return f(function(){return i.value})};Object.defineProperty(l.prototype,"value",{get:function(){var i=a(this);if(void 0!==i)i.i=this.i;return this.v},set:function(i){if(i!==this.v){if(s>100)throw new Error("Cycle detected");!function(i){if(0!==v&&0===s)if(i.l!==e){i.l=e;c={S:i,v:i.v,i:i.i,o:c}}}(this);this.v=i;this.i++;d++;v++;try{for(var n=this.t;void 0!==n;n=n.x)n.t.N()}finally{t()}}}});function y(i,t){return new l(i,t)}function w(i){for(var t=i.s;void 0!==t;t=t.n)if(t.S.i!==t.i||!t.S.h()||t.S.i!==t.i)return!0;return!1}function _(i){for(var t=i.s;void 0!==t;t=t.n){var n=t.S.n;if(void 0!==n)t.r=n;t.S.n=t;t.i=-1;if(void 0===t.n){i.s=t;break}}}function b(i){var t=i.s,n=void 0;while(void 0!==t){var r=t.p;if(-1===t.i){t.S.U(t);if(void 0!==r)r.n=t.n;if(void 0!==t.n)t.n.p=r}else n=t;t.S.n=t.r;if(void 0!==t.r)t.r=void 0;t=r}i.s=n}function p(i,t){l.call(this,void 0,t);this.x=i;this.s=void 0;this.g=d-1;this.f=4}p.prototype=new l;p.prototype.h=function(){this.f&=-3;if(1&this.f)return!1;if(32==(36&this.f))return!0;this.f&=-5;if(this.g===d)return!0;this.g=d;this.f|=1;if(this.i>0&&!w(this)){this.f&=-2;return!0}var i=o;try{_(this);o=this;var t=this.x();if(16&this.f||this.v!==t||0===this.i){this.v=t;this.f&=-17;this.i++}}catch(i){this.v=i;this.f|=16;this.i++}o=i;b(this);this.f&=-2;return!0};p.prototype.S=function(i){if(void 0===this.t){this.f|=36;for(var t=this.s;void 0!==t;t=t.n)t.S.S(t)}l.prototype.S.call(this,i)};p.prototype.U=function(i){if(void 0!==this.t){l.prototype.U.call(this,i);if(void 0===this.t){this.f&=-33;for(var t=this.s;void 0!==t;t=t.n)t.S.U(t)}}};p.prototype.N=function(){if(!(2&this.f)){this.f|=6;for(var i=this.t;void 0!==i;i=i.x)i.t.N()}};Object.defineProperty(p.prototype,"value",{get:function(){if(1&this.f)throw new Error("Cycle detected");var i=a(this);this.h();if(void 0!==i)i.i=this.i;if(16&this.f)throw this.v;return this.v}});function g(i,t){return new p(i,t)}function S(i){var n=i.m;i.m=void 0;if("function"==typeof n){v++;var r=o;o=void 0;try{n()}catch(t){i.f&=-2;i.f|=8;m(i);throw t}finally{o=r;t()}}}function m(i){for(var t=i.s;void 0!==t;t=t.n)t.S.U(t);i.x=void 0;i.s=void 0;S(i)}function x(i){if(o!==this)throw new Error("Out-of-order effect");b(this);o=i;this.f&=-2;if(8&this.f)m(this);t()}function E(i,t){this.x=i;this.m=void 0;this.s=void 0;this.u=void 0;this.f=32;this.name=null==t?void 0:t.name;if(r)r.push(this)}E.prototype.c=function(){var i=this.S();try{if(8&this.f)return;if(void 0===this.x)return;var t=this.x();if("function"==typeof t)this.m=t}finally{i()}};E.prototype.S=function(){if(1&this.f)throw new Error("Cycle detected");this.f|=1;this.f&=-9;S(this);_(this);v++;var i=o;o=this;return x.bind(this,i)};E.prototype.N=function(){if(!(2&this.f)){this.f|=2;this.u=h;h=this}};E.prototype.d=function(){this.f|=8;if(!(1&this.f))m(this)};E.prototype.dispose=function(){this.d()};function j(i,t){var n=new E(i,t);try{n.c()}catch(i){n.d();throw i}var r=n.d.bind(n);r[Symbol.dispose]=r;return r}function C(i){return function(){var t=arguments,r=this;return n(function(){return f(function(){return i.apply(r,[].slice.call(t))})})}}function O(){var i=r;r=[];return function(){var t=r;if(r&&i)i=i.concat(r);r=i;return t}}var k=function(i){for(var t in i){var n=i[t];if("function"==typeof n)i[t]=C(n);else if("object"==typeof n&&null!==n&&!("brand"in n))k(n)}};function T(i){return function(){var t,n,o=O();try{n=i.apply(void 0,[].slice.call(arguments))}catch(i){r=void 0;throw i}finally{t=o()}k(n);n[Symbol.dispose]=C(function(){if(t)for(var i=0;i<t.length;i++)t[i].dispose();t=void 0});return n}}//# sourceMappingURL=signals-core.module.js.map
 
 
 /***/ },
@@ -34418,7 +34418,7 @@ exports.effect = effect;
 exports.signal = signal;
 exports.track = track;
 exports.untracked = untracked;
-var SignalsCore = _interopRequireWildcard(__webpack_require__(/*! @preact/signals-core */ 75299));
+var SignalsCore = _interopRequireWildcard(__webpack_require__(/*! @preact/signals-core */ 13130));
 function _interopRequireWildcard(e, t) { if ("function" == typeof WeakMap) var r = new WeakMap(), n = new WeakMap(); return (_interopRequireWildcard = function (e, t) { if (!t && e && e.__esModule) return e; var o, i, f = { __proto__: null, default: e }; if (null === e || "object" != typeof e && "function" != typeof e) return f; if (o = t ? n : r) { if (o.has(e)) return o.get(e); o.set(e, f); } for (const t in e) "default" !== t && {}.hasOwnProperty.call(e, t) && ((i = (o = Object.defineProperty) && Object.getOwnPropertyDescriptor(e, t)) && (i.get || i.set) ? o(f, t, i) : f[t] = e[t]); return f; })(e, t); }
 function signal(initialValue) {
   return SignalsCore.signal(initialValue);
@@ -34951,10 +34951,10 @@ function injector(object) {
 
 /***/ },
 
-/***/ 82312
-/*!****************************************************************************!*\
-  !*** ./artifacts/transpiled-renovation-npm/__internal/core/utils/focus.js ***!
-  \****************************************************************************/
+/***/ 70236
+/*!**********************************************************************************************!*\
+  !*** ./artifacts/transpiled-renovation-npm/__internal/core/utils/document_size_callbacks.js ***!
+  \**********************************************************************************************/
 (__unused_webpack_module, exports, __webpack_require__) {
 
 
@@ -34962,41 +34962,56 @@ function injector(object) {
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
-exports.getFirstFocusableElement = getFirstFocusableElement;
-exports.getNextFocusableElement = getNextFocusableElement;
-exports.getPreviousFocusableElement = getPreviousFocusableElement;
+exports.documentSizeCallbacks = exports["default"] = void 0;
 var _dom_adapter = _interopRequireDefault(__webpack_require__(/*! ../../../core/dom_adapter */ 64960));
-var _m_selectors = __webpack_require__(/*! ../../core/utils/m_selectors */ 62238);
+var _m_resize_observer = __webpack_require__(/*! ../../core/m_resize_observer */ 57785);
+var _m_window = _interopRequireDefault(__webpack_require__(/*! ../../core/utils/m_window */ 14470));
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
-const DOCUMENT_POSITION_PRECEDING = 2;
-const DOCUMENT_POSITION_FOLLOWING = 4;
-function getFirstFocusableElement(root) {
-  if (!root) {
-    return null;
+// The window resize event is not raised when a scrollbar appears or disappears,
+// even though the visible area changes.
+const handlers = new Set();
+let observedElement = null;
+let previousSize = null;
+function getDocumentSize() {
+  const documentElement = _dom_adapter.default.getDocumentElement();
+  return {
+    width: documentElement.clientWidth,
+    height: documentElement.clientHeight
+  };
+}
+function handleDocumentResize() {
+  var _previousSize;
+  const size = getDocumentSize();
+  if (size.width === ((_previousSize = previousSize) === null || _previousSize === void 0 ? void 0 : _previousSize.width) && size.height === previousSize.height) {
+    return;
   }
-  const candidates = Array.from(root.querySelectorAll(_m_selectors.ALL_FOCUSABLE_ELEMENTS_SELECTOR));
-  return candidates.find(candidate => (0, _m_selectors.isElementVisible)(candidate)) ?? null;
+  previousSize = size;
+  [...handlers].forEach(handler => handler());
 }
-function getFocusableElementsOutside(containerNode, doc) {
-  return Array.from(doc.querySelectorAll(_m_selectors.ALL_FOCUSABLE_ELEMENTS_SELECTOR)).filter(element => !containerNode.contains(element) && (0, _m_selectors.isElementVisible)(element));
+function add(handler) {
+  if (!_m_window.default.hasWindow()) {
+    return;
+  }
+  handlers.add(handler);
+  if (!observedElement) {
+    previousSize = getDocumentSize();
+    observedElement = _dom_adapter.default.getDocumentElement();
+    _m_resize_observer.resizeObserverSingleton.observe(observedElement, handleDocumentResize);
+  }
 }
-function getNextFocusableElement(containerNode) {
-  let doc = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : _dom_adapter.default.getDocument();
-  return getFocusableElementsOutside(containerNode, doc).find(element => {
-    const position = containerNode.compareDocumentPosition(element);
-    // eslint-disable-next-line no-bitwise
-    return Boolean(position & DOCUMENT_POSITION_FOLLOWING);
-  }) ?? null;
+function remove(handler) {
+  handlers.delete(handler);
+  if (observedElement && !handlers.size) {
+    _m_resize_observer.resizeObserverSingleton.unobserve(observedElement);
+    observedElement = null;
+    previousSize = null;
+  }
 }
-function getPreviousFocusableElement(containerNode) {
-  let doc = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : _dom_adapter.default.getDocument();
-  const precedingElements = getFocusableElementsOutside(containerNode, doc).filter(element => {
-    const position = containerNode.compareDocumentPosition(element);
-    // eslint-disable-next-line no-bitwise
-    return Boolean(position & DOCUMENT_POSITION_PRECEDING);
-  });
-  return precedingElements[precedingElements.length - 1] ?? null;
-}
+const documentSizeCallbacks = exports.documentSizeCallbacks = {
+  add,
+  remove
+};
+var _default = exports["default"] = documentSizeCallbacks;
 
 /***/ },
 
@@ -37659,7 +37674,7 @@ function when() {
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
-exports.setAriaDescriptionIds = exports.resetActiveElement = exports.replaceWith = exports.removeAriaDescriptionId = exports.normalizeTemplateElement = exports.isElementInDom = exports.insertBefore = exports.getParentNode = exports.getAriaDescriptionIds = exports.extractTemplateMarkup = exports["default"] = exports.createTextElementHiddenCopy = exports.contains = exports.closestCommonParent = exports.clipboardText = exports.clearSelection = exports.addAriaDescriptionId = void 0;
+exports.resetActiveElement = exports.replaceWith = exports.normalizeTemplateElement = exports.isElementInDom = exports.insertBefore = exports.getParentNode = exports.extractTemplateMarkup = exports["default"] = exports.createTextElementHiddenCopy = exports.contains = exports.closestCommonParent = exports.clipboardText = exports.clearSelection = void 0;
 var _dom_adapter = _interopRequireDefault(__webpack_require__(/*! ../../../core/dom_adapter */ 64960));
 var _renderer = _interopRequireDefault(__webpack_require__(/*! ../../../core/renderer */ 64553));
 var _iterator = __webpack_require__(/*! ../../../core/utils/iterator */ 21274);
@@ -37817,39 +37832,6 @@ const isElementInDom = $element => {
   return !!(0, _renderer.default)(shadowHost || element).closest((0, _window.getWindow)().document).length;
 };
 exports.isElementInDom = isElementInDom;
-const ARIA_DESCRIBEDBY_ATTRIBUTE = 'aria-describedby';
-const getAriaDescriptionIds = element => (element.getAttribute(ARIA_DESCRIBEDBY_ATTRIBUTE) ?? '').split(/\s+/).filter(Boolean);
-exports.getAriaDescriptionIds = getAriaDescriptionIds;
-const setAriaDescriptionIds = (element, ids) => {
-  const value = ids.join(' ');
-  if (!value) {
-    element.removeAttribute(ARIA_DESCRIBEDBY_ATTRIBUTE);
-  } else if (element.getAttribute(ARIA_DESCRIBEDBY_ATTRIBUTE) !== value) {
-    element.setAttribute(ARIA_DESCRIBEDBY_ATTRIBUTE, value);
-  }
-};
-// Adds the id to the element's aria-describedby list, preserving ids from other
-// owners. Returns true when the id was actually added (was not present yet).
-exports.setAriaDescriptionIds = setAriaDescriptionIds;
-const addAriaDescriptionId = (element, id) => {
-  const ids = getAriaDescriptionIds(element);
-  if (ids.includes(id)) {
-    return false;
-  }
-  ids.push(id);
-  setAriaDescriptionIds(element, ids);
-  return true;
-};
-// Removes the id from the element's aria-describedby list, keeping ids from other owners.
-exports.addAriaDescriptionId = addAriaDescriptionId;
-const removeAriaDescriptionId = (element, id) => {
-  const ids = getAriaDescriptionIds(element);
-  const restIds = ids.filter(token => token !== id);
-  if (restIds.length !== ids.length) {
-    setAriaDescriptionIds(element, restIds);
-  }
-};
-exports.removeAriaDescriptionId = removeAriaDescriptionId;
 var _default = exports["default"] = {
   resetActiveElement,
   clearSelection,
@@ -37862,9 +37844,7 @@ var _default = exports["default"] = {
   createTextElementHiddenCopy,
   insertBefore,
   replaceWith,
-  isElementInDom,
-  addAriaDescriptionId,
-  removeAriaDescriptionId
+  isElementInDom
 };
 
 /***/ },
@@ -38536,7 +38516,7 @@ function roundFloatPart(value) {
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
-exports.orderEach = exports.newAssign = exports.legacyAssign = exports.deepExtendArraySafe = exports.clone = void 0;
+exports.orderEach = exports.newAssign = exports.legacyAssign = exports.isCollectionLike = exports.deepExtendArraySafe = exports.clone = void 0;
 var _type = __webpack_require__(/*! ../../../core/utils/type */ 11528);
 var _variable_wrapper = _interopRequireDefault(__webpack_require__(/*! ../../../core/utils/variable_wrapper */ 40216));
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
@@ -38550,6 +38530,10 @@ const clone = exports.clone = function () {
 const isBlobLike = function (value) {
   return typeof Blob !== 'undefined' && value instanceof Blob;
 };
+const isCollectionLike = function (value) {
+  return value instanceof Set || value instanceof Map || value instanceof WeakSet || value instanceof WeakMap;
+};
+exports.isCollectionLike = isCollectionLike;
 const orderEach = function (map, func) {
   const keys = [];
   let key;
@@ -38579,6 +38563,9 @@ const getDeepCopyTarget = item => {
   if ((0, _type.isObject)(item)) {
     if (Array.isArray(item)) {
       return [];
+    }
+    if (isCollectionLike(item)) {
+      return item;
     }
     if (!(0, _type.isPlainObject)(item)) {
       return Object.create(Object.getPrototypeOf(item));
@@ -38614,7 +38601,7 @@ const deepExtendArraySafe = function (target, changes, extendComplexObject, assi
   let prevValue;
   let newValue;
   const assignFunc = useNewAssign ? newAssign : legacyAssign;
-  if (isBlobLike(changes)) {
+  if (isBlobLike(changes) || isCollectionLike(changes)) {
     return changes;
   }
   for (const name in changes) {
@@ -38686,7 +38673,6 @@ Object.defineProperty(exports, "__esModule", ({
 }));
 exports.attachInstanceToElement = attachInstanceToElement;
 exports["default"] = void 0;
-exports.getComponentInstance = getComponentInstance;
 exports.getInstanceByElement = getInstanceByElement;
 exports.name = void 0;
 var _events_engine = _interopRequireDefault(__webpack_require__(/*! ../../../common/core/events/core/events_engine */ 92774));
@@ -38728,15 +38714,6 @@ function attachInstanceToElement($element, componentInstance, disposeFn) {
 function getInstanceByElement($element, componentClass) {
   const name = getName(componentClass);
   return (0, _element_data.data)($element.get(0), name);
-}
-function getComponentInstance($element) {
-  const element = $element.get(0);
-  if (!element) {
-    return undefined;
-  }
-  const names = (0, _element_data.data)(element, COMPONENT_NAMES_DATA_KEY);
-  const componentName = names === null || names === void 0 ? void 0 : names[0];
-  return componentName ? (0, _element_data.data)(element, componentName) : undefined;
 }
 var _default = exports["default"] = {
   name: getName
@@ -39065,14 +39042,10 @@ exports.SelectionFilterCreator = SelectionFilterCreator;
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
-exports.tabbable = exports.isElementVisible = exports.focused = exports.focusable = exports["default"] = exports.ALL_FOCUSABLE_ELEMENTS_SELECTOR = void 0;
+exports.tabbable = exports.focused = exports.focusable = exports["default"] = void 0;
 var _dom_adapter = _interopRequireDefault(__webpack_require__(/*! ../../../core/dom_adapter */ 64960));
 var _renderer = _interopRequireDefault(__webpack_require__(/*! ../../../core/renderer */ 64553));
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
-const notInert = ':not([inert]):not([inert] *)';
-const notNegTabIndex = ':not([tabindex^="-"])';
-const notDisabled = ':not(:disabled)';
-const ALL_FOCUSABLE_ELEMENTS_SELECTOR = exports.ALL_FOCUSABLE_ELEMENTS_SELECTOR = [`a[href]${notInert}${notNegTabIndex}`, `area[href]${notInert}${notNegTabIndex}`, `input:not([type="hidden"]):not([type="radio"])${notInert}${notNegTabIndex}${notDisabled}`, `input[type="radio"]${notInert}${notNegTabIndex}${notDisabled}`, `select${notInert}${notNegTabIndex}${notDisabled}`, `textarea${notInert}${notNegTabIndex}${notDisabled}`, `button${notInert}${notNegTabIndex}${notDisabled}`, `details${notInert} > summary:first-of-type${notNegTabIndex}`, `iframe${notInert}${notNegTabIndex}`, `audio[controls]${notInert}${notNegTabIndex}`, `video[controls]${notInert}${notNegTabIndex}`, `[contenteditable]${notInert}${notNegTabIndex}`, `[tabindex]${notInert}${notNegTabIndex}`].join(',');
 const focusableFn = (element, tabIndex) => {
   if (!visible(element)) {
     return false;
@@ -39099,8 +39072,6 @@ function visible(element) {
   const $element = (0, _renderer.default)(element);
   return $element.is(':visible') && $element.css('visibility') !== 'hidden' && $element.parents().css('visibility') !== 'hidden';
 }
-const isElementVisible = element => visible(element);
-exports.isElementVisible = isElementVisible;
 const focusable = (index, element) => focusableFn(element, (0, _renderer.default)(element).attr('tabIndex'));
 exports.focusable = focusable;
 const tabbable = (index, element) => {
@@ -39119,9 +39090,7 @@ exports.focused = focused;
 var _default = exports["default"] = {
   focusable,
   tabbable,
-  focused,
-  isElementVisible,
-  ALL_FOCUSABLE_ELEMENTS_SELECTOR
+  focused
 };
 
 /***/ },
@@ -41510,7 +41479,7 @@ var _default = exports["default"] = DOMComponent;
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
-exports["default"] = exports.WIDGET_CLASS = exports.HOVER_STATE_CLASS = exports.FOCUSED_STATE_CLASS = exports.EMPTY_ACTIVE_STATE_UNIT = exports.DISABLED_STATE_CLASS = exports.ACTIVE_STATE_CLASS = void 0;
+exports["default"] = exports.WIDGET_CLASS = exports.HOVER_STATE_CLASS = exports.FOCUSED_STATE_CLASS = exports.EMPTY_ACTIVE_STATE_UNIT = exports.ACTIVE_STATE_CLASS = void 0;
 __webpack_require__(/*! ../../../common/core/events/click */ 64044);
 __webpack_require__(/*! ../../../common/core/events/core/emitter.feedback */ 69331);
 __webpack_require__(/*! ../../../common/core/events/hover */ 638);
@@ -41527,7 +41496,7 @@ var _m_selectors = __webpack_require__(/*! ../../core/utils/m_selectors */ 62238
 var _dom_component = _interopRequireDefault(__webpack_require__(/*! ../../core/widget/dom_component */ 22331));
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 const WIDGET_CLASS = exports.WIDGET_CLASS = 'dx-widget';
-const DISABLED_STATE_CLASS = exports.DISABLED_STATE_CLASS = 'dx-state-disabled';
+const DISABLED_STATE_CLASS = 'dx-state-disabled';
 const ACTIVE_STATE_CLASS = exports.ACTIVE_STATE_CLASS = 'dx-state-active';
 const FOCUSED_STATE_CLASS = exports.FOCUSED_STATE_CLASS = 'dx-state-focused';
 const HOVER_STATE_CLASS = exports.HOVER_STATE_CLASS = 'dx-state-hover';
@@ -41972,18 +41941,9 @@ class Widget extends _dom_component.default {
     }
   }
   _toggleDisabledState(value) {
-    const $element = this.$element();
-    $element.toggleClass(DISABLED_STATE_CLASS, Boolean(value));
+    this.$element().toggleClass(DISABLED_STATE_CLASS, Boolean(value));
     // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
-    const state = value || undefined;
-    this.setAria('disabled', state);
-    // The aria target is the focus target, and in a composite widget that is a descendant:
-    // the input of a text editor, the item container of a list. Assistive technology and
-    // axe resolve the state from the element or an ancestor, so the parts that live outside
-    // the focus target - tags, labels, file lists - need the root marked as well.
-    if (this._getAriaTarget().get(0) !== $element.get(0)) {
-      this.setAria('disabled', state, $element);
-    }
+    this.setAria('disabled', value || undefined);
   }
   _toggleIndependentState() {
     const {
@@ -44222,24 +44182,7 @@ class DataSource {
     return this;
   }
 }
-/*
- * `Class.inherit()` defined prototype members as enumerable, and consumers still rely on
- * that: the grid's DataSourceAdapter copies a data source's members with a `for…in` loop
- * (see its "remove copying dataSource's members" TODO). ES6 class methods are not
- * enumerable, so restore the descriptors a data source used to expose.
- */
 exports.DataSource = DataSource;
-Object.getOwnPropertyNames(DataSource.prototype).forEach(memberName => {
-  if (memberName === 'constructor') {
-    return;
-  }
-  const descriptor = Object.getOwnPropertyDescriptor(DataSource.prototype, memberName);
-  if (descriptor) {
-    Object.defineProperty(DataSource.prototype, memberName, Object.assign({}, descriptor, {
-      enumerable: true
-    }));
-  }
-});
 
 /***/ },
 
@@ -44450,6 +44393,7 @@ var _data = __webpack_require__(/*! ../../core/utils/data */ 31000);
 var _extend = __webpack_require__(/*! ../../core/utils/extend */ 52576);
 var _object = __webpack_require__(/*! ../../core/utils/object */ 22263);
 var _type = __webpack_require__(/*! ../../core/utils/type */ 11528);
+var _m_object = __webpack_require__(/*! ../core/utils/m_object */ 86005);
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 function hasKey(target, keyOrKeys) {
   let key;
@@ -44513,6 +44457,9 @@ function setDataByKeyMapValue(array, key, data) {
   }
 }
 function cloneInstanceWithChangedPaths(instance, changes, clonedInstances) {
+  if ((0, _m_object.isCollectionLike)(instance)) {
+    return instance;
+  }
   clonedInstances = clonedInstances || new WeakMap();
   const result = instance ? Object.create(Object.getPrototypeOf(instance)) : {};
   if (instance) {
@@ -49730,6 +49677,9 @@ const keyboardProcessors = {};
 const generateListenerId = () => `keyboardProcessorId${index++}`;
 const toElements = value => {
   if (!value) {
+    return [];
+  }
+  if (typeof Element === 'undefined') {
     return [];
   }
   if (value instanceof Element) {
@@ -59100,7 +59050,8 @@ class ExportController extends _m_core.default.ViewController {
     }
   }
   needLoadItemsOnExportingSelectedItems() {
-    return this.option('loadItemsOnExportingSelectedItems') ?? this._dataController._dataSource.remoteOperations().filtering;
+    var _this$_dataController;
+    return this.option('loadItemsOnExportingSelectedItems') ?? ((_this$_dataController = this._dataController._dataSource) === null || _this$_dataController === void 0 ? void 0 : _this$_dataController.remoteOperations().filtering) ?? false;
   }
 }
 exports.ExportController = ExportController;
@@ -59351,10 +59302,11 @@ const data = Base => class FocusDataControllerExtender extends _m_focus.focusMod
     // @ts-expect-error
     const deferred = new _deferred.Deferred();
     const isGroupKey = Array.isArray(key);
-    const group = dataSource.group();
-    if (isGroupKey) {
+    if (isGroupKey || !dataSource) {
       return deferred.resolve(-1).promise();
     }
+    const group = dataSource.group();
+    // @ts-expect-error badly typed DataSourceAdapter
     if (!dataSource._grouping._updatePagingOptions) {
       this._calculateGlobalRowIndexByFlatData(key, null, true).done(deferred.resolve).fail(deferred.reject);
       return deferred;
@@ -59363,10 +59315,12 @@ const data = Base => class FocusDataControllerExtender extends _m_focus.focusMod
       filter: this._concatWithCombinedFilter(filter),
       group
     }).done(data => {
+      // @ts-expect-error badly typed DataSourceAdapter
       const hasData = (0, _type.isDefined)(data) && data.length > 0;
       if (this._dataSource !== dataSource || !hasData) {
         return deferred.resolve(-1).promise();
       }
+      // @ts-expect-error badly typed DataSourceAdapter
       const groupPath = this._getGroupPath(data, group.length);
       this._expandGroupByPath(this, groupPath, 0).done(() => {
         this._calculateExpandedRowGlobalIndex(deferred, key, groupPath, group, dataSource);
@@ -59581,16 +59535,18 @@ const groupingDataControllerExtender = Base => class GroupingDataControllerExten
   }
   collapseAll(groupIndex) {
     const dataSource = this._dataSource;
+    // @ts-expect-error badly typed DataSourceAdapter
     if (dataSource !== null && dataSource !== void 0 && dataSource.collapseAll(groupIndex)) {
-      dataSource.pageIndex(0);
-      dataSource.reload();
+      dataSource === null || dataSource === void 0 || dataSource.pageIndex(0);
+      dataSource === null || dataSource === void 0 || dataSource.reload();
     }
   }
   expandAll(groupIndex) {
     const dataSource = this._dataSource;
+    // @ts-expect-error badly typed DataSourceAdapter
     if (dataSource !== null && dataSource !== void 0 && dataSource.expandAll(groupIndex)) {
-      dataSource.pageIndex(0);
-      dataSource.reload();
+      dataSource === null || dataSource === void 0 || dataSource.pageIndex(0);
+      dataSource === null || dataSource === void 0 || dataSource.reload();
     }
   }
   changeRowExpand(key) {
@@ -59624,6 +59580,7 @@ const groupingDataControllerExtender = Base => class GroupingDataControllerExten
   }
   isRowExpanded(key) {
     var _this$_dataSource;
+    // @ts-expect-error badly typed DataSourceAdapter
     return !!((_this$_dataSource = this._dataSource) !== null && _this$_dataSource !== void 0 && _this$_dataSource.isRowExpanded(key));
   }
   expandRow(key) {
@@ -60856,6 +60813,7 @@ function createOffsetFilter(path, storeLoadOptions, lastLevelOnly) {
     }
     filter.push(_m_core.default.combineFilters(filterElement));
   }
+  // @ts-expect-error
   filter = _m_core.default.combineFilters(filter, 'or');
   return _m_core.default.combineFilters([filter, storeLoadOptions.filter]);
 }
@@ -61267,6 +61225,7 @@ const createNotGroupFilter = function (path, storeLoadOptions, group) {
     }
     filter.push(_m_core.default.combineFilters(filterElement));
   }
+  // @ts-expect-error
   filter = _m_core.default.combineFilters(filter, 'or');
   return _m_core.default.combineFilters([filter, storeLoadOptions.filter]);
 };
@@ -62612,7 +62571,7 @@ _m_core.default.registerModule('errorHandling', _error_handling_module.errorHand
 
 
 
-var _m_filter_builder = __webpack_require__(/*! ../../../grids/grid_core/filter/m_filter_builder */ 65382);
+var _m_filter_builder = __webpack_require__(/*! ../../../grids/grid_core/filter_builder/m_filter_builder */ 9394);
 var _m_core = _interopRequireDefault(__webpack_require__(/*! ../m_core */ 54353));
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 _m_core.default.registerModule('filterBuilder', _m_filter_builder.filterBuilderModule);
@@ -62627,7 +62586,7 @@ _m_core.default.registerModule('filterBuilder', _m_filter_builder.filterBuilderM
 
 
 
-var _m_filter_panel = __webpack_require__(/*! ../../../grids/grid_core/filter/m_filter_panel */ 17887);
+var _m_filter_panel = __webpack_require__(/*! ../../../grids/grid_core/filter_panel/m_filter_panel */ 91400);
 var _m_core = _interopRequireDefault(__webpack_require__(/*! ../m_core */ 54353));
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 _m_core.default.registerModule('filterPanel', _m_filter_panel.filterPanelModule);
@@ -62642,7 +62601,7 @@ _m_core.default.registerModule('filterPanel', _m_filter_panel.filterPanelModule)
 
 
 
-var _m_filter_row = __webpack_require__(/*! ../../../grids/grid_core/filter/m_filter_row */ 62289);
+var _m_filter_row = __webpack_require__(/*! ../../../grids/grid_core/filter_row/m_filter_row */ 3240);
 var _m_core = _interopRequireDefault(__webpack_require__(/*! ../m_core */ 54353));
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 _m_core.default.registerModule('filterRow', _m_filter_row.filterRowModule);
@@ -62657,10 +62616,10 @@ _m_core.default.registerModule('filterRow', _m_filter_row.filterRowModule);
 
 
 
-var _m_filter_sync = __webpack_require__(/*! ../../../grids/grid_core/filter/m_filter_sync */ 78746);
+var _filter_sync_module = __webpack_require__(/*! ../../../grids/grid_core/filter_sync/filter_sync_module */ 64879);
 var _m_core = _interopRequireDefault(__webpack_require__(/*! ../m_core */ 54353));
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
-_m_core.default.registerModule('filterSync', _m_filter_sync.filterSyncModule);
+_m_core.default.registerModule('filterSync', _filter_sync_module.filterSyncModule);
 
 /***/ },
 
@@ -63002,6 +62961,7 @@ const summaryDataControllerExtender = Base => class SummaryDataControllerExtende
   }
   getTotalSummaryValue(summaryItemName) {
     const summaryItemIndex = (0, _get_summary_item_index.getSummaryItemIndex)(this.option('summary.totalItems'), summaryItemName);
+    // @ts-expect-error badly typed DataSourceAdapter
     const aggregates = this._dataSource.totalAggregates();
     if (aggregates.length && summaryItemIndex > -1) {
       return aggregates[summaryItemIndex];
@@ -63172,6 +63132,7 @@ const summaryDataControllerExtender = Base => class SummaryDataControllerExtende
     const oldSummaryCells = (_this$_footerItems = this._footerItems) === null || _this$_footerItems === void 0 || (_this$_footerItems = _this$_footerItems[0]) === null || _this$_footerItems === void 0 ? void 0 : _this$_footerItems.summaryCells;
     this._footerItems = [];
     if (dataSource && summaryTotalItems !== null && summaryTotalItems !== void 0 && summaryTotalItems.length) {
+      // @ts-expect-error badly typed DataSourceAdapter
       const totalAggregates = dataSource.totalAggregates();
       const summaryCells = this._getSummaryCells(summaryTotalItems, totalAggregates);
       if (change !== null && change !== void 0 && change.repaintChangesOnly && oldSummaryCells) {
@@ -75857,6 +75818,7 @@ var _common = __webpack_require__(/*! ../../../../core/utils/common */ 17781);
 var _console = __webpack_require__(/*! ../../../../core/utils/console */ 31951);
 var _deferred = __webpack_require__(/*! ../../../../core/utils/deferred */ 87739);
 var _extend = __webpack_require__(/*! ../../../../core/utils/extend */ 52576);
+var _iterator = __webpack_require__(/*! ../../../../core/utils/iterator */ 21274);
 var _type = __webpack_require__(/*! ../../../../core/utils/type */ 11528);
 var _ui = _interopRequireDefault(__webpack_require__(/*! ../../../../ui/widget/ui.errors */ 35185));
 var _m_array_compare = __webpack_require__(/*! ../../../core/utils/m_array_compare */ 87525);
@@ -75877,6 +75839,9 @@ class DataController extends _m_modules.default.Controller {
     this.customizeStoreLoadOptionsHandler = e => {
       const columnsController = this._columnsController;
       const dataSource = this._dataSource;
+      if (!dataSource) {
+        return;
+      }
       const {
         storeLoadOptions
       } = e;
@@ -75930,7 +75895,6 @@ class DataController extends _m_modules.default.Controller {
     this._items = [];
     this._cachedProcessedItems = null;
     this._columnsController = this.getController('columns');
-    this._filterSyncController = this.getController('filterSync');
     this._focusController = this.getController('focus');
     this._isPaging = false;
     this._currentOperationTypes = null;
@@ -75963,6 +75927,7 @@ class DataController extends _m_modules.default.Controller {
    * @extended: virtual_scrolling
    */
   _getPagingOptionValue(optionName) {
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     return this._dataSource[optionName]();
   }
   callbackNames() {
@@ -75977,7 +75942,7 @@ class DataController extends _m_modules.default.Controller {
     return undefined;
   }
   publicMethods() {
-    return ['_disposeDataSource', 'beginCustomLoading', 'byKey', 'clearFilter', 'endCustomLoading', 'filter', 'getCombinedFilter', 'getDataSource', 'getKeyByRowIndex', 'getRowIndexByKey', 'getVisibleRows', 'keyOf', 'pageCount', 'pageIndex', 'pageSize', 'refresh', 'repaintRows', 'totalCount'];
+    return ['_disposeDataSource', 'beginCustomLoading', 'byKey', 'clearFilter', 'endCustomLoading', 'filter', 'getCombinedFilter', 'getDataByKeys', 'getDataSource', 'getKeyByRowIndex', 'getRowIndexByKey', 'getVisibleRows', 'keyOf', 'pageCount', 'pageIndex', 'pageSize', 'refresh', 'repaintRows', 'totalCount'];
   }
   /**
    * @extended: virtual_scrolling
@@ -76069,8 +76034,8 @@ class DataController extends _m_modules.default.Controller {
     return !this._isLoading;
   }
   getDataSource() {
-    const adapter = this._dataSource;
-    return adapter ? adapter._dataSource : null;
+    var _this$_dataSource;
+    return ((_this$_dataSource = this._dataSource) === null || _this$_dataSource === void 0 ? void 0 : _this$_dataSource._dataSource) ?? null;
   }
   getCombinedFilter(returnDataField) {
     return this.combinedFilter(undefined, returnDataField);
@@ -76093,7 +76058,7 @@ class DataController extends _m_modules.default.Controller {
     let combined = filter ?? this._dataSource.filter();
     const isColumnsTypesDefined = this._columnsController.isDataSourceApplied() || this._columnsController.isAllDataTypesDefined();
     if (isColumnsTypesDefined) {
-      const additionalFilter = this._calculateAdditionalFilter();
+      const additionalFilter = this.calculateAdditionalFilter();
       combined = additionalFilter ? _m_utils.default.combineFilters([additionalFilter, combined]) : combined;
     }
     const isRemoteFiltering = this._dataSource.remoteOperations().filtering || returnDataField;
@@ -76183,7 +76148,7 @@ class DataController extends _m_modules.default.Controller {
       }
     } else if (changeTypes.columns) {
       if (this.shouldApplyFilter(e)) {
-        this._applyFilter();
+        this.applyFilter();
         filterApplied = true;
       }
       if (this.shouldUpdateItemsAfterColumnsChange(optionNames)) {
@@ -76193,7 +76158,7 @@ class DataController extends _m_modules.default.Controller {
         const column = this._columnsController.columnOption(e.columnIndex);
         const hasFilterValue = (0, _type.isDefined)(column === null || column === void 0 ? void 0 : column.filterValue) || (0, _type.isDefined)(column === null || column === void 0 ? void 0 : column.filterValues);
         if (hasFilterValue) {
-          this._applyFilter();
+          this.applyFilter();
           filterApplied = true;
         }
       }
@@ -76222,14 +76187,14 @@ class DataController extends _m_modules.default.Controller {
         }
         this._isDataSourceApplying = false;
         const hasAdditionalFilter = () => {
-          const additionalFilter = this._calculateAdditionalFilter();
+          const additionalFilter = this.calculateAdditionalFilter();
           return Boolean(additionalFilter === null || additionalFilter === void 0 ? void 0 : additionalFilter.length);
         };
         const needApplyFilter = this._needApplyFilter;
         this._needApplyFilter = false;
         if (needApplyFilter && !this._isAllDataTypesDefined && hasAdditionalFilter()) {
           _ui.default.log('W1005', this.component.NAME);
-          this._applyFilter();
+          this.applyFilter();
         } else {
           this._currentOperationTypes = dataSource.operationTypes();
           const change = (0, _type.isDefined)(e) ? Object.assign({}, e, {
@@ -76339,7 +76304,9 @@ class DataController extends _m_modules.default.Controller {
         dataSource.load().done(function () {
           _this._isPaging = false;
           result.resolve(...arguments);
-        }).fail(result.reject);
+        }).fail(function () {
+          result.reject(...arguments);
+        });
       } else {
         result.resolve();
       }
@@ -76451,13 +76418,11 @@ class DataController extends _m_modules.default.Controller {
         }
       };
     }
-    const columnIndices = isPartialUpdate ? this.getUpdatedColumnIndices(oldItem, newItem, visibleRowIndex) : undefined;
-    (0, _row_changes.partialUpdateRow)(oldItem, newItem, columnIndices);
     return {
       changeType: 'update',
       rowIndex: visibleRowIndex,
       item: newItem,
-      columnIndices
+      columnIndices: isPartialUpdate ? this._partialUpdateRow(oldItem, newItem, visibleRowIndex) : undefined
     };
   }
   applyRowOperation(newItems, rowIndex, rowIndexDelta, isPartialUpdate) {
@@ -76544,21 +76509,26 @@ class DataController extends _m_modules.default.Controller {
   /**
    * @extended: editing_row_based, editing, editing_form_based
    */
-  getChangedColumnIndices(oldItem, newItem, visibleRowIndex, isLiveUpdate) {
-    if (!(0, _row_changes.canDiffColumns)(oldItem, newItem)) {
+  _getChangedColumnIndices(oldItem, newItem, visibleRowIndex, isLiveUpdate) {
+    if (oldItem.rowType !== newItem.rowType) {
       return undefined;
     }
-    switch (newItem.rowType) {
-      case 'group':
-        return (0, _row_changes.getGroupColumnIndices)(oldItem, newItem);
-      case 'detail':
-        return [];
-      default:
-        return this.getChangedColumnIndicesCore(oldItem, newItem, visibleRowIndex, isLiveUpdate);
+    if (newItem.rowType === 'group') {
+      if (!oldItem.cells || !(0, _row_changes.isSameGroupRowState)(oldItem, newItem)) {
+        return undefined;
+      }
+      return oldItem.cells.map((cell, index) => {
+        var _cell$column;
+        return ((_cell$column = cell.column) === null || _cell$column === void 0 ? void 0 : _cell$column.type) !== 'groupExpand' ? index : -1;
+      }).filter(index => index >= 0);
     }
-  }
-  getChangedColumnIndicesCore(oldItem, newItem, visibleRowIndex, isLiveUpdate) {
+    if (newItem.rowType === 'groupFooter') {
+      return undefined;
+    }
     const columnIndices = [];
+    if (newItem.rowType === 'detail') {
+      return columnIndices;
+    }
     for (let columnIndex = 0; columnIndex < oldItem.values.length; columnIndex += 1) {
       if (this._isCellChanged(oldItem, newItem, visibleRowIndex, columnIndex, isLiveUpdate)) {
         columnIndices.push(columnIndex);
@@ -76566,10 +76536,26 @@ class DataController extends _m_modules.default.Controller {
     }
     return columnIndices;
   }
-  getUpdatedColumnIndices(oldItem, newItem, visibleRowIndex, isLiveUpdate) {
-    const changedColumnIndices = this.getChangedColumnIndices(oldItem, newItem, visibleRowIndex, isLiveUpdate);
-    const hasDataRowTemplate = !!this.option('dataRowTemplate');
-    return changedColumnIndices !== null && changedColumnIndices !== void 0 && changedColumnIndices.length && hasDataRowTemplate ? undefined : changedColumnIndices;
+  _partialUpdateRow(oldItem, newItem, visibleRowIndex, isLiveUpdate) {
+    const changedColumnIndices = this._getChangedColumnIndices(oldItem, newItem, visibleRowIndex, isLiveUpdate);
+    const columnIndices = changedColumnIndices !== null && changedColumnIndices !== void 0 && changedColumnIndices.length && this.option('dataRowTemplate') ? undefined : changedColumnIndices;
+    if (columnIndices) {
+      var _oldItem$cells, _oldItem$update;
+      (_oldItem$cells = oldItem.cells) === null || _oldItem$cells === void 0 || _oldItem$cells.forEach((cell, columnIndex) => {
+        const isCellChanged = columnIndices.includes(columnIndex);
+        if (!isCellChanged && cell !== null && cell !== void 0 && cell.update) {
+          cell.update(newItem);
+        }
+      });
+      newItem.update = oldItem.update;
+      newItem.watch = oldItem.watch;
+      newItem.cells = oldItem.cells;
+      if (isLiveUpdate) {
+        newItem.oldValues = oldItem.values;
+      }
+      (_oldItem$update = oldItem.update) === null || _oldItem$update === void 0 || _oldItem$update.call(oldItem, newItem);
+    }
+    return columnIndices;
   }
   /**
    * @extended: editing, grouping (DataGrid), summary (DataGrid), treelist
@@ -76585,8 +76571,7 @@ class DataController extends _m_modules.default.Controller {
       case 'update':
         {
           const newItem = itemChange.data;
-          const columnIndices = this.getUpdatedColumnIndices(itemChange.oldItem, newItem, index, isLiveUpdate);
-          (0, _row_changes.partialUpdateRow)(itemChange.oldItem, newItem, columnIndices, isLiveUpdate);
+          const columnIndices = this._partialUpdateRow(itemChange.oldItem, newItem, index, isLiveUpdate);
           this._items[index] = newItem;
           return {
             changeType: 'update',
@@ -76665,69 +76650,72 @@ class DataController extends _m_modules.default.Controller {
    * @extende: virtual_scrolling, editing
    */
   _updateItemsCore(change) {
-    const dataSource = this._dataSource;
     change.operationTypes ?? (change.operationTypes = this._currentOperationTypes);
     this._currentOperationTypes = null;
-    if (dataSource) {
-      const getProcessedItems = () => {
-        const cachedProcessedItems = this._cachedProcessedItems;
-        const useProcessedItemsCache = 'useProcessedItemsCache' in change && change.useProcessedItemsCache;
-        if (useProcessedItemsCache && cachedProcessedItems) {
-          return cachedProcessedItems;
-        }
-        // change.items at this stage is defined only if virtualScrolling
-        // + legacyScrollingMode enabled
-        const dataItems = this._beforeProcessItems(change.items ?? dataSource.items());
-        const processedItems = this._processItems(dataItems, change);
-        this._cachedProcessedItems = processedItems;
-        return processedItems;
-      };
-      const items = this._afterProcessItems(getProcessedItems());
-      const oldItems = this._items.length === items.length ? this._items : null;
-      change.items = items;
-      this._applyChange(change);
-      const rowIndexDelta = this.getRowIndexDelta();
-      this._items.forEach((item, index) => {
-        item.rowIndex = index - rowIndexDelta;
-        if (oldItems) {
-          item.cells = oldItems[index].cells ?? [];
-        }
-        const newItem = items[index];
-        if (newItem) {
-          item.loadIndex = newItem.loadIndex;
-        }
-      });
-      this._rowIndexOffset = this.getRowIndexOffset();
-    } else {
+    const dataSource = this._dataSource;
+    if (!dataSource) {
       this._items = [];
+      return;
     }
+    const newItems = this._afterProcessItems(this.getProcessedItems(change, dataSource));
+    const oldItems = this._items.length === newItems.length ? this._items : null;
+    change.items = newItems;
+    this._applyChange(change);
+    (0, _row_changes.syncRowsAfterChange)(this._items, {
+      newItems,
+      oldItems,
+      rowIndexDelta: this.getRowIndexDelta()
+    });
+    this._rowIndexOffset = this.getRowIndexOffset();
+  }
+  getProcessedItems(change, dataSource) {
+    const useProcessedItemsCache = 'useProcessedItemsCache' in change && change.useProcessedItemsCache;
+    if (useProcessedItemsCache && this._cachedProcessedItems) {
+      return this._cachedProcessedItems;
+    }
+    // change.items at this stage is defined only if virtualScrolling
+    // + legacyScrollingMode enabled
+    const dataItems = this._beforeProcessItems(change.items ?? dataSource.items());
+    const processedItems = this._processItems(dataItems, change);
+    this._cachedProcessedItems = processedItems;
+    return processedItems;
   }
   updateItems() {
     let change = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {
       changeType: 'refresh'
     };
     let isDataChanged = arguments.length > 1 ? arguments[1] : undefined;
-    change.isFirstRender = !this.changed.fired();
-    if (this._repaintChangesOnly !== undefined) {
-      change.repaintChangesOnly ?? (change.repaintChangesOnly = this._repaintChangesOnly);
-      change.needUpdateDimensions = change.needUpdateDimensions || this._needUpdateDimensions;
-    } else if (change.changes) {
-      change.repaintChangesOnly = this.option('repaintChangesOnly');
-    } else if (isDataChanged) {
-      const operationTypes = this.dataSource().operationTypes();
-      change.isDataChanged = true;
-      change.repaintChangesOnly = operationTypes && !operationTypes.grouping && !operationTypes.filtering && this.option('repaintChangesOnly');
-      if (this.needUpdateDimensions(operationTypes)) {
-        change.needUpdateDimensions = true;
-      }
-    }
+    this.fillChangeFlags(change, isDataChanged);
     if (this._updateLockCount && !change.cancel) {
       this.changes.push(change);
       return;
     }
     this._updateItemsCore(change);
-    if (change.cancel) return;
+    if (change.cancel) {
+      return;
+    }
     this._fireChanged(change);
+  }
+  fillChangeFlags(change, isDataChanged) {
+    change.isFirstRender = !this.changed.fired();
+    if (this._repaintChangesOnly !== undefined) {
+      change.repaintChangesOnly ?? (change.repaintChangesOnly = this._repaintChangesOnly);
+      change.needUpdateDimensions || (change.needUpdateDimensions = this._needUpdateDimensions);
+      return;
+    }
+    if (change.changes) {
+      change.repaintChangesOnly = this.option('repaintChangesOnly');
+      return;
+    }
+    if (!isDataChanged) {
+      return;
+    }
+    const operationTypes = this.dataSource().operationTypes();
+    change.isDataChanged = true;
+    change.repaintChangesOnly = (0, _row_changes.resolveRepaintChangesOnly)(operationTypes, this.option('repaintChangesOnly'));
+    if (this.needUpdateDimensions(operationTypes)) {
+      change.needUpdateDimensions = true;
+    }
   }
   /**
    * @extended: TreeList's data_controller
@@ -76761,13 +76749,13 @@ class DataController extends _m_modules.default.Controller {
   /**
    * @extended: filter_row, filter_sync, header_filter, search
    */
-  _calculateAdditionalFilter() {
+  calculateAdditionalFilter() {
     return null;
   }
   /**
    * @extended: filter_sync, virtual_scrolling
    */
-  _applyFilter() {
+  applyFilter() {
     const dataSource = this._dataSource;
     if (dataSource) {
       dataSource.pageIndex(0);
@@ -76787,9 +76775,9 @@ class DataController extends _m_modules.default.Controller {
     this._isFilterApplying = false;
   }
   filter() {
-    var _this$_dataSource, _this$_dataSource2, _this$_dataSource2$lo, _this$_dataSource3;
-    const filter = (_this$_dataSource = this._dataSource) === null || _this$_dataSource === void 0 ? void 0 : _this$_dataSource.filter();
-    const langParams = (_this$_dataSource2 = this._dataSource) === null || _this$_dataSource2 === void 0 || (_this$_dataSource2$lo = _this$_dataSource2.loadOptions) === null || _this$_dataSource2$lo === void 0 || (_this$_dataSource2$lo = _this$_dataSource2$lo.call(_this$_dataSource2)) === null || _this$_dataSource2$lo === void 0 ? void 0 : _this$_dataSource2$lo.langParams;
+    var _this$_dataSource2, _this$_dataSource3, _this$_dataSource3$lo, _this$_dataSource4;
+    const filter = (_this$_dataSource2 = this._dataSource) === null || _this$_dataSource2 === void 0 ? void 0 : _this$_dataSource2.filter();
+    const langParams = (_this$_dataSource3 = this._dataSource) === null || _this$_dataSource3 === void 0 || (_this$_dataSource3$lo = _this$_dataSource3.loadOptions) === null || _this$_dataSource3$lo === void 0 || (_this$_dataSource3$lo = _this$_dataSource3$lo.call(_this$_dataSource3)) === null || _this$_dataSource3$lo === void 0 ? void 0 : _this$_dataSource3$lo.langParams;
     for (var _len = arguments.length, filterArgs = new Array(_len), _key = 0; _key < _len; _key++) {
       filterArgs[_key] = arguments[_key];
     }
@@ -76800,8 +76788,8 @@ class DataController extends _m_modules.default.Controller {
     if (_m_utils.default.equalFilterParameters(filter, filterExpr, langParams)) {
       return undefined;
     }
-    (_this$_dataSource3 = this._dataSource) === null || _this$_dataSource3 === void 0 || _this$_dataSource3.filter(filterExpr);
-    this._applyFilter();
+    (_this$_dataSource4 = this._dataSource) === null || _this$_dataSource4 === void 0 || _this$_dataSource4.filter(filterExpr);
+    this.applyFilter();
     return undefined;
   }
   /**
@@ -76816,7 +76804,7 @@ class DataController extends _m_modules.default.Controller {
       }
     };
     this.component.beginUpdate();
-    if (arguments.length > 0) {
+    if (filterName !== undefined) {
       switch (filterName) {
         case 'dataSource':
           this.filter(null);
@@ -76907,53 +76895,38 @@ class DataController extends _m_modules.default.Controller {
     return this._dataSource;
   }
   store() {
-    var _this$_dataSource4;
-    return (_this$_dataSource4 = this._dataSource) === null || _this$_dataSource4 === void 0 ? void 0 : _this$_dataSource4.store();
+    var _this$_dataSource5;
+    return (_this$_dataSource5 = this._dataSource) === null || _this$_dataSource5 === void 0 ? void 0 : _this$_dataSource5.store();
   }
   loadAll(data) {
     let skipFilter = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
     const d = (0, _deferred.Deferred)();
     const dataSource = this._dataSource;
-    if (dataSource) {
-      if (data) {
-        const loadOperation = {
-          data,
-          isCustomLoading: true,
-          storeLoadOptions: {
-            isLoadingAll: true
-          },
-          loadOptions: {
-            filter: skipFilter ? null : this.getCombinedFilter(),
-            group: dataSource.group(),
-            sort: dataSource.sort()
-          }
-        };
-        dataSource.customizeLoadResultHandler(loadOperation);
-        (0, _deferred.when)(loadOperation.data).done(loadedData => {
-          var _loadOperation$extra;
-          const items = this._processItems(this._beforeProcessItems(loadedData), {
-            changeType: 'loadingAll'
-          });
-          // @ts-expect-error DataGrid-only summary leaks into grid_core
-          d.resolve(items, (_loadOperation$extra = loadOperation.extra) === null || _loadOperation$extra === void 0 ? void 0 : _loadOperation$extra.summary);
-        }).fail(d.reject);
-      } else if (!dataSource.isLoading()) {
-        const loadOptions = Object.assign({}, dataSource.loadOptions(), {
-          isLoadingAll: true,
-          requireTotalCount: false
-        });
-        dataSource.load(loadOptions).done((loadedItems, extra) => {
-          const items = this._processItems(this._beforeProcessItems(loadedItems), {
-            changeType: 'loadingAll'
-          });
-          // @ts-expect-error DataGrid-only summary leaks into grid_core
-          d.resolve(items, extra === null || extra === void 0 ? void 0 : extra.summary);
-        }).fail(d.reject);
-      } else {
-        d.reject();
-      }
-    } else {
+    if (!dataSource) {
       d.resolve([]);
+      return d;
+    }
+    const resolveWithProcessedItems = (loadedData, extra) => {
+      const items = this._processItems(this._beforeProcessItems(loadedData), {
+        changeType: 'loadingAll'
+      });
+      // @ts-expect-error DataGrid-only summary leaks into grid_core
+      d.resolve(items, extra === null || extra === void 0 ? void 0 : extra.summary);
+    };
+    if (data) {
+      dataSource.customProcessLoadedData(data, {
+        filter: skipFilter ? null : this.getCombinedFilter(),
+        group: dataSource.group(),
+        sort: dataSource.sort()
+      })
+      // @ts-expect-error badly typed CustomLoadResult
+      .done(resolveWithProcessedItems).fail(d.reject);
+    } else if (!dataSource.isLoading()) {
+      dataSource.customLoadAll()
+      // @ts-expect-error badly typed CustomLoadResult
+      .done(resolveWithProcessedItems).fail(d.reject);
+    } else {
+      d.reject();
     }
     return d;
   }
@@ -76998,6 +76971,20 @@ class DataController extends _m_modules.default.Controller {
   getRowIndexOffset(byLoadedRows) {
     return 0;
   }
+  getDataByKeys(rowKeys) {
+    const result = (0, _deferred.Deferred)();
+    const deferreds = [];
+    const data = [];
+    (0, _iterator.each)(rowKeys, (index, key) => {
+      deferreds.push(this.byKey(key).done(keyData => {
+        data[index] = keyData;
+      }));
+    });
+    _deferred.when.apply($, deferreds).always(() => {
+      result.resolve(data);
+    });
+    return result;
+  }
   changePaging(optionName, value) {
     const dataSource = this._dataSource;
     if (!dataSource) {
@@ -77021,6 +77008,7 @@ class DataController extends _m_modules.default.Controller {
     } finally {
       this._skipProcessingPagingChange = false;
     }
+    // @ts-expect-error badly typed DataSourceAdapter
     const pageIndex = dataSource.pageIndex();
     this._isPaging = optionName === 'pageIndex';
     const loadResult = dataSource[optionName === 'pageIndex' ? 'load' : 'reload']();
@@ -77036,8 +77024,8 @@ class DataController extends _m_modules.default.Controller {
     return this.changePaging('pageSize', value);
   }
   isCustomLoading() {
-    var _this$_dataSource5;
-    return this._isCustomLoading || !!((_this$_dataSource5 = this._dataSource) !== null && _this$_dataSource5 !== void 0 && _this$_dataSource5.isCustomLoading());
+    var _this$_dataSource6;
+    return this._isCustomLoading || !!((_this$_dataSource6 = this._dataSource) !== null && _this$_dataSource6 !== void 0 && _this$_dataSource6.isCustomLoading());
   }
   beginCustomLoading(messageText) {
     this._isCustomLoading = true;
@@ -77118,8 +77106,8 @@ class DataController extends _m_modules.default.Controller {
     };
   }
   getCachedStoreData() {
-    var _this$_dataSource6;
-    return (_this$_dataSource6 = this._dataSource) === null || _this$_dataSource6 === void 0 ? void 0 : _this$_dataSource6.getCachedStoreData();
+    var _this$_dataSource7;
+    return (_this$_dataSource7 = this._dataSource) === null || _this$_dataSource7 === void 0 ? void 0 : _this$_dataSource7.getCachedStoreData();
   }
   /**
    * @extended: virtual_scrolling
@@ -77130,22 +77118,23 @@ class DataController extends _m_modules.default.Controller {
     return pageIndex === pageCount - 1;
   }
   load() {
-    var _this$_dataSource7;
-    return (_this$_dataSource7 = this._dataSource) === null || _this$_dataSource7 === void 0 ? void 0 : _this$_dataSource7.load();
+    var _this$_dataSource8;
+    return (_this$_dataSource8 = this._dataSource) === null || _this$_dataSource8 === void 0 ? void 0 : _this$_dataSource8.load();
   }
   /**
    * @extended: editing, virtual_scrolling
    */
   reload(reload, changesOnly) {
-    var _this$_dataSource8;
-    return (_this$_dataSource8 = this._dataSource) === null || _this$_dataSource8 === void 0 ? void 0 : _this$_dataSource8.reload(reload, changesOnly);
+    var _this$_dataSource9;
+    return (_this$_dataSource9 = this._dataSource) === null || _this$_dataSource9 === void 0 ? void 0 : _this$_dataSource9.reload(reload, changesOnly);
   }
   push() {
-    var _this$_dataSource9;
+    var _this$_dataSource0;
     for (var _len2 = arguments.length, args = new Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
       args[_key2] = arguments[_key2];
     }
-    return (_this$_dataSource9 = this._dataSource) === null || _this$_dataSource9 === void 0 ? void 0 : _this$_dataSource9.push(...args);
+    // @ts-expect-error badly typed DataSourceAdapter
+    return (_this$_dataSource0 = this._dataSource) === null || _this$_dataSource0 === void 0 ? void 0 : _this$_dataSource0.push(...args);
   }
   itemsCount() {
     return this._dataSource ? this._dataSource.itemsCount() : 0;
@@ -77166,8 +77155,8 @@ class DataController extends _m_modules.default.Controller {
     return this._dataSource ? this._dataSource.totalCount() : 0;
   }
   hasLoadOperation() {
-    var _this$_dataSource0;
-    const operationTypes = ((_this$_dataSource0 = this._dataSource) === null || _this$_dataSource0 === void 0 ? void 0 : _this$_dataSource0.operationTypes()) ?? {};
+    var _this$_dataSource1;
+    const operationTypes = ((_this$_dataSource1 = this._dataSource) === null || _this$_dataSource1 === void 0 ? void 0 : _this$_dataSource1.operationTypes()) ?? {};
     return Object.keys(operationTypes).some(type => operationTypes[type]);
   }
   /**
@@ -77296,20 +77285,19 @@ function getRefreshOptions(options) {
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
-exports.canDiffColumns = canDiffColumns;
 exports.convertToUpdateChange = convertToUpdateChange;
 exports.getChangedRowIndices = getChangedRowIndices;
 exports.getDataRowIndex = getDataRowIndex;
-exports.getGroupColumnIndices = getGroupColumnIndices;
 exports.getRowKey = getRowKey;
 exports.getRowOperation = getRowOperation;
 exports.indexRowsByKey = indexRowsByKey;
 exports.initChangedRows = initChangedRows;
 exports.isSameGroupRowState = isSameGroupRowState;
 exports.isSameItem = isSameItem;
-exports.partialUpdateRow = partialUpdateRow;
 exports.pushChangedRow = pushChangedRow;
 exports.resetChangedRows = resetChangedRows;
+exports.resolveRepaintChangesOnly = resolveRepaintChangesOnly;
+exports.syncRowsAfterChange = syncRowsAfterChange;
 exports.updateKeptRows = updateKeptRows;
 exports.updateRowCells = updateRowCells;
 var _common = __webpack_require__(/*! ../../../../../core/utils/common */ 17781);
@@ -77329,18 +77317,6 @@ function isSameItem(item1, item2, strict) {
 function isSameGroupRowState(item1, item2) {
   var _item1$data, _item2$data, _item1$data2, _item2$data2;
   return item1.isExpanded === item2.isExpanded && ((_item1$data = item1.data) === null || _item1$data === void 0 ? void 0 : _item1$data.isContinuation) === ((_item2$data = item2.data) === null || _item2$data === void 0 ? void 0 : _item2$data.isContinuation) && ((_item1$data2 = item1.data) === null || _item1$data2 === void 0 ? void 0 : _item1$data2.isContinuationOnNextPage) === ((_item2$data2 = item2.data) === null || _item2$data2 === void 0 ? void 0 : _item2$data2.isContinuationOnNextPage);
-}
-function canDiffColumns(oldItem, newItem) {
-  return oldItem.rowType === newItem.rowType && newItem.rowType !== 'groupFooter';
-}
-function getGroupColumnIndices(oldItem, newItem) {
-  if (!oldItem.cells || !isSameGroupRowState(oldItem, newItem)) {
-    return undefined;
-  }
-  return oldItem.cells.map((cell, index) => {
-    var _cell$column;
-    return ((_cell$column = cell.column) === null || _cell$column === void 0 ? void 0 : _cell$column.type) !== 'groupExpand' ? index : -1;
-  }).filter(index => index >= 0);
 }
 /**
  * Rows of different types may share a key, so the row type is a part of the key
@@ -77491,24 +77467,33 @@ function pushChangedRow(changedRows, changedRow) {
   changedRows.changeTypes.push(changeType);
   changedRows.columnIndices.push(columnIndices);
 }
-function partialUpdateRow(oldItem, newItem, columnIndices, isLiveUpdate) {
-  var _oldItem$cells, _oldItem$update2;
-  if (!columnIndices) {
-    return;
+/**
+ * Grouping and filtering rebuild the rows, so a diff is pointless there. Missing operation
+ * types leave the mode unset rather than off: a pending `refresh({ changesOnly })` still
+ * fills it in when the change is applied later.
+ */
+function resolveRepaintChangesOnly(operationTypes, repaintChangesOnly) {
+  if (!operationTypes) {
+    return undefined;
   }
-  (_oldItem$cells = oldItem.cells) === null || _oldItem$cells === void 0 || _oldItem$cells.forEach((cell, columnIndex) => {
-    const isCellChanged = columnIndices.includes(columnIndex);
-    if (!isCellChanged && cell !== null && cell !== void 0 && cell.update) {
-      cell.update(newItem);
+  return !operationTypes.grouping && !operationTypes.filtering && repaintChangesOnly;
+}
+function syncRowsAfterChange(items, options) {
+  const {
+    newItems,
+    oldItems,
+    rowIndexDelta
+  } = options;
+  items.forEach((item, index) => {
+    item.rowIndex = index - rowIndexDelta;
+    if (oldItems) {
+      item.cells = oldItems[index].cells ?? [];
+    }
+    const newItem = newItems[index];
+    if (newItem) {
+      item.loadIndex = newItem.loadIndex;
     }
   });
-  newItem.update = oldItem.update;
-  newItem.watch = oldItem.watch;
-  newItem.cells = oldItem.cells;
-  if (isLiveUpdate) {
-    newItem.oldValues = oldItem.values;
-  }
-  (_oldItem$update2 = oldItem.update) === null || _oldItem$update2 === void 0 || _oldItem$update2.call(oldItem, newItem);
 }
 
 /***/ },
@@ -77548,6 +77533,159 @@ function generateRowValues(data, columns) {
 
 /***/ },
 
+/***/ 1527
+/*!*************************************************************************************************************!*\
+  !*** ./artifacts/transpiled-renovation-npm/__internal/grids/grid_core/data_source_adapter/custom_loader.js ***!
+  \*************************************************************************************************************/
+(__unused_webpack_module, exports, __webpack_require__) {
+
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.CustomLoader = void 0;
+var _deferred = __webpack_require__(/*! ../../../../core/utils/deferred */ 87739);
+var _extend = __webpack_require__(/*! ../../../../core/utils/extend */ 52576);
+var _iterator = __webpack_require__(/*! ../../../../core/utils/iterator */ 21274);
+var _m_data_source_adapter_utils = __webpack_require__(/*! ./m_data_source_adapter_utils */ 39394);
+/**
+ * Loads data through the adapter's `customizeStoreLoadOptions` and
+ * `customizeLoadResult` stages, but leaves the DataSource's own state alone:
+ * its items, pageIndex, totalCount and load queue stay as they are, and the
+ * result goes to the caller instead.
+ *
+ * Serves what the grid needs beyond the rows it renders: lookups, header
+ * filters, focused row lookups, group counts and `loadAll`.
+ */
+class CustomLoader {
+  constructor(dataSource, getLoadingTimeout, customizeStoreLoadOptions, customizeLoadResult) {
+    this.dataSource = dataSource;
+    this.getLoadingTimeout = getLoadingTimeout;
+    this.customizeStoreLoadOptions = customizeStoreLoadOptions;
+    this.customizeLoadResult = customizeLoadResult;
+    this._isLoading = false;
+    this._isLoadingAll = false;
+  }
+  isLoading() {
+    return this._isLoading;
+  }
+  isLoadingAll() {
+    return this._isLoadingAll;
+  }
+  load(options) {
+    const {
+      dataSource
+    } = this;
+    const d = (0, _deferred.Deferred)();
+    const store = dataSource.store();
+    const dataSourceLoadOptions = dataSource.loadOptions();
+    const operation = {
+      storeLoadOptions: (0, _extend.extend)({}, options, {
+        langParams: dataSourceLoadOptions === null || dataSourceLoadOptions === void 0 ? void 0 : dataSourceLoadOptions.langParams
+      }),
+      isCustomLoading: true
+    };
+    // @ts-expect-error badly typed Store type
+    const customLoadOptions = store._customLoadOptions() ?? [];
+    (0, _iterator.each)(customLoadOptions, (_, optionName) => {
+      if (!(optionName in operation.storeLoadOptions)) {
+        operation.storeLoadOptions[optionName] = dataSourceLoadOptions[optionName];
+      }
+    });
+    this._isLoadingAll = options.isLoadingAll ?? false;
+    this.scheduleLoadingCallbacks(d);
+    dataSource._scheduleLoadCallbacks(d);
+    this.customizeStoreLoadOptions(operation);
+    (0, _m_data_source_adapter_utils.executeTask)(() => {
+      if (!dataSource.store()) {
+        d.reject('canceled');
+        return;
+      }
+      (0, _deferred.when)(operation.data ?? this.loadFromStore(operation.storeLoadOptions)).done((data, loadedExtra) => {
+        operation.data = data;
+        operation.extra = loadedExtra ?? {};
+        this.customizeLoadResult(operation);
+        // `customizeLoadResult` may have replaced `extra`, so re-read it.
+        const extra = operation.extra ?? {};
+        operation.extra = extra;
+        if (options.requireTotalCount && extra.totalCount === undefined) {
+          extra.totalCount = store.totalCount(operation.storeLoadOptions);
+        }
+        (0, _deferred.when)(operation.data, extra.totalCount).done((resolvedData, totalCount) => {
+          extra.totalCount = totalCount;
+          d.resolve(resolvedData, extra);
+        }).fail(e => {
+          d.reject(e);
+        });
+      }).fail(e => {
+        d.reject(e);
+      });
+    }, this.getLoadingTimeout());
+    return d.fail(function () {
+      for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+        args[_key] = arguments[_key];
+      }
+      dataSource._eventsStrategy.fireEvent('loadError', args);
+    }).always(() => {
+      this._isLoadingAll = false;
+    }).promise();
+  }
+  loadAll() {
+    return this.load(Object.assign({}, this.dataSource.loadOptions(), {
+      isLoadingAll: true,
+      requireTotalCount: false
+    }));
+  }
+  /**
+   * Runs already-loaded data through the pipeline's result stage
+   */
+  processLoadedData(data, loadOptions) {
+    const d = (0, _deferred.Deferred)();
+    const operation = {
+      data,
+      isCustomLoading: true,
+      storeLoadOptions: {
+        isLoadingAll: true
+      },
+      loadOptions
+    };
+    this.customizeLoadResult(operation);
+    // customizeLoadResult may have replaced operation.data with deferred
+    (0, _deferred.when)(operation.data).done(loadedData => {
+      d.resolve(loadedData, operation.extra);
+    }).fail(function () {
+      d.reject(...arguments);
+    });
+    return d;
+  }
+  loadFromStore(loadOptions) {
+    const d = (0, _deferred.Deferred)();
+    this.dataSource.store().load(loadOptions).done((data, extra) => {
+      // A store may resolve with a single `{ data, totalCount }` object
+      // instead of the `(data, extra)` pair the pipeline expects.
+      const result = data;
+      if (result && !Array.isArray(result) && Array.isArray(result.data)) {
+        d.resolve(result.data, result);
+      } else {
+        d.resolve(data, extra);
+      }
+    }).fail(function () {
+      d.reject(...arguments);
+    });
+    return d;
+  }
+  scheduleLoadingCallbacks(deferred) {
+    this._isLoading = true;
+    deferred.always(() => {
+      this._isLoading = false;
+    });
+  }
+}
+exports.CustomLoader = CustomLoader;
+
+/***/ },
+
 /***/ 3120
 /*!*********************************************************************************************************************!*\
   !*** ./artifacts/transpiled-renovation-npm/__internal/grids/grid_core/data_source_adapter/m_data_source_adapter.js ***!
@@ -77570,6 +77708,7 @@ var _iterator = __webpack_require__(/*! ../../../../core/utils/iterator */ 21274
 var _type = __webpack_require__(/*! ../../../../core/utils/type */ 11528);
 var _m_modules = _interopRequireDefault(__webpack_require__(/*! ../m_modules */ 74854));
 var _m_utils = _interopRequireDefault(__webpack_require__(/*! ../m_utils */ 53226));
+var _custom_loader = __webpack_require__(/*! ./custom_loader */ 1527);
 var _m_data_source_adapter_utils = __webpack_require__(/*! ./m_data_source_adapter_utils */ 39394);
 var _remoteOperations = __webpack_require__(/*! ./utils/remoteOperations */ 76104);
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
@@ -77580,45 +77719,36 @@ class DataSourceAdapter extends _m_modules.default.Controller {
     if (!dataSource) {
       return;
     }
-    const that = this;
-    that._dataSource = dataSource;
-    that._remoteOperations = (0, _remoteOperations.normalizeRemoteOperations)(this.option('remoteOperations'), dataSource.store());
-    that._isLastPage = !dataSource.isLastPage();
-    that._hasLastPage = false;
-    that._currentTotalCount = 0;
-    that._cachedData = (0, _m_data_source_adapter_utils.createEmptyCachedData)();
-    that._lastOperationTypes = {};
-    that._eventsStrategy = dataSource._eventsStrategy;
-    that._totalCountCorrection = 0;
-    that._isLoadingAll = false;
-    that.changed = (0, _callbacks.default)();
-    that.loadingChanged = (0, _callbacks.default)();
-    that.loadError = (0, _callbacks.default)();
-    that.customizeStoreLoadOptions = (0, _callbacks.default)();
-    that.changing = (0, _callbacks.default)();
-    that.pushed = (0, _callbacks.default)();
-    that.dataChangedHandlerProxy = that.dataChangedHandler.bind(that);
-    that.customizeStoreLoadOptionsHandlerProxy = that.customizeStoreLoadOptionsHandler.bind(that);
-    that.customizeLoadResultHandlerProxy = that.customizeLoadResultHandler.bind(that);
-    that.loadingChangedHandlerProxy = that.loadingChangedHandler.bind(that);
-    that.loadErrorHandlerProxy = that.loadErrorHandler.bind(that);
-    that.pushHandlerProxy = that.pushHandler.bind(that);
-    that.changingHandlerProxy = that.changingHandler.bind(that);
-    dataSource.on('changed', that.dataChangedHandlerProxy);
-    dataSource.on('customizeStoreLoadOptions', that.customizeStoreLoadOptionsHandlerProxy);
-    dataSource.on('customizeLoadResult', that.customizeLoadResultHandlerProxy);
-    dataSource.on('loadingChanged', that.loadingChangedHandlerProxy);
-    dataSource.on('loadError', that.loadErrorHandlerProxy);
-    dataSource.on('changing', that.changingHandlerProxy);
-    dataSource.store().on('beforePush', that.pushHandlerProxy);
-    // TODO: remove copying dataSource's members
-    (0, _iterator.each)(dataSource, (memberName, member) => {
-      if (!that[memberName] && (0, _type.isFunction)(member)) {
-        that[memberName] = function () {
-          return this._dataSource[memberName].apply(this._dataSource, arguments);
-        };
-      }
-    });
+    this._dataSource = dataSource;
+    this._remoteOperations = (0, _remoteOperations.normalizeRemoteOperations)(this.option('remoteOperations'), dataSource.store());
+    this._isLastPage = !dataSource.isLastPage();
+    this._hasLastPage = false;
+    this._currentTotalCount = 0;
+    this._cachedData = (0, _m_data_source_adapter_utils.createEmptyCachedData)();
+    this._lastOperationTypes = {};
+    this._eventsStrategy = dataSource._eventsStrategy;
+    this._totalCountCorrection = 0;
+    this.customLoader = new _custom_loader.CustomLoader(dataSource, () => this.option('loadingTimeout'), operation => this.customizeStoreLoadOptionsHandler(operation), operation => this.customizeLoadResultHandler(operation));
+    this.changed = (0, _callbacks.default)();
+    this.loadingChanged = (0, _callbacks.default)();
+    this.loadError = (0, _callbacks.default)();
+    this.customizeStoreLoadOptions = (0, _callbacks.default)();
+    this.changing = (0, _callbacks.default)();
+    this.pushed = (0, _callbacks.default)();
+    this.dataChangedHandlerProxy = this.dataChangedHandler.bind(this);
+    this.customizeStoreLoadOptionsHandlerProxy = this.customizeStoreLoadOptionsHandler.bind(this);
+    this.customizeLoadResultHandlerProxy = this.customizeLoadResultHandler.bind(this);
+    this.loadingChangedHandlerProxy = this.loadingChangedHandler.bind(this);
+    this.loadErrorHandlerProxy = this.loadErrorHandler.bind(this);
+    this.pushHandlerProxy = this.pushHandler.bind(this);
+    this.changingHandlerProxy = this.changingHandler.bind(this);
+    dataSource.on('changed', this.dataChangedHandlerProxy);
+    dataSource.on('customizeStoreLoadOptions', this.customizeStoreLoadOptionsHandlerProxy);
+    dataSource.on('customizeLoadResult', this.customizeLoadResultHandlerProxy);
+    dataSource.on('loadingChanged', this.loadingChangedHandlerProxy);
+    dataSource.on('loadError', this.loadErrorHandlerProxy);
+    dataSource.on('changing', this.changingHandlerProxy);
+    dataSource.store().on('beforePush', this.pushHandlerProxy);
   }
   dispose(isSharedDataSource) {
     const dataSource = this._dataSource;
@@ -77634,9 +77764,50 @@ class DataSourceAdapter extends _m_modules.default.Controller {
       dataSource.dispose();
     }
   }
-  /**
-   * @extended: TreeLists's data_source_adapter
-   */
+  filter() {
+    return this._dataSource.filter(...arguments);
+  }
+  sort() {
+    return this._dataSource.sort(...arguments);
+  }
+  group() {
+    return this._dataSource.group(...arguments);
+  }
+  select() {
+    return this._dataSource.select(...arguments);
+  }
+  paginate(value) {
+    return this._dataSource.paginate(value);
+  }
+  requireTotalCount(value) {
+    return this._dataSource.requireTotalCount(value);
+  }
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  store() {
+    return this._dataSource.store();
+  }
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  key() {
+    return this._dataSource.key();
+  }
+  isLoading() {
+    return this._dataSource.isLoading();
+  }
+  beginLoading() {
+    this._dataSource.beginLoading();
+  }
+  endLoading() {
+    this._dataSource.endLoading();
+  }
+  loadOptions() {
+    return this._dataSource.loadOptions();
+  }
+  cancel(operationId) {
+    return this._dataSource.cancel(operationId);
+  }
+  cancelAll() {
+    this._dataSource.cancelAll();
+  }
   remoteOperations() {
     return this._remoteOperations;
   }
@@ -77644,12 +77815,11 @@ class DataSourceAdapter extends _m_modules.default.Controller {
    * @extended: virtual_scrolling
    */
   refresh(options, operationTypes) {
-    const that = this;
-    const dataSource = that._dataSource;
+    const dataSource = this._dataSource;
     if (operationTypes.reload) {
-      that.resetCurrentTotalCount();
-      that._isLastPage = !dataSource.paginate();
-      that._hasLastPage = that._isLastPage;
+      this.resetCurrentTotalCount();
+      this._isLastPage = !dataSource.paginate();
+      this._hasLastPage = this._isLastPage;
     }
   }
   resetCurrentTotalCount() {
@@ -78085,18 +78255,11 @@ class DataSourceAdapter extends _m_modules.default.Controller {
       this.component._optionCache = undefined;
     }
   }
-  _scheduleCustomLoadCallbacks(deferred) {
-    const that = this;
-    that._isCustomLoading = true;
-    deferred.always(() => {
-      that._isCustomLoading = false;
-    });
-  }
   loadingOperationTypes() {
     return this._loadingOperationTypes;
   }
   operationTypes() {
-    return this._operationTypes;
+    return this._operationTypes ?? null;
   }
   lastLoadOptions() {
     return this._lastLoadOptions || {};
@@ -78151,9 +78314,8 @@ class DataSourceAdapter extends _m_modules.default.Controller {
     return this._dataSource.pageSize(value);
   }
   pageCount() {
-    const that = this;
-    const count = that.totalItemsCount() - that._totalCountCorrection;
-    const pageSize = that.pageSize();
+    const count = this.totalItemsCount() - this._totalCountCorrection;
+    const pageSize = this.pageSize();
     if (pageSize && count > 0) {
       return Math.max(1, Math.ceil(count / pageSize));
     }
@@ -78162,85 +78324,35 @@ class DataSourceAdapter extends _m_modules.default.Controller {
   hasKnownLastPage() {
     return this._hasLastPage || this._dataSource.totalCount() >= 0;
   }
-  loadFromStore(loadOptions, store) {
-    const dataSource = this._dataSource;
-    // @ts-expect-error
-    const d = new _deferred.Deferred();
-    if (!dataSource) return;
-    store = store || dataSource.store();
-    store.load(loadOptions).done((data, extra) => {
-      if (data && !Array.isArray(data) && Array.isArray(data.data)) {
-        extra = data;
-        data = data.data;
-      }
-      d.resolve(data, extra);
-    }).fail(d.reject);
-    return d;
+  loadFromStore(loadOptions) {
+    return this.customLoader.loadFromStore(loadOptions);
   }
   isCustomLoading() {
-    return !!this._isCustomLoading;
+    return this.customLoader.isLoading();
+  }
+  isCustomLoadingAll() {
+    return this.customLoader.isLoadingAll();
   }
   /**
    * @extended: virtual_scrolling
    */
   load(options) {
-    const that = this;
-    const dataSource = that._dataSource;
-    const d = (0, _deferred.Deferred)();
     if (options) {
-      const store = dataSource.store();
-      const dataSourceLoadOptions = dataSource.loadOptions();
-      const loadResult = {
-        storeLoadOptions: (0, _extend.extend)({}, options, {
-          langParams: dataSourceLoadOptions === null || dataSourceLoadOptions === void 0 ? void 0 : dataSourceLoadOptions.langParams
-        }),
-        isCustomLoading: true
-      };
-      // @ts-expect-error badly typed Store type
-      (0, _iterator.each)(store._customLoadOptions() || [], (_, optionName) => {
-        if (!(optionName in loadResult.storeLoadOptions)) {
-          loadResult.storeLoadOptions[optionName] = dataSourceLoadOptions[optionName];
-        }
-      });
-      this._isLoadingAll = options.isLoadingAll;
-      that._scheduleCustomLoadCallbacks(d);
-      dataSource._scheduleLoadCallbacks(d);
-      that.customizeStoreLoadOptionsHandler(loadResult);
-      (0, _m_data_source_adapter_utils.executeTask)(() => {
-        if (!dataSource.store()) {
-          d.reject('canceled');
-          return;
-        }
-        (0, _deferred.when)(loadResult.data || that.loadFromStore(loadResult.storeLoadOptions)).done((data, extra) => {
-          loadResult.data = data;
-          loadResult.extra = extra || {};
-          that.customizeLoadResultHandler(loadResult);
-          if (options.requireTotalCount && loadResult.extra.totalCount === undefined) {
-            loadResult.extra.totalCount = store.totalCount(loadResult.storeLoadOptions);
-          }
-          // TODO map function??
-          (0, _deferred.when)(loadResult.data, loadResult.extra.totalCount).done((data, totalCount) => {
-            loadResult.extra.totalCount = totalCount;
-            d.resolve(data, loadResult.extra);
-          }).fail(e => {
-            d.reject(e);
-          });
-        }).fail(e => {
-          d.reject(e);
-        });
-      }, that.option('loadingTimeout'));
-      return d.fail(function () {
-        that._eventsStrategy.fireEvent('loadError', arguments);
-      }).always(() => {
-        this._isLoadingAll = false;
-      }).promise();
+      return this.customLoader.load(options);
     }
-    return dataSource.load();
+    return this._dataSource.load();
+  }
+  customLoadAll() {
+    return this.customLoader.loadAll();
+  }
+  customProcessLoadedData(data, loadOptions) {
+    return this.customLoader.processLoadedData(data, loadOptions);
   }
   /**
    * @extended: virtual_scrolling
    */
-  reload(full) {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  reload(full, changesOnly) {
     const result = full ? this._dataSource.reload() : this._dataSource.load();
     return result;
   }
@@ -78757,11 +78869,11 @@ const editingDataControllerExtender = Base => class EditingDataControllerExtende
     }
     return super.isSameRowState(item1, item2);
   }
-  getChangedColumnIndices(oldItem, newItem, visibleRowIndex, isLiveUpdate) {
+  _getChangedColumnIndices(oldItem, newItem, visibleRowIndex, isLiveUpdate) {
     if (oldItem.isNewRow !== newItem.isNewRow || oldItem.removed !== newItem.removed) {
       return undefined;
     }
-    return super.getChangedColumnIndices(oldItem, newItem, visibleRowIndex, isLiveUpdate);
+    return super._getChangedColumnIndices(oldItem, newItem, visibleRowIndex, isLiveUpdate);
   }
   _isCellChanged(oldRow, newRow, visibleRowIndex, columnIndex, isLiveUpdate) {
     var _oldRow$cells;
@@ -78831,11 +78943,11 @@ const editingFormBasedDataControllerExtender = Base => class EditingFormBasedDat
       item.rowType = 'detail';
     }
   }
-  getChangedColumnIndices(oldItem, newItem, visibleRowIndex, isLiveUpdate) {
+  _getChangedColumnIndices(oldItem, newItem, visibleRowIndex, isLiveUpdate) {
     if (isLiveUpdate === false && newItem.isEditing && this._editingController.isFormEditMode()) {
       return undefined;
     }
-    return super.getChangedColumnIndices(oldItem, newItem, visibleRowIndex, isLiveUpdate);
+    return super._getChangedColumnIndices(oldItem, newItem, visibleRowIndex, isLiveUpdate);
   }
 };
 exports.editingFormBasedDataControllerExtender = editingFormBasedDataControllerExtender;
@@ -78859,11 +78971,11 @@ const editingRowBasedDataControllerExtender = Base => class EditingRowBasedDataC
     this._editingController = this.getController('editing');
     super.init();
   }
-  getChangedColumnIndices(oldItem, newItem, visibleRowIndex, isLiveUpdate) {
+  _getChangedColumnIndices(oldItem, newItem, visibleRowIndex, isLiveUpdate) {
     if (this._editingController.isRowBasedEditMode() && oldItem.isEditing !== newItem.isEditing) {
       return undefined;
     }
-    return super.getChangedColumnIndices(oldItem, newItem, visibleRowIndex, isLiveUpdate);
+    return super._getChangedColumnIndices(oldItem, newItem, visibleRowIndex, isLiveUpdate);
   }
 };
 exports.editingRowBasedDataControllerExtender = editingRowBasedDataControllerExtender;
@@ -80860,7 +80972,6 @@ class EditingControllerImpl extends _m_modules.default.ViewController {
       }
       if (this._isButtonDisabled(button, options)) {
         $button.addClass('dx-state-disabled');
-        this.setAria('disabled', 'true', $button);
       } else if (!button.template || button.onClick) {
         _events_engine.default.on($button, (0, _index.addNamespace)('click', _const.EDITING_NAMESPACE), this.createAction(e => {
           var _button$onClick;
@@ -83159,10 +83270,10 @@ exports.getErrorMessage = getErrorMessage;
 
 /***/ },
 
-/***/ 65382
-/*!***************************************************************************************************!*\
-  !*** ./artifacts/transpiled-renovation-npm/__internal/grids/grid_core/filter/m_filter_builder.js ***!
-  \***************************************************************************************************/
+/***/ 9394
+/*!***********************************************************************************************************!*\
+  !*** ./artifacts/transpiled-renovation-npm/__internal/grids/grid_core/filter_builder/m_filter_builder.js ***!
+  \***********************************************************************************************************/
 (__unused_webpack_module, exports, __webpack_require__) {
 
 
@@ -83178,7 +83289,7 @@ var _filter_builder = _interopRequireDefault(__webpack_require__(/*! ../../../..
 var _ui = _interopRequireDefault(__webpack_require__(/*! ../../../../ui/popup/ui.popup */ 10720));
 var _scroll_view = _interopRequireDefault(__webpack_require__(/*! ../../../../ui/scroll_view */ 91374));
 var _accessibility = __webpack_require__(/*! ../../../../ui/shared/accessibility */ 16191);
-var _m_modules = _interopRequireDefault(__webpack_require__(/*! ../m_modules */ 74854));
+var _m_modules = _interopRequireDefault(__webpack_require__(/*! ../../../grids/grid_core/m_modules */ 74854));
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 class FilterBuilderView extends _m_modules.default.View {
   init() {
@@ -83315,173 +83426,10 @@ const filterBuilderModule = exports.filterBuilderModule = {
 
 /***/ },
 
-/***/ 44651
-/*!*************************************************************************************************************!*\
-  !*** ./artifacts/transpiled-renovation-npm/__internal/grids/grid_core/filter/m_filter_custom_operations.js ***!
-  \*************************************************************************************************************/
-(__unused_webpack_module, exports, __webpack_require__) {
-
-
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-exports.anyOf = anyOf;
-exports.noneOf = noneOf;
-var _message = _interopRequireDefault(__webpack_require__(/*! ../../../../common/core/localization/message */ 4671));
-var _data_source = __webpack_require__(/*! ../../../../common/data/data_source/data_source */ 68216);
-var _renderer = _interopRequireDefault(__webpack_require__(/*! ../../../../core/renderer */ 64553));
-var _deferred = __webpack_require__(/*! ../../../../core/utils/deferred */ 87739);
-var _extend = __webpack_require__(/*! ../../../../core/utils/extend */ 52576);
-var _ui = _interopRequireDefault(__webpack_require__(/*! ../../../../ui/widget/ui.errors */ 35185));
-var _m_utils = __webpack_require__(/*! ../../../filter_builder/m_utils */ 29498);
-function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
-function baseOperation(grid) {
-  const calculateFilterExpression = function (filterValue, field, fields) {
-    const result = [];
-    const lastIndex = filterValue.length - 1;
-    filterValue && filterValue.forEach((value, index) => {
-      if ((0, _m_utils.isCondition)(value) || (0, _m_utils.isGroup)(value)) {
-        const filterExpression = (0, _m_utils.getFilterExpression)(value, fields, [], 'headerFilter');
-        result.push(filterExpression);
-      } else {
-        const filterExpression = (0, _m_utils.getFilterExpression)([field.dataField, '=', value], fields, [], 'headerFilter');
-        result.push(filterExpression);
-      }
-      index !== lastIndex && result.push('or');
-    });
-    if (result.length === 1) {
-      return result[0];
-    }
-    return result;
-  };
-  const getFullText = function (itemText, parentText) {
-    return parentText ? `${parentText}/${itemText}` : itemText;
-  };
-  const getSelectedItemsTexts = function (items, parentText) {
-    let result = [];
-    items.forEach(item => {
-      if (item.items) {
-        const selectedItemsTexts = getSelectedItemsTexts(item.items, getFullText(item.text, parentText));
-        result = result.concat(selectedItemsTexts);
-      }
-      item.selected && result.push(getFullText(item.text, parentText));
-    });
-    return result;
-  };
-  const headerFilterController = grid && grid.getController('headerFilter');
-  // Override in the private API WA [T1232532]
-  const customizeText = function (fieldInfo, options) {
-    options = options || {};
-    const {
-      value
-    } = fieldInfo;
-    let column = grid.columnOption(fieldInfo.field.dataField);
-    const headerFilter = column && column.headerFilter;
-    const lookup = column && column.lookup;
-    const values = options.values || [value];
-    if (headerFilter && headerFilter.dataSource || lookup && lookup.dataSource) {
-      // @ts-expect-error
-      const result = new _deferred.Deferred();
-      // @ts-expect-error
-      const itemsDeferred = options.items || new _deferred.Deferred();
-      if (!options.items) {
-        column = (0, _extend.extend)({}, column, {
-          filterType: 'include',
-          filterValues: values
-        });
-        const dataSourceOptions = headerFilterController.getDataSource(column);
-        dataSourceOptions.paginate = false;
-        const dataSource = new _data_source.DataSource(dataSourceOptions);
-        const key = dataSource.store().key();
-        if (key) {
-          const {
-            values
-          } = options;
-          if (values && values.length > 1) {
-            const filter = values.reduce((result, value) => {
-              if (result.length) {
-                result.push('or');
-              }
-              result.push([key, '=', value]);
-              return result;
-            }, []);
-            dataSource.filter(filter);
-          } else {
-            dataSource.filter([key, '=', fieldInfo.value]);
-          }
-        } else if (fieldInfo.field.calculateDisplayValue) {
-          _ui.default.log('W1017');
-        }
-        options.items = itemsDeferred;
-        dataSource.load().done(itemsDeferred.resolve);
-      }
-      itemsDeferred.done(items => {
-        const index = values.indexOf(fieldInfo.value);
-        result.resolve(getSelectedItemsTexts(items, null)[index]);
-      });
-      return result;
-    }
-    const text = headerFilterController.getHeaderItemText(value, column, 0, grid.option('headerFilter'));
-    return text;
-  };
-  return {
-    dataTypes: ['string', 'date', 'datetime', 'number', 'boolean', 'object'],
-    calculateFilterExpression,
-    editorTemplate(conditionInfo, container) {
-      const div = (0, _renderer.default)('<div>').addClass('dx-filterbuilder-item-value-text').appendTo(container);
-      const column = (0, _extend.extend)(true, {}, grid.columnOption(conditionInfo.field.dataField));
-      (0, _m_utils.renderValueText)(div, conditionInfo.text && conditionInfo.text.split('|'));
-      const setValue = function (value) {
-        conditionInfo.setValue(value);
-      };
-      column.filterType = 'include';
-      column.filterValues = conditionInfo.value ? conditionInfo.value.slice() : [];
-      headerFilterController.showHeaderFilterMenuBase({
-        columnElement: div,
-        column,
-        apply() {
-          setValue(this.filterValues);
-          headerFilterController.hideHeaderFilterMenu();
-          conditionInfo.closeEditor();
-        },
-        onHidden() {
-          conditionInfo.closeEditor();
-        },
-        isFilterBuilder: true
-      });
-      return container;
-    },
-    customizeText
-  };
-}
-function anyOf(grid) {
-  return (0, _extend.extend)(baseOperation(grid), {
-    name: 'anyof',
-    icon: 'selectall',
-    caption: _message.default.format('dxFilterBuilder-filterOperationAnyOf')
-  });
-}
-function noneOf(grid) {
-  const baseOp = baseOperation(grid);
-  return (0, _extend.extend)({}, baseOp, {
-    calculateFilterExpression(filterValue, field, fields) {
-      const baseFilter = baseOp.calculateFilterExpression(filterValue, field, fields);
-      if (!baseFilter || baseFilter.length === 0) return null;
-      return baseFilter[0] === '!' ? baseFilter : ['!', baseFilter];
-    },
-    name: 'noneof',
-    icon: 'unselectall',
-    caption: _message.default.format('dxFilterBuilder-filterOperationNoneOf')
-  });
-}
-
-/***/ },
-
-/***/ 17887
-/*!*************************************************************************************************!*\
-  !*** ./artifacts/transpiled-renovation-npm/__internal/grids/grid_core/filter/m_filter_panel.js ***!
-  \*************************************************************************************************/
+/***/ 91400
+/*!*******************************************************************************************************!*\
+  !*** ./artifacts/transpiled-renovation-npm/__internal/grids/grid_core/filter_panel/m_filter_panel.js ***!
+  \*******************************************************************************************************/
 (__unused_webpack_module, exports, __webpack_require__) {
 
 
@@ -83498,9 +83446,9 @@ var _type = __webpack_require__(/*! ../../../../core/utils/type */ 11528);
 var _check_box = _interopRequireDefault(__webpack_require__(/*! ../../../../ui/check_box */ 94319));
 var _m_inflector = _interopRequireDefault(__webpack_require__(/*! ../../../core/utils/m_inflector */ 66122));
 var _m_utils = __webpack_require__(/*! ../../../filter_builder/m_utils */ 29498);
-var _m_accessibility = __webpack_require__(/*! ../m_accessibility */ 68491);
-var _m_modules = _interopRequireDefault(__webpack_require__(/*! ../m_modules */ 74854));
-var _m_utils2 = _interopRequireDefault(__webpack_require__(/*! ../m_utils */ 53226));
+var _m_accessibility = __webpack_require__(/*! ../../../grids/grid_core/m_accessibility */ 68491);
+var _m_modules = _interopRequireDefault(__webpack_require__(/*! ../../../grids/grid_core/m_modules */ 74854));
+var _m_utils2 = _interopRequireDefault(__webpack_require__(/*! ../../../grids/grid_core/m_utils */ 53226));
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 /* eslint-disable max-classes-per-file */
 
@@ -83748,7 +83696,7 @@ const data = Base => class FilterPanelDataControllerExtender extends Base {
   optionChanged(args) {
     switch (args.name) {
       case 'filterPanel':
-        this._applyFilter();
+        this.applyFilter();
         args.handled = true;
         break;
       default:
@@ -83777,10 +83725,10 @@ const filterPanelModule = exports.filterPanelModule = {
 
 /***/ },
 
-/***/ 62289
-/*!***********************************************************************************************!*\
-  !*** ./artifacts/transpiled-renovation-npm/__internal/grids/grid_core/filter/m_filter_row.js ***!
-  \***********************************************************************************************/
+/***/ 3240
+/*!***************************************************************************************************!*\
+  !*** ./artifacts/transpiled-renovation-npm/__internal/grids/grid_core/filter_row/m_filter_row.js ***!
+  \***************************************************************************************************/
 (__unused_webpack_module, exports, __webpack_require__) {
 
 
@@ -83801,9 +83749,9 @@ var _type = __webpack_require__(/*! ../../../../core/utils/type */ 11528);
 var _menu = _interopRequireDefault(__webpack_require__(/*! ../../../../ui/menu */ 1614));
 var _ui = _interopRequireDefault(__webpack_require__(/*! ../../../../ui/overlay/ui.overlay */ 89132));
 var _accessibility = __webpack_require__(/*! ../../../../ui/shared/accessibility */ 16191);
+var _m_modules = _interopRequireDefault(__webpack_require__(/*! ../../../grids/grid_core/m_modules */ 74854));
+var _m_utils = _interopRequireDefault(__webpack_require__(/*! ../../../grids/grid_core/m_utils */ 53226));
 var _editor = _interopRequireDefault(__webpack_require__(/*! ../../../ui/editor/editor */ 24768));
-var _m_modules = _interopRequireDefault(__webpack_require__(/*! ../m_modules */ 74854));
-var _m_utils = _interopRequireDefault(__webpack_require__(/*! ../m_utils */ 53226));
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 /* eslint-disable max-classes-per-file */
 
@@ -84487,11 +84435,11 @@ const data = Base => class DataControllerFilterRowExtender extends Base {
   skipCalculateColumnFilters() {
     return false;
   }
-  _calculateAdditionalFilter() {
+  calculateAdditionalFilter() {
     if (this.skipCalculateColumnFilters()) {
-      return super._calculateAdditionalFilter();
+      return super.calculateAdditionalFilter();
     }
-    const filters = [super._calculateAdditionalFilter()];
+    const filters = [super.calculateAdditionalFilter()];
     const columns = this._columnsController.getVisibleColumns(null, true);
     const excludedColumn = this.getFilterExcludedColumn();
     (0, _iterator.each)(columns, function () {
@@ -84694,10 +84642,28 @@ const filterRowModule = exports.filterRowModule = {
 
 /***/ },
 
-/***/ 78746
-/*!************************************************************************************************!*\
-  !*** ./artifacts/transpiled-renovation-npm/__internal/grids/grid_core/filter/m_filter_sync.js ***!
-  \************************************************************************************************/
+/***/ 17719
+/*!*********************************************************************************************!*\
+  !*** ./artifacts/transpiled-renovation-npm/__internal/grids/grid_core/filter_sync/const.js ***!
+  \*********************************************************************************************/
+(__unused_webpack_module, exports) {
+
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.FILTER_TYPES_INCLUDE = exports.FILTER_TYPES_EXCLUDE = exports.FILTER_ROW_OPERATIONS = void 0;
+const FILTER_ROW_OPERATIONS = exports.FILTER_ROW_OPERATIONS = ['=', '<>', '<', '<=', '>', '>=', 'notcontains', 'contains', 'startswith', 'endswith', 'between'];
+const FILTER_TYPES_INCLUDE = exports.FILTER_TYPES_INCLUDE = 'include';
+const FILTER_TYPES_EXCLUDE = exports.FILTER_TYPES_EXCLUDE = 'exclude';
+
+/***/ },
+
+/***/ 41001
+/*!*****************************************************************************************************************************!*\
+  !*** ./artifacts/transpiled-renovation-npm/__internal/grids/grid_core/filter_sync/extenders/filter_sync_data_controller.js ***!
+  \*****************************************************************************************************************************/
 (__unused_webpack_module, exports, __webpack_require__) {
 
 
@@ -84705,32 +84671,350 @@ const filterRowModule = exports.filterRowModule = {
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
-exports.filterSyncModule = exports.FilterSyncController = void 0;
+exports.filterSyncDataControllerExtender = void 0;
+var _deferred = __webpack_require__(/*! ../../../../../core/utils/deferred */ 87739);
+var _type = __webpack_require__(/*! ../../../../../core/utils/type */ 11528);
+var _m_utils = __webpack_require__(/*! ../../../../filter_builder/m_utils */ 29498);
+var _const = __webpack_require__(/*! ../../../../grids/grid_core/filter_sync/const */ 17719);
+var _utils = __webpack_require__(/*! ../../../../grids/grid_core/filter_sync/utils */ 99509);
+var _m_utils2 = _interopRequireDefault(__webpack_require__(/*! ../../../../grids/grid_core/m_utils */ 53226));
+function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
+const filterSyncDataControllerExtender = Base => class FilterSyncDataControllerExtender extends Base {
+  init() {
+    this.filterSyncController = this.getController('filterSync');
+    super.init();
+  }
+  optionChanged(args) {
+    switch (args.name) {
+      case 'filterValue':
+        this.applyFilter();
+        if (this.isFilterSyncActive()) {
+          this.filterSyncController.syncFilterValue();
+        }
+        args.handled = true;
+        break;
+      case 'filterSyncEnabled':
+        args.handled = true;
+        break;
+      case 'columns':
+        if (this.isFilterSyncActive()) {
+          const column = this._columnsController.getColumnByPath(args.fullName);
+          if (column && !this.filterSyncController.isSyncingColumnOptions()) {
+            this.filterSyncController.withColumnOptionsSync(() => {
+              this.syncColumnOption(column, this.parseColumnPropertyName(args.fullName), args.value, args.previousValue);
+            });
+          }
+        }
+        super.optionChanged(args);
+        break;
+      default:
+        super.optionChanged(args);
+    }
+  }
+  isFilterSyncActive() {
+    const filterSyncEnabledValue = this.option('filterSyncEnabled');
+    return filterSyncEnabledValue === 'auto' ? this.option('filterPanel.visible') : filterSyncEnabledValue;
+  }
+  skipCalculateColumnFilters() {
+    const hasFilterValueOrSyncing = (0, _type.isDefined)(this.option('filterValue')) || this.filterSyncController.isSyncingColumnOptions();
+    return hasFilterValueOrSyncing && this.isFilterSyncActive();
+  }
+  calculateAdditionalFilter() {
+    const columns = this._columnsController.getFilteringColumns();
+    const isFilterValueDisabled = this.option('filterPanel.filterEnabled') === false;
+    if (!(columns !== null && columns !== void 0 && columns.length) || isFilterValueDisabled) {
+      return super.calculateAdditionalFilter();
+    }
+    const filters = [super.calculateAdditionalFilter()];
+    let filterValue = this.option('filterValue');
+    if (this.isFilterSyncActive()) {
+      const excludedColumn = this.getFilterExcludedColumn();
+      if ((0, _type.isDefined)(excludedColumn) && filterValue) {
+        filterValue = (0, _m_utils.removeFieldConditionsFromFilter)(filterValue, (0, _utils.getColumnIdentifier)(excludedColumn));
+      }
+    }
+    const customOperations = this.filterSyncController.getCustomFilterOperations();
+    const calculatedFilterValue = (0, _m_utils.getFilterExpression)(filterValue, columns, customOperations, 'filterBuilder');
+    if (calculatedFilterValue) {
+      filters.push(calculatedFilterValue);
+    }
+    return _m_utils2.default.combineFilters(filters);
+  }
+  parseColumnPropertyName(fullName) {
+    const matched = /.*\.(.*)/.exec(fullName);
+    if (matched) {
+      return matched[1];
+    }
+    return null;
+  }
+  syncColumnOption(column, propertyName,
+  // `OptionChanged` is discriminated on `name`, and its key list cannot enumerate array
+  // indices, so `columns[N].<prop>` has no union member and falls back to the `columns`
+  // array type. `unknown` is the honest type for the leaf value.
+  value, previousValue) {
+    const hasExcludeFilterType = value === _const.FILTER_TYPES_EXCLUDE || previousValue === _const.FILTER_TYPES_EXCLUDE;
+    const isExcludeFilterTypeToggled = propertyName === 'filterType' && hasExcludeFilterType;
+    const needSyncHeaderFilter = isExcludeFilterTypeToggled || propertyName === 'filterValues';
+    const needSyncFilterRow = propertyName === 'filterValue' || propertyName === 'selectedFilterOperation';
+    if (needSyncHeaderFilter) {
+      this.filterSyncController.syncHeaderFilter(column);
+      return;
+    }
+    if (needSyncFilterRow) {
+      this.filterSyncController.syncFilterRow(column, column.filterValue);
+    }
+  }
+  clearFilter(filterName) {
+    this.component.beginUpdate();
+    if (filterName === undefined || filterName === 'filterValue') {
+      this.option('filterValue', null);
+    }
+    super.clearFilter(filterName);
+    this.component.endUpdate();
+  }
+  applyFilter() {
+    if (this.filterSyncController.isSyncingColumnOptions()) {
+      return (0, _deferred.Deferred)().resolve();
+    }
+    return super.applyFilter();
+  }
+};
+exports.filterSyncDataControllerExtender = filterSyncDataControllerExtender;
+
+/***/ },
+
+/***/ 64879
+/*!**********************************************************************************************************!*\
+  !*** ./artifacts/transpiled-renovation-npm/__internal/grids/grid_core/filter_sync/filter_sync_module.js ***!
+  \**********************************************************************************************************/
+(__unused_webpack_module, exports, __webpack_require__) {
+
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.filterSyncModule = void 0;
+var _filter_sync_data_controller = __webpack_require__(/*! ./extenders/filter_sync_data_controller */ 41001);
+var _m_filter_sync = __webpack_require__(/*! ./m_filter_sync */ 68772);
+const filterSyncModule = exports.filterSyncModule = {
+  defaultOptions() {
+    return {
+      filterValue: null,
+      filterSyncEnabled: 'auto'
+    };
+  },
+  controllers: {
+    filterSync: _m_filter_sync.FilterSyncController
+  },
+  extenders: {
+    controllers: {
+      data: _filter_sync_data_controller.filterSyncDataControllerExtender
+    },
+    views: {
+      columnHeadersView: _m_filter_sync.columnHeadersView
+    }
+  }
+};
+
+/***/ },
+
+/***/ 9705
+/*!******************************************************************************************************************!*\
+  !*** ./artifacts/transpiled-renovation-npm/__internal/grids/grid_core/filter_sync/m_filter_custom_operations.js ***!
+  \******************************************************************************************************************/
+(__unused_webpack_module, exports, __webpack_require__) {
+
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.anyOf = anyOf;
+exports.noneOf = noneOf;
+var _message = _interopRequireDefault(__webpack_require__(/*! ../../../../common/core/localization/message */ 4671));
+var _data_source = __webpack_require__(/*! ../../../../common/data/data_source/data_source */ 68216);
+var _renderer = _interopRequireDefault(__webpack_require__(/*! ../../../../core/renderer */ 64553));
 var _deferred = __webpack_require__(/*! ../../../../core/utils/deferred */ 87739);
+var _extend = __webpack_require__(/*! ../../../../core/utils/extend */ 52576);
+var _ui = _interopRequireDefault(__webpack_require__(/*! ../../../../ui/widget/ui.errors */ 35185));
+var _m_utils = __webpack_require__(/*! ../../../filter_builder/m_utils */ 29498);
+function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
+function baseOperation(grid) {
+  const calculateFilterExpression = function (filterValue, field, fields) {
+    const result = [];
+    const lastIndex = filterValue.length - 1;
+    filterValue && filterValue.forEach((value, index) => {
+      if ((0, _m_utils.isCondition)(value) || (0, _m_utils.isGroup)(value)) {
+        const filterExpression = (0, _m_utils.getFilterExpression)(value, fields, [], 'headerFilter');
+        result.push(filterExpression);
+      } else {
+        const filterExpression = (0, _m_utils.getFilterExpression)([field.dataField, '=', value], fields, [], 'headerFilter');
+        result.push(filterExpression);
+      }
+      index !== lastIndex && result.push('or');
+    });
+    if (result.length === 1) {
+      return result[0];
+    }
+    return result;
+  };
+  const getFullText = function (itemText, parentText) {
+    return parentText ? `${parentText}/${itemText}` : itemText;
+  };
+  const getSelectedItemsTexts = function (items, parentText) {
+    let result = [];
+    items.forEach(item => {
+      if (item.items) {
+        const selectedItemsTexts = getSelectedItemsTexts(item.items, getFullText(item.text, parentText));
+        result = result.concat(selectedItemsTexts);
+      }
+      item.selected && result.push(getFullText(item.text, parentText));
+    });
+    return result;
+  };
+  const headerFilterController = grid && grid.getController('headerFilter');
+  // Override in the private API WA [T1232532]
+  const customizeText = function (fieldInfo, options) {
+    options = options || {};
+    const {
+      value
+    } = fieldInfo;
+    let column = grid.columnOption(fieldInfo.field.dataField);
+    const headerFilter = column && column.headerFilter;
+    const lookup = column && column.lookup;
+    const values = options.values || [value];
+    if (headerFilter && headerFilter.dataSource || lookup && lookup.dataSource) {
+      // @ts-expect-error
+      const result = new _deferred.Deferred();
+      // @ts-expect-error
+      const itemsDeferred = options.items || new _deferred.Deferred();
+      if (!options.items) {
+        column = (0, _extend.extend)({}, column, {
+          filterType: 'include',
+          filterValues: values
+        });
+        const dataSourceOptions = headerFilterController.getDataSource(column);
+        dataSourceOptions.paginate = false;
+        const dataSource = new _data_source.DataSource(dataSourceOptions);
+        const key = dataSource.store().key();
+        if (key) {
+          const {
+            values
+          } = options;
+          if (values && values.length > 1) {
+            const filter = values.reduce((result, value) => {
+              if (result.length) {
+                result.push('or');
+              }
+              result.push([key, '=', value]);
+              return result;
+            }, []);
+            dataSource.filter(filter);
+          } else {
+            dataSource.filter([key, '=', fieldInfo.value]);
+          }
+        } else if (fieldInfo.field.calculateDisplayValue) {
+          _ui.default.log('W1017');
+        }
+        options.items = itemsDeferred;
+        dataSource.load().done(itemsDeferred.resolve);
+      }
+      itemsDeferred.done(items => {
+        const index = values.indexOf(fieldInfo.value);
+        result.resolve(getSelectedItemsTexts(items, null)[index]);
+      });
+      return result;
+    }
+    const text = headerFilterController.getHeaderItemText(value, column, 0, grid.option('headerFilter'));
+    return text;
+  };
+  return {
+    dataTypes: ['string', 'date', 'datetime', 'number', 'boolean', 'object'],
+    calculateFilterExpression,
+    editorTemplate(conditionInfo, container) {
+      const div = (0, _renderer.default)('<div>').addClass('dx-filterbuilder-item-value-text').appendTo(container);
+      const column = (0, _extend.extend)(true, {}, grid.columnOption(conditionInfo.field.dataField));
+      (0, _m_utils.renderValueText)(div, conditionInfo.text && conditionInfo.text.split('|'));
+      const setValue = function (value) {
+        conditionInfo.setValue(value);
+      };
+      column.filterType = 'include';
+      column.filterValues = conditionInfo.value ? conditionInfo.value.slice() : [];
+      headerFilterController.showHeaderFilterMenuBase({
+        columnElement: div,
+        column,
+        apply() {
+          setValue(this.filterValues);
+          headerFilterController.hideHeaderFilterMenu();
+          conditionInfo.closeEditor();
+        },
+        onHidden() {
+          conditionInfo.closeEditor();
+        },
+        isFilterBuilder: true
+      });
+      return container;
+    },
+    customizeText
+  };
+}
+function anyOf(grid) {
+  return (0, _extend.extend)(baseOperation(grid), {
+    name: 'anyof',
+    icon: 'selectall',
+    caption: _message.default.format('dxFilterBuilder-filterOperationAnyOf')
+  });
+}
+function noneOf(grid) {
+  const baseOp = baseOperation(grid);
+  return (0, _extend.extend)({}, baseOp, {
+    calculateFilterExpression(filterValue, field, fields) {
+      const baseFilter = baseOp.calculateFilterExpression(filterValue, field, fields);
+      if (!baseFilter || baseFilter.length === 0) return null;
+      return baseFilter[0] === '!' ? baseFilter : ['!', baseFilter];
+    },
+    name: 'noneof',
+    icon: 'unselectall',
+    caption: _message.default.format('dxFilterBuilder-filterOperationNoneOf')
+  });
+}
+
+/***/ },
+
+/***/ 68772
+/*!*****************************************************************************************************!*\
+  !*** ./artifacts/transpiled-renovation-npm/__internal/grids/grid_core/filter_sync/m_filter_sync.js ***!
+  \*****************************************************************************************************/
+(__unused_webpack_module, exports, __webpack_require__) {
+
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.columnHeadersView = exports.FilterSyncController = void 0;
 var _type = __webpack_require__(/*! ../../../../core/utils/type */ 11528);
 var _filtering = _interopRequireDefault(__webpack_require__(/*! ../../../../ui/shared/filtering */ 56417));
 var _ui = _interopRequireDefault(__webpack_require__(/*! ../../../../ui/widget/ui.errors */ 35185));
 var _m_utils = __webpack_require__(/*! ../../../filter_builder/m_utils */ 29498);
-var _m_modules = _interopRequireDefault(__webpack_require__(/*! ../m_modules */ 74854));
-var _m_utils2 = _interopRequireDefault(__webpack_require__(/*! ../m_utils */ 53226));
-var _m_filter_custom_operations = __webpack_require__(/*! ./m_filter_custom_operations */ 44651);
+var _const = __webpack_require__(/*! ../../../grids/grid_core/filter_sync/const */ 17719);
+var _utils = __webpack_require__(/*! ../../../grids/grid_core/filter_sync/utils */ 99509);
+var _m_modules = _interopRequireDefault(__webpack_require__(/*! ../../../grids/grid_core/m_modules */ 74854));
+var _m_filter_custom_operations = __webpack_require__(/*! ./m_filter_custom_operations */ 9705);
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
-const FILTER_ROW_OPERATIONS = ['=', '<>', '<', '<=', '>', '>=', 'notcontains', 'contains', 'startswith', 'endswith', 'between'];
-const FILTER_TYPES_INCLUDE = 'include';
-const FILTER_TYPES_EXCLUDE = 'exclude';
-function getColumnIdentifier(column) {
-  return column.name || column.dataField;
-}
+/* eslint-disable max-classes-per-file */
+
 function checkForErrors(columns) {
   columns.forEach(column => {
-    const identifier = getColumnIdentifier(column);
+    const identifier = (0, _utils.getColumnIdentifier)(column);
     // @ts-expect-error
     if (!(0, _type.isDefined)(identifier) && column.allowFiltering) throw new _ui.default.Error('E1049', column.caption);
   });
 }
 const getEmptyFilterValues = function () {
   return {
-    filterType: FILTER_TYPES_INCLUDE,
+    filterType: _const.FILTER_TYPES_INCLUDE,
     filterValues: undefined
   };
 };
@@ -84754,11 +85038,11 @@ const getHeaderFilterFromCondition = function (headerFilterCondition, column) {
   switch (selectedFilterOperation) {
     case 'anyof':
     case '=':
-      filterType = FILTER_TYPES_INCLUDE;
+      filterType = _const.FILTER_TYPES_INCLUDE;
       break;
     case 'noneof':
     case '<>':
-      filterType = FILTER_TYPES_EXCLUDE;
+      filterType = _const.FILTER_TYPES_EXCLUDE;
       break;
     default:
       return getEmptyFilterValues();
@@ -84772,7 +85056,7 @@ const getConditionFromFilterRow = function (column) {
   const value = column.filterValue;
   if ((0, _type.isDefined)(value)) {
     const operation = column.selectedFilterOperation || column.defaultFilterOperation || (0, _m_utils.getDefaultOperation)(column);
-    const filter = [getColumnIdentifier(column), operation, column.filterValue];
+    const filter = [(0, _utils.getColumnIdentifier)(column), operation, column.filterValue];
     return filter;
   }
   return null;
@@ -84785,18 +85069,18 @@ const getConditionFromHeaderFilter = function (column) {
   } = column;
   if (!filterValues) return null;
   if (filterValues.length === 1 && canSyncHeaderFilterWithFilterRow(column) && !Array.isArray(filterValues[0])) {
-    selectedOperation = column.filterType === FILTER_TYPES_EXCLUDE ? '<>' : '=';
+    selectedOperation = column.filterType === _const.FILTER_TYPES_EXCLUDE ? '<>' : '=';
     // eslint-disable-next-line prefer-destructuring
     value = filterValues[0];
   } else {
-    selectedOperation = column.filterType === FILTER_TYPES_EXCLUDE ? 'noneof' : 'anyof';
+    selectedOperation = column.filterType === _const.FILTER_TYPES_EXCLUDE ? 'noneof' : 'anyof';
     value = filterValues;
   }
-  return [getColumnIdentifier(column), selectedOperation, value];
+  return [(0, _utils.getColumnIdentifier)(column), selectedOperation, value];
 };
 const updateHeaderFilterCondition = function (columnsController, column, headerFilterCondition) {
   const headerFilter = getHeaderFilterFromCondition(headerFilterCondition, column);
-  columnsController.columnOption(getColumnIdentifier(column), headerFilter);
+  columnsController.columnOption((0, _utils.getColumnIdentifier)(column), headerFilter);
 };
 const updateFilterRowCondition = function (columnsController, column, condition) {
   let filterRowOptions;
@@ -84805,7 +85089,7 @@ const updateFilterRowCondition = function (columnsController, column, condition)
   const filterOperations = column.filterOperations || column.defaultFilterOperations;
   const selectedOperationExists = !filterOperations || filterOperations.includes(selectedFilterOperation);
   const defaultOperationSelected = selectedFilterOperation === column.defaultFilterOperation;
-  const builtInOperationSelected = FILTER_ROW_OPERATIONS.includes(selectedFilterOperation);
+  const builtInOperationSelected = _const.FILTER_ROW_OPERATIONS.includes(selectedFilterOperation);
   const filterValueNotNullOrEmpty = filterValue !== null && filterValue !== '';
   if ((selectedOperationExists || defaultOperationSelected) && builtInOperationSelected && filterValueNotNullOrEmpty) {
     if (defaultOperationSelected && !(0, _type.isDefined)(column.selectedFilterOperation)) {
@@ -84825,9 +85109,13 @@ const updateFilterRowCondition = function (columnsController, column, condition)
       bufferedSelectedFilterOperation: undefined
     };
   }
-  columnsController.columnOption(getColumnIdentifier(column), filterRowOptions);
+  columnsController.columnOption((0, _utils.getColumnIdentifier)(column), filterRowOptions);
 };
 class FilterSyncController extends _m_modules.default.Controller {
+  constructor() {
+    super(...arguments);
+    this.skipSyncColumnOptions = false;
+  }
   init() {
     this._dataController = this.getController('data');
     this._columnsController = this.getController('columns');
@@ -84843,21 +85131,32 @@ class FilterSyncController extends _m_modules.default.Controller {
   publicMethods() {
     return ['getCustomFilterOperations'];
   }
+  isSyncingColumnOptions() {
+    return this.skipSyncColumnOptions;
+  }
+  withColumnOptionsSync(sync) {
+    this.skipSyncColumnOptions = true;
+    try {
+      return sync();
+    } finally {
+      this.skipSyncColumnOptions = false;
+    }
+  }
   syncFilterValue() {
     const columns = this._columnsController.getFilteringColumns();
-    this._skipSyncColumnOptions = true;
-    columns.forEach(column => {
-      const filterConditions = (0, _m_utils.getMatchedConditions)(this.option('filterValue'), getColumnIdentifier(column));
-      if (filterConditions.length === 1) {
-        const filterCondition = filterConditions[0];
-        updateHeaderFilterCondition(this._columnsController, column, filterCondition);
-        updateFilterRowCondition(this._columnsController, column, filterCondition);
-      } else {
-        (0, _type.isDefined)(column.filterValues) && updateHeaderFilterCondition(this._columnsController, column, null);
-        (0, _type.isDefined)(column.filterValue) && updateFilterRowCondition(this._columnsController, column, null);
-      }
+    this.withColumnOptionsSync(() => {
+      columns.forEach(column => {
+        const filterConditions = (0, _m_utils.getMatchedConditions)(this.option('filterValue'), (0, _utils.getColumnIdentifier)(column));
+        if (filterConditions.length === 1) {
+          const filterCondition = filterConditions[0];
+          updateHeaderFilterCondition(this._columnsController, column, filterCondition);
+          updateFilterRowCondition(this._columnsController, column, filterCondition);
+        } else {
+          (0, _type.isDefined)(column.filterValues) && updateHeaderFilterCondition(this._columnsController, column, null);
+          (0, _type.isDefined)(column.filterValue) && updateFilterRowCondition(this._columnsController, column, null);
+        }
+      });
     });
-    this._skipSyncColumnOptions = false;
   }
   _initSync() {
     const columns = this._columnsController.getColumns();
@@ -84876,14 +85175,14 @@ class FilterSyncController extends _m_modules.default.Controller {
     if ((0, _type.isDefined)(filter)) {
       return (0, _m_utils.syncFilters)(filterValue, filter);
     }
-    return (0, _m_utils.removeFieldConditionsFromFilter)(filterValue, getColumnIdentifier(column));
+    return (0, _m_utils.removeFieldConditionsFromFilter)(filterValue, (0, _utils.getColumnIdentifier)(column));
   }
   _getSyncHeaderFilter(filterValue, column) {
     const filter = getConditionFromHeaderFilter(column);
     if (filter) {
       return (0, _m_utils.syncFilters)(filterValue, filter);
     }
-    return (0, _m_utils.removeFieldConditionsFromFilter)(filterValue, getColumnIdentifier(column));
+    return (0, _m_utils.removeFieldConditionsFromFilter)(filterValue, (0, _utils.getColumnIdentifier)(column));
   }
   getFilterValueFromColumns(columns) {
     // @ts-expect-error
@@ -84913,96 +85212,6 @@ class FilterSyncController extends _m_modules.default.Controller {
   }
 }
 exports.FilterSyncController = FilterSyncController;
-const data = Base => class DataControllerFilterSyncExtender extends Base {
-  optionChanged(args) {
-    switch (args.name) {
-      case 'filterValue':
-        this._applyFilter();
-        this.isFilterSyncActive() && this._filterSyncController.syncFilterValue();
-        args.handled = true;
-        break;
-      case 'filterSyncEnabled':
-        args.handled = true;
-        break;
-      case 'columns':
-        if (this.isFilterSyncActive()) {
-          const column = this._columnsController.getColumnByPath(args.fullName);
-          if (column && !this._filterSyncController._skipSyncColumnOptions) {
-            const propertyName = this._parseColumnPropertyName(args.fullName);
-            this._filterSyncController._skipSyncColumnOptions = true;
-            if (propertyName === 'filterType') {
-              if (FILTER_TYPES_EXCLUDE === args.value || FILTER_TYPES_EXCLUDE === args.previousValue) {
-                this._filterSyncController.syncHeaderFilter(column);
-              }
-            } else if (propertyName === 'filterValues') {
-              this._filterSyncController.syncHeaderFilter(column);
-            } else if (['filterValue', 'selectedFilterOperation'].includes(propertyName)) {
-              this._filterSyncController.syncFilterRow(column, column.filterValue);
-            }
-            this._filterSyncController._skipSyncColumnOptions = false;
-          }
-        }
-        super.optionChanged(args);
-        break;
-      default:
-        super.optionChanged(args);
-    }
-  }
-  isFilterSyncActive() {
-    const filterSyncEnabledValue = this.option('filterSyncEnabled');
-    return filterSyncEnabledValue === 'auto' ? this.option('filterPanel.visible') : filterSyncEnabledValue;
-  }
-  skipCalculateColumnFilters() {
-    return ((0, _type.isDefined)(this.option('filterValue')) || this._filterSyncController._skipSyncColumnOptions) && this.isFilterSyncActive();
-  }
-  _calculateAdditionalFilter() {
-    const columns = this._columnsController.getFilteringColumns();
-    if (!(columns !== null && columns !== void 0 && columns.length) || this.option('filterPanel.filterEnabled') === false) {
-      return super._calculateAdditionalFilter();
-    }
-    const filters = [super._calculateAdditionalFilter()];
-    let filterValue = this.option('filterValue');
-    if (this.isFilterSyncActive()) {
-      const excludedColumn = this.getFilterExcludedColumn();
-      const needRemoveCurrentColumnFilter = (0, _type.isDefined)(excludedColumn);
-      if (needRemoveCurrentColumnFilter && filterValue) {
-        filterValue = (0, _m_utils.removeFieldConditionsFromFilter)(filterValue, getColumnIdentifier(excludedColumn));
-      }
-    }
-    const customOperations = this._filterSyncController.getCustomFilterOperations();
-    const calculatedFilterValue = (0, _m_utils.getFilterExpression)(filterValue, columns, customOperations, 'filterBuilder');
-    if (calculatedFilterValue) {
-      filters.push(calculatedFilterValue);
-    }
-    return _m_utils2.default.combineFilters(filters);
-  }
-  _parseColumnPropertyName(fullName) {
-    const matched = fullName.match(/.*\.(.*)/);
-    if (matched) {
-      return matched[1];
-    }
-    return null;
-  }
-  clearFilter(filterName) {
-    this.component.beginUpdate();
-    if (arguments.length > 0) {
-      if (filterName === 'filterValue') {
-        this.option('filterValue', null);
-      }
-      super.clearFilter(filterName);
-    } else {
-      this.option('filterValue', null);
-      super.clearFilter();
-    }
-    this.component.endUpdate();
-  }
-  _applyFilter() {
-    if (this._filterSyncController._skipSyncColumnOptions) {
-      return (0, _deferred.Deferred)().resolve();
-    }
-    return super._applyFilter();
-  }
-};
 const columnHeadersView = Base => class ColumnHeadersViewFilterSyncExtender extends Base {
   optionChanged(args) {
     if (args.name === 'filterValue') {
@@ -85015,7 +85224,7 @@ const columnHeadersView = Base => class ColumnHeadersViewFilterSyncExtender exte
   _isHeaderFilterEmpty(column) {
     // @ts-expect-error
     if (this._dataController.isFilterSyncActive()) {
-      return !(0, _m_utils.filterHasField)(this.option('filterValue'), getColumnIdentifier(column));
+      return !(0, _m_utils.filterHasField)(this.option('filterValue'), (0, _utils.getColumnIdentifier)(column));
     }
     // @ts-expect-error
     return super._isHeaderFilterEmpty(column);
@@ -85025,25 +85234,26 @@ const columnHeadersView = Base => class ColumnHeadersViewFilterSyncExtender exte
     return !this._dataController.isFilterSyncActive();
   }
 };
-const filterSyncModule = exports.filterSyncModule = {
-  defaultOptions() {
-    return {
-      filterValue: null,
-      filterSyncEnabled: 'auto'
-    };
-  },
-  controllers: {
-    filterSync: FilterSyncController
-  },
-  extenders: {
-    controllers: {
-      data
-    },
-    views: {
-      columnHeadersView
-    }
-  }
-};
+exports.columnHeadersView = columnHeadersView;
+
+/***/ },
+
+/***/ 99509
+/*!*********************************************************************************************!*\
+  !*** ./artifacts/transpiled-renovation-npm/__internal/grids/grid_core/filter_sync/utils.js ***!
+  \*********************************************************************************************/
+(__unused_webpack_module, exports) {
+
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.getColumnIdentifier = getColumnIdentifier;
+function getColumnIdentifier(column) {
+  // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
+  return column.name || column.dataField;
+}
 
 /***/ },
 
@@ -85509,7 +85719,7 @@ const columns = Base => class FocusColumnsExtender extends Base {
         result = result || [];
         if (isLocalOperations) {
           result.push({
-            selector: dataSource.getDataIndexGetter(),
+            selector: dataSource === null || dataSource === void 0 ? void 0 : dataSource.getDataIndexGetter(),
             desc: false
           });
         } else {
@@ -86460,12 +86670,12 @@ const data = Base => class DataControllerFilterRowExtender extends Base {
   skipCalculateColumnFilters() {
     return false;
   }
-  _calculateAdditionalFilter() {
+  calculateAdditionalFilter() {
     if (this.skipCalculateColumnFilters()) {
-      return super._calculateAdditionalFilter();
+      return super.calculateAdditionalFilter();
     }
     const that = this;
-    const filters = [super._calculateAdditionalFilter()];
+    const filters = [super.calculateAdditionalFilter()];
     const columns = that._columnsController.getVisibleColumns(null, true);
     const excludedColumn = this.getFilterExcludedColumn();
     (0, _iterator.each)(columns, (_, column) => {
@@ -91588,6 +91798,7 @@ var _default = exports["default"] = {
           selector: dataField,
           groupInterval: interval,
           isExpanded: index < groupInterval.length - 1
+          // @ts-ignore
         } : getIntervalSelector.bind(column, interval));
       });
       return result;
@@ -92997,7 +93208,7 @@ const dataController = base => class SearchDataControllerExtender extends base {
     switch (args.fullName) {
       case 'searchPanel.text':
       case 'searchPanel':
-        this._applyFilter();
+        this.applyFilter();
         args.handled = true;
         break;
       default:
@@ -93007,11 +93218,11 @@ const dataController = base => class SearchDataControllerExtender extends base {
   publicMethods() {
     return super.publicMethods().concat(['searchByText']);
   }
-  _calculateAdditionalFilter() {
+  calculateAdditionalFilter() {
     var _dataSource$loadOptio;
     const dataSource = this.getDataSource();
     const langParams = dataSource === null || dataSource === void 0 || (_dataSource$loadOptio = dataSource.loadOptions) === null || _dataSource$loadOptio === void 0 || (_dataSource$loadOptio = _dataSource$loadOptio.call(dataSource)) === null || _dataSource$loadOptio === void 0 ? void 0 : _dataSource$loadOptio.langParams;
-    const filter = super._calculateAdditionalFilter();
+    const filter = super.calculateAdditionalFilter();
     const searchFilter = this.calculateSearchFilter(this.option('searchPanel.text'), langParams);
     return _m_utils.default.combineFilters([filter, searchFilter]);
   }
@@ -102236,6 +102447,7 @@ const virtualScrollingDataControllerExtender = Base => class VirtualScrollingDat
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   reload(reload, changesOnly) {
     const rowsScrollController = this._rowsScrollController || this._dataSource;
+    // @ts-expect-error badly typed DataSourceAdapter
     const itemIndex = rowsScrollController === null || rowsScrollController === void 0 ? void 0 : rowsScrollController.getItemIndexByPosition();
     const result = super.reload.apply(this, arguments);
     return result === null || result === void 0 ? void 0 : result.done(() => {
@@ -102615,39 +102827,39 @@ const virtualScrollingDataControllerExtender = Base => class VirtualScrollingDat
     const lastVisibleItem = change.changeType === 'append' && this._items.length > 0 ? this._items.at(-1) : null;
     return (0, _type.isDefined)(lastVisibleItem === null || lastVisibleItem === void 0 ? void 0 : lastVisibleItem.dataIndex) ? lastVisibleItem.dataIndex + 1 : 0;
   }
-  viewportSize() {
+  viewportSize(size) {
     const rowsScrollController = this._rowsScrollController;
     const dataSource = this._dataSource;
     // @ts-expect-error
-    const result = rowsScrollController === null || rowsScrollController === void 0 ? void 0 : rowsScrollController.viewportSize.apply(rowsScrollController, arguments);
+    const result = rowsScrollController === null || rowsScrollController === void 0 ? void 0 : rowsScrollController.viewportSize(size);
     if (this.option(_const.LEGACY_SCROLLING_MODE) === false) {
       return result;
     }
-    return dataSource === null || dataSource === void 0 ? void 0 : dataSource.viewportSize.apply(dataSource, arguments);
+    return dataSource === null || dataSource === void 0 ? void 0 : dataSource.viewportSize(size);
   }
   viewportHeight(height, scrollTop) {
     var _this$_rowsScrollCont;
     (_this$_rowsScrollCont = this._rowsScrollController) === null || _this$_rowsScrollCont === void 0 || _this$_rowsScrollCont.viewportHeight(height, scrollTop);
   }
-  viewportItemSize() {
+  viewportItemSize(size) {
     const rowsScrollController = this._rowsScrollController;
     const dataSource = this._dataSource;
     // @ts-expect-error
-    const result = rowsScrollController === null || rowsScrollController === void 0 ? void 0 : rowsScrollController.viewportItemSize.apply(rowsScrollController, arguments);
+    const result = rowsScrollController === null || rowsScrollController === void 0 ? void 0 : rowsScrollController.viewportItemSize(size);
     if (this.option(_const.LEGACY_SCROLLING_MODE) === false) {
       return result;
     }
-    return dataSource === null || dataSource === void 0 ? void 0 : dataSource.viewportItemSize.apply(dataSource, arguments);
+    return dataSource === null || dataSource === void 0 ? void 0 : dataSource.viewportItemSize(size);
   }
-  setViewportPosition() {
+  setViewportPosition(position) {
     const rowsScrollController = this._rowsScrollController;
     const dataSource = this._dataSource;
     this._isPaging = false;
     if (rowsScrollController) {
       // @ts-expect-error
-      rowsScrollController.setViewportPosition.apply(rowsScrollController, arguments);
+      rowsScrollController.setViewportPosition(position);
     } else {
-      dataSource === null || dataSource === void 0 || dataSource.setViewportPosition.apply(dataSource, arguments);
+      dataSource === null || dataSource === void 0 || dataSource.setViewportPosition(position);
     }
   }
   setContentItemSizes(sizes) {
@@ -102865,28 +103077,28 @@ const virtualScrollingDataControllerExtender = Base => class VirtualScrollingDat
     const rowsScrollController = this._rowsScrollController;
     if (rowsScrollController) {
       // @ts-expect-error
-      return rowsScrollController.getItemSize.apply(rowsScrollController, arguments);
+      return rowsScrollController.getItemSize();
     }
     const dataSource = this._dataSource;
-    return dataSource === null || dataSource === void 0 ? void 0 : dataSource.getItemSize.apply(dataSource, arguments);
+    return dataSource === null || dataSource === void 0 ? void 0 : dataSource.getItemSize();
   }
   getItemSizes() {
     const rowsScrollController = this._rowsScrollController;
     if (rowsScrollController) {
       // @ts-expect-error
-      return rowsScrollController.getItemSizes.apply(rowsScrollController, arguments);
+      return rowsScrollController.getItemSizes();
     }
     const dataSource = this._dataSource;
-    return dataSource === null || dataSource === void 0 ? void 0 : dataSource.getItemSizes.apply(dataSource, arguments);
+    return dataSource === null || dataSource === void 0 ? void 0 : dataSource.getItemSizes();
   }
-  getContentOffset() {
+  getContentOffset(type) {
     const rowsScrollController = this._rowsScrollController;
     if (rowsScrollController) {
       // @ts-expect-error
-      return rowsScrollController.getContentOffset.apply(rowsScrollController, arguments);
+      return rowsScrollController.getContentOffset(type);
     }
     const dataSource = this._dataSource;
-    return dataSource === null || dataSource === void 0 ? void 0 : dataSource.getContentOffset.apply(dataSource, arguments);
+    return dataSource === null || dataSource === void 0 ? void 0 : dataSource.getContentOffset(type);
   }
   refresh(options) {
     const dataSource = this._dataSource;
@@ -102965,10 +103177,10 @@ const virtualScrollingDataControllerExtender = Base => class VirtualScrollingDat
     this._allItems = null;
     super.reset.apply(this, arguments);
   }
-  _applyFilter() {
+  applyFilter() {
     var _this$_dataSource0;
     (_this$_dataSource0 = this._dataSource) === null || _this$_dataSource0 === void 0 || _this$_dataSource0.loadPageCount(1);
-    return super._applyFilter();
+    return super.applyFilter();
   }
   getVirtualContentSize() {
     var _this$_dataSource1;
@@ -103165,7 +103377,7 @@ const dataSourceAdapterExtender = Base => class VirtualScrollingCoreDataSourceAd
       super.loadingChangedHandler(isLoading);
       return;
     }
-    if (!(0, _scrolling_mode.isVirtualMode)(this) || this._isLoadingAll) {
+    if (!(0, _scrolling_mode.isVirtualMode)(this) || this.isCustomLoadingAll()) {
       this._isLoading = isLoading;
       super.loadingChangedHandler(isLoading);
     }
@@ -103327,16 +103539,19 @@ const dataSourceAdapterExtender = Base => class VirtualScrollingCoreDataSourceAd
   virtualItemsCount() {
     return proxyDataSourceAdapterMethod(this, 'virtualItemsCount', [...arguments]);
   }
-  getContentOffset() {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  getContentOffset(type) {
     return proxyDataSourceAdapterMethod(this, 'getContentOffset', [...arguments]);
   }
   getVirtualContentSize() {
     return proxyDataSourceAdapterMethod(this, 'getVirtualContentSize', [...arguments]);
   }
-  setContentItemSizes() {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  setContentItemSizes(sizes) {
     return proxyDataSourceAdapterMethod(this, 'setContentItemSizes', [...arguments]);
   }
-  setViewportPosition() {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  setViewportPosition(position) {
     return proxyDataSourceAdapterMethod(this, 'setViewportPosition', [...arguments]);
   }
   getViewportItemIndex() {
@@ -103349,10 +103564,12 @@ const dataSourceAdapterExtender = Base => class VirtualScrollingCoreDataSourceAd
   getItemIndexByPosition() {
     return proxyDataSourceAdapterMethod(this, 'getItemIndexByPosition', [...arguments]);
   }
-  viewportSize() {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  viewportSize(size) {
     return proxyDataSourceAdapterMethod(this, 'viewportSize', [...arguments]);
   }
-  viewportItemSize() {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  viewportItemSize(size) {
     return proxyDataSourceAdapterMethod(this, 'viewportItemSize', [...arguments]);
   }
   getItemSize() {
@@ -103486,7 +103703,7 @@ const rowsView = Base => class VirtualScrollingRowsViewExtender extends Base {
     super.renderDelayedTemplates.apply(this, arguments);
   }
   _renderCore(e) {
-    const startRenderTime = new Date();
+    const startRenderTime = Date.now();
     const deferred = super._renderCore.apply(this, arguments);
     const dataSource = this._dataController._dataSource;
     if (dataSource && e) {
@@ -103495,9 +103712,11 @@ const rowsView = Base => class VirtualScrollingRowsViewExtender extends Base {
       // @ts-expect-error
       .viewportSize() || 20;
       if (_m_utils.default.isVirtualRowRendering(this) && itemCount > 0 && this.option(_const.LEGACY_SCROLLING_MODE) !== false) {
-        dataSource._renderTime = (new Date() - startRenderTime) * viewportSize / itemCount;
+        // @ts-expect-error badly typed DataSourceAdapter
+        dataSource._renderTime = (Date.now() - startRenderTime) * viewportSize / itemCount;
       } else {
-        dataSource._renderTime = new Date() - startRenderTime;
+        // @ts-expect-error badly typed DataSourceAdapter
+        dataSource._renderTime = Date.now() - startRenderTime;
       }
     }
     return deferred;
@@ -110615,8 +110834,8 @@ Object.defineProperty(exports, "__esModule", ({
 }));
 exports.FilterPanelView = void 0;
 var _index = __webpack_require__(/*! ../../../../../core/state_manager/index */ 74636);
-var _m_filter_builder = __webpack_require__(/*! ../../../../../grids/grid_core/filter/m_filter_builder */ 65382);
-var _m_filter_panel = __webpack_require__(/*! ../../../../../grids/grid_core/filter/m_filter_panel */ 17887);
+var _m_filter_builder = __webpack_require__(/*! ../../../../../grids/grid_core/filter_builder/m_filter_builder */ 9394);
+var _m_filter_panel = __webpack_require__(/*! ../../../../../grids/grid_core/filter_panel/m_filter_panel */ 91400);
 var _view = __webpack_require__(/*! ../../core/view */ 3455);
 var _widget_mock = __webpack_require__(/*! ../../widget_mock */ 87354);
 var _filter_controller = __webpack_require__(/*! ../filter_controller */ 24628);
@@ -112757,20 +112976,18 @@ exports.getColumnLayoutKey = getColumnLayoutKey;
 /*!*********************************************************************************************************!*\
   !*** ./artifacts/transpiled-renovation-npm/__internal/grids/new/grid_core/keyboard_navigation/const.js ***!
   \*********************************************************************************************************/
-(__unused_webpack_module, exports, __webpack_require__) {
+(__unused_webpack_module, exports) {
 
 
 
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
-Object.defineProperty(exports, "ALL_FOCUSABLE_ELEMENTS_SELECTOR", ({
-  enumerable: true,
-  get: function () {
-    return _m_selectors.ALL_FOCUSABLE_ELEMENTS_SELECTOR;
-  }
-}));
-var _m_selectors = __webpack_require__(/*! ../../../../core/utils/m_selectors */ 62238);
+exports.ALL_FOCUSABLE_ELEMENTS_SELECTOR = void 0;
+const notInert = ':not([inert]):not([inert] *)';
+const notNegTabIndex = ':not([tabindex^="-"])';
+const notDisabled = ':not(:disabled)';
+const ALL_FOCUSABLE_ELEMENTS_SELECTOR = exports.ALL_FOCUSABLE_ELEMENTS_SELECTOR = [`a[href]${notInert}${notNegTabIndex}`, `area[href]${notInert}${notNegTabIndex}`, `input:not([type="hidden"]):not([type="radio"])${notInert}${notNegTabIndex}${notDisabled}`, `input[type="radio"]${notInert}${notNegTabIndex}${notDisabled}`, `select${notInert}${notNegTabIndex}${notDisabled}`, `textarea${notInert}${notNegTabIndex}${notDisabled}`, `button${notInert}${notNegTabIndex}${notDisabled}`, `details${notInert} > summary:first-of-type${notNegTabIndex}`, `iframe${notInert}${notNegTabIndex}`, `audio[controls]${notInert}${notNegTabIndex}`, `video[controls]${notInert}${notNegTabIndex}`, `[contenteditable]${notInert}${notNegTabIndex}`, `[tabindex]${notInert}${notNegTabIndex}`].join(',');
 
 /***/ },
 
@@ -116448,7 +116665,8 @@ class AreaItem {
             div.setAttribute('aria-label', encodeHtml ? ariaLabel : (0, _renderer.default)('<div>').html(ariaLabel).text());
             div.setAttribute('aria-expanded', String(cell.expanded));
             div.setAttribute('tabindex', isCellNavigationEnabled ? '-1' : '0');
-            span.setAttribute('aria-hidden', 'true');
+            // With cell navigation the cell itself is the focus target, so it
+            // must expose the expanded state to assistive technologies.
             if (isCellNavigationEnabled) {
               td.setAttribute('aria-expanded', String(cell.expanded));
             }
@@ -119839,59 +120057,6 @@ var _default = exports["default"] = {
 
 /***/ },
 
-/***/ 43163
-/*!***********************************************************************************************!*\
-  !*** ./artifacts/transpiled-renovation-npm/__internal/grids/pivot_grid/field_chooser/a11y.js ***!
-  \***********************************************************************************************/
-(__unused_webpack_module, exports, __webpack_require__) {
-
-
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-exports.getFieldsHotkeysA11yLabel = exports.getFieldsHotkeysA11yDescription = exports.getFieldItemA11yLabel = void 0;
-var _message = _interopRequireDefault(__webpack_require__(/*! ../../../../common/core/localization/message */ 4671));
-var _const = __webpack_require__(/*! ./const */ 73944);
-function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
-const I18N_KEYS = {
-  fieldLabel: 'dxPivotGrid-ariaFieldLabel',
-  hasHeaderFilter: 'dxPivotGrid-ariaFieldHeaderFilterLabel',
-  sortingAsc: 'dxPivotGrid-ariaFieldSortAscLabel',
-  sortingDesc: 'dxPivotGrid-ariaFieldSortDescLabel',
-  description: 'dxPivotGrid-ariaDescription'
-};
-const I18N_MESSAGE_SEPARATOR = ', ';
-const getSortingLabel = sortOrder => {
-  switch (sortOrder) {
-    case _const.SORT_ORDER.ascending:
-      return _message.default.format(I18N_KEYS.sortingAsc);
-    case _const.SORT_ORDER.descending:
-      return _message.default.format(I18N_KEYS.sortingDesc);
-    default:
-      return null;
-  }
-};
-const getFieldsHotkeysA11yDescription = () => _message.default.format(I18N_KEYS.description);
-exports.getFieldsHotkeysA11yDescription = getFieldsHotkeysA11yDescription;
-const getFieldsHotkeysA11yLabel = baseLabel => {
-  const description = getFieldsHotkeysA11yDescription();
-  return baseLabel ? `${baseLabel}. ${description}` : description;
-};
-exports.getFieldsHotkeysA11yLabel = getFieldsHotkeysA11yLabel;
-const getFieldItemA11yLabel = (caption, _ref) => {
-  let {
-    sortOrder,
-    hasHeaderFilterValue
-  } = _ref;
-  return [
-  // @ts-expect-error format typing does not accept substitution args
-  _message.default.format(I18N_KEYS.fieldLabel, caption), hasHeaderFilterValue ? _message.default.format(I18N_KEYS.hasHeaderFilter) : null, getSortingLabel(sortOrder)].filter(message => !!message).join(I18N_MESSAGE_SEPARATOR);
-};
-exports.getFieldItemA11yLabel = getFieldItemA11yLabel;
-
-/***/ },
-
 /***/ 73944
 /*!************************************************************************************************!*\
   !*** ./artifacts/transpiled-renovation-npm/__internal/grids/pivot_grid/field_chooser/const.js ***!
@@ -120057,7 +120222,6 @@ var _window = __webpack_require__(/*! ../../../../core/utils/window */ 3104);
 var _context_menu = _interopRequireDefault(__webpack_require__(/*! ../../../../ui/context_menu */ 34378));
 var _tree_view = _interopRequireDefault(__webpack_require__(/*! ../../../../ui/tree_view */ 4313));
 var _m_widget_utils = __webpack_require__(/*! ../m_widget_utils */ 12062);
-var _a11y = __webpack_require__(/*! ./a11y */ 43163);
 var _const = __webpack_require__(/*! ./const */ 73944);
 var _m_field_chooser_base = __webpack_require__(/*! ./m_field_chooser_base */ 70317);
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
@@ -120250,7 +120414,7 @@ class FieldChooser extends _m_field_chooser_base.FieldChooserBase {
     const $container = (0, _renderer.default)(DIV).addClass(_const.CLASSES.fieldChooser.container).appendTo($element);
     const layout = that.option('layout');
     super._initMarkup();
-    $element.addClass(_const.CLASSES.fieldChooser.self).addClass(_const.CLASSES.pivotGrid.fieldsContainer).attr('role', 'group').attr('aria-label', (0, _a11y.getFieldsHotkeysA11yLabel)(_message.default.format('dxPivotGrid-fieldChooserTitle')));
+    $element.addClass(_const.CLASSES.fieldChooser.self).addClass(_const.CLASSES.pivotGrid.fieldsContainer);
     that._dataChangedHandlers = [];
     const dataSource = this._dataSource;
     const currentState = that.option('applyChangesMode') !== 'instantly' && dataSource && dataSource.state();
@@ -120489,10 +120653,6 @@ class FieldChooser extends _m_field_chooser_base.FieldChooserBase {
         that.renderField(field, true).appendTo($container);
       }
     });
-    // A menubar without menu items is invalid ARIA, so an empty area stays
-    // without the role until fields are dropped into it.
-    const hasFields = !!$container.children().length;
-    $container.attr('role', hasFields ? 'menubar' : null).attr('aria-label', hasFields ? that.option(`texts.${area}Fields`) : null);
   }
   _renderArea(container, area) {
     const that = this;
@@ -120603,7 +120763,6 @@ var _m_sorting_mixin = _interopRequireDefault(__webpack_require__(/*! ../../../g
 var _roving_tab_index = __webpack_require__(/*! ../keyboard_navigation/roving_tab_index */ 61891);
 var _m_widget_utils = __webpack_require__(/*! ../m_widget_utils */ 12062);
 var _m_sortable = _interopRequireDefault(__webpack_require__(/*! ../sortable/m_sortable */ 87691));
-var _a11y = __webpack_require__(/*! ./a11y */ 43163);
 var _const = __webpack_require__(/*! ./const */ 73944);
 var _dom = __webpack_require__(/*! ./dom */ 47331);
 var _utils = __webpack_require__(/*! ./utils */ 56958);
@@ -120623,9 +120782,6 @@ const FIELD_NAVIGATION_DELTAS = {
 };
 function isFieldNavigationEvent(e) {
   return e.type === 'keydown' && FIELD_NAVIGATION_DELTAS[e.key] !== undefined && !e.altKey && !e.ctrlKey && !e.metaKey && !e.shiftKey;
-}
-function isContextMenuKeyEvent(e) {
-  return e.type === 'keydown' && !e.repeat && (e.key === 'ContextMenu' || e.shiftKey && e.key === 'F10');
 }
 class HeaderFilterView extends _m_header_filter_core.HeaderFilterView {
   _getSearchExpr(options, headerFilterOptions) {
@@ -120683,7 +120839,6 @@ class FieldChooserBase extends mixinWidget {
       allowFieldDragging: true,
       applyChangesMode: 'instantly',
       state: undefined,
-      onFieldContextMenuKeyDown: null,
       headerFilter: {
         width: 252,
         height: 325,
@@ -120735,7 +120890,6 @@ class FieldChooserBase extends mixinWidget {
         break;
       case 'applyChangesMode':
       case 'remoteSort':
-      case 'onFieldContextMenuKeyDown':
         break;
       case 'state':
         if (this._skipStateChange || !this._dataSource) {
@@ -120780,19 +120934,7 @@ class FieldChooserBase extends mixinWidget {
     if (field.groupName) {
       $fieldElement.attr(_const.ATTRIBUTES.itemGroup, field.groupName);
     }
-    $fieldElement.attr('role', 'menuitem').attr('aria-label', this._getFieldItemAriaLabel(field, caption));
     return $fieldElement;
-  }
-  _getFieldItemAriaLabel(field, caption) {
-    var _getMainGroupField$fi;
-    // The sort indicator is rendered for every sortable non-data field, with
-    // ascending shown by default, so the label mirrors the visible state.
-    const sortOrder = field.allowSorting && field.area !== 'data' ? field.sortOrder === 'desc' ? 'desc' : 'asc' : undefined;
-    const hasHeaderFilterValue = fieldHasHeaderFilter(this._dataSource, field) && !!((_getMainGroupField$fi = getMainGroupField(this._dataSource, field).filterValues) !== null && _getMainGroupField$fi !== void 0 && _getMainGroupField$fi.length);
-    return (0, _a11y.getFieldItemA11yLabel)(caption, {
-      sortOrder,
-      hasHeaderFilterValue
-    });
   }
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   _clean(value) {}
@@ -120928,10 +121070,6 @@ class FieldChooserBase extends mixinWidget {
         this._handleFieldNavigation(e, field);
         return;
       }
-      if (isContextMenuKeyEvent(e)) {
-        this._handleFieldContextMenuKey(e, field);
-        return;
-      }
       if (!isClick) {
         return;
       }
@@ -121015,19 +121153,6 @@ class FieldChooserBase extends mixinWidget {
       return -FIELD_NAVIGATION_DELTAS[key];
     }
     return FIELD_NAVIGATION_DELTAS[key];
-  }
-  _handleFieldContextMenuKey(e, field) {
-    const onContextMenuKey = this.option('onFieldContextMenuKeyDown');
-    if (!field.area || !onContextMenuKey) {
-      return;
-    }
-    const navigation = this._getFieldNavigation(field.area);
-    // The event can bubble to another instance subscribed to an ancestor
-    // element; the field then does not belong to this instance's items.
-    if (!navigation.getItems().includes(e.currentTarget)) {
-      return;
-    }
-    onContextMenuKey(e, navigation);
   }
   _handleFieldNavigation(e, field) {
     if (!field.area) {
@@ -121225,17 +121350,14 @@ class FieldsArea extends _m_area_item.AreaItem {
   _createGroupElement() {
     return (0, _renderer.default)(DIV).addClass('dx-pivotgrid-fields-area').addClass('dx-area-fields').addClass(AREA_DRAG_CLASS).attr('group', this._area);
   }
-  _getAreaLabel() {
+  _createTableElement() {
     const localizationMessageMap = {
       row: 'dxPivotGrid-rowFields',
       column: 'dxPivotGrid-columnFields',
       data: 'dxPivotGrid-dataFields',
       filter: 'dxPivotGrid-filterFields'
     };
-    return _message.default.format(localizationMessageMap[this._area]);
-  }
-  _createTableElement() {
-    return (0, _renderer.default)('<table>').attr('role', 'presentation');
+    return (0, _renderer.default)('<table>').attr('role', 'group').attr('aria-label', _message.default.format(localizationMessageMap[this._area]));
   }
   isVisible() {
     return !!this.option('fieldPanel.visible') && this.option(`fieldPanel.show${(0, _capitalize.capitalize)(this._area)}Fields`);
@@ -121304,20 +121426,17 @@ class FieldsArea extends _m_area_item.AreaItem {
     const groupElement = this.groupElement();
     const isVisible = this.isVisible();
     const fieldChooserBase = that.component.$element().dxPivotGridFieldChooserBase('instance');
-    const head = (0, _renderer.default)('<thead>').addClass('dx-pivotgrid-fields-area-head').attr('role', 'presentation').appendTo(tableElement);
+    const head = (0, _renderer.default)('<thead>').addClass('dx-pivotgrid-fields-area-head').appendTo(tableElement);
     const area = that._area;
     const row = (0, _renderer.default)('<tr>');
     groupElement.toggleClass('dx-hidden', !isVisible);
     tableElement.addClass('dx-area-field-container');
     if (!isVisible) {
-      // The reused table element may carry the menubar role from the previous
-      // render, so it is reset even though the hidden area skips rendering.
-      tableElement.attr('role', 'presentation').removeAttr('aria-label');
       return;
     }
     (0, _iterator.each)(data, (index, field) => {
       if (field.area === area && field.visible !== false) {
-        const td = (0, _renderer.default)('<td>').attr('role', 'none').append(fieldChooserBase.renderField(field, field.area === 'row'));
+        const td = (0, _renderer.default)('<td>').append(fieldChooserBase.renderField(field, field.area === 'row'));
         const indicators = td.find('.dx-column-indicators');
         if (indicators.length && that._shouldCreateButton()) {
           indicators.insertAfter(indicators.next());
@@ -121326,19 +121445,7 @@ class FieldsArea extends _m_area_item.AreaItem {
         renderGroupConnector(field, data[index + 1], data[index - 1], td);
       }
     });
-    if (row.children().length) {
-      // Expose the fields as a menubar of menu items, consistent with the
-      // field chooser and CardView. The menubar role lives on the table
-      // element (it is invalid on a table row); thead/tr/td are kept out of
-      // the accessibility tree so the field items become the menubar's items.
-      row.attr('role', 'presentation');
-      tableElement.attr('role', 'menubar').attr('aria-label', this._getAreaLabel());
-    } else {
-      // A menubar without menu items is invalid ARIA, so an empty area keeps
-      // the plain placeholder text and the table stays presentational. The
-      // role is reset explicitly because the table element is reused across
-      // re-renders.
-      tableElement.attr('role', 'presentation').removeAttr('aria-label');
+    if (!row.children().length) {
       (0, _renderer.default)('<td>').append((0, _renderer.default)(DIV).addClass('dx-empty-area-text').text(this.option(`fieldPanel.texts.${area}FieldArea`))).appendTo(row);
     }
     if (that._shouldCreateButton()) {
@@ -122440,7 +122547,6 @@ var _m_chart_integration = __webpack_require__(/*! ./chart_integration/m_chart_i
 var _m_data_area = _interopRequireDefault(__webpack_require__(/*! ./data_area/m_data_area */ 31045));
 var _m_data_controller = _interopRequireDefault(__webpack_require__(/*! ./data_controller/m_data_controller */ 18509));
 var _m_export = __webpack_require__(/*! ./export/m_export */ 12867);
-var _a11y = __webpack_require__(/*! ./field_chooser/a11y */ 43163);
 var _m_field_chooser = __webpack_require__(/*! ./field_chooser/m_field_chooser */ 62989);
 var _m_field_chooser_base = __webpack_require__(/*! ./field_chooser/m_field_chooser_base */ 70317);
 var _m_fields_area = __webpack_require__(/*! ./fields_area/m_fields_area */ 2997);
@@ -123273,23 +123379,13 @@ class PivotGrid extends _widget.default {
   _handleCellContextMenuKeyDown(e) {
     const cell = e.currentTarget;
     const navigation = this._getCellAreaNavigation(cell);
-    if (!navigation) {
-      return;
-    }
-    this._showContextMenuFromKeyboard(e, navigation);
-  }
-  _handleFieldContextMenuKeyDown(e, navigation) {
-    this._showContextMenuFromKeyboard(e, navigation);
-  }
-  _showContextMenuFromKeyboard(e, navigation) {
-    if (!this._contextMenu) {
+    if (!navigation || !this._contextMenu) {
       return;
     }
     // The internal _show is called instead of the public show() because only
     // _show accepts the initiating event that onPositioning builds items from.
     this._contextMenu._show(e);
     if (this._contextMenu.option('visible')) {
-      e.preventDefault();
       this._contextMenuOwnerNavigation = navigation;
     }
   }
@@ -123524,7 +123620,7 @@ class PivotGrid extends _widget.default {
   _initMarkup() {
     const that = this;
     super._initMarkup();
-    that.$element().addClass(PIVOTGRID_CLASS).attr('role', 'group').attr('aria-label', (0, _a11y.getFieldsHotkeysA11yLabel)(_message.default.format('dxPivotGrid-ariaLabel')));
+    that.$element().addClass(PIVOTGRID_CLASS).attr('role', 'group').attr('aria-label', _message.default.format('dxPivotGrid-ariaLabel'));
   }
   _renderContentImpl() {
     const that = this;
@@ -123568,8 +123664,7 @@ class PivotGrid extends _widget.default {
       allowFieldDragging: that.option('fieldPanel.allowFieldDragging'),
       headerFilter: that.option('headerFilter'),
       visible: that.option('visible'),
-      remoteSort: that.option('scrolling.mode') === 'virtual',
-      onFieldContextMenuKeyDown: that._handleFieldContextMenuKeyDown.bind(that)
+      remoteSort: that.option('scrolling.mode') === 'virtual'
     };
     if (that._fieldChooserBase) {
       that._fieldChooserBase.option(fieldChooserBaseConfig);
@@ -123597,45 +123692,7 @@ class PivotGrid extends _widget.default {
   _setAriaGridAttributes(dataArea, rowsArea, columnsArea) {
     const $gridElement = dataArea.tableElement().parent();
     const tableIds = [columnsArea.tableElement().attr('id'), rowsArea.tableElement().attr('id'), dataArea.tableElement().attr('id')].filter(_type.isDefined).join(' ');
-    const rowHeaderColumnCount = this._reserveRowHeaderColumns(dataArea, rowsArea, columnsArea);
-    $gridElement.attr('role', 'grid').attr('aria-owns', tableIds).attr('aria-rowcount', this._dataController.totalRowCount()).attr('aria-colcount', this._dataController.totalColumnCount() + rowHeaderColumnCount);
-  }
-  _reserveRowHeaderColumns(dataArea, rowsArea, columnsArea) {
-    // The reserved width is the full row-header column count, not the widest
-    // rendered row: virtual scrolling can page in rows whose visible cells do
-    // not reach the rightmost header column, which would otherwise shift the
-    // colindex axis between pages.
-    const rowHeaderColumnCount = rowsArea.getColumnsCount();
-    if (!rowHeaderColumnCount) {
-      return 0;
-    }
-    const rowsBody = rowsArea.tableElement().children('tbody').get(0);
-    const matrix = rowsBody ? (0, _table_cell_navigation.buildCellMatrix)(rowsBody) : [];
-    const indexed = new Set();
-    matrix.forEach(row => {
-      row.forEach((cell, columnIndex) => {
-        if (cell && cell.getAttribute('role') && !indexed.has(cell)) {
-          indexed.add(cell);
-          cell.setAttribute('aria-colindex', String(columnIndex + 1));
-        }
-      });
-    });
-    const shifted = new Set();
-    [columnsArea, dataArea].forEach(area => {
-      area.tableElement().find('td[aria-colindex]').each((_, td) => {
-        if (shifted.has(td)) {
-          return;
-        }
-        shifted.add(td);
-        let base = td.getAttribute('data-dx-base-colindex');
-        if (base === null) {
-          base = td.getAttribute('aria-colindex');
-          td.setAttribute('data-dx-base-colindex', base);
-        }
-        td.setAttribute('aria-colindex', String(Number(base) + rowHeaderColumnCount));
-      });
-    });
-    return rowHeaderColumnCount;
+    $gridElement.attr('role', 'grid').attr('aria-owns', tableIds).attr('aria-rowcount', this._dataController.totalRowCount()).attr('aria-colcount', this._dataController.totalColumnCount());
   }
   _update(isFirstDrawing) {
     const that = this;
@@ -126846,6 +126903,7 @@ class TreeListDataController extends _data_controller.DataController {
         break;
       case 'expandedRowKeys':
       case 'onNodesInitialized':
+        // @ts-expect-error badly typed DataSourceAdapter
         if (this._dataSource && !this._dataSource._isNodesInitializing && !(0, _common.equalByValue)(args.value, args.previousValue)) {
           this._loadOnOptionChange();
         }
@@ -127270,8 +127328,8 @@ class DataSourceAdapterTreeList extends _m_data_source_adapter.default {
     loadOptions = (0, _extend.extend)({}, loadOptions, {
       filter: !needLocalFiltering ? filter : null
     });
-    const store = options.fullData ? new _array_store.default(options.fullData) : this._dataSource.store();
-    this.loadFromStore(loadOptions, store).done(loadedData => {
+    const loadBranchItemsDeferred = options.fullData ? new _array_store.default(options.fullData).load(loadOptions) : this.loadFromStore(loadOptions);
+    loadBranchItemsDeferred.done(loadedData => {
       if (this._isOperationIdOutdated(options.operationId)) {
         d.reject();
         return;
@@ -127652,7 +127710,8 @@ class DataSourceAdapterTreeList extends _m_data_source_adapter.default {
     }).fail(d.reject);
     return d.promise();
   }
-  forEachNode() {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-explicit-any
+  forEachNode(nodeCallback) {
     let nodes = [];
     let callback;
     if (arguments.length === 1) {
@@ -128041,9 +128100,11 @@ const data = Base => class TreeListDataControllerExtender extends _m_focus.focus
     const d = new _deferred.Deferred();
     that.getParentKey(key).done(parentKey => {
       if (dataSource && parentKey !== undefined && parentKey !== that.option('rootValue')) {
+        // @ts-expect-error badly typed DataSourceAdapter
         dataSource._isNodesInitializing = true;
         // @ts-expect-error
         that.expandRow(parentKey);
+        // @ts-expect-error badly typed DataSourceAdapter
         dataSource._isNodesInitializing = false;
         that.expandAscendants(parentKey).done(d.resolve).fail(d.reject);
       } else {
@@ -128272,6 +128333,7 @@ _index.virtualScrollingModule.extenders.views.rowsView = Base => class TreeListV
 _index.virtualScrollingModule.extenders.controllers.data = Base => class TreeListVirtualScrollingDataControllerExtender extends (0, _index.virtualScrollingDataControllerExtender)(Base) {
   _loadOnOptionChange() {
     var _this$_dataSource;
+    // @ts-expect-error badly typed DataSourceAdapter
     const virtualScrollController = (_this$_dataSource = this._dataSource) === null || _this$_dataSource === void 0 ? void 0 : _this$_dataSource._virtualScrollController;
     virtualScrollController === null || virtualScrollController === void 0 || virtualScrollController.reset();
     // @ts-expect-error
@@ -128629,7 +128691,7 @@ _m_core.default.registerModule('errorHandling', _error_handling_module.errorHand
 
 
 
-var _m_filter_builder = __webpack_require__(/*! ../../../grids/grid_core/filter/m_filter_builder */ 65382);
+var _m_filter_builder = __webpack_require__(/*! ../../../grids/grid_core/filter_builder/m_filter_builder */ 9394);
 var _m_core = _interopRequireDefault(__webpack_require__(/*! ../m_core */ 99477));
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 _m_core.default.registerModule('filterBuilder', _m_filter_builder.filterBuilderModule);
@@ -128644,7 +128706,7 @@ _m_core.default.registerModule('filterBuilder', _m_filter_builder.filterBuilderM
 
 
 
-var _m_filter_panel = __webpack_require__(/*! ../../../grids/grid_core/filter/m_filter_panel */ 17887);
+var _m_filter_panel = __webpack_require__(/*! ../../../grids/grid_core/filter_panel/m_filter_panel */ 91400);
 var _m_core = _interopRequireDefault(__webpack_require__(/*! ../m_core */ 99477));
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 _m_core.default.registerModule('filterPanel', _m_filter_panel.filterPanelModule);
@@ -128659,7 +128721,7 @@ _m_core.default.registerModule('filterPanel', _m_filter_panel.filterPanelModule)
 
 
 
-var _m_filter_row = __webpack_require__(/*! ../../../grids/grid_core/filter/m_filter_row */ 62289);
+var _m_filter_row = __webpack_require__(/*! ../../../grids/grid_core/filter_row/m_filter_row */ 3240);
 var _m_core = _interopRequireDefault(__webpack_require__(/*! ../m_core */ 99477));
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 _m_core.default.registerModule('filterRow', _m_filter_row.filterRowModule);
@@ -128674,10 +128736,10 @@ _m_core.default.registerModule('filterRow', _m_filter_row.filterRowModule);
 
 
 
-var _m_filter_sync = __webpack_require__(/*! ../../../grids/grid_core/filter/m_filter_sync */ 78746);
+var _filter_sync_module = __webpack_require__(/*! ../../../grids/grid_core/filter_sync/filter_sync_module */ 64879);
 var _m_core = _interopRequireDefault(__webpack_require__(/*! ../m_core */ 99477));
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
-_m_core.default.registerModule('filterSync', _m_filter_sync.filterSyncModule);
+_m_core.default.registerModule('filterSync', _filter_sync_module.filterSyncModule);
 
 /***/ },
 
@@ -132744,8 +132806,7 @@ const LightButtonDefaultProps = exports.LightButtonDefaultProps = {
   className: '',
   label: '',
   tabIndex: 0,
-  selected: false,
-  disabled: false
+  selected: false
 };
 class LightButton extends _index.InfernoComponent {
   constructor(props) {
@@ -132788,8 +132849,7 @@ class LightButton extends _index.InfernoComponent {
       "tabindex": this.props.tabIndex,
       "role": "button",
       "aria-label": this.props.label,
-      "aria-current": this.props.selected ? 'page' : undefined,
-      "aria-disabled": this.props.disabled ? 'true' : undefined
+      "aria-current": this.props.selected ? 'page' : undefined
     }, null, this.widgetRef);
   }
 }
@@ -133008,13 +133068,6 @@ class PaginationContent extends _index.InfernoComponent {
   getPagesContainerVisible() {
     return !!this.props.pagesNavigatorVisible && this.props.pageCount > 0;
   }
-  // NOTE: inferno passes every style key to setProperty, so an undefined value would
-  // be written out as `visibility: undefined`. Omit the whole style object instead.
-  getPagesContainerStyle() {
-    return this.getPagesContainerVisibility() === 'hidden' ? {
-      visibility: 'hidden'
-    } : undefined;
-  }
   getPagesContainerVisibility() {
     const {
       pagesNavigatorVisible,
@@ -133136,7 +133189,9 @@ class PaginationContent extends _index.InfernoComponent {
         "showNavigationButtons": showNavigationButtons,
         "itemCount": itemCount
       }), 2, null, null, pagesRef)], 0, {
-        "style": this.getPagesContainerStyle()
+        "style": {
+          visibility: this.getPagesContainerVisibility()
+        }
       })]
     })));
     return (0, _inferno.createComponentVNode)(2, _pagination_config_provider.PaginationConfigProvider, {
@@ -134069,7 +134124,6 @@ class PageIndexSelector extends _index.BaseInfernoComponent {
     return {
       className,
       tabIndex: canNavigate ? 0 : -1,
-      disabled: !canNavigate,
       navigate: () => this.navigateToPage(rtlAwareDirection)
     };
   }
@@ -134131,7 +134185,6 @@ class PageIndexSelector extends _index.BaseInfernoComponent {
     const {
       className,
       tabIndex,
-      disabled,
       navigate
     } = this.getPrevButtonProps();
     const {
@@ -134145,7 +134198,6 @@ class PageIndexSelector extends _index.BaseInfernoComponent {
       "label": this.getPrevButtonLabel(),
       "className": className,
       "tabIndex": tabIndex,
-      "disabled": disabled,
       "onClick": navigate
     }), isLargeDisplayMode && (0, _inferno.createComponentVNode)(2, _large.PagesLarge, {
       "maxPagesCount": maxPagesCount,
@@ -134161,7 +134213,6 @@ class PageIndexSelector extends _index.BaseInfernoComponent {
       "label": this.getNextButtonLabel(),
       "className": this.getNextButtonProps().className,
       "tabIndex": this.getNextButtonProps().tabIndex,
-      "disabled": this.getNextButtonProps().disabled,
       "onClick": this.getNextButtonProps().navigate
     })], 0);
   }
@@ -135099,17 +135150,6 @@ const CLASSES = {
   recurrenceGroup: 'dx-scheduler-form-recurrence-group',
   recurrenceHidden: 'dx-scheduler-form-recurrence-group-hidden'
 };
-const getResourceEditorDataSource = resourceLoader => {
-  var _resourceLoader$dataS;
-  if (!resourceLoader.hasHierarchy) {
-    return resourceLoader.dataSource;
-  }
-  return resourceLoader.isLoaded() ? resourceLoader.leafData : {
-    store: (_resourceLoader$dataS = resourceLoader.dataSource) === null || _resourceLoader$dataS === void 0 ? void 0 : _resourceLoader$dataS.store(),
-    postProcess: data => resourceLoader.collectLeafData(data),
-    paginate: false
-  };
-};
 const createTimeZoneDataSource = () => new _data.DataSource({
   store: _utils_time_zone.default.getTimeZonesCache(),
   paginate: true,
@@ -135634,9 +135674,11 @@ class AppointmentForm {
     };
   }
   createResourcesGroup() {
-    const resourcesLoaders = this.resourceManager.resources;
+    const resourceById = Object.values(this.config.resourceManager.resourceById);
+    const resourcesLoaders = resourceById;
     let resourcesItems = resourcesLoaders.map(resourceLoader => {
       const {
+        dataSource,
         dataAccessor
       } = resourceLoader;
       const dataField = resourceLoader.resourceIndex;
@@ -135653,7 +135695,7 @@ class AppointmentForm {
         colSpan: 1,
         editorType,
         editorOptions: {
-          dataSource: getResourceEditorDataSource(resourceLoader),
+          dataSource,
           displayExpr: dataAccessor.textExpr,
           valueExpr: dataAccessor.idExpr
         }
@@ -137100,7 +137142,6 @@ class Appointment extends _dom_component.default {
       allowDrag: true,
       allowResize: true,
       reduced: null,
-      hideReducedIcon: false,
       isCompact: false,
       direction: 'vertical',
       resizableConfig: {
@@ -137133,7 +137174,6 @@ class Appointment extends _dom_component.default {
       case 'allowDrag':
       case 'allowResize':
       case 'reduced':
-      case 'hideReducedIcon':
       case 'sortedIndex':
       case 'isCompact':
       case 'direction':
@@ -137239,7 +137279,7 @@ class Appointment extends _dom_component.default {
   }
   _renderReducedAppointment() {
     const reducedPart = this.option('reduced');
-    if (!reducedPart || this.option('hideReducedIcon')) {
+    if (!reducedPart) {
       return;
     }
     this.$element().toggleClass(_classes.REDUCED_APPOINTMENT_CLASS, true).toggleClass(_classes.REDUCED_APPOINTMENT_PARTS_CLASSES[reducedPart], true);
@@ -137276,10 +137316,7 @@ class Appointment extends _dom_component.default {
   }
   _createResizingConfig() {
     const config = this.option('direction') === 'vertical' ? this._getVerticalResizingRule() : this._getHorizontalResizingRule();
-    const cellHeight = Math.round(this.invoke('getCellHeight') ?? 0);
-    const allDayHeight = Math.round(this.invoke('getAllDayHeight') ?? 0);
-    const allDayBreaksCellGrid = Boolean(this.invoke('isVerticalGroupedWorkSpace')) && allDayHeight > 0 && allDayHeight !== cellHeight;
-    if (!this.invoke('isGroupedByDate') && !allDayBreaksCellGrid) {
+    if (!this.invoke('isGroupedByDate')) {
       config.stepPrecision = 'strict';
     }
     return config;
@@ -137938,8 +137975,8 @@ class SchedulerAppointments extends _collection_widget.default {
       allowDrag,
       allowDelete,
       allDay,
-      reduced: settings.reduced,
-      hideReducedIcon: isGroupByDate,
+      // NOTE: hide reduced icon for grouped by date workspace
+      reduced: isGroupByDate ? undefined : settings.reduced,
       startDate: new Date((_settings$info = settings.info) === null || _settings$info === void 0 ? void 0 : _settings$info.appointment.startDate),
       cellWidth: this.invoke('getCellWidth'),
       cellHeight: this.invoke('getCellHeight'),
@@ -138686,63 +138723,41 @@ const getCellData = function (_ref, cellRowIndex, cellColumnIndex, isOccupiedAll
   }
   return cellData;
 };
-// NOTE: Cell indexes are always counted from the left table border,
-// getCellData mirrors them in RTL.
-const getAppointmentCellIndexes = options => {
+const getAppointmentLeftCell = options => {
   const {
     cellHeight,
     cellWidth,
-    relativeAppointmentRect
-  } = options;
-  return {
-    rowIndex: Math.floor(relativeAppointmentRect.top / cellHeight),
-    columnIndex: Math.round(relativeAppointmentRect.left / cellWidth)
-  };
-};
-const getAppointmentLeftCell = options => {
-  const {
+    relativeAppointmentRect,
     appointment,
     rtlEnabled
   } = options;
-  const {
-    rowIndex,
-    columnIndex
-  } = getAppointmentCellIndexes(options);
-  return getCellData(options, rowIndex, columnIndex, appointment.isOccupiedAllDay, appointment.isAllDay, rtlEnabled);
+  const cellRowIndex = Math.floor(relativeAppointmentRect.top / cellHeight);
+  const cellColumnIndex = Math.round(relativeAppointmentRect.left / cellWidth);
+  return getCellData(options, cellRowIndex, cellColumnIndex, appointment.isOccupiedAllDay, appointment.isAllDay, rtlEnabled);
 };
-const getAppointmentRightCell = options => {
+const getDateRangeHorizontal = options => {
   const {
     cellWidth,
     cellCountInRow,
     relativeAppointmentRect,
     appointment,
-    rtlEnabled
-  } = options;
-  const {
-    rowIndex,
-    columnIndex
-  } = getAppointmentCellIndexes(options);
-  const cellsAmount = Math.round(relativeAppointmentRect.width / cellWidth);
-  const rightColumnIndex = Math.min(columnIndex + cellsAmount - 1, cellCountInRow - 1);
-  return getCellData(options, rowIndex, rightColumnIndex, appointment.isOccupiedAllDay, appointment.isAllDay, rtlEnabled);
-};
-const getDateRangeHorizontal = options => {
-  const {
-    appointment,
     handles
   } = options;
+  const appointmentFirstCell = getAppointmentLeftCell(options);
+  const appointmentCellsAmount = Math.round(relativeAppointmentRect.width / cellWidth);
+  const appointmentLastCellIndex = appointmentFirstCell.index + (appointmentCellsAmount - 1);
   if (handles.left) {
-    const {
-      startDate
-    } = getAppointmentLeftCell(options);
     return {
-      startDate,
-      endDate: startDate > appointment.endDate ? startDate : appointment.endDate
+      startDate: appointmentFirstCell.startDate,
+      endDate: appointmentFirstCell.startDate > appointment.endDate ? appointmentFirstCell.startDate : appointment.endDate
     };
   }
+  const appointmentRowIndex = Math.floor(appointmentLastCellIndex / cellCountInRow);
+  const appointmentColumnIndex = appointmentLastCellIndex % cellCountInRow;
+  const appointmentLastCell = getCellData(options, appointmentRowIndex, appointmentColumnIndex, appointment.isOccupiedAllDay, appointment.isAllDay);
   const {
     endDate
-  } = getAppointmentRightCell(options);
+  } = appointmentLastCell;
   return {
     startDate: endDate < appointment.startDate ? endDate : appointment.startDate,
     endDate
@@ -138750,21 +138765,27 @@ const getDateRangeHorizontal = options => {
 };
 const getDateRangeHorizontalRTL = options => {
   const {
+    cellCountInRow,
     appointment,
-    handles
+    handles,
+    cellWidth,
+    relativeAppointmentRect
   } = options;
+  const appointmentLastCell = getAppointmentLeftCell(options);
   if (handles.right) {
-    const {
-      startDate
-    } = getAppointmentRightCell(options);
+    const appointmentLastCellIndex = appointmentLastCell.index;
+    const appointmentCellsAmount = Math.round(relativeAppointmentRect.width / cellWidth);
+    const appointmentFirstCellIndex = appointmentLastCellIndex - appointmentCellsAmount + 1;
+    const appointmentRowIndex = Math.floor(appointmentLastCellIndex / cellCountInRow);
+    const appointmentFirstCell = getCellData(options, appointmentRowIndex, appointmentFirstCellIndex, appointment.isOccupiedAllDay, appointment.isAllDay);
     return {
-      startDate,
-      endDate: startDate > appointment.endDate ? startDate : appointment.endDate
+      startDate: appointmentFirstCell.startDate,
+      endDate: appointmentFirstCell.startDate > appointment.endDate ? appointmentFirstCell.startDate : appointment.endDate
     };
   }
   const {
     endDate
-  } = getAppointmentLeftCell(options);
+  } = appointmentLastCell;
   return {
     startDate: endDate < appointment.startDate ? endDate : appointment.startDate,
     endDate
@@ -139029,7 +139050,7 @@ var _default = exports["default"] = NotifyScheduler;
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
-exports.VIRTUAL_CELL_CLASS = exports.TIME_PANEL_CLASS = exports.REDUCED_APPOINTMENT_PARTS_CLASSES = exports.REDUCED_APPOINTMENT_ICON = exports.REDUCED_APPOINTMENT_CLASS = exports.RECURRENCE_APPOINTMENT_CLASS = exports.LAST_GROUP_CELL_CLASS = exports.HEADER_CURRENT_TIME_CELL_CLASS = exports.GROUP_ROW_CLASS = exports.GROUP_HEADER_CONTENT_CLASS = exports.FIXED_CONTAINER_CLASS = exports.FIRST_GROUP_CELL_CLASS = exports.EMPTY_APPOINTMENT_CLASS = exports.DIRECTION_APPOINTMENT_CLASSES = exports.DATE_TABLE_ROW_CLASS = exports.DATE_TABLE_CLASS = exports.APPOINTMENT_ITEM_CLASS = exports.APPOINTMENT_HAS_RESOURCE_COLOR_CLASS = exports.APPOINTMENT_DRAG_SOURCE_CLASS = exports.APPOINTMENT_CONTENT_CLASSES = exports.ALL_DAY_APPOINTMENT_CLASS = exports.AGENDA_LAST_IN_DATE_APPOINTMENT_CLASS = void 0;
+exports.VIRTUAL_CELL_CLASS = exports.VERTICAL_GROUP_COUNT_CLASSES = exports.TIME_PANEL_CLASS = exports.REDUCED_APPOINTMENT_PARTS_CLASSES = exports.REDUCED_APPOINTMENT_ICON = exports.REDUCED_APPOINTMENT_CLASS = exports.RECURRENCE_APPOINTMENT_CLASS = exports.LAST_GROUP_CELL_CLASS = exports.HEADER_CURRENT_TIME_CELL_CLASS = exports.GROUP_ROW_CLASS = exports.GROUP_HEADER_CONTENT_CLASS = exports.FIXED_CONTAINER_CLASS = exports.FIRST_GROUP_CELL_CLASS = exports.EMPTY_APPOINTMENT_CLASS = exports.DIRECTION_APPOINTMENT_CLASSES = exports.DATE_TABLE_ROW_CLASS = exports.DATE_TABLE_CLASS = exports.APPOINTMENT_ITEM_CLASS = exports.APPOINTMENT_HAS_RESOURCE_COLOR_CLASS = exports.APPOINTMENT_DRAG_SOURCE_CLASS = exports.APPOINTMENT_CONTENT_CLASSES = exports.ALL_DAY_APPOINTMENT_CLASS = exports.AGENDA_LAST_IN_DATE_APPOINTMENT_CLASS = void 0;
 const FIXED_CONTAINER_CLASS = exports.FIXED_CONTAINER_CLASS = 'dx-scheduler-fixed-appointments';
 const REDUCED_APPOINTMENT_CLASS = exports.REDUCED_APPOINTMENT_CLASS = 'dx-scheduler-appointment-reduced';
 const REDUCED_APPOINTMENT_ICON = exports.REDUCED_APPOINTMENT_ICON = 'dx-scheduler-appointment-reduced-icon';
@@ -139072,6 +139093,7 @@ const GROUP_ROW_CLASS = exports.GROUP_ROW_CLASS = 'dx-scheduler-group-row';
 const GROUP_HEADER_CONTENT_CLASS = exports.GROUP_HEADER_CONTENT_CLASS = 'dx-scheduler-group-header-content';
 const LAST_GROUP_CELL_CLASS = exports.LAST_GROUP_CELL_CLASS = 'dx-scheduler-last-group-cell';
 const FIRST_GROUP_CELL_CLASS = exports.FIRST_GROUP_CELL_CLASS = 'dx-scheduler-first-group-cell';
+const VERTICAL_GROUP_COUNT_CLASSES = exports.VERTICAL_GROUP_COUNT_CLASSES = ['dx-scheduler-group-column-count-one', 'dx-scheduler-group-column-count-two', 'dx-scheduler-group-column-count-three'];
 
 /***/ },
 
@@ -139196,10 +139218,6 @@ class SchedulerCalendar extends _widget.default {
     const isMobileLayout = SchedulerCalendar.isMobileLayout();
     const overlayConfig = {
       contentTemplate: () => this.createOverlayContent(),
-      // NOTE: The calendar is interactive content, not a text hint: describing
-      // the navigator button with the whole month grid would be noise for AT.
-      // eslint-disable-next-line @typescript-eslint/naming-convention
-      _describeTarget: false,
       onShown: () => {
         var _this$calendar2;
         (_this$calendar2 = this.calendar) === null || _this$calendar2 === void 0 || _this$calendar2.focus();
@@ -140754,12 +140772,6 @@ const subscribes = {
   getCellHeight() {
     return this.getWorkSpace().getCellHeight();
   },
-  getAllDayHeight() {
-    return this.getWorkSpace().getAllDayHeight();
-  },
-  isVerticalGroupedWorkSpace() {
-    return this.getWorkSpace().isVerticalGroupedWorkSpace();
-  },
   needCorrectAppointmentDates() {
     return !['month', 'timelineMonth'].includes(this.currentView.type);
   },
@@ -141732,7 +141744,7 @@ class GroupPanel extends _index.InfernoWrapperComponent {
       groupOrientation,
       groups,
       styles,
-      groupByDate
+      rowHeights
     } = this.props;
     const isVerticalLayout = (0, _index2.isVerticalGroupingApplied)(groups.length, groupOrientation);
     const Layout = isVerticalLayout ? _group_panel_vertical.GroupPanelVertical : _group_panel_horizontal.GroupPanelHorizontal;
@@ -141744,7 +141756,10 @@ class GroupPanel extends _index.InfernoWrapperComponent {
       "groupPanelData": groupPanelData,
       "elementRef": elementRef,
       "styles": styles,
-      "groupByDate": groupByDate
+      "rowHeights": rowHeights,
+      "groups": GroupPanelDefaultProps.groups,
+      "groupOrientation": GroupPanelDefaultProps.groupOrientation,
+      "groupByDate": GroupPanelDefaultProps.groupByDate
     });
   }
 }
@@ -141770,13 +141785,47 @@ var _index = __webpack_require__(/*! ../../../../core/r1/runtime/inferno/index *
 var _group_panel_horizontal_row = __webpack_require__(/*! ./group_panel_horizontal_row */ 6305);
 var _group_panel_props = __webpack_require__(/*! ./group_panel_props */ 3234);
 class GroupPanelHorizontal extends _index.BaseInfernoComponent {
-  render() {
+  constructor() {
+    super(...arguments);
+    this.groupPanelItems = null;
+  }
+  getGroupPanelItems() {
+    if (this.groupPanelItems !== null) {
+      return this.groupPanelItems;
+    }
     const {
       groupPanelData: {
+        baseColSpan,
         groupPanelItems
-      },
+      }
+    } = this.props;
+    const colSpans = groupPanelItems.reduceRight((currentColSpans, groupsRow, idx) => {
+      const nextColSpans = currentColSpans;
+      const currentLevelGroupCount = groupsRow.length;
+      const previousColSpan = idx === groupPanelItems.length - 1 ? baseColSpan : currentColSpans[idx + 1];
+      const previousLevelGroupCount = idx === groupPanelItems.length - 1 ? currentLevelGroupCount : groupPanelItems[idx + 1].length;
+      const groupCountDiff = previousLevelGroupCount / currentLevelGroupCount;
+      nextColSpans[idx] = groupCountDiff * previousColSpan;
+      return nextColSpans;
+    }, [...new Array(groupPanelItems.length)]);
+    this.groupPanelItems = groupPanelItems.map((groupsRenderRow, index) => {
+      const colSpan = colSpans[index];
+      return groupsRenderRow.map(groupItem => Object.assign({}, groupItem, {
+        colSpan
+      }));
+    });
+    return this.groupPanelItems;
+  }
+  componentWillUpdate(nextProps) {
+    if (this.props.groupPanelData !== nextProps.groupPanelData) {
+      this.groupPanelItems = null;
+    }
+  }
+  render() {
+    const {
       resourceCellTemplate
     } = this.props;
+    const groupPanelItems = this.getGroupPanelItems();
     return (0, _inferno.createFragment)(groupPanelItems.map(group => (0, _inferno.createComponentVNode)(2, _group_panel_horizontal_row.GroupPanelHorizontalRow, {
       "groupItems": group,
       "cellTemplate": resourceCellTemplate
@@ -141804,7 +141853,6 @@ var _inferno = __webpack_require__(/*! inferno */ 76231);
 var _index = __webpack_require__(/*! ../../../../core/r1/runtime/inferno/index */ 6257);
 var _index2 = __webpack_require__(/*! ../../../../scheduler/r1/components/templates/index */ 17855);
 var _render_utils = __webpack_require__(/*! ../../../../core/r1/utils/render_utils */ 71312);
-var _group_panel_tree = __webpack_require__(/*! ../../utils/group_panel_tree */ 38149);
 var _group_panel_props = __webpack_require__(/*! ./group_panel_props */ 3234);
 const GroupPanelHorizontalCellDefaultProps = exports.GroupPanelHorizontalCellDefaultProps = Object.assign({}, _group_panel_props.GroupPanelCellDefaultProps, {
   isFirstGroupCell: false,
@@ -141816,7 +141864,6 @@ class GroupPanelHorizontalCell extends _index.BaseInfernoComponent {
     const {
       cellTemplate,
       colSpan,
-      rowSpan,
       color,
       data,
       id,
@@ -141824,40 +141871,27 @@ class GroupPanelHorizontalCell extends _index.BaseInfernoComponent {
       text,
       className,
       isFirstGroupCell,
-      isLastGroupCell,
-      isLastColumn,
-      resourceIndex,
-      isLeaf,
-      path
+      isLastGroupCell
     } = this.props;
     const classes = (0, _render_utils.combineClasses)({
       'dx-scheduler-group-header': true,
       'dx-scheduler-first-group-cell': isFirstGroupCell,
       'dx-scheduler-last-group-cell': isLastGroupCell,
-      'dx-scheduler-group-header-inner-column': isLastColumn === false,
       [className ?? '']: Boolean(className)
     });
-    const scope = colSpan > 1 ? 'colgroup' : 'col';
     return (0, _inferno.createVNode)(1, "th", classes, (0, _inferno.createVNode)(1, "div", "dx-scheduler-group-header-content", cellTemplate ? (0, _inferno.createComponentVNode)(2, _index2.PublicTemplate, {
       "template": cellTemplate,
       "templateProps": {
-        data: (0, _group_panel_tree.getResourceCellTemplateData)({
-          id,
-          text,
-          color,
+        data: {
           data,
-          resourceIndex,
-          isLeaf,
-          path
-        }),
+          id,
+          color,
+          text
+        },
         index
       }
     }) : (0, _inferno.createVNode)(1, "div", null, text, 0), 0), 2, {
-      "colspan": colSpan,
-      "rowspan": rowSpan && rowSpan > 1 ? rowSpan : undefined,
-      "title": text,
-      "scope": scope,
-      "role": "columnheader"
+      "colspan": colSpan
     });
   }
 }
@@ -141892,18 +141926,13 @@ class GroupPanelHorizontalRow extends _index.BaseInfernoComponent {
     return (0, _inferno.createVNode)(1, "tr", `dx-scheduler-group-row ${className}`, groupItems.map((_ref, index) => {
       let {
         colSpan,
-        rowSpan,
         color,
         data,
         id,
         isFirstGroupCell,
         isLastGroupCell,
-        isLastColumn,
         key,
-        text,
-        resourceIndex,
-        isLeaf,
-        path
+        text
       } = _ref;
       return (0, _inferno.createComponentVNode)(2, _group_panel_horizontal_cell.GroupPanelHorizontalCell, {
         "text": text,
@@ -141911,14 +141940,9 @@ class GroupPanelHorizontalRow extends _index.BaseInfernoComponent {
         "data": data,
         "index": index,
         "color": color,
-        "resourceIndex": resourceIndex,
-        "isLeaf": isLeaf,
-        "path": path,
         "colSpan": colSpan ?? _group_panel_horizontal_cell.GroupPanelHorizontalCellDefaultProps.colSpan,
-        "rowSpan": rowSpan,
         "isFirstGroupCell": Boolean(isFirstGroupCell),
         "isLastGroupCell": Boolean(isLastGroupCell),
-        "isLastColumn": isLastColumn,
         "cellTemplate": cellTemplate
       }, key);
     }), 0);
@@ -141943,12 +141967,8 @@ Object.defineProperty(exports, "__esModule", ({
 exports.GroupPanelRowDefaultProps = exports.GroupPanelCellDefaultProps = exports.GroupPanelBaseDefaultProps = void 0;
 const GroupPanelBaseDefaultProps = exports.GroupPanelBaseDefaultProps = {
   groupPanelData: {
-    groupTree: [],
     groupPanelItems: [],
-    maxDepth: 0,
-    baseColSpan: 1,
-    columnCountPerGroup: 1,
-    hasHierarchy: false
+    baseColSpan: 1
   },
   groupByDate: false,
   styles: {}
@@ -141984,37 +142004,7 @@ var _inferno = __webpack_require__(/*! inferno */ 76231);
 var _index = __webpack_require__(/*! ../../../../core/r1/runtime/inferno/index */ 6257);
 var _index2 = __webpack_require__(/*! ../../utils/index */ 34396);
 var _group_panel_props = __webpack_require__(/*! ./group_panel_props */ 3234);
-var _group_panel_vertical_cell = __webpack_require__(/*! ./group_panel_vertical_cell */ 47231);
-var _group_panel_vertical_node = __webpack_require__(/*! ./group_panel_vertical_node */ 35487);
 var _group_panel_vertical_row = __webpack_require__(/*! ./group_panel_vertical_row */ 73783);
-const HIERARCHICAL_GROUP_FLEX_CONTAINER_CLASS = 'dx-scheduler-group-flex-container-hierarchical';
-const TIMELINE_GROUP_TABLE_CLASS = 'dx-scheduler-group-table';
-const renderGroupPanelContent = (groupPanelData, resourceCellTemplate, isTimelineGroupTable, isHierarchical, groupByDate) => {
-  if (isTimelineGroupTable && !isHierarchical) {
-    return (0, _index2.getTimelineGroupPanelRows)(groupPanelData, groupByDate).map(group => (0, _inferno.createComponentVNode)(2, _group_panel_vertical_row.GroupPanelVerticalRow, {
-      "groupItems": group,
-      "cellTemplate": resourceCellTemplate
-    }, group[group.length - 1].key));
-  }
-  if (isHierarchical) {
-    return groupPanelData.groupTree.map((node, index) => (0, _inferno.createComponentVNode)(2, _group_panel_vertical_node.GroupPanelVerticalNode, {
-      "node": node,
-      "index": index,
-      "cellTemplate": resourceCellTemplate
-    }, node.key));
-  }
-  return (0, _inferno.createVNode)(1, "div", "dx-scheduler-group-row", groupPanelData.groupTree.map((node, index) => (0, _inferno.createComponentVNode)(2, _group_panel_vertical_cell.GroupPanelVerticalCell, {
-    "text": node.text,
-    "id": node.id,
-    "data": node.data,
-    "index": index,
-    "color": node.color,
-    "resourceIndex": node.resourceIndex,
-    "isLeaf": node.children.length === 0,
-    "path": node.path,
-    "cellTemplate": resourceCellTemplate
-  }, node.key)), 0);
-};
 class GroupPanelVertical extends _index.BaseInfernoComponent {
   render() {
     const {
@@ -142024,15 +142014,14 @@ class GroupPanelVertical extends _index.BaseInfernoComponent {
       resourceCellTemplate,
       height,
       styles,
-      groupByDate
+      rowHeights
     } = this.props;
     const style = (0, _index.normalizeStyles)(_index2.renderUtils.addHeightToStyle(height, styles));
-    const isTimelineGroupTable = className === TIMELINE_GROUP_TABLE_CLASS;
-    const useResourceHierarchyLayout = groupPanelData.hasHierarchy && groupPanelData.maxDepth > 1;
-    const isHierarchical = isTimelineGroupTable ? useResourceHierarchyLayout : groupPanelData.maxDepth > 1;
-    const flexContainerClassName = isHierarchical ? `dx-scheduler-group-flex-container ${HIERARCHICAL_GROUP_FLEX_CONTAINER_CLASS}` : 'dx-scheduler-group-flex-container';
-    const groupPanelContent = renderGroupPanelContent(groupPanelData, resourceCellTemplate, isTimelineGroupTable, isHierarchical, groupByDate);
-    return (0, _inferno.createVNode)(1, "div", className, (0, _inferno.createVNode)(1, "div", flexContainerClassName, groupPanelContent, 0), 2, {
+    return (0, _inferno.createVNode)(1, "div", className, (0, _inferno.createVNode)(1, "div", "dx-scheduler-group-flex-container", groupPanelData.groupPanelItems.map((group, index) => (0, _inferno.createComponentVNode)(2, _group_panel_vertical_row.GroupPanelVerticalRow, {
+      "groupItems": group,
+      "height": rowHeights === null || rowHeights === void 0 ? void 0 : rowHeights[index],
+      "cellTemplate": resourceCellTemplate
+    }, group[0].key)), 0), 2, {
       "style": style
     }, null, elementRef);
   }
@@ -142057,7 +142046,6 @@ exports.GroupPanelVerticalCell = void 0;
 var _inferno = __webpack_require__(/*! inferno */ 76231);
 var _index = __webpack_require__(/*! ../../../../core/r1/runtime/inferno/index */ 6257);
 var _index2 = __webpack_require__(/*! ../../../../scheduler/r1/components/templates/index */ 17855);
-var _group_panel_tree = __webpack_require__(/*! ../../utils/group_panel_tree */ 38149);
 var _group_panel_props = __webpack_require__(/*! ./group_panel_props */ 3234);
 class GroupPanelVerticalCell extends _index.BaseInfernoComponent {
   render() {
@@ -142068,23 +142056,17 @@ class GroupPanelVerticalCell extends _index.BaseInfernoComponent {
       color,
       text,
       index,
-      cellTemplate,
-      resourceIndex,
-      isLeaf,
-      path
+      cellTemplate
     } = this.props;
-    return (0, _inferno.createVNode)(1, "div", `dx-scheduler-group-header ${className ?? ''}`, cellTemplate ? (0, _inferno.createComponentVNode)(2, _index2.PublicTemplate, {
+    return (0, _inferno.createVNode)(1, "div", `dx-scheduler-group-header ${className}`, cellTemplate ? (0, _inferno.createComponentVNode)(2, _index2.PublicTemplate, {
       "template": cellTemplate,
       "templateProps": {
-        data: (0, _group_panel_tree.getResourceCellTemplateData)({
-          id,
-          text,
-          color,
+        data: {
           data,
-          resourceIndex,
-          isLeaf,
-          path
-        }),
+          id,
+          color,
+          text
+        },
         index
       }
     }) : (0, _inferno.createVNode)(1, "div", "dx-scheduler-group-header-content", text, 0), 0);
@@ -142092,83 +142074,6 @@ class GroupPanelVerticalCell extends _index.BaseInfernoComponent {
 }
 exports.GroupPanelVerticalCell = GroupPanelVerticalCell;
 GroupPanelVerticalCell.defaultProps = _group_panel_props.GroupPanelCellDefaultProps;
-
-/***/ },
-
-/***/ 35487
-/*!******************************************************************************************************************!*\
-  !*** ./artifacts/transpiled-renovation-npm/__internal/scheduler/r1/components/base/group_panel_vertical_node.js ***!
-  \******************************************************************************************************************/
-(__unused_webpack_module, exports, __webpack_require__) {
-
-
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-exports.GroupPanelVerticalNodeDefaultProps = exports.GroupPanelVerticalNode = void 0;
-var _inferno = __webpack_require__(/*! inferno */ 76231);
-var _index = __webpack_require__(/*! ../../../../core/r1/runtime/inferno/index */ 6257);
-var _index2 = __webpack_require__(/*! ../../../../scheduler/r1/components/templates/index */ 17855);
-var _render_utils = __webpack_require__(/*! ../../../../core/r1/utils/render_utils */ 71312);
-var _group_panel_tree = __webpack_require__(/*! ../../utils/group_panel_tree */ 38149);
-const GroupPanelVerticalNodeDefaultProps = exports.GroupPanelVerticalNodeDefaultProps = {
-  node: {
-    key: '',
-    id: 0,
-    text: '',
-    data: {
-      id: 0
-    },
-    resourceIndex: '',
-    path: [],
-    leafCount: 1,
-    children: []
-  },
-  index: 0,
-  className: ''
-};
-class GroupPanelVerticalNode extends _index.BaseInfernoComponent {
-  render() {
-    const {
-      node,
-      index,
-      cellTemplate,
-      className
-    } = this.props;
-    const isLeaf = node.children.length === 0;
-    const rowClasses = (0, _render_utils.combineClasses)({
-      'dx-scheduler-group-row': true,
-      [className ?? '']: Boolean(className)
-    });
-    const cellClasses = (0, _render_utils.combineClasses)({
-      'dx-scheduler-group-header': true,
-      'dx-scheduler-group-header-leaf': isLeaf
-    });
-    return (0, _inferno.createVNode)(1, "div", rowClasses, [(0, _inferno.createVNode)(1, "div", cellClasses, cellTemplate ? (0, _inferno.createComponentVNode)(2, _index2.PublicTemplate, {
-      "template": cellTemplate,
-      "templateProps": {
-        data: (0, _group_panel_tree.getResourceCellTemplateData)(Object.assign({}, node, {
-          isLeaf
-        })),
-        index
-      }
-    }) : (0, _inferno.createVNode)(1, "div", "dx-scheduler-group-header-content", node.text, 0), 0, {
-      "title": node.text,
-      "aria-label": node.text
-    }), !isLeaf && (0, _inferno.createVNode)(1, "div", "dx-scheduler-group-flex-container", node.children.map((child, childIndex) => (0, _inferno.createComponentVNode)(2, GroupPanelVerticalNode, {
-      "node": child,
-      "index": childIndex,
-      "cellTemplate": cellTemplate
-    }, child.key)), 0)], 0, {
-      "style": (0, _index.normalizeStyles)({
-        flexGrow: node.leafCount
-      })
-    });
-  }
-}
-exports.GroupPanelVerticalNode = GroupPanelVerticalNode;
-GroupPanelVerticalNode.defaultProps = GroupPanelVerticalNodeDefaultProps;
 
 /***/ },
 
@@ -142186,6 +142091,7 @@ Object.defineProperty(exports, "__esModule", ({
 exports.GroupPanelVerticalRow = void 0;
 var _inferno = __webpack_require__(/*! inferno */ 76231);
 var _index = __webpack_require__(/*! ../../../../core/r1/runtime/inferno/index */ 6257);
+var _index2 = __webpack_require__(/*! ../../utils/index */ 34396);
 var _group_panel_props = __webpack_require__(/*! ./group_panel_props */ 3234);
 var _group_panel_vertical_cell = __webpack_require__(/*! ./group_panel_vertical_cell */ 47231);
 class GroupPanelVerticalRow extends _index.BaseInfernoComponent {
@@ -142193,18 +142099,17 @@ class GroupPanelVerticalRow extends _index.BaseInfernoComponent {
     const {
       className,
       groupItems,
+      height,
       cellTemplate
     } = this.props;
-    return (0, _inferno.createVNode)(1, "div", `dx-scheduler-group-row ${className ?? ''}`, groupItems.map((_ref, index) => {
+    const styles = height === undefined ? undefined : (0, _index.normalizeStyles)(_index2.renderUtils.addHeightToStyle(height));
+    return (0, _inferno.createVNode)(1, "div", `dx-scheduler-group-row ${className}`, groupItems.map((_ref, index) => {
       let {
         color,
         data,
         id,
         key,
-        text,
-        resourceIndex,
-        isLeaf,
-        path
+        text
       } = _ref;
       return (0, _inferno.createComponentVNode)(2, _group_panel_vertical_cell.GroupPanelVerticalCell, {
         "text": text,
@@ -142212,12 +142117,11 @@ class GroupPanelVerticalRow extends _index.BaseInfernoComponent {
         "data": data,
         "index": index,
         "color": color,
-        "resourceIndex": resourceIndex,
-        "isLeaf": isLeaf,
-        "path": path,
         "cellTemplate": cellTemplate
       }, key);
-    }), 0);
+    }), 0, {
+      "style": styles
+    });
   }
 }
 exports.GroupPanelVerticalRow = GroupPanelVerticalRow;
@@ -143970,15 +143874,15 @@ exports.calculateRows = calculateRows;
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
-exports.splitNumber = exports.setOptionHour = exports.isVerticalGroupingApplied = exports.isTimelineView = exports.isHorizontalView = exports.isHorizontalGroupingApplied = exports.isGroupingByDate = exports.isFirstCellInMonthWithIntervalCount = exports.isDateInRange = exports.isDateAndTimeView = exports.isAppointmentTakesAllDay = exports.getViewStartByOptions = exports.getValidCellDateForLocalTimeFormat = exports.getTotalRowCountByCompleteData = exports.getTotalCellCountByCompleteData = exports.getToday = exports.getTimelineGroupPanelRows = exports.getStartViewDateWithoutDST = exports.getStartViewDateTimeOffset = exports.getSkippedHoursInRange = exports.getOverflowIndicatorColor = exports.getKeyByGroup = exports.getIsGroupedAllDayPanel = exports.getHorizontalGroupCount = exports.getHeaderCellText = exports.getGroupPanelData = exports.getDisplayedRowCount = exports.getDisplayedCellCount = exports.getDatesWithoutTime = exports.getCellDuration = exports.getCalculatedFirstDayOfWeek = exports.getAppointmentKey = exports.extendGroupItemsForGroupingByDate = exports.calculateViewStartDate = exports.calculateIsGroupedAllDayPanel = exports.calculateDayDuration = exports.calculateCellIndex = void 0;
+exports.splitNumber = exports.setOptionHour = exports.isVerticalGroupingApplied = exports.isTimelineView = exports.isHorizontalView = exports.isHorizontalGroupingApplied = exports.isGroupingByDate = exports.isFirstCellInMonthWithIntervalCount = exports.isDateInRange = exports.isDateAndTimeView = exports.isAppointmentTakesAllDay = exports.getViewStartByOptions = exports.getVerticalGroupCountClass = exports.getValidCellDateForLocalTimeFormat = exports.getTotalRowCountByCompleteData = exports.getTotalCellCountByCompleteData = exports.getToday = exports.getStartViewDateWithoutDST = exports.getStartViewDateTimeOffset = exports.getSkippedHoursInRange = exports.getOverflowIndicatorColor = exports.getKeyByGroup = exports.getIsGroupedAllDayPanel = exports.getHorizontalGroupCount = exports.getHeaderCellText = exports.getGroupPanelData = exports.getDisplayedRowCount = exports.getDisplayedCellCount = exports.getDatesWithoutTime = exports.getCellDuration = exports.getCalculatedFirstDayOfWeek = exports.getAppointmentKey = exports.extendGroupItemsForGroupingByDate = exports.calculateViewStartDate = exports.calculateIsGroupedAllDayPanel = exports.calculateDayDuration = exports.calculateCellIndex = void 0;
 var _date = _interopRequireDefault(__webpack_require__(/*! ../../../../common/core/localization/date */ 38662));
 var _date2 = _interopRequireDefault(__webpack_require__(/*! ../../../../core/utils/date */ 41380));
 var _type = __webpack_require__(/*! ../../../../core/utils/type */ 11528);
 var _date3 = __webpack_require__(/*! ../../../core/utils/date */ 55594);
+var _classes = __webpack_require__(/*! ../../classes */ 95685);
 var _constants = __webpack_require__(/*! ../../constants */ 25307);
 var _constants_view = __webpack_require__(/*! ../../utils/options/constants_view */ 43582);
 var _utils_time_zone = _interopRequireDefault(__webpack_require__(/*! ../../utils_time_zone */ 48676));
-var _group_panel_tree = __webpack_require__(/*! ./group_panel_tree */ 38149);
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 const toMs = _date2.default.dateToMilliseconds;
 const DAY_HOURS = 24;
@@ -144026,6 +143930,19 @@ const getAppointmentKey = geometry => {
 exports.getAppointmentKey = getAppointmentKey;
 const getOverflowIndicatorColor = (color, colors) => !colors.length || colors.filter(item => item !== color).length === 0 ? color : undefined;
 exports.getOverflowIndicatorColor = getOverflowIndicatorColor;
+const getVerticalGroupCountClass = groups => {
+  switch (groups === null || groups === void 0 ? void 0 : groups.length) {
+    case 1:
+      return _classes.VERTICAL_GROUP_COUNT_CLASSES[0];
+    case 2:
+      return _classes.VERTICAL_GROUP_COUNT_CLASSES[1];
+    case 3:
+      return _classes.VERTICAL_GROUP_COUNT_CLASSES[2];
+    default:
+      return undefined;
+  }
+};
+exports.getVerticalGroupCountClass = getVerticalGroupCountClass;
 const setOptionHour = (date, optionHour) => {
   const nextDate = new Date(date);
   if (!(0, _type.isDefined)(optionHour)) {
@@ -144232,32 +144149,46 @@ const extendGroupItemsForGroupingByDate = (groupRenderItems, columnCountPerGroup
   }))];
 }), []);
 exports.extendGroupItemsForGroupingByDate = extendGroupItemsForGroupingByDate;
-const getGroupPanelData = function (groupsTree, columnCountPerGroup, groupByDate, baseColSpan) {
-  let hasHierarchy = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : false;
-  const groupTree = (0, _group_panel_tree.buildGroupPanelTree)(groupsTree);
-  const maxDepth = (0, _group_panel_tree.getGroupPanelTreeDepth)(groupTree);
-  let groupPanelItems = (0, _group_panel_tree.flattenGroupPanelTreeToRows)(groupTree, maxDepth, baseColSpan);
+const stringifyId = id => (0, _type.isObject)(id) ? JSON.stringify(id) : String(id);
+const getGroupPanelData = (groupResources, columnCountPerGroup, groupByDate, baseColSpan) => {
+  let repeatCount = 1;
+  let groupPanelItems = groupResources.map(group => {
+    const result = [];
+    const {
+      resourceName,
+      resourceIndex,
+      items,
+      data
+    } = group;
+    for (let i = 0; i < repeatCount; i += 1) {
+      result.push(...items.map((_ref2, index) => {
+        let {
+          id,
+          text,
+          color
+        } = _ref2;
+        return {
+          id,
+          text,
+          color,
+          key: `${i}_${resourceIndex}_${stringifyId(id)}`,
+          resourceName,
+          data: data === null || data === void 0 ? void 0 : data[index]
+        };
+      }));
+    }
+    repeatCount *= items.length;
+    return result;
+  }).filter(group => group.length);
   if (groupByDate) {
     groupPanelItems = extendGroupItemsForGroupingByDate(groupPanelItems, columnCountPerGroup);
   }
   return {
-    groupTree,
     groupPanelItems,
-    maxDepth,
-    baseColSpan,
-    columnCountPerGroup,
-    hasHierarchy
+    baseColSpan
   };
 };
 exports.getGroupPanelData = getGroupPanelData;
-const getTimelineGroupPanelRows = (groupPanelData, groupByDate) => {
-  let rows = groupPanelData.hasHierarchy ? (0, _group_panel_tree.flattenGroupPanelTreeToLeafRows)(groupPanelData.groupTree, groupPanelData.baseColSpan) : groupPanelData.groupPanelItems;
-  if (groupByDate) {
-    rows = extendGroupItemsForGroupingByDate(rows, groupPanelData.columnCountPerGroup);
-  }
-  return rows;
-};
-exports.getTimelineGroupPanelRows = getTimelineGroupPanelRows;
 const splitNumber = (value, splitValue) => Array.from({
   length: Math.ceil(value / splitValue)
 }, (_, index) => Math.min(value - splitValue * index, splitValue));
@@ -144347,147 +144278,6 @@ exports.formatWeekdayAndDay = formatWeekdayAndDay;
 
 /***/ },
 
-/***/ 38149
-/*!***********************************************************************************************!*\
-  !*** ./artifacts/transpiled-renovation-npm/__internal/scheduler/r1/utils/group_panel_tree.js ***!
-  \***********************************************************************************************/
-(__unused_webpack_module, exports, __webpack_require__) {
-
-
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-exports.stringifyId = exports.getResourceCellTemplateData = exports.getGroupPanelTreeDepth = exports.flattenGroupPanelTreeToRows = exports.flattenGroupPanelTreeToLeafRows = exports.buildGroupPanelTree = void 0;
-var _common = __webpack_require__(/*! ../../../../core/utils/common */ 17781);
-const stringifyId = id => String((0, _common.getKeyHash)(id));
-exports.stringifyId = stringifyId;
-const buildGroupPanelData = node => {
-  if (node.resourceData) {
-    return node.resourceData;
-  }
-  const data = {
-    id: node.id,
-    text: node.resourceText
-  };
-  if (node.color !== undefined) {
-    data.color = node.color;
-  }
-  return data;
-};
-const buildGroupPanelNode = (node, parentKey, parentPath) => {
-  const key = `${parentKey}${node.resourceIndex}_${stringifyId(node.id)}`;
-  const cell = {
-    id: node.id,
-    text: node.resourceText,
-    color: node.color,
-    resourceIndex: node.resourceIndex,
-    data: buildGroupPanelData(node)
-  };
-  const path = [...parentPath, cell];
-  const children = node.children.map(child => buildGroupPanelNode(child, `${key}_`, path));
-  const leafCount = children.length === 0 ? 1 : children.reduce((sum, child) => sum + child.leafCount, 0);
-  return Object.assign({
-    key
-  }, cell, {
-    path,
-    leafCount,
-    children
-  });
-};
-const buildGroupPanelTree = groupsTree => groupsTree.map(node => buildGroupPanelNode(node, '', []));
-exports.buildGroupPanelTree = buildGroupPanelTree;
-const getGroupPanelTreeDepth = tree => {
-  if (tree.length === 0) {
-    return 0;
-  }
-  return 1 + Math.max(...tree.map(node => getGroupPanelTreeDepth(node.children)));
-};
-exports.getGroupPanelTreeDepth = getGroupPanelTreeDepth;
-const flattenGroupPanelTreeToRows = (tree, maxDepth, baseColSpan) => {
-  const rows = Array.from({
-    length: maxDepth
-  }, () => []);
-  const walk = (node, depth, isLastColumn) => {
-    const isLeaf = node.children.length === 0;
-    const isShallowLeaf = isLeaf && depth < maxDepth - 1;
-    rows[depth].push(Object.assign({
-      id: node.id,
-      text: node.text,
-      color: node.color,
-      key: node.key,
-      resourceIndex: node.resourceIndex,
-      data: node.data,
-      isLeaf,
-      isLastColumn,
-      path: node.path,
-      colSpan: node.leafCount * baseColSpan
-    }, isShallowLeaf ? {
-      rowSpan: maxDepth - depth
-    } : {}));
-    node.children.forEach((child, index) => walk(child, depth + 1, isLastColumn && index === node.children.length - 1));
-  };
-  tree.forEach((node, index) => walk(node, 0, index === tree.length - 1));
-  return rows;
-};
-exports.flattenGroupPanelTreeToRows = flattenGroupPanelTreeToRows;
-const toGroupRenderItem = (node, baseColSpan) => ({
-  id: node.id,
-  text: node.text,
-  color: node.color,
-  key: node.key,
-  resourceIndex: node.resourceIndex,
-  data: node.data,
-  isLeaf: node.children.length === 0,
-  path: node.path,
-  colSpan: baseColSpan
-});
-const flattenGroupPanelTreeToLeafRows = (tree, baseColSpan) => {
-  const rows = [];
-  const walk = (node, path) => {
-    const currentPath = [...path, toGroupRenderItem(node, baseColSpan)];
-    if (node.children.length === 0) {
-      rows.push(currentPath);
-      return;
-    }
-    node.children.forEach(child => walk(child, currentPath));
-  };
-  tree.forEach(node => walk(node, []));
-  return rows;
-};
-exports.flattenGroupPanelTreeToLeafRows = flattenGroupPanelTreeToLeafRows;
-const getResourceCellTemplateData = _ref => {
-  let {
-    id,
-    text,
-    color,
-    data,
-    resourceIndex = '',
-    isLeaf = true,
-    path
-  } = _ref;
-  const cellPath = path !== null && path !== void 0 && path.length ? path : [{
-    id,
-    text,
-    color,
-    resourceIndex,
-    data
-  }];
-  return {
-    data,
-    id,
-    text,
-    color,
-    resourceIndex,
-    isLeaf,
-    path: cellPath,
-    level: cellPath.length - 1
-  };
-};
-exports.getResourceCellTemplateData = getResourceCellTemplateData;
-
-/***/ },
-
 /***/ 34396
 /*!************************************************************************************!*\
   !*** ./artifacts/transpiled-renovation-npm/__internal/scheduler/r1/utils/index.js ***!
@@ -144500,12 +144290,6 @@ Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports.agendaUtils = void 0;
-Object.defineProperty(exports, "buildGroupPanelTree", ({
-  enumerable: true,
-  get: function () {
-    return _group_panel_tree.buildGroupPanelTree;
-  }
-}));
 Object.defineProperty(exports, "calculateCellIndex", ({
   enumerable: true,
   get: function () {
@@ -144541,18 +144325,6 @@ Object.defineProperty(exports, "extendGroupItemsForGroupingByDate", ({
   enumerable: true,
   get: function () {
     return _base.extendGroupItemsForGroupingByDate;
-  }
-}));
-Object.defineProperty(exports, "flattenGroupPanelTreeToLeafRows", ({
-  enumerable: true,
-  get: function () {
-    return _group_panel_tree.flattenGroupPanelTreeToLeafRows;
-  }
-}));
-Object.defineProperty(exports, "flattenGroupPanelTreeToRows", ({
-  enumerable: true,
-  get: function () {
-    return _group_panel_tree.flattenGroupPanelTreeToRows;
   }
 }));
 Object.defineProperty(exports, "formatWeekday", ({
@@ -144609,12 +144381,6 @@ Object.defineProperty(exports, "getGroupPanelData", ({
     return _base.getGroupPanelData;
   }
 }));
-Object.defineProperty(exports, "getGroupPanelTreeDepth", ({
-  enumerable: true,
-  get: function () {
-    return _group_panel_tree.getGroupPanelTreeDepth;
-  }
-}));
 Object.defineProperty(exports, "getHeaderCellText", ({
   enumerable: true,
   get: function () {
@@ -144645,12 +144411,6 @@ Object.defineProperty(exports, "getOverflowIndicatorColor", ({
     return _base.getOverflowIndicatorColor;
   }
 }));
-Object.defineProperty(exports, "getResourceCellTemplateData", ({
-  enumerable: true,
-  get: function () {
-    return _group_panel_tree.getResourceCellTemplateData;
-  }
-}));
 Object.defineProperty(exports, "getSkippedHoursInRange", ({
   enumerable: true,
   get: function () {
@@ -144667,12 +144427,6 @@ Object.defineProperty(exports, "getStartViewDateWithoutDST", ({
   enumerable: true,
   get: function () {
     return _base.getStartViewDateWithoutDST;
-  }
-}));
-Object.defineProperty(exports, "getTimelineGroupPanelRows", ({
-  enumerable: true,
-  get: function () {
-    return _base.getTimelineGroupPanelRows;
   }
 }));
 Object.defineProperty(exports, "getToday", ({
@@ -144697,6 +144451,12 @@ Object.defineProperty(exports, "getValidCellDateForLocalTimeFormat", ({
   enumerable: true,
   get: function () {
     return _base.getValidCellDateForLocalTimeFormat;
+  }
+}));
+Object.defineProperty(exports, "getVerticalGroupCountClass", ({
+  enumerable: true,
+  get: function () {
+    return _base.getVerticalGroupCountClass;
   }
 }));
 Object.defineProperty(exports, "getViewStartByOptions", ({
@@ -144772,12 +144532,6 @@ Object.defineProperty(exports, "splitNumber", ({
     return _base.splitNumber;
   }
 }));
-Object.defineProperty(exports, "stringifyId", ({
-  enumerable: true,
-  get: function () {
-    return _group_panel_tree.stringifyId;
-  }
-}));
 exports.weekUtils = exports.timelineWeekUtils = exports.timelineMonthUtils = exports.themeUtils = void 0;
 var _themes = __webpack_require__(/*! ../../../scheduler/r1/utils/themes */ 3108);
 var _agenda = __webpack_require__(/*! ./agenda */ 64722);
@@ -144790,7 +144544,6 @@ var _week = __webpack_require__(/*! ./week */ 3962);
 var _base = __webpack_require__(/*! ./base */ 44611);
 var _exclude_from_recurrence = __webpack_require__(/*! ./exclude_from_recurrence */ 98090);
 var _format_weekday = __webpack_require__(/*! ./format_weekday */ 28524);
-var _group_panel_tree = __webpack_require__(/*! ./group_panel_tree */ 38149);
 const agendaUtils = exports.agendaUtils = {
   calculateEndViewDate: _agenda.calculateEndViewDate,
   calculateStartViewDate: _agenda.calculateStartViewDate,
@@ -147985,13 +147738,10 @@ class DesktopTooltipStrategy extends _tooltip_strategy_base.TooltipStrategyBase 
       wrapperAttr: {
         class: APPOINTMENT_TOOLTIP_WRAPPER_CLASS
       },
-      // eslint-disable-next-line @typescript-eslint/naming-convention
-      _preventDialogContainerFocus: true,
-      // eslint-disable-next-line @typescript-eslint/naming-convention
-      _popoverContentRole: 'dialog',
       tabFocusLoopEnabled: (_this$extraOptions4 = this.extraOptions) === null || _this$extraOptions4 === void 0 ? void 0 : _this$extraOptions4.tabFocusLoopEnabled
     });
     tooltip.setAria({
+      role: 'dialog',
       label: _message.default.format('dxScheduler-appointmentListAriaLabel')
     });
     return tooltip;
@@ -148722,16 +148472,11 @@ class ResourceDataAccessor extends _data_accessor.DataAccessor {
     this.idExpr = config.valueExpr ?? 'id';
     this.textExpr = config.displayExpr ?? 'text';
     this.colorExpr = config.colorExpr ?? 'color';
-    this.parentIdExpr = config.parentIdExpr;
-    const expressions = {
+    this.updateExpressions({
       idExpr: this.idExpr,
       textExpr: this.textExpr,
       colorExpr: this.colorExpr
-    };
-    if (this.parentIdExpr) {
-      expressions.parentIdExpr = this.parentIdExpr;
-    }
-    this.updateExpressions(expressions);
+    });
   }
   updateExpression(field, expr) {
     const name = field.replace('Expr', '');
@@ -148740,12 +148485,6 @@ class ResourceDataAccessor extends _data_accessor.DataAccessor {
       delete this.getter[name];
       delete this.setter[name];
       /* eslint-enable @typescript-eslint/no-dynamic-delete */
-      return;
-    }
-    if (typeof expr === 'function') {
-      this.getter[name] = expr;
-      // eslint-disable-next-line @typescript-eslint/no-dynamic-delete
-      delete this.setter[name];
       return;
     }
     this.getter[name] = (0, _data.compileGetter)(expr);
@@ -149101,20 +148840,12 @@ Object.defineProperty(exports, "__esModule", ({
 exports.ResourceLoader = void 0;
 var _appointment_resource_data_accessor = __webpack_require__(/*! ../data_accessor/appointment_resource_data_accessor */ 5450);
 var _resource_data_accessor = __webpack_require__(/*! ../data_accessor/resource_data_accessor */ 72044);
-var _hierarchy_tree_utils = __webpack_require__(/*! ../resource_manager/hierarchy_tree_utils */ 49431);
 var _loader = __webpack_require__(/*! ./loader */ 85935);
-const filterLeafData = (data, items, leafItems) => {
-  const leaves = new Set(leafItems);
-  return data.filter((_, index) => leaves.has(items[index]));
-};
 class ResourceLoader extends _loader.Loader {
   constructor(config) {
     super(config, {
       pageSize: 0
     });
-    this.hierarchyTree = [];
-    this.leafItems = [];
-    this.leafData = [];
     const accessor = (0, _appointment_resource_data_accessor.getAppointmentResourceAccessor)(config);
     this.idsGetter = accessor.idsGetter;
     this.idsSetter = accessor.idsSetter;
@@ -149124,53 +148855,20 @@ class ResourceLoader extends _loader.Loader {
     this.resourceIndex = String((0, _appointment_resource_data_accessor.getResourceIndex)(config));
     this.resourceName = config.label;
     this.icon = config.icon;
-    this.hasHierarchy = Boolean(config.parentIdExpr);
     this.onInit();
   }
   onLoadTransform(items) {
-    return items.map(item => {
-      const resource = {
-        id: this.dataAccessor.get('id', item),
-        text: this.dataAccessor.get('text', item),
-        color: this.dataAccessor.get('color', item)
-      };
-      if (this.hasHierarchy) {
-        resource.parentId = this.dataAccessor.get('parentId', item) ?? null;
-      }
-      return resource;
-    });
+    return items.map(item => ({
+      id: this.dataAccessor.get('id', item),
+      text: this.dataAccessor.get('text', item),
+      color: this.dataAccessor.get('color', item)
+    }));
   }
   applyChanges(items) {
-    const hasChanged = Boolean(items) && items !== this.data;
     super.applyChanges(items);
-    if (hasChanged) {
-      this.rebuildHierarchy();
-    }
-  }
-  rebuildHierarchy() {
-    if (!this.hasHierarchy) {
-      this.hierarchyTree = [];
-      this.leafItems = this.items;
-      this.leafData = this.data;
-      return;
-    }
-    this.hierarchyTree = (0, _hierarchy_tree_utils.buildHierarchyTree)(this.items);
-    this.leafItems = (0, _hierarchy_tree_utils.collectHierarchyLeaves)(this.hierarchyTree);
-    this.leafData = filterLeafData(this.data, this.items, this.leafItems);
-  }
-  collectLeafData(data) {
-    const items = this.onLoadTransform(data);
-    const leafItems = (0, _hierarchy_tree_utils.collectHierarchyLeaves)((0, _hierarchy_tree_utils.buildHierarchyTree)(items));
-    return filterLeafData(data, items, leafItems);
   }
   onLoadError() {}
   onChange() {}
-  dispose() {
-    super.dispose();
-    this.hierarchyTree = [];
-    this.leafItems = [];
-    this.leafData = [];
-  }
 }
 exports.ResourceLoader = ResourceLoader;
 
@@ -150338,21 +150036,25 @@ const setAppointmentGroupValues = function (item, resourceById) {
     resource.idsSetter(item, value);
   });
 };
-// Note: ids can be non-primitive (see valueExpr), so they need a by-value comparison
 exports.setAppointmentGroupValues = setAppointmentGroupValues;
-const isGroupLeafMatched = (leaf, appointmentGroupValues) => Object.entries(leaf.grouped).every(_ref4 => {
+const getAppointmentGroupIndex = (appointmentGroupValues, groupLeafs) => groupLeafs.filter(leaf => Object.entries(leaf.grouped).every(_ref4 => {
   var _appointmentGroupValu;
   let [resourceIndex, resourceId] = _ref4;
-  return (_appointmentGroupValu = appointmentGroupValues[resourceIndex]) === null || _appointmentGroupValu === void 0 ? void 0 : _appointmentGroupValu.some(id => (0, _m_common.equalByValue)(id, resourceId));
-});
-const getAppointmentGroupIndex = (appointmentGroupValues, groupLeafs) => groupLeafs.filter(leaf => isGroupLeafMatched(leaf, appointmentGroupValues)).map(leaf => leaf.groupIndex);
+  return (_appointmentGroupValu = appointmentGroupValues[resourceIndex]) === null || _appointmentGroupValu === void 0 ? void 0 : _appointmentGroupValu.includes(resourceId);
+})).map(leaf => leaf.groupIndex);
 exports.getAppointmentGroupIndex = getAppointmentGroupIndex;
 const groupAppointmentsByGroupLeafs = (resourceById, groupLeafs, appointments) => {
   if (!groupLeafs.length) {
     return [appointments];
   }
-  const resources = Object.values(resourceById);
-  return groupLeafs.map(leaf => appointments.filter(item => isGroupLeafMatched(leaf, getAppointmentGroupValues(item, resources))));
+  return groupLeafs.map(leaf => appointments.filter(item => {
+    const appointmentGroupValues = getAppointmentGroupValues(item, Object.values(resourceById));
+    return Object.entries(leaf.grouped).every(_ref5 => {
+      var _appointmentGroupValu2;
+      let [resourceIndex, resourceId] = _ref5;
+      return (_appointmentGroupValu2 = appointmentGroupValues[resourceIndex]) === null || _appointmentGroupValu2 === void 0 ? void 0 : _appointmentGroupValu2.includes(resourceId);
+    });
+  }));
 };
 exports.groupAppointmentsByGroupLeafs = groupAppointmentsByGroupLeafs;
 
@@ -150362,7 +150064,7 @@ exports.groupAppointmentsByGroupLeafs = groupAppointmentsByGroupLeafs;
 /*!********************************************************************************************************!*\
   !*** ./artifacts/transpiled-renovation-npm/__internal/scheduler/utils/resource_manager/group_utils.js ***!
   \********************************************************************************************************/
-(__unused_webpack_module, exports, __webpack_require__) {
+(__unused_webpack_module, exports) {
 
 
 
@@ -150370,97 +150072,33 @@ Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports.groupResources = exports.getResourcesByGroupIndex = exports.getLeafGroupValues = exports.getGroupTexts = exports.getAllGroupValues = void 0;
-var _common = __webpack_require__(/*! ../../../../core/utils/common */ 17781);
-const isVirtualRoot = node => !node.resourceIndex;
-const buildRawResourceDataById = resource => {
-  const rawDataById = new Map();
-  resource.data.forEach(item => {
-    rawDataById.set((0, _common.getKeyHash)(resource.dataAccessor.get('id', item)), item);
-  });
-  return rawDataById;
-};
-const createFlatResourceNodes = resource => resource.items.map((item, index) => ({
-  id: item.id,
-  resourceText: item.text,
-  color: item.color,
-  resourceIndex: resource.resourceIndex,
-  grouped: {
-    [resource.resourceIndex]: item.id
-  },
-  children: [],
-  resourceData: resource.data[index]
-}));
-const hierarchyToGroupNodes = (hierarchyNodes, resource, parentGrouped, rawDataById) => hierarchyNodes.map(node => {
-  const grouped = Object.assign({}, parentGrouped, {
-    [resource.resourceIndex]: node.data.id
-  });
-  return {
-    id: node.data.id,
-    resourceText: node.data.text,
-    color: node.data.color,
-    resourceIndex: resource.resourceIndex,
-    grouped,
-    resourceData: rawDataById.get((0, _common.getKeyHash)(node.data.id)),
-    children: hierarchyToGroupNodes(node.children, resource, grouped, rawDataById)
-  };
-});
-const collectGroupLeaves = nodes => {
-  const leaves = [];
-  const walk = node => {
-    if (node.children.length === 0) {
-      leaves.push(node);
-      return;
-    }
-    node.children.forEach(walk);
-  };
-  nodes.forEach(walk);
-  return leaves;
-};
-const mergeGroupedIntoTree = (node, parentGrouped) => Object.assign({}, node, {
-  grouped: Object.assign({}, parentGrouped, node.grouped),
-  children: node.children.map(child => mergeGroupedIntoTree(child, parentGrouped))
-});
-const createResourceNodes = resource => {
-  if (resource.hasHierarchy) {
-    return hierarchyToGroupNodes(resource.hierarchyTree, resource, {}, buildRawResourceDataById(resource));
-  }
-  return createFlatResourceNodes(resource);
-};
-const attachResourceNodes = (leafs, nodes) => {
-  const nextLeafs = [];
-  leafs.forEach(leaf => {
-    leaf.children = nodes.map(node => mergeGroupedIntoTree(node, leaf.grouped));
-    leaf.children.forEach(child => {
-      nextLeafs.push(...collectGroupLeaves([child]));
-    });
-  });
-  return nextLeafs;
-};
 const groupResources = (resourceById, groups) => {
-  const validGroups = groups.filter(group => resourceById[group]);
-  if (!validGroups.length) {
+  if (!groups.length || Object.keys(resourceById).length === 0) {
     return {
       groupTree: [],
       groupLeafs: []
     };
   }
-  const head = [{
-    id: '',
-    resourceText: '',
-    resourceIndex: '',
-    grouped: {},
-    children: []
-  }];
+  const head = [{}];
   let leafs = head;
-  validGroups.forEach(group => {
+  groups.filter(group => resourceById[group]).forEach(group => {
     const resource = resourceById[group];
-    const nodes = createResourceNodes(resource);
-    if (leafs.length > 0 && isVirtualRoot(leafs[0])) {
-      head[0].children = nodes;
-      leafs = collectGroupLeaves(nodes);
-      return;
-    }
-    leafs = attachResourceNodes(leafs, nodes);
+    const nodes = resource.items.map(item => ({
+      resourceText: item.text,
+      resourceIndex: resource.resourceIndex,
+      grouped: {
+        [resource.resourceIndex]: item.id
+      },
+      children: []
+    }));
+    const nextLeafs = [];
+    leafs.forEach(leaf => {
+      leaf.children = nodes.map(node => Object.assign({}, node, {
+        grouped: Object.assign({}, node.grouped, leaf.grouped)
+      }));
+      nextLeafs.push(...leaf.children);
+    });
+    leafs = nextLeafs;
   });
   const groupLeafs = leafs.map((leaf, index) => Object.assign({}, leaf, {
     groupIndex: index
@@ -150502,91 +150140,6 @@ const getResourcesByGroupIndex = (groupsLeafs, resourceById, groupIndex) => {
   });
 };
 exports.getResourcesByGroupIndex = getResourcesByGroupIndex;
-
-/***/ },
-
-/***/ 49431
-/*!*****************************************************************************************************************!*\
-  !*** ./artifacts/transpiled-renovation-npm/__internal/scheduler/utils/resource_manager/hierarchy_tree_utils.js ***!
-  \*****************************************************************************************************************/
-(__unused_webpack_module, exports, __webpack_require__) {
-
-
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-exports.collectHierarchyLeaves = exports.buildHierarchyTree = void 0;
-var _m_common = __webpack_require__(/*! ../../../core/utils/m_common */ 39315);
-const hashOf = id => (0, _m_common.getKeyHash)(id);
-const isRootItem = (item, nodeByHash) => {
-  const {
-    parentId,
-    id
-  } = item;
-  return parentId == null || !nodeByHash.has(hashOf(parentId)) || hashOf(parentId) === hashOf(id);
-};
-// Without this check, a parentId loop (A's parent is B, B's parent is A) causes a stack overflow
-const isAncestorCycle = (id, parentId, nodeByHash) => {
-  const targetHash = hashOf(id);
-  const visited = new Set();
-  let currentId = parentId;
-  while (currentId != null && !visited.has(hashOf(currentId))) {
-    var _nodeByHash$get;
-    if (hashOf(currentId) === targetHash) {
-      return true;
-    }
-    visited.add(hashOf(currentId));
-    currentId = (_nodeByHash$get = nodeByHash.get(hashOf(currentId))) === null || _nodeByHash$get === void 0 ? void 0 : _nodeByHash$get.data.parentId;
-  }
-  return false;
-};
-const buildHierarchyTree = items => {
-  const nodeByHash = new Map();
-  const attachedHashes = new Set();
-  items.forEach(data => {
-    nodeByHash.set(hashOf(data.id), {
-      data,
-      children: []
-    });
-  });
-  items.forEach(data => {
-    if (isRootItem(data, nodeByHash)) {
-      return;
-    }
-    const node = nodeByHash.get(hashOf(data.id));
-    const {
-      parentId
-    } = data;
-    if (node === undefined || parentId == null) {
-      return;
-    }
-    if (isAncestorCycle(data.id, parentId, nodeByHash)) {
-      return;
-    }
-    const parent = nodeByHash.get(hashOf(parentId));
-    if (parent === undefined) {
-      return;
-    }
-    parent.children.push(node);
-    attachedHashes.add(hashOf(data.id));
-  });
-  return items.filter(data => !attachedHashes.has(hashOf(data.id))).map(data => nodeByHash.get(hashOf(data.id))).filter(node => node !== undefined);
-};
-exports.buildHierarchyTree = buildHierarchyTree;
-const collectHierarchyLeaves = tree => {
-  const leaves = [];
-  const walk = node => {
-    if (node.children.length === 0) {
-      leaves.push(node.data);
-      return;
-    }
-    node.children.forEach(walk);
-  };
-  tree.forEach(walk);
-  return leaves;
-};
-exports.collectHierarchyLeaves = collectHierarchyLeaves;
 
 /***/ },
 
@@ -150644,18 +150197,6 @@ class ResourceManager {
   }
   groupResources() {
     return this.groups.map(group => this.resourceById[group]).filter(Boolean);
-  }
-  isHierarchicalResource(resourceIndex) {
-    var _this$resourceById$re;
-    return Boolean((_this$resourceById$re = this.resourceById[resourceIndex]) === null || _this$resourceById$re === void 0 ? void 0 : _this$resourceById$re.hasHierarchy);
-  }
-  getResourceHierarchyTree(resourceIndex) {
-    var _this$resourceById$re2;
-    return ((_this$resourceById$re2 = this.resourceById[resourceIndex]) === null || _this$resourceById$re2 === void 0 ? void 0 : _this$resourceById$re2.hierarchyTree) ?? [];
-  }
-  getResourceLeafItems(resourceIndex) {
-    const resource = this.resourceById[resourceIndex];
-    return (resource === null || resource === void 0 ? void 0 : resource.leafItems) ?? [];
   }
   async loadAppointmentsResources(items) {
     let forceReload = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
@@ -151423,8 +150964,7 @@ const isAppointmentMatchedResources = (appointment, groupsResources) => {
   const appointmentGroupValues = (0, _appointment_groups_utils.getAppointmentGroupValues)(appointment, groupsResources);
   return groupsResources.every(resource => {
     const value = appointmentGroupValues[resource.resourceIndex];
-    const validItems = resource.hasHierarchy ? resource.leafItems : resource.items;
-    return value === null || value === void 0 ? void 0 : value.some(id => validItems.some(item => (0, _common.equalByValue)(id, item.id)));
+    return value === null || value === void 0 ? void 0 : value.some(id => resource.items.some(item => (0, _common.equalByValue)(id, item.id)));
   });
 };
 exports.isAppointmentMatchedResources = isAppointmentMatchedResources;
@@ -154359,6 +153899,7 @@ class SchedulerAgenda extends _work_space.default {
           if (this.$groupTable) {
             this.$groupTable.remove();
             this.$groupTable = null;
+            this.detachGroupCountClass();
           }
         } else if (!this.$groupTable) {
           this.initGroupTable();
@@ -154467,6 +154008,12 @@ class SchedulerAgenda extends _work_space.default {
   }
   rowsIsEmpty(rows) {
     return rows.every(groupRow => groupRow.every(cell => !cell));
+  }
+  attachGroupCountClass() {
+    const className = (0, _index.getVerticalGroupCountClass)(this.option().groups);
+    if (className) {
+      this.$element().addClass(className);
+    }
   }
   removeEmptyRows(rows) {
     const isEmpty = data => !data.some(value => value > 0);
@@ -157477,15 +157024,10 @@ class ViewDataProvider {
   }
   getGroupPanelData(options) {
     const renderOptions = this.transformRenderOptions(options);
-    const resourceManager = renderOptions.getResourceManager();
-    const {
-      groupsTree,
-      groups
-    } = resourceManager;
-    if (groupsTree.length > 0) {
+    const groupResources = renderOptions.getResourceManager().groupResources();
+    if (groupResources.length > 0) {
       const cellCount = this.getCellCount(renderOptions);
-      const hasHierarchy = groups.some(group => resourceManager.isHierarchicalResource(group));
-      return (0, _index.getGroupPanelData)(groupsTree, cellCount, renderOptions.isGroupedByDate, renderOptions.isGroupedByDate ? 1 : cellCount, hasHierarchy);
+      return (0, _index.getGroupPanelData)(groupResources, cellCount, renderOptions.isGroupedByDate, renderOptions.isGroupedByDate ? 1 : cellCount);
     }
     return undefined;
   }
@@ -158805,6 +158347,11 @@ class SchedulerWorkSpace extends _widget.default {
       useKeyboard: false,
       bounceEnabled: false,
       updateManually: true,
+      onScroll: () => {
+        if (this.groupedStrategy instanceof _work_space_grouped_strategy_vertical.default) {
+          this.groupedStrategy.cache.clear();
+        }
+      },
       // TODO (Scrollable:useKeyboard) -> remove this WA
       //  after ScrollView private option "useKeyboard" will be extended to useNative: true
       // NOTE: Scrollable container focusable by default
@@ -159419,6 +158966,11 @@ class SchedulerWorkSpace extends _widget.default {
     }
     return this.$element().find(`.${cellClass}`);
   }
+  getFirstAndLastDataTableCell() {
+    const selector = this.isVirtualScrolling() ? `.${DATE_TABLE_CELL_CLASS}, .${_classes.VIRTUAL_CELL_CLASS}` : `.${DATE_TABLE_CELL_CLASS}`;
+    const $cells = this.$element().find(selector);
+    return [$cells.get(0), $cells.get(-1)];
+  }
   getAllCells(allDay) {
     if (this.isVerticalGroupedWorkSpace()) {
       return this.$dateTable.find(`td:not(.${_classes.VIRTUAL_CELL_CLASS})`);
@@ -159616,24 +159168,11 @@ class SchedulerWorkSpace extends _widget.default {
     return this.isRTL() && groupBounds ? this.getGroupBoundsRtlCorrection(groupBounds) : groupBounds;
   }
   getGroupBoundsVertical(groupIndex) {
-    if (!(this.groupedStrategy instanceof _work_space_grouped_strategy_vertical.default)) {
-      return undefined;
+    const $firstAndLastCells = this.getFirstAndLastDataTableCell();
+    if (this.groupedStrategy instanceof _work_space_grouped_strategy_vertical.default) {
+      return this.groupedStrategy.getGroupBoundsOffset(groupIndex, [$firstAndLastCells[0], $firstAndLastCells[1]]);
     }
-    const $dateTable = this.getDateTable();
-    const dateTableOffset = $dateTable.offset();
-    if (!dateTableOffset) {
-      return undefined;
-    }
-    const {
-      top,
-      height
-    } = this.groupedStrategy.getGroupVerticalOffset(groupIndex);
-    return {
-      left: dateTableOffset.left,
-      right: dateTableOffset.left + (0, _size.getOuterWidth)($dateTable),
-      top: dateTableOffset.top + top,
-      bottom: dateTableOffset.top + top + height
-    };
+    return undefined;
   }
   getGroupBoundsHorizontal(coordinates) {
     const cellCount = this.getCellCount();
@@ -159988,10 +159527,13 @@ class SchedulerWorkSpace extends _widget.default {
       groupPanelData: this.viewDataProvider.getGroupPanelData(this.generateRenderOptions())
     };
     if ((_this$option$groups4 = this.option().groups) !== null && _this$option$groups4 !== void 0 && _this$option$groups4.length) {
+      this.attachGroupCountClass();
       const $groupHeaderContainer = this.getGroupHeaderContainer();
       if ($groupHeaderContainer) {
         this.renderRenovatedComponent($groupHeaderContainer, _index2.GroupPanelComponent, 'renovatedGroupPanel', options);
       }
+    } else {
+      this.detachGroupCountClass();
     }
   }
   renderRenovatedComponent(parentElement, componentClass, componentName, viewModel) {
@@ -160048,7 +159590,13 @@ class SchedulerWorkSpace extends _widget.default {
     });
   }
   renderRHeaderPanel() {
+    var _this$option$groups5;
     let isRenderDateHeader = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+    if ((_this$option$groups5 = this.option().groups) !== null && _this$option$groups5 !== void 0 && _this$option$groups5.length) {
+      this.attachGroupCountClass();
+    } else {
+      this.detachGroupCountClass();
+    }
     this.renderRenovatedComponent(this.$thead, this.renovatedHeaderPanelComponent, 'renovatedHeaderPanel', {
       viewContext: this.getR1ComponentsViewContext(),
       dateHeaderData: this.viewDataProvider.dateHeaderData,
@@ -160359,8 +159907,8 @@ class SchedulerWorkSpace extends _widget.default {
     this.toggleGroupByDateClass();
   }
   isVerticalOrientation() {
-    var _this$option$groups5;
-    const orientation = (_this$option$groups5 = this.option().groups) !== null && _this$option$groups5 !== void 0 && _this$option$groups5.length ? this.option().groupOrientation : this.getDefaultGroupStrategy();
+    var _this$option$groups6;
+    const orientation = (_this$option$groups6 = this.option().groups) !== null && _this$option$groups6 !== void 0 && _this$option$groups6.length ? this.option().groupOrientation : this.getDefaultGroupStrategy();
     return orientation === 'vertical';
   }
   initGroupedStrategy() {
@@ -160606,6 +160154,17 @@ class SchedulerWorkSpace extends _widget.default {
   setIndicationUpdateInterval() {
     return (0, _common.noop)();
   }
+  detachGroupCountClass() {
+    _classes.VERTICAL_GROUP_COUNT_CLASSES.forEach(className => {
+      this.$element().removeClass(className);
+    });
+  }
+  attachGroupCountClass() {
+    const className = this.groupedStrategy.getGroupCountClass(this.option().groups);
+    if (className) {
+      this.$element().addClass(className);
+    }
+  }
   getDateHeaderTemplate() {
     return this.option().dateCellTemplate;
   }
@@ -160700,11 +160259,14 @@ class SchedulerWorkSpace extends _widget.default {
     let cellTemplates = [];
     if (groupCount && $container) {
       const groupRows = this.makeGroupRows(this.option().groups, this.option().groupByDate);
+      this.attachGroupCountClass();
       const {
         elements
       } = groupRows;
       $container.append(Array.isArray(elements) ? elements : elements.toArray());
       cellTemplates = groupRows.cellTemplates;
+    } else {
+      this.detachGroupCountClass();
     }
     return cellTemplates;
   }
@@ -160983,6 +160545,10 @@ class HorizontalGroupedStrategy {
   getAllDayOffset() {
     return this.config.getAllDayHeight();
   }
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  getGroupCountClass(groups) {
+    return undefined;
+  }
   getLeftOffset() {
     return this.config.getTimePanelWidth();
   }
@@ -161121,9 +160687,11 @@ var _position = __webpack_require__(/*! ../../../core/utils/position */ 41639);
 var _index = __webpack_require__(/*! ../../scheduler/r1/utils/index */ 34396);
 var _const = __webpack_require__(/*! ../../scheduler/workspaces/const */ 79674);
 var _classes = __webpack_require__(/*! ../classes */ 95685);
+var _global_cache = __webpack_require__(/*! ../global_cache */ 23710);
 class VerticalGroupedStrategy {
   constructor(config) {
     this.config = config;
+    this.cache = new _global_cache.Cache();
   }
   prepareCellIndexes(cellCoordinates, groupIndex, inAllDayRow) {
     let rowIndex = cellCoordinates.rowIndex + groupIndex * this.config.getRowCount();
@@ -161168,6 +160736,9 @@ class VerticalGroupedStrategy {
   getAllDayOffset() {
     return 0;
   }
+  getGroupCountClass(groups) {
+    return (0, _index.getVerticalGroupCountClass)(groups);
+  }
   getLeftOffset() {
     return this.config.getTimePanelWidth() + this.config.getGroupTableWidth();
   }
@@ -161188,13 +160759,33 @@ class VerticalGroupedStrategy {
     }
     return offset;
   }
-  getGroupVerticalOffset(groupIndex) {
-    const hasAllDayRows = this.config.showAllDayPanel() && this.config.supportAllDayRow();
-    const allDayOffset = hasAllDayRows ? this.config.getAllDayHeight() * (groupIndex + 1) : 0;
-    return {
-      top: this.getCumulativeGroupOffset(groupIndex) + allDayOffset,
-      height: this.getGroupHeight(groupIndex)
-    };
+  getGroupBoundsOffset(groupIndex, _ref) {
+    var _this$config$getGroup2, _this$config2;
+    let [$firstCell, $lastCell] = _ref;
+    const groupHeightsKey = ((_this$config$getGroup2 = (_this$config2 = this.config).getGroupHeights) === null || _this$config$getGroup2 === void 0 || (_this$config$getGroup2 = _this$config$getGroup2.call(_this$config2)) === null || _this$config$getGroup2 === void 0 ? void 0 : _this$config$getGroup2.join('.')) ?? '';
+    return this.cache.memo(`groupBoundsOffset${groupIndex}.${groupHeightsKey}`, () => {
+      const groupHeight = this.getGroupHeight(groupIndex);
+      const scrollTop = this.getScrollableScrollTop();
+      const headerRowHeight = (0, _position.getBoundingRect)(this.config.getHeaderPanelContainerElement()).height;
+      let topOffset = this.getCumulativeGroupOffset(groupIndex) + headerRowHeight + this.config.getHeaderHeight() - scrollTop;
+      if (this.config.showAllDayPanel() && this.config.supportAllDayRow()) {
+        topOffset += this.config.getCellHeight() * (groupIndex + 1);
+      }
+      const bottomOffset = topOffset + groupHeight;
+      const {
+        left
+      } = $firstCell.getBoundingClientRect();
+      const {
+        right
+      } = $lastCell.getBoundingClientRect();
+      this.groupBoundsOffset = {
+        left,
+        right,
+        top: topOffset,
+        bottom: bottomOffset
+      };
+      return this.groupBoundsOffset;
+    });
   }
   shiftIndicator($indicator, height, rtlOffset, i) {
     const offset = this.config.getIndicatorOffset();
@@ -162296,11 +161887,9 @@ class ActionSheet extends _collection_widget.default {
     this._popup = this._createComponent(this._$popup, _popover.default, (0, _extend.extend)(this._overlayConfig(), {
       width: this.option('width') || 200,
       height: this.option('height') || 'auto',
-      target: this.option('target'),
-      // NOTE: popover set role based on toolbarOptions, but
-      // ActionSheet rendered buttons not in a toolbar, so we use option.
-      _popoverContentRole: 'dialog'
+      target: this.option('target')
     }));
+    this._popup.$overlayContent().attr('role', 'dialog');
     (_this$_popup$$wrapper = this._popup.$wrapper()) === null || _this$_popup$$wrapper === void 0 || _this$_popup$$wrapper.addClass(ACTION_SHEET_POPOVER_WRAPPER_CLASS);
   }
   _createPopup() {
@@ -168524,8 +168113,7 @@ class ChatTextArea extends _text_area.default {
   _renderToolbar() {
     const toolbarItems = this._getToolbarItems();
     const toolbarOptions = {
-      items: toolbarItems,
-      allowKeyboardNavigation: false
+      items: toolbarItems
     };
     this._$toolbar = (0, _renderer.default)('<div>').addClass(CHAT_TEXT_AREA_TOOLBAR).appendTo(this.$element());
     this._toolbar = this._createComponent(this._$toolbar, _toolbar.default, toolbarOptions);
@@ -170714,7 +170302,7 @@ var _default = exports["default"] = TypingIndicator;
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
-exports.defaultCheckBoxProps = exports.CheckBox = exports.CHECK_BOX_CLASS = void 0;
+exports.defaultCheckBoxProps = exports.CheckBox = void 0;
 exports.defaultOptions = defaultOptions;
 var _inferno = __webpack_require__(/*! inferno */ 76231);
 var _devices = _interopRequireDefault(__webpack_require__(/*! ../../../core/devices */ 65951));
@@ -170728,7 +170316,6 @@ const _excluded = ["accessKey", "activeStateEnabled", "aria", "className", "clas
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 function _objectWithoutPropertiesLoose(r, e) { if (null == r) return {}; var t = {}; for (var n in r) if ({}.hasOwnProperty.call(r, n)) { if (-1 !== e.indexOf(n)) continue; t[n] = r[n]; } return t; }
-const CHECK_BOX_CLASS = exports.CHECK_BOX_CLASS = 'dx-checkbox';
 const getCssClasses = model => {
   const {
     text,
@@ -170737,7 +170324,7 @@ const getCssClasses = model => {
   const checked = value;
   const indeterminate = checked === null;
   const classesMap = {
-    [CHECK_BOX_CLASS]: true,
+    'dx-checkbox': true,
     'dx-checkbox-checked': checked === true,
     'dx-checkbox-has-text': !!text,
     'dx-checkbox-indeterminate': indeterminate
@@ -176785,7 +176372,7 @@ var _default = exports["default"] = MenuBaseEditStrategy;
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
-exports["default"] = exports.ITEM_CLASS = exports.DX_MENU_CLASS = void 0;
+exports["default"] = void 0;
 var _devices = _interopRequireDefault(__webpack_require__(/*! ../../../core/devices */ 65951));
 var _renderer = _interopRequireDefault(__webpack_require__(/*! ../../../core/renderer */ 64553));
 var _common = __webpack_require__(/*! ../../../core/utils/common */ 17781);
@@ -176798,10 +176385,10 @@ var _hierarchical_collection_widget = _interopRequireDefault(__webpack_require__
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 // @ts-expect-error ts-error
 
-const DX_MENU_CLASS = exports.DX_MENU_CLASS = 'dx-menu';
+const DX_MENU_CLASS = 'dx-menu';
 const DX_MENU_NO_ICONS_CLASS = `${DX_MENU_CLASS}-no-icons`;
 const DX_MENU_BASE_CLASS = 'dx-menu-base';
-const ITEM_CLASS = exports.ITEM_CLASS = `${DX_MENU_CLASS}-item`;
+const ITEM_CLASS = `${DX_MENU_CLASS}-item`;
 const DX_ITEM_CONTENT_CLASS = `${ITEM_CLASS}-content`;
 const DX_MENU_SELECTED_ITEM_CLASS = `${ITEM_CLASS}-selected`;
 const DX_MENU_ITEM_WRAPPER_CLASS = `${ITEM_CLASS}-wrapper`;
@@ -191238,7 +190825,7 @@ var _default = exports["default"] = DropDownBox;
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
-exports["default"] = exports.DROP_DOWN_BUTTON_CLASS = void 0;
+exports["default"] = void 0;
 var _component_registrator = _interopRequireDefault(__webpack_require__(/*! ../../core/component_registrator */ 92848));
 var _renderer = _interopRequireDefault(__webpack_require__(/*! ../../core/renderer */ 64553));
 var _data = __webpack_require__(/*! ../../core/utils/data */ 31000);
@@ -191258,7 +190845,7 @@ var _utils = __webpack_require__(/*! ../ui/drop_down_editor/utils */ 51939);
 var _listEdit = _interopRequireDefault(__webpack_require__(/*! ../ui/list/list.edit.search */ 51802));
 var _popup = _interopRequireDefault(__webpack_require__(/*! ../ui/popup/popup */ 15628));
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
-const DROP_DOWN_BUTTON_CLASS = exports.DROP_DOWN_BUTTON_CLASS = 'dx-dropdownbutton';
+const DROP_DOWN_BUTTON_CLASS = 'dx-dropdownbutton';
 const DROP_DOWN_BUTTON_CONTENT = 'dx-dropdownbutton-content';
 const DROP_DOWN_BUTTON_ACTION_CLASS = 'dx-dropdownbutton-action';
 const DROP_DOWN_BUTTON_TOGGLE_CLASS = 'dx-dropdownbutton-toggle';
@@ -192238,9 +191825,8 @@ var _type = __webpack_require__(/*! ../../../core/utils/type */ 11528);
 var _window = __webpack_require__(/*! ../../../core/utils/window */ 3104);
 var _ui = _interopRequireDefault(__webpack_require__(/*! ../../../ui/popup/ui.popup */ 10720));
 var _ui2 = _interopRequireDefault(__webpack_require__(/*! ../../../ui/widget/ui.errors */ 35185));
-var _m_public_component = __webpack_require__(/*! ../../core/utils/m_public_component */ 871);
+var _ui3 = _interopRequireDefault(__webpack_require__(/*! ../../../ui/widget/ui.widget */ 11118));
 var _m_selectors = __webpack_require__(/*! ../../core/utils/m_selectors */ 62238);
-var _widget = _interopRequireDefault(__webpack_require__(/*! ../../core/widget/widget */ 89275));
 var _text_box = _interopRequireDefault(__webpack_require__(/*! ../../ui/text_box/text_box */ 10908));
 var _drop_down_button = _interopRequireDefault(__webpack_require__(/*! ./drop_down_button */ 5167));
 var _utils = __webpack_require__(/*! ./utils */ 51939);
@@ -192284,13 +191870,10 @@ class DropDownEditor extends _text_box.default {
         }
         const $focusableElement = e.shiftKey ? this._getLastPopupElement() : this._getFirstPopupElement();
         if ($focusableElement) {
-          var _getComponentInstance, _getComponentInstance2;
-          const $target = (_getComponentInstance = (0, _m_public_component.getComponentInstance)($focusableElement)) === null || _getComponentInstance === void 0 || (_getComponentInstance2 = _getComponentInstance._focusTarget) === null || _getComponentInstance2 === void 0 ? void 0 : _getComponentInstance2.call(_getComponentInstance);
-          const $focusTarget = $target !== null && $target !== void 0 && $target.length ? $target : $focusableElement;
-          // @ts-expect-error ts-error should be added on EventsEngine level
-          _events_engine.default.trigger($focusTarget, 'focus');
-          // @ts-expect-error ts-error should be added on dxElementWrapper level
-          $focusTarget.select();
+          // @ts-expect-error should be added on EventsEngine level
+          _events_engine.default.trigger($focusableElement, 'focus');
+          // @ts-expect-error should be added on dxElementWrapper level
+          $focusableElement.select();
         }
         e.preventDefault();
       },
@@ -193155,7 +192738,8 @@ class DropDownEditor extends _text_box.default {
     }
   }
   _popupOptionChanged(args) {
-    const options = _widget.default.getOptionsFromContainer(args);
+    // @ts-expect-error Add getOptionsFromContainer static method to Widget
+    const options = _ui3.default.getOptionsFromContainer(args);
     this._setPopupOption(options);
     const optionsKeys = Object.keys(options);
     if (optionsKeys.includes('width') || optionsKeys.includes('height')) {
@@ -217315,7 +216899,6 @@ var _index = __webpack_require__(/*! ../../../common/core/events/utils/index */ 
 var _component_registrator = _interopRequireDefault(__webpack_require__(/*! ../../../core/component_registrator */ 92848));
 var _config = _interopRequireDefault(__webpack_require__(/*! ../../../core/config */ 66636));
 var _devices = _interopRequireDefault(__webpack_require__(/*! ../../../core/devices */ 65951));
-var _dom_adapter = _interopRequireDefault(__webpack_require__(/*! ../../../core/dom_adapter */ 64960));
 var _element = __webpack_require__(/*! ../../../core/element */ 61404);
 var _renderer = _interopRequireDefault(__webpack_require__(/*! ../../../core/renderer */ 64553));
 var _empty_template = __webpack_require__(/*! ../../../core/templates/empty_template */ 48650);
@@ -217324,7 +216907,6 @@ var _common = __webpack_require__(/*! ../../../core/utils/common */ 17781);
 var _deferred = __webpack_require__(/*! ../../../core/utils/deferred */ 87739);
 var _extend = __webpack_require__(/*! ../../../core/utils/extend */ 52576);
 var _type = __webpack_require__(/*! ../../../core/utils/type */ 11528);
-var _focus = __webpack_require__(/*! ../../core/utils/focus */ 82312);
 var _editor = _interopRequireDefault(__webpack_require__(/*! ../../ui/editor/editor */ 24768));
 var _m_converterController = _interopRequireDefault(__webpack_require__(/*! ../../ui/html_editor/m_converterController */ 16723));
 var _m_quill_importer = __webpack_require__(/*! ../../ui/html_editor/m_quill_importer */ 58283);
@@ -217530,24 +217112,6 @@ class HtmlEditor extends _editor.default {
   }
   _keyDownHandler(e) {
     this._saveValueChangeEvent(e);
-    this._handleFocusEscape(e);
-  }
-  _handleFocusEscape(e) {
-    if (!e.ctrlKey || !e.shiftKey) {
-      return;
-    }
-    const keyName = (0, _index.normalizeKeyName)(e);
-    if (keyName !== 'upArrow' && keyName !== 'downArrow') {
-      return;
-    }
-    const isBackward = keyName === 'upArrow';
-    e.preventDefault();
-    if (isBackward && this._applyToolbarMethod('focusFirstItem')) {
-      return;
-    }
-    const editorNode = this.$element().get(0);
-    const target = (isBackward ? (0, _focus.getPreviousFocusableElement)(editorNode) : (0, _focus.getNextFocusableElement)(editorNode)) ?? _dom_adapter.default.getBody();
-    target.focus();
   }
   _renderHtmlEditor() {
     const {
@@ -217639,8 +217203,7 @@ class HtmlEditor extends _editor.default {
   }
   _getKeyboardModuleConfig() {
     return {
-      onKeydown: e => this._saveValueChangeEvent((0, _events.Event)(e)),
-      inlineTabInsertion: false
+      onKeydown: e => this._saveValueChangeEvent((0, _events.Event)(e))
     };
   }
   _getClipboardConfig() {
@@ -217908,7 +217471,7 @@ class HtmlEditor extends _editor.default {
   }
   _applyToolbarMethod(methodName) {
     var _this$getModule;
-    return (_this$getModule = this.getModule('toolbar')) === null || _this$getModule === void 0 ? void 0 : _this$getModule[methodName]();
+    (_this$getModule = this.getModule('toolbar')) === null || _this$getModule === void 0 || _this$getModule[methodName]();
   }
   addCleanCallback(callback) {
     this._cleanCallback.add(callback);
@@ -220237,15 +219800,10 @@ var _extend = __webpack_require__(/*! ../../../../core/utils/extend */ 52576);
 var _inflector = __webpack_require__(/*! ../../../../core/utils/inflector */ 53124);
 var _iterator = __webpack_require__(/*! ../../../../core/utils/iterator */ 21274);
 var _type = __webpack_require__(/*! ../../../../core/utils/type */ 11528);
+var _toolbar = _interopRequireDefault(__webpack_require__(/*! ../../../../ui/toolbar */ 2850));
 var _ui = _interopRequireDefault(__webpack_require__(/*! ../../../../ui/widget/ui.errors */ 35185));
-var _m_element = __webpack_require__(/*! ../../../core/m_element */ 93630);
 var _capitalize = __webpack_require__(/*! ../../../core/utils/capitalize */ 72928);
 var _menu2 = __webpack_require__(/*! ../../../ui/menu/menu */ 81172);
-var _constants = __webpack_require__(/*! ../../../ui/toolbar/constants */ 50634);
-var _roving = __webpack_require__(/*! ../../../ui/toolbar/internal/roving.utils */ 48015);
-var _toolbar = _interopRequireDefault(__webpack_require__(/*! ../../../ui/toolbar/toolbar */ 53716));
-var _toolbar2 = __webpack_require__(/*! ../../../ui/toolbar/toolbar.base */ 28793);
-var _toolbar3 = __webpack_require__(/*! ../../../ui/toolbar/toolbar.utils */ 90859);
 var _devextremeQuill = _interopRequireDefault(__webpack_require__(/*! devextreme-quill */ 40765));
 var _ai = __webpack_require__(/*! ../utils/ai */ 39195);
 var _m_table_helper = __webpack_require__(/*! ../utils/m_table_helper */ 53548);
@@ -220367,13 +219925,8 @@ if (_devextremeQuill.default) {
       this._$toolbar = (0, _renderer.default)('<div>').addClass(TOOLBAR_CLASS).appendTo(container);
       this._$toolbarContainer = (0, _renderer.default)(container).addClass(TOOLBAR_WRAPPER_CLASS);
       _events_engine.default.on(this._$toolbarContainer, (0, _index.addNamespace)('mousedown', this.editorInstance.NAME), e => {
-        var _getItemFocusTarget;
         e.target.focus();
         e.preventDefault();
-        const $item = (0, _renderer.default)(e.target).closest(`.${_toolbar2.TOOLBAR_ITEM_CLASS}, .${_constants.DROP_DOWN_MENU_BUTTON_CLASS}`);
-        if ($item.length && (_getItemFocusTarget = (0, _toolbar3.getItemFocusTarget)($item)) !== null && _getItemFocusTarget !== void 0 && _getItemFocusTarget.length) {
-          this.toolbarInstance.option('focusedElement', (0, _m_element.getPublicElement)($item));
-        }
       });
       this._subscribeFormatHotKeys();
       this.toolbarInstance = this.editorInstance._createComponent(this._$toolbar, _toolbar.default, this.toolbarConfig);
@@ -220408,10 +219961,6 @@ if (_devextremeQuill.default) {
     }
     repaint() {
       this.toolbarInstance && this.toolbarInstance.repaint();
-    }
-    focusFirstItem() {
-      var _this$toolbarInstance;
-      return ((_this$toolbarInstance = this.toolbarInstance) === null || _this$toolbarInstance === void 0 ? void 0 : _this$toolbarInstance.focusFirstItem()) ?? false;
     }
     _getContainer() {
       const $container = (0, _renderer.default)('<div>');
@@ -220774,20 +220323,6 @@ if (_devextremeQuill.default) {
         return;
       }
       widget.option('disabled', !isOperationEnabled);
-      if (isOperationEnabled) {
-        this._syncItemTabIndex(widget);
-      }
-    }
-    _syncItemTabIndex(widget) {
-      const $item = widget === null || widget === void 0 ? void 0 : widget.$element().closest(`.${_toolbar2.TOOLBAR_ITEM_CLASS}`);
-      if (!($item !== null && $item !== void 0 && $item.length)) {
-        return;
-      }
-      const {
-        focusedElement
-      } = this.toolbarInstance.option();
-      const isFocused = $item.get(0) === (0, _renderer.default)(focusedElement).get(0);
-      (0, _roving.applyItemTabIndex)($item, isFocused ? 0 : -1);
     }
     updateFormatWidgets(isResetRequired) {
       const selection = this.quill.getSelection();
@@ -220837,9 +220372,6 @@ if (_devextremeQuill.default) {
       if (clearWidget) {
         // @ts-expect-error
         clearWidget.option('disabled', !hasFormats);
-        if (hasFormats) {
-          this._syncItemTabIndex(clearWidget);
-        }
       }
     }
     _isColorFormat(name) {
@@ -221098,7 +220630,6 @@ Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-var _message = _interopRequireDefault(__webpack_require__(/*! ../../../../common/core/localization/message */ 4671));
 var _devextremeQuill = _interopRequireDefault(__webpack_require__(/*! devextreme-quill */ 40765));
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 // eslint-disable-next-line import/no-mutable-exports
@@ -221110,7 +220641,7 @@ if (_devextremeQuill.default) {
       super(quill, options);
       this.quill.root.classList.add('dx-htmleditor-content');
       this.quill.root.setAttribute('role', 'textbox');
-      this.quill.root.setAttribute('aria-label', [_message.default.format('dxHtmlEditor-editorAriaLabel'), _message.default.format('dxHtmlEditor-ariaEscapeInstruction')].join('. '));
+      this.quill.root.setAttribute('aria-label', 'Editor content');
       this.quill.root.setAttribute('aria-multiline', 'true');
     }
   };
@@ -224236,7 +223767,7 @@ var _default = exports["default"] = ListItem;
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
-exports.ListBase = exports.LIST_ITEM_CLASS = void 0;
+exports.ListBase = void 0;
 exports.setScrollView = setScrollView;
 var _animation = __webpack_require__(/*! ../../../common/core/animation */ 16826);
 var _click = __webpack_require__(/*! ../../../common/core/events/click */ 64044);
@@ -224271,7 +223802,7 @@ var _get_element_style = __webpack_require__(/*! ../../ui/scroll_view/utils/get_
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 const LIST_CLASS = 'dx-list';
 const LIST_ITEMS_CLASS = 'dx-list-items';
-const LIST_ITEM_CLASS = exports.LIST_ITEM_CLASS = 'dx-list-item';
+const LIST_ITEM_CLASS = 'dx-list-item';
 const LIST_ITEM_SELECTOR = `.${LIST_ITEM_CLASS}`;
 const LIST_ITEM_ICON_CONTAINER_CLASS = 'dx-list-item-icon-container';
 const LIST_ITEM_ICON_CLASS = 'dx-list-item-icon';
@@ -229009,14 +228540,11 @@ class Lookup extends _drop_down_list.default {
       shading: false,
       hideOnParentScroll: true,
       _fixWrapperPosition: false,
-      // NOTE: popover set role based on toolbarOptions, but
-      // Lookup with showCancelButton: false, do not have toolbar, so we use option.
-      _popoverContentRole: 'dialog',
-      _preventDialogContainerFocus: true,
       width: this._isInitialOptionValue('dropDownOptions.width') ? () => (0, _size.getOuterWidth)(this.$element()) : popupConfig.width
     });
     // @ts-expect-error fix on Dom Component level
     this._popup = this._createComponent(this._$popup, _ui.default, options);
+    this._popup.$overlayContent().attr('role', 'dialog');
     this._popup.on({
       showing: this._popupShowingHandler.bind(this),
       shown: this._popupShownHandler.bind(this),
@@ -235550,6 +235078,7 @@ var _size = __webpack_require__(/*! ../../../core/utils/size */ 57653);
 var _type = __webpack_require__(/*! ../../../core/utils/type */ 11528);
 var _view_port = __webpack_require__(/*! ../../../core/utils/view_port */ 55355);
 var _ui = _interopRequireDefault(__webpack_require__(/*! ../../../ui/widget/ui.errors */ 35185));
+var _document_size_callbacks = _interopRequireDefault(__webpack_require__(/*! ../../core/utils/document_size_callbacks */ 70236));
 var _m_dom = _interopRequireDefault(__webpack_require__(/*! ../../core/utils/m_dom */ 76400));
 var _m_selectors = _interopRequireDefault(__webpack_require__(/*! ../../core/utils/m_selectors */ 62238));
 var _m_window = _interopRequireDefault(__webpack_require__(/*! ../../core/utils/m_window */ 14470));
@@ -236076,7 +235605,6 @@ class Overlay extends _widget.default {
     }
     return this._hidingDeferred.promise();
   }
-  // Note: method helps Scheduler Appointments to avoid Focus Race Condition
   _forceFocusLost() {
     var _this$_$content1;
     const activeElement = _dom_adapter.default.getActiveElement();
@@ -236204,19 +235732,13 @@ class Overlay extends _widget.default {
     for (let i = 0; i <= elementsCount; i += 1) {
       const $currentElement = ($elements === null || $elements === void 0 ? void 0 : $elements.eq(i)) ?? null;
       const $reverseElement = ($elements === null || $elements === void 0 ? void 0 : $elements.eq(elementsCount - i)) ?? null;
-      if (!$first && $currentElement) {
-        // @ts-expect-error is should can get function as callback
-        const isTabbableAndNotOverlay = $currentElement === null || $currentElement === void 0 ? void 0 : $currentElement.not(`.${OVERLAY_CONTENT_CLASS}`).is(_m_selectors.default.tabbable);
-        if (isTabbableAndNotOverlay) {
-          $first = $currentElement;
-        }
+      // @ts-expect-error is should can get function as callback
+      if (!$first && $currentElement.is(_m_selectors.default.tabbable)) {
+        $first = $currentElement;
       }
-      if (!$last && $reverseElement) {
-        // @ts-expect-error is should can get function as callback
-        const isTabbableAndNotOverlay = $reverseElement === null || $reverseElement === void 0 ? void 0 : $reverseElement.not(`.${OVERLAY_CONTENT_CLASS}`).is(_m_selectors.default.tabbable);
-        if (isTabbableAndNotOverlay) {
-          $last = $reverseElement;
-        }
+      // @ts-expect-error is should can get function as callback
+      if (!$last && $reverseElement.is(_m_selectors.default.tabbable)) {
+        $last = $reverseElement;
       }
       if ($first && $last) {
         break;
@@ -236255,6 +235777,19 @@ class Overlay extends _widget.default {
     if (_m_window.default.hasWindow()) {
       this._toggleHideTopOverlayCallback(enabled);
       this._toggleHideOnParentsScrollSubscription(enabled);
+      this._toggleDocumentSizeSubscription(enabled);
+    }
+  }
+  _toggleDocumentSizeSubscription(subscribe) {
+    var _this$_positionContro;
+    this._documentSizeChangedHandler ?? (this._documentSizeChangedHandler = () => {
+      this._renderGeometry();
+    });
+    const isVisualContainerWindow = (0, _type.isWindow)((_this$_positionContro = this._positionController.$visualContainer) === null || _this$_positionContro === void 0 ? void 0 : _this$_positionContro.get(0));
+    if (subscribe && isVisualContainerWindow) {
+      _document_size_callbacks.default.add(this._documentSizeChangedHandler);
+    } else {
+      _document_size_callbacks.default.remove(this._documentSizeChangedHandler);
     }
   }
   _toggleHideTopOverlayCallback(subscribe) {
@@ -236535,11 +236070,11 @@ class Overlay extends _widget.default {
     this._positionController.positionContent();
   }
   _isAllWindowCovered() {
-    var _this$_positionContro;
+    var _this$_positionContro2;
     const {
       shading
     } = this.option();
-    const element = (_this$_positionContro = this._positionController.$visualContainer) === null || _this$_positionContro === void 0 ? void 0 : _this$_positionContro.get(0);
+    const element = (_this$_positionContro2 = this._positionController.$visualContainer) === null || _this$_positionContro2 === void 0 ? void 0 : _this$_positionContro2.get(0);
     return (0, _type.isWindow)(element) && Boolean(shading);
   }
   _toggleSafariScrolling() {
@@ -237259,7 +236794,6 @@ var _utils = __webpack_require__(/*! ../../../common/core/events/utils */ 98834)
 var _component_registrator = _interopRequireDefault(__webpack_require__(/*! ../../../core/component_registrator */ 92848));
 var _dom_adapter = _interopRequireDefault(__webpack_require__(/*! ../../../core/dom_adapter */ 64960));
 var _element = __webpack_require__(/*! ../../../core/element */ 61404);
-var _guid = _interopRequireDefault(__webpack_require__(/*! ../../../core/guid */ 19427));
 var _renderer = _interopRequireDefault(__webpack_require__(/*! ../../../core/renderer */ 64553));
 var _extend = __webpack_require__(/*! ../../../core/utils/extend */ 52576);
 var _math = __webpack_require__(/*! ../../../core/utils/math */ 50254);
@@ -237269,7 +236803,6 @@ var _type = __webpack_require__(/*! ../../../core/utils/type */ 11528);
 var _window = __webpack_require__(/*! ../../../core/utils/window */ 3104);
 var _themes = __webpack_require__(/*! ../../../ui/themes */ 52071);
 var _ui = _interopRequireDefault(__webpack_require__(/*! ../../../ui/widget/ui.errors */ 35185));
-var _m_dom = __webpack_require__(/*! ../../core/utils/m_dom */ 76400);
 var _popover_position_controller = __webpack_require__(/*! ../../ui/popover/popover_position_controller */ 72379);
 var _popup = _interopRequireDefault(__webpack_require__(/*! ../../ui/popup/popup */ 15628));
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
@@ -237325,8 +236858,7 @@ class Popover extends _popup.default {
       hideOnParentScroll: true,
       arrowPosition: '',
       arrowOffset: 0,
-      _fixWrapperPosition: true,
-      _describeTarget: true
+      _fixWrapperPosition: true
     });
   }
   _defaultOptionsRules() {
@@ -237376,8 +236908,11 @@ class Popover extends _popup.default {
     this.$element().addClass(POPOVER_CLASS);
     (_this$$wrapper = this.$wrapper()) === null || _this$$wrapper === void 0 || _this$$wrapper.addClass(POPOVER_WRAPPER_CLASS);
     const {
+      toolbarItems,
       visible
     } = this.option();
+    const isInteractive = toolbarItems === null || toolbarItems === void 0 ? void 0 : toolbarItems.length;
+    this.setAria('role', isInteractive ? 'dialog' : 'tooltip');
     if (visible) {
       this._attachEscapeKeyHandler();
     }
@@ -237388,7 +236923,6 @@ class Popover extends _popup.default {
         visible
       } = this.option();
       const overlayStack = this._overlayStack();
-      // @ts-ignore expected: types Overlay<OverlayProperties> and this have no overlap
       const isTopOverlay = overlayStack[overlayStack.length - 1] === this;
       if ((0, _utils.normalizeKeyName)(e) === ESC_KEY_NAME && visible && isTopOverlay) {
         // eslint-disable-next-line @typescript-eslint/no-floating-promises
@@ -237414,140 +236948,6 @@ class Popover extends _popup.default {
     this._attachEvents();
     this._detachHoverableOverlay();
     this._attachHoverableOverlay();
-  }
-  _renderContent() {
-    super._renderContent();
-    this._syncAriaAttributes();
-  }
-  _syncAriaAttributes() {
-    this.setAria('role', this._getEffectiveAriaRole());
-    this._syncTargetAriaDescription();
-    this._syncFocusOptions();
-  }
-  _syncFocusOptions() {
-    if (this.option('_preventDialogContainerFocus')) {
-      return;
-    }
-    const isDialog = this._getEffectiveAriaRole() === 'dialog';
-    this._setOptionWithoutOptionChange('focusStateEnabled', isDialog);
-    this._setOptionWithoutOptionChange('tabFocusLoopEnabled', isDialog);
-  }
-  // Intentional no-op: Focus target logic is inherited from Widget,
-  // uses in Popup and do not need here.
-  _renderFocusTarget() {}
-  _getFocusTarget() {
-    const $firstFocusableTarget = this._findTabbableBounds().$first;
-    if ($firstFocusableTarget !== null && $firstFocusableTarget !== void 0 && $firstFocusableTarget.length) {
-      return $firstFocusableTarget;
-    }
-    const $overlay = this.$overlayContent();
-    if ($overlay !== null && $overlay !== void 0 && $overlay.length) {
-      $overlay.attr('tabindex', '-1');
-      return $overlay;
-    }
-    return null;
-  }
-  _focusTarget() {
-    return this._getFocusTarget() ?? this.$overlayContent();
-  }
-  _restoreTargetFocus() {
-    const $targets = this._getAriaDescriptionTargets();
-    const targetElement = $targets.first().get(0);
-    if (targetElement && _dom_adapter.default.getBody().contains(targetElement)) {
-      // @ts-expect-error trigger should be typed on type 'EventsEngineType'
-      _events_engine.default.trigger($targets.first(), 'focus');
-    }
-  }
-  _forceFocusLost() {
-    if (this._getEffectiveAriaRole() === 'dialog' && !this.option('_preventDialogContainerFocus')) {
-      this._restoreTargetFocus();
-    } else {
-      super._forceFocusLost();
-    }
-  }
-  _getAriaRole() {
-    const {
-      toolbarItems,
-      showTitle,
-      showCloseButton
-    } = this.option();
-    const isDialog = Boolean(toolbarItems === null || toolbarItems === void 0 ? void 0 : toolbarItems.length) || Boolean(showTitle && showCloseButton);
-    return isDialog ? 'dialog' : 'tooltip';
-  }
-  _getEffectiveAriaRole() {
-    const {
-      _popoverContentRole: popoverContentRole
-    } = this.option();
-    return popoverContentRole ?? this._getAriaRole();
-  }
-  // NOTE: An accessible name on a tooltip can mask its content for assistive
-  // technologies, so the title labels the overlay only in dialog mode.
-  _toggleAriaLabel() {
-    if (this._getEffectiveAriaRole() === 'tooltip') {
-      this.setAria('labelledby', null, this.$overlayContent());
-      return;
-    }
-    super._toggleAriaLabel();
-  }
-  _getPopoverContentId() {
-    this._popoverContentId = this._popoverContentId ?? `dx-${new _guid.default()}`;
-    return this._popoverContentId;
-  }
-  _shouldDescribeTarget() {
-    const {
-      target,
-      // eslint-disable-next-line @typescript-eslint/naming-convention
-      _describeTarget
-    } = this.option();
-    return Boolean(target) && Boolean(_describeTarget) && this._getEffectiveAriaRole() === 'tooltip';
-  }
-  _getAriaDescriptionTargets() {
-    const {
-      target
-    } = this.option();
-    const elements = [];
-    (0, _renderer.default)(target).each((_, node) => {
-      if (_dom_adapter.default.isElementNode(node)) {
-        elements.push(node);
-      }
-      return true;
-    });
-    return (0, _renderer.default)(elements);
-  }
-  _syncTargetAriaDescription() {
-    var _this$_$describedTarg;
-    if (!this._shouldDescribeTarget()) {
-      this._removeTargetAriaDescription();
-      return;
-    }
-    const id = this._getPopoverContentId();
-    const $overlayContent = this.$overlayContent();
-    $overlayContent.attr('id', id);
-    const $targets = this._getAriaDescriptionTargets();
-    if (!$targets.length) {
-      this._removeTargetAriaDescription();
-      return;
-    }
-    const targetElements = new Set($targets.toArray());
-    const previousElements = new Set(((_this$_$describedTarg = this._$describedTargets) === null || _this$_$describedTarg === void 0 ? void 0 : _this$_$describedTarg.toArray()) ?? []);
-    previousElements.forEach(element => {
-      if (!targetElements.has(element)) {
-        (0, _m_dom.removeAriaDescriptionId)(element, id);
-      }
-    });
-    const describedElements = $targets.toArray().filter(element => (0, _m_dom.addAriaDescriptionId)(element, id) || previousElements.has(element));
-    this._$describedTargets = describedElements.length ? (0, _renderer.default)(describedElements) : undefined;
-  }
-  _removeTargetAriaDescription() {
-    const id = this._getPopoverContentId();
-    if (!this._$describedTargets) {
-      return;
-    }
-    this._$describedTargets.each((_, element) => {
-      (0, _m_dom.removeAriaDescriptionId)(element, id);
-      return true;
-    });
-    this._$describedTargets = undefined;
   }
   _detachEvents(target) {
     this._detachEvent(target, 'show');
@@ -237607,7 +237007,7 @@ class Popover extends _popup.default {
   }
   _detachHoverableOverlay() {
     const $overlayContent = this.$overlayContent();
-    if (!($overlayContent !== null && $overlayContent !== void 0 && $overlayContent.length)) {
+    if (!$overlayContent.length) {
       return;
     }
     const namespace = `${this.NAME}Hoverable`;
@@ -237919,19 +237319,7 @@ class Popover extends _popup.default {
     this._detachHoverableOverlay();
     super._clean();
   }
-  _shouldResetActiveElement() {
-    var _this$_$content;
-    const activeElement = _dom_adapter.default.getActiveElement();
-    return _dom_adapter.default.isNode(activeElement) && !!((_this$_$content = this._$content) !== null && _this$_$content !== void 0 && (_this$_$content = _this$_$content.get(0)) !== null && _this$_$content !== void 0 && _this$_$content.contains(activeElement));
-  }
   _dispose() {
-    const {
-      visible
-    } = this.option();
-    if (visible && this._shouldResetActiveElement() && this._getEffectiveAriaRole() === 'dialog') {
-      this._restoreTargetFocus();
-    }
-    this._removeTargetAriaDescription();
     this._detachEscapeKeyHandler();
     super._dispose();
   }
@@ -237957,7 +237345,6 @@ class Popover extends _popup.default {
         }
         this._positionController.updateTarget(value);
         this._invalidate();
-        this._syncAriaAttributes();
         break;
       case 'showEvent':
       case 'hideEvent':
@@ -237996,17 +237383,6 @@ class Popover extends _popup.default {
           super._optionChanged(args);
           break;
         }
-      case 'toolbarItems':
-      case 'showTitle':
-      case 'showCloseButton':
-        super._optionChanged(args);
-        this._syncAriaAttributes();
-        break;
-      case '_popoverContentRole':
-      case '_describeTarget':
-        this._syncAriaAttributes();
-        this._toggleAriaLabel();
-        break;
       default:
         super._optionChanged(args);
     }
@@ -238293,6 +237669,7 @@ const POPUP_BOTTOM_CLASS = 'dx-popup-bottom';
 const POPUP_HAS_CLOSE_BUTTON_CLASS = 'dx-has-close-button';
 const POPUP_CONTENT_FLEX_HEIGHT_CLASS = 'dx-popup-flex-height';
 const POPUP_CONTENT_INHERIT_HEIGHT_CLASS = 'dx-popup-inherit-height';
+const TOOLBAR_LABEL_CLASS = 'dx-toolbar-label';
 const DISABLED_STATE_CLASS = 'dx-state-disabled';
 const TEMPLATE_WRAPPER_CLASS = exports.TEMPLATE_WRAPPER_CLASS = 'dx-template-wrapper';
 const ALLOWED_TOOLBAR_ITEM_ALIASES = ['cancel', 'clear', 'done'];
@@ -238558,7 +237935,7 @@ class Popup extends _overlay.default {
     (_this$$wrapper = this.$wrapper()) === null || _this$$wrapper === void 0 || _this$$wrapper.addClass(popupWrapperClasses);
     this._$popupContent = (_this$_$content = this._$content) === null || _this$_$content === void 0 ? void 0 : _this$_$content.wrapInner((0, _renderer.default)('<div>').addClass(POPUP_CONTENT_CLASS)).children().eq(0);
     this._toggleContentScrollClass();
-    this.setAria('role', this._getAriaRole());
+    this.$overlayContent().attr('role', 'dialog');
   }
   _render() {
     const isFullscreen = Boolean(this.option('fullScreen'));
@@ -238780,7 +238157,6 @@ class Popup extends _overlay.default {
       disabled,
       rtlEnabled,
       items,
-      allowKeyboardNavigation: false,
       useDefaultButtons: useDefaultToolbarButtons,
       useFlatButtons: useFlatToolbarButtons,
       integrationOptions
@@ -238813,23 +238189,21 @@ class Popup extends _overlay.default {
       return;
     }
     const integrationOptions = this._getIntegrationOptions();
+    // @ts-expect-error integrationOptions
     instance.option(Object.assign({}, options, {
       integrationOptions
     }));
   }
-  _getAriaRole() {
-    return 'dialog';
-  }
   _toggleAriaLabel() {
-    var _this$_topToolbar;
+    var _this$_$topToolbar4;
     const {
       title,
       showTitle
     } = this.option();
-    const isLabelRequired = Boolean(showTitle) && Boolean(title);
-    const titleId = isLabelRequired ? new _guid.default().toString() : null;
-    const isLabelAttributeSet = (_this$_topToolbar = this._topToolbar) === null || _this$_topToolbar === void 0 ? void 0 : _this$_topToolbar.setLabelAttribute('id', titleId);
-    this.setAria('labelledby', isLabelRequired && isLabelAttributeSet ? titleId : null, this.$overlayContent());
+    const shouldSetAriaLabel = showTitle && Boolean(title);
+    const titleId = shouldSetAriaLabel ? new _guid.default().toString() : null;
+    (_this$_$topToolbar4 = this._$topToolbar) === null || _this$_$topToolbar4 === void 0 || _this$_$topToolbar4.find(`.${TOOLBAR_LABEL_CLASS}`).eq(0).attr('id', titleId);
+    this.$overlayContent().attr('aria-labelledby', titleId);
   }
   _animateShowing() {
     this._triggerToolbarResizeEvent();
@@ -239357,7 +238731,6 @@ class Popup extends _overlay.default {
       case 'titleTemplate':
         {
           this._renderTopToolbarImpl();
-          this._toggleAriaLabel();
           this._renderGeometry();
           (0, _visibility_change.triggerResizeEvent)(this.$overlayContent());
           break;
@@ -249871,7 +249244,6 @@ class SliderTooltip extends _tooltip.default {
       templatesRenderAsynchronously: false,
       _fixWrapperPosition: false,
       useResizeObserver: false,
-      _describeTarget: false,
       showMode: 'onHover',
       format: value => `${value}`,
       value: 0
@@ -253962,7 +253334,7 @@ var _default = exports["default"] = StepperItem;
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
-exports["default"] = exports.SWITCH_CLASS = void 0;
+exports["default"] = void 0;
 var _animation = __webpack_require__(/*! ../../common/core/animation */ 16826);
 var _click = __webpack_require__(/*! ../../common/core/events/click */ 64044);
 var _emitter = __webpack_require__(/*! ../../common/core/events/core/emitter.feedback */ 69331);
@@ -253978,7 +253350,7 @@ var _position = __webpack_require__(/*! ../../core/utils/position */ 41639);
 var _size = __webpack_require__(/*! ../../core/utils/size */ 57653);
 var _editor = _interopRequireDefault(__webpack_require__(/*! ../ui/editor/editor */ 24768));
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
-const SWITCH_CLASS = exports.SWITCH_CLASS = 'dx-switch';
+const SWITCH_CLASS = 'dx-switch';
 const SWITCH_WRAPPER_CLASS = `${SWITCH_CLASS}-wrapper`;
 const SWITCH_CONTAINER_CLASS = `${SWITCH_CLASS}-container`;
 const SWITCH_INNER_CLASS = `${SWITCH_CLASS}-inner`;
@@ -257481,13 +256853,13 @@ var _default = exports["default"] = TextArea;
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
-exports["default"] = exports.TEXTBOX_CLASS = void 0;
+exports["default"] = void 0;
 var _component_registrator = _interopRequireDefault(__webpack_require__(/*! ../../../core/component_registrator */ 92848));
 var _renderer = _interopRequireDefault(__webpack_require__(/*! ../../../core/renderer */ 64553));
 var _size = __webpack_require__(/*! ../../../core/utils/size */ 57653);
 var _text_editor = _interopRequireDefault(__webpack_require__(/*! ../../ui/text_box/text_editor.mask */ 25728));
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
-const TEXTBOX_CLASS = exports.TEXTBOX_CLASS = 'dx-textbox';
+const TEXTBOX_CLASS = 'dx-textbox';
 const SEARCHBOX_CLASS = 'dx-searchbox';
 const ICON_CLASS = 'dx-icon';
 const SEARCH_ICON_CLASS = 'dx-icon-search';
@@ -261796,556 +261168,8 @@ var _default = exports["default"] = Toast;
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
-exports.TOOLBAR_SEPARATOR_CLASS = exports.TOOLBAR_ITEMS = exports.TOOLBAR_FOCUS_MODE_CLASS = exports.TOOLBAR_COMPONENTS_SELECTOR = exports.TOOLBAR_CLASS = exports.TEXTEDITOR_INPUT_CLASS = exports.TEXTEDITOR_CLASS = exports.NATIVE_FOCUSABLE_SELECTOR = exports.MENU_ITEM_EXPANDED_CLASS = exports.MENU_ITEM_CLASS = exports.MENU_CLASS = exports.DROP_DOWN_MENU_BUTTON_CLASS = void 0;
+exports.TOOLBAR_CLASS = void 0;
 const TOOLBAR_CLASS = exports.TOOLBAR_CLASS = 'dx-toolbar';
-const TOOLBAR_FOCUS_MODE_CLASS = exports.TOOLBAR_FOCUS_MODE_CLASS = 'dx-toolbar-focus-mode';
-const DROP_DOWN_MENU_BUTTON_CLASS = exports.DROP_DOWN_MENU_BUTTON_CLASS = 'dx-dropdownmenu-button';
-const MENU_CLASS = exports.MENU_CLASS = 'dx-menu';
-const MENU_ITEM_CLASS = exports.MENU_ITEM_CLASS = 'dx-menu-item';
-const MENU_ITEM_EXPANDED_CLASS = exports.MENU_ITEM_EXPANDED_CLASS = 'dx-menu-item-expanded';
-const TOOLBAR_SEPARATOR_CLASS = exports.TOOLBAR_SEPARATOR_CLASS = 'dx-toolbar-separator';
-const TOOLBAR_ITEMS = exports.TOOLBAR_ITEMS = ['dxAutocomplete', 'dxButton', 'dxCheckBox', 'dxDateBox', 'dxDateRangeBox', 'dxMenu', 'dxSelectBox', 'dxSwitch', 'dxTabs', 'dxNumberBox', 'dxTextBox', 'dxButtonGroup', 'dxDropDownButton'];
-const TOOLBAR_COMPONENTS_SELECTOR = exports.TOOLBAR_COMPONENTS_SELECTOR = TOOLBAR_ITEMS.map(w => w.toLowerCase().replace('dx', '.dx-')).join(',');
-const NATIVE_FOCUSABLE_SELECTOR = exports.NATIVE_FOCUSABLE_SELECTOR = 'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]';
-const TEXTEDITOR_CLASS = exports.TEXTEDITOR_CLASS = 'dx-texteditor';
-const TEXTEDITOR_INPUT_CLASS = exports.TEXTEDITOR_INPUT_CLASS = 'dx-texteditor-input';
-
-/***/ },
-
-/***/ 62554
-/*!***************************************************************************************************!*\
-  !*** ./artifacts/transpiled-renovation-npm/__internal/ui/toolbar/internal/keyboard.navigation.js ***!
-  \***************************************************************************************************/
-(__unused_webpack_module, exports, __webpack_require__) {
-
-
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-exports.RovingTabIndexController = void 0;
-exports.setupRovingKeyboard = setupRovingKeyboard;
-var _short = __webpack_require__(/*! ../../../../common/core/events/short */ 42222);
-var _utils = __webpack_require__(/*! ../../../../common/core/events/utils */ 98834);
-var _dom_adapter = _interopRequireDefault(__webpack_require__(/*! ../../../../core/dom_adapter */ 64960));
-var _renderer = _interopRequireDefault(__webpack_require__(/*! ../../../../core/renderer */ 64553));
-var _m_element = __webpack_require__(/*! ../../../core/m_element */ 93630);
-var _m_events_engine = _interopRequireDefault(__webpack_require__(/*! ../../../events/core/m_events_engine */ 36306));
-var _constants = __webpack_require__(/*! ../../../ui/toolbar/constants */ 50634);
-var _roving = __webpack_require__(/*! ../../../ui/toolbar/internal/roving.utils */ 48015);
-var _toolbar = __webpack_require__(/*! ../../../ui/toolbar/toolbar.utils */ 90859);
-function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
-const HORIZONTAL_KEY_LOCATION = {
-  ArrowRight: 'right',
-  ArrowLeft: 'left',
-  Home: 'first',
-  End: 'last'
-};
-const VERTICAL_KEY_LOCATION = {
-  ArrowDown: 'down',
-  ArrowUp: 'up',
-  Home: 'first',
-  End: 'last'
-};
-class RovingTabIndexController {
-  constructor(host, options) {
-    this.host = host;
-    this.options = options;
-  }
-  get root() {
-    return this.host.$element().get(0);
-  }
-  getItemTabIndex($item) {
-    var _data$options;
-    const data = this.host._getItemData($item);
-    const tabIndex = data === null || data === void 0 || (_data$options = data.options) === null || _data$options === void 0 ? void 0 : _data$options.tabIndex;
-    return tabIndex ?? 0;
-  }
-  getItemIndex($item) {
-    const index = $item.data(this.host._itemIndexKey());
-    // @ts-expect-error ts-error
-    return index;
-  }
-  attach() {
-    this.detach();
-    this.attachCaptureHandler();
-  }
-  detach() {
-    this.detachCaptureHandler();
-    this.$prevActiveItem = undefined;
-  }
-  getKeyToLocation() {
-    return this.options.direction === 'horizontal' ? HORIZONTAL_KEY_LOCATION : VERTICAL_KEY_LOCATION;
-  }
-  attachCaptureHandler() {
-    this.captureHandler = e => {
-      const target = e.target;
-      if (e.key === 'Tab') {
-        var _this$options$onTab, _this$options;
-        (_this$options$onTab = (_this$options = this.options).onTab) === null || _this$options$onTab === void 0 || _this$options$onTab.call(_this$options);
-        return;
-      }
-      const $item = (0, _renderer.default)(target).closest(this.options.itemsSelector);
-      const componentOwnsKey = $item.length > 0 && !(0, _roving.isFocusOnItemAnchor)($item, target);
-      if (e.key === 'Escape') {
-        this.handleEscape($item, componentOwnsKey, e);
-        return;
-      }
-      if (componentOwnsKey) {
-        return;
-      }
-      this.handleDirectional(target, e);
-    };
-    this.root.addEventListener('keydown', this.captureHandler, true);
-  }
-  handleEscape($item, componentOwnsKey, e) {
-    if (componentOwnsKey) {
-      this.handleEscapeInsideComponent($item, e);
-      return;
-    }
-    if (this.options.onEscape) {
-      e.preventDefault();
-      e.stopPropagation();
-      this.options.onEscape();
-    }
-  }
-  handleDirectional(target, e) {
-    const location = this.getKeyToLocation()[e.key];
-    if (!location) {
-      return;
-    }
-    this.syncFocusedItem(target);
-    const $focused = (0, _renderer.default)(this.host.option().focusedElement);
-    if ($focused.length && (0, _roving.isItemComponentOpened)($focused)) {
-      return;
-    }
-    if (this.moveInsidePlainItem(target, location, e)) {
-      return;
-    }
-    e.preventDefault();
-    e.stopPropagation();
-    this.host._moveFocus(location);
-    this.focusPlainItemEdge(location);
-  }
-  detachCaptureHandler() {
-    if (this.captureHandler) {
-      this.root.removeEventListener('keydown', this.captureHandler, true);
-      this.captureHandler = undefined;
-    }
-  }
-  moveInsidePlainItem(target, location, e) {
-    if (!this.isHorizontalArrow(location)) {
-      return false;
-    }
-    if ((0, _utils.isCommandKeyPressed)(e)) {
-      return true;
-    }
-    const $focused = (0, _renderer.default)(this.host.option().focusedElement);
-    const $item = (0, _renderer.default)(target).closest(this.options.itemsSelector);
-    if (!$focused.length || $focused.get(0) !== $item.get(0)) {
-      return false;
-    }
-    const $targets = (0, _roving.getPlainItemFocusTargets)($focused);
-    if ($targets.length <= 1) {
-      return false;
-    }
-    const targets = $targets.toArray();
-    const currentIndex = targets.findIndex(element => element === target || element.contains(target));
-    if (currentIndex < 0) {
-      return false;
-    }
-    const nextIndex = currentIndex + (location === 'right' ? 1 : -1);
-    if (nextIndex < 0 || nextIndex >= targets.length) {
-      return false;
-    }
-    e.preventDefault();
-    e.stopPropagation();
-    this.focusPlainItemTarget($targets, (0, _renderer.default)(targets[nextIndex]), $focused);
-    return true;
-  }
-  focusPlainItemEdge(location) {
-    if (!this.isHorizontalArrow(location)) {
-      return;
-    }
-    const $focused = (0, _renderer.default)(this.host.option().focusedElement);
-    const $targets = (0, _roving.getPlainItemFocusTargets)($focused);
-    if ($targets.length <= 1) {
-      return;
-    }
-    const targets = $targets.toArray();
-    const edgeTarget = location === 'left' ? targets[targets.length - 1] : targets[0];
-    this.focusPlainItemTarget($targets, (0, _renderer.default)(edgeTarget), $focused);
-  }
-  isHorizontalArrow(location) {
-    return this.options.direction === 'horizontal' && (location === 'left' || location === 'right');
-  }
-  focusPlainItemTarget($allTargets, $next, $focused) {
-    $allTargets.attr('tabIndex', -1);
-    $next.attr('tabIndex', this.getItemTabIndex($focused));
-    _m_events_engine.default.trigger($next, 'focus');
-  }
-  handleEscapeInsideComponent($item, e) {
-    if ($item.find(`.${_constants.MENU_ITEM_EXPANDED_CLASS}`).length) {
-      return;
-    }
-    e.preventDefault();
-    e.stopPropagation();
-    if ($item.length && (0, _roving.closeItemComponent)($item)) {
-      return;
-    }
-    if ($item.length) {
-      this.focusItem($item);
-    }
-  }
-  handleEnterKey(e, ctx) {
-    const target = e.target;
-    const $item = (0, _renderer.default)(ctx.focusedElement);
-    if ($item.length && !(0, _roving.isFocusOnItemAnchor)($item, target)) {
-      return;
-    }
-    ctx.activateAtNavLevel($item, e);
-    if (e.defaultPrevented) {
-      return;
-    }
-    if ($item.length) {
-      const $textEditor = $item.find(`.${_constants.TEXTEDITOR_INPUT_CLASS}`).first();
-      if ($textEditor.length) {
-        e.preventDefault();
-        _m_events_engine.default.trigger($textEditor, 'focus');
-      }
-    }
-  }
-  syncFocusedItem(target) {
-    var _defaultGetItemFocusT;
-    let $item = (0, _renderer.default)(target).closest(this.options.itemsSelector);
-    if (!$item.length) {
-      $item = (0, _renderer.default)(target).find('[tabindex="0"]').closest(this.options.itemsSelector).first();
-    }
-    if ($item.length && (_defaultGetItemFocusT = (0, _toolbar.getItemFocusTarget)($item)) !== null && _defaultGetItemFocusT !== void 0 && _defaultGetItemFocusT.length) {
-      this.host.option('focusedElement', (0, _m_element.getPublicElement)($item));
-    }
-  }
-  focusInHandler(e) {
-    var _defaultGetItemFocusT2;
-    const $target = (0, _renderer.default)(e.target);
-    const $item = $target.closest(this.options.itemsSelector);
-    if ($item.length && (_defaultGetItemFocusT2 = (0, _toolbar.getItemFocusTarget)($item)) !== null && _defaultGetItemFocusT2 !== void 0 && _defaultGetItemFocusT2.length) {
-      this.host.option('focusedElement', (0, _m_element.getPublicElement)($item));
-    }
-  }
-  shouldDelegateFocusOut(e) {
-    const relatedTarget = e.relatedTarget;
-    if (relatedTarget && this.root.contains(relatedTarget)) {
-      return false;
-    }
-    if ((0, _roving.isElementInOverlayContent)(relatedTarget)) {
-      return false;
-    }
-    return true;
-  }
-  focusItem($item) {
-    const $focusTarget = this.host._getItemFocusTarget($item);
-    if (!($focusTarget !== null && $focusTarget !== void 0 && $focusTarget.length)) {
-      return;
-    }
-    _m_events_engine.default.trigger($focusTarget, 'focus');
-  }
-  updateRovingTabIndex($activeItem) {
-    const $prev = this.$prevActiveItem;
-    const prev = $prev === null || $prev === void 0 ? void 0 : $prev.get(0);
-    const next = $activeItem === null || $activeItem === void 0 ? void 0 : $activeItem.get(0);
-    if ($prev && prev && prev !== next && prev.isConnected) {
-      (0, _roving.applyItemTabIndex)($prev, -1);
-    }
-    if ($activeItem !== null && $activeItem !== void 0 && $activeItem.length) {
-      (0, _roving.applyItemTabIndex)($activeItem, this.getItemTabIndex($activeItem));
-      this.$prevActiveItem = $activeItem;
-      return;
-    }
-    const $first = this.host._getAvailableItems().first();
-    if ($first.length) {
-      (0, _roving.applyItemTabIndex)($first, this.getItemTabIndex($first));
-      this.$prevActiveItem = $first;
-    } else {
-      this.$prevActiveItem = undefined;
-    }
-  }
-  resetRovingTabIndex(itemsContainer) {
-    const $allItems = itemsContainer.find(this.options.itemsSelector);
-    $allItems.each((_index, item) => {
-      (0, _roving.applyItemTabIndex)((0, _renderer.default)(item), -1);
-      return true;
-    });
-    this.$prevActiveItem = undefined;
-    const $focused = (0, _renderer.default)(this.host.option().focusedElement);
-    const $available = this.host._getAvailableItems();
-    const focusedEl = $focused.get(0);
-    const isFocusedAvailable = !!focusedEl && $available.toArray().includes(focusedEl);
-    const $newActive = isFocusedAvailable ? $focused : $available.first();
-    if ($newActive.length) {
-      (0, _roving.applyItemTabIndex)($newActive, this.getItemTabIndex($newActive));
-      this.$prevActiveItem = $newActive;
-    }
-  }
-  captureFocusedItem() {
-    const {
-      root
-    } = this;
-    const active = _dom_adapter.default.getActiveElement(root);
-    const insideToolbar = !!active && active !== root && root.contains(active);
-    if (!insideToolbar) {
-      const body = _dom_adapter.default.getBody();
-      return active && active !== body ? null : undefined;
-    }
-    const $item = (0, _renderer.default)(active).closest(this.options.itemsSelector);
-    if (!$item.length) {
-      return null;
-    }
-    const index = this.getItemIndex($item);
-    return index ?? 'overflow';
-  }
-  captureItemIfFocused($item) {
-    var _$item$get;
-    if (!($item !== null && $item !== void 0 && $item.length)) {
-      return undefined;
-    }
-    const active = _dom_adapter.default.getActiveElement(this.root);
-    if (!active || !((_$item$get = $item.get(0)) !== null && _$item$get !== void 0 && _$item$get.contains(active))) {
-      return undefined;
-    }
-    return this.captureFocusedItem() ?? undefined;
-  }
-  restoreFocus(target) {
-    const $available = this.host._getAvailableItems();
-    if (!$available.length) {
-      return;
-    }
-    const $target = this.resolveRestoreTarget($available, target);
-    if (!($target !== null && $target !== void 0 && $target.length)) {
-      return;
-    }
-    this.updateRovingTabIndex($target);
-    this.focusItem($target);
-  }
-  resolveRestoreTarget($available, target) {
-    return target === 'overflow' ? this.resolveOverflowTarget($available) : this.resolveIndexTarget($available, target);
-  }
-  resolveOverflowTarget($available) {
-    const $overflow = $available.filter(`.${_constants.DROP_DOWN_MENU_BUTTON_CLASS}`);
-    return $overflow.length ? $overflow.first() : $available.first();
-  }
-  resolveIndexTarget($available, index) {
-    const available = $available.toArray();
-    const getIndex = el => this.getItemIndex((0, _renderer.default)(el));
-    const exact = available.find(el => getIndex(el) === index);
-    if (exact) {
-      return (0, _renderer.default)(exact);
-    }
-    const sorted = available.map(el => ({
-      el,
-      elIndex: getIndex(el)
-    })).filter(entry => entry.elIndex !== undefined).sort((a, b) => a.elIndex - b.elIndex);
-    if (sorted.length) {
-      const nearest = sorted.find(entry => entry.elIndex >= index) ?? sorted[sorted.length - 1];
-      return (0, _renderer.default)(nearest.el);
-    }
-    return (0, _renderer.default)(available[available.length - 1]);
-  }
-}
-exports.RovingTabIndexController = RovingTabIndexController;
-function setupRovingKeyboard(host, options) {
-  const listenerId = _short.keyboard.on(host._keyboardEventBindingTarget(), null, opts => host._keyboardHandler(opts));
-  const navigator = new RovingTabIndexController(host, options);
-  navigator.attach();
-  return {
-    listenerId,
-    navigator
-  };
-}
-
-/***/ },
-
-/***/ 48015
-/*!********************************************************************************************!*\
-  !*** ./artifacts/transpiled-renovation-npm/__internal/ui/toolbar/internal/roving.utils.js ***!
-  \********************************************************************************************/
-(__unused_webpack_module, exports, __webpack_require__) {
-
-
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-exports.afterRovingMoveFocus = afterRovingMoveFocus;
-exports.applyItemTabIndex = applyItemTabIndex;
-exports.beforeRovingMoveFocus = beforeRovingMoveFocus;
-exports.closeItemComponent = closeItemComponent;
-exports.focusElement = focusElement;
-exports.focusItemFocusTarget = focusItemFocusTarget;
-exports.getAvailableItems = getAvailableItems;
-exports.getPlainItemFocusTargets = getPlainItemFocusTargets;
-exports.handleMenuActivation = handleMenuActivation;
-exports.isElementInOverlayContent = isElementInOverlayContent;
-exports.isFocusOnItemAnchor = isFocusOnItemAnchor;
-exports.isItemComponentOpened = isItemComponentOpened;
-exports.releaseNavigationKeys = releaseNavigationKeys;
-exports.wrapSpaceKey = wrapSpaceKey;
-var _renderer = _interopRequireDefault(__webpack_require__(/*! ../../../../core/renderer */ 64553));
-var _widget = __webpack_require__(/*! ../../../core/widget/widget */ 89275);
-var _overlay = __webpack_require__(/*! ../../../ui/overlay/overlay */ 79384);
-var _constants = __webpack_require__(/*! ../../../ui/toolbar/constants */ 50634);
-var _toolbar = __webpack_require__(/*! ../../../ui/toolbar/toolbar.utils */ 90859);
-function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
-function getChildComponentOpened(instance) {
-  return !!(instance !== null && instance !== void 0 && instance.option('opened'));
-}
-function isTextEditingElement(target) {
-  if (target.isContentEditable) {
-    return true;
-  }
-  const tagName = target.tagName.toLowerCase();
-  if (tagName === 'textarea') {
-    return true;
-  }
-  if (tagName === 'input') {
-    const {
-      type
-    } = target;
-    return type !== 'checkbox' && type !== 'radio' && type !== 'button' && type !== 'submit';
-  }
-  return false;
-}
-function isItemDisabled($item, hostDisabledState) {
-  if (hostDisabledState) {
-    return true;
-  }
-  if ($item.hasClass(_widget.DISABLED_STATE_CLASS)) {
-    return true;
-  }
-  const $component = $item.find(`.${_widget.WIDGET_CLASS}`).first();
-  return $component.length > 0 && $component.hasClass(_widget.DISABLED_STATE_CLASS);
-}
-function focusElement($el) {
-  const element = $el === null || $el === void 0 ? void 0 : $el.get(0);
-  if (element instanceof HTMLElement) {
-    element.focus();
-  }
-}
-function closeItemComponent($item) {
-  const itemInstance = (0, _toolbar.getItemComponentInstance)($item);
-  if (!itemInstance) {
-    return false;
-  }
-  if (!getChildComponentOpened(itemInstance)) {
-    return false;
-  }
-  itemInstance.option('opened', false);
-  return true;
-}
-function isItemComponentOpened($item) {
-  return getChildComponentOpened((0, _toolbar.getItemComponentInstance)($item));
-}
-function isFocusOnItemAnchor($item, target) {
-  var _getItemFocusTarget;
-  if (isTextEditingElement(target)) {
-    return false;
-  }
-  const anchor = (_getItemFocusTarget = (0, _toolbar.getItemFocusTarget)($item)) === null || _getItemFocusTarget === void 0 ? void 0 : _getItemFocusTarget.get(0);
-  if (!anchor) {
-    return true;
-  }
-  return anchor === target || !anchor.contains(target);
-}
-function getPlainItemFocusTargets($item) {
-  if ($item.hasClass(_constants.DROP_DOWN_MENU_BUTTON_CLASS)) {
-    return (0, _renderer.default)();
-  }
-  const $components = $item.find(_constants.TOOLBAR_COMPONENTS_SELECTOR);
-  if ($components.length) {
-    return (0, _renderer.default)();
-  }
-  return $item.find(_constants.NATIVE_FOCUSABLE_SELECTOR);
-}
-function applyItemTabIndex($item, tabIndex) {
-  const $focusTarget = (0, _toolbar.getItemFocusTarget)($item);
-  if (!($focusTarget !== null && $focusTarget !== void 0 && $focusTarget.length)) {
-    return;
-  }
-  const $plainTargets = getPlainItemFocusTargets($item);
-  if ($plainTargets.length > 1) {
-    $plainTargets.attr('tabIndex', -1);
-  }
-  $focusTarget.attr('tabIndex', tabIndex);
-  if ($focusTarget.hasClass(_constants.TEXTEDITOR_CLASS)) {
-    $focusTarget.find(`.${_constants.TEXTEDITOR_INPUT_CLASS}`).attr('tabIndex', -1);
-  }
-  const $menu = $item.find(`.${_constants.MENU_CLASS}`);
-  if ($menu.length) {
-    $menu.attr('tabIndex', -1);
-    $menu.find('[tabindex]').attr('tabIndex', -1);
-  }
-}
-function wrapSpaceKey(keys) {
-  const originalSpace = keys.space;
-  if (!originalSpace) {
-    return;
-  }
-  keys.space = (e, options) => {
-    if (isTextEditingElement(e.target)) {
-      return undefined;
-    }
-    return originalSpace(e, options);
-  };
-}
-const ROVING_NAVIGATION_KEYS = ['leftArrow', 'rightArrow', 'upArrow', 'downArrow', 'home', 'end'];
-function releaseNavigationKeys(keys) {
-  ROVING_NAVIGATION_KEYS.forEach(key => {
-    // eslint-disable-next-line @typescript-eslint/no-dynamic-delete
-    delete keys[key];
-  });
-}
-function getAvailableItems($visibleItems, hostDisabledState, resolveFocusTarget) {
-  const elements = $visibleItems.toArray().filter(item => {
-    var _resolveFocusTarget;
-    return !isItemDisabled((0, _renderer.default)(item), hostDisabledState) && !!((_resolveFocusTarget = resolveFocusTarget((0, _renderer.default)(item))) !== null && _resolveFocusTarget !== void 0 && _resolveFocusTarget.length);
-  });
-  return (0, _renderer.default)(elements);
-}
-function focusItemFocusTarget($item) {
-  focusElement((0, _toolbar.getItemFocusTarget)($item));
-}
-function handleMenuActivation($focused, e) {
-  if (!$focused.length || isItemComponentOpened($focused)) {
-    return;
-  }
-  const $menu = $focused.find(`.${_constants.MENU_CLASS}`).first();
-  if ($menu.length) {
-    e.preventDefault();
-    e.stopPropagation();
-    focusElement($menu);
-  }
-}
-function beforeRovingMoveFocus(host) {
-  const $prev = (0, _renderer.default)(host.option().focusedElement);
-  if ($prev.length) {
-    closeItemComponent($prev);
-  }
-}
-function afterRovingMoveFocus(host) {
-  const $focused = (0, _renderer.default)(host.option().focusedElement);
-  if ($focused.length) {
-    focusItemFocusTarget($focused);
-  }
-}
-function isElementInOverlayContent(element) {
-  if (!element) {
-    return false;
-  }
-  return _overlay.OVERLAY_STACK.some(overlay => {
-    var _overlay$$content;
-    return !!((_overlay$$content = overlay.$content()) !== null && _overlay$$content !== void 0 && (_overlay$$content = _overlay$$content.get(0)) !== null && _overlay$$content !== void 0 && _overlay$$content.contains(element));
-  });
-}
 
 /***/ },
 
@@ -262360,7 +261184,7 @@ function isElementInOverlayContent(element) {
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
-exports["default"] = exports.DROP_DOWN_MENU_POPUP_WRAPPER_CLASS = exports.DROP_DOWN_MENU_LIST_FOCUS_MODE_CLASS = void 0;
+exports["default"] = void 0;
 var _devices = _interopRequireDefault(__webpack_require__(/*! ../../../../core/devices */ 65951));
 var _renderer = _interopRequireDefault(__webpack_require__(/*! ../../../../core/renderer */ 64553));
 var _child_default_template = __webpack_require__(/*! ../../../../core/templates/child_default_template */ 91585);
@@ -262370,24 +261194,18 @@ var _themes = __webpack_require__(/*! ../../../../ui/themes */ 52071);
 var _widget = _interopRequireDefault(__webpack_require__(/*! ../../../core/widget/widget */ 89275));
 var _wrapper = _interopRequireDefault(__webpack_require__(/*! ../../../ui/button/wrapper */ 19583));
 var _popup = _interopRequireDefault(__webpack_require__(/*! ../../../ui/popup/popup */ 15628));
-var _constants = __webpack_require__(/*! ../../../ui/toolbar/constants */ 50634);
-var _roving = __webpack_require__(/*! ../../../ui/toolbar/internal/roving.utils */ 48015);
 var _toolbarMenu = _interopRequireWildcard(__webpack_require__(/*! ../../../ui/toolbar/internal/toolbar.menu.list */ 14279));
 var _toolbar = __webpack_require__(/*! ../../../ui/toolbar/toolbar.utils */ 90859);
 function _interopRequireWildcard(e, t) { if ("function" == typeof WeakMap) var r = new WeakMap(), n = new WeakMap(); return (_interopRequireWildcard = function (e, t) { if (!t && e && e.__esModule) return e; var o, i, f = { __proto__: null, default: e }; if (null === e || "object" != typeof e && "function" != typeof e) return f; if (o = t ? n : r) { if (o.has(e)) return o.get(e); o.set(e, f); } for (const t in e) "default" !== t && {}.hasOwnProperty.call(e, t) && ((i = (o = Object.defineProperty) && Object.getOwnPropertyDescriptor(e, t)) && (i.get || i.set) ? o(f, t, i) : f[t] = e[t]); return f; })(e, t); }
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 const DROP_DOWN_MENU_CLASS = 'dx-dropdownmenu';
 const DROP_DOWN_MENU_POPUP_CLASS = 'dx-dropdownmenu-popup';
-const DROP_DOWN_MENU_POPUP_WRAPPER_CLASS = exports.DROP_DOWN_MENU_POPUP_WRAPPER_CLASS = 'dx-dropdownmenu-popup-wrapper';
-const DROP_DOWN_MENU_LIST_FOCUS_MODE_CLASS = exports.DROP_DOWN_MENU_LIST_FOCUS_MODE_CLASS = 'dx-dropdownmenu-list-focus-mode';
+const DROP_DOWN_MENU_POPUP_WRAPPER_CLASS = 'dx-dropdownmenu-popup-wrapper';
 const DROP_DOWN_MENU_LIST_CLASS = 'dx-dropdownmenu-list';
+const DROP_DOWN_MENU_BUTTON_CLASS = 'dx-dropdownmenu-button';
 const POPUP_BOUNDARY_VERTICAL_OFFSET = 10;
 const POPUP_VERTICAL_OFFSET = 3;
 class DropDownMenu extends _widget.default {
-  constructor() {
-    super(...arguments);
-    this._openFocusTarget = null;
-  }
   // eslint-disable-next-line @typescript-eslint/no-invalid-void-type
   _supportedKeys() {
     var _this$_list;
@@ -262400,7 +261218,8 @@ class DropDownMenu extends _widget.default {
     }
     return Object.assign({}, super._supportedKeys(), extension, {
       tab() {
-        this.option('opened', false);
+        var _this$_popup;
+        (_this$_popup = this._popup) === null || _this$_popup === void 0 || _this$_popup.hide();
       }
     });
   }
@@ -262414,7 +261233,6 @@ class DropDownMenu extends _widget.default {
       opened: false,
       closeOnClick: true,
       useInkRipple: false,
-      allowKeyboardNavigation: false,
       container: undefined,
       animation: {
         show: {
@@ -262509,15 +261327,15 @@ class DropDownMenu extends _widget.default {
     }
   }
   _clean() {
-    var _this$_list2, _this$_popup;
+    var _this$_list2, _this$_popup2;
     this._cleanFocusState();
     (_this$_list2 = this._list) === null || _this$_list2 === void 0 || _this$_list2.$element().remove();
-    (_this$_popup = this._popup) === null || _this$_popup === void 0 || _this$_popup.$element().remove();
+    (_this$_popup2 = this._popup) === null || _this$_popup2 === void 0 || _this$_popup2.$element().remove();
     delete this._list;
     delete this._popup;
   }
   _renderButton() {
-    const $button = this.$element().addClass(_constants.DROP_DOWN_MENU_BUTTON_CLASS);
+    const $button = this.$element().addClass(DROP_DOWN_MENU_BUTTON_CLASS);
     const {
       useInkRipple
     } = this.option();
@@ -262530,10 +261348,7 @@ class DropDownMenu extends _widget.default {
       focusStateEnabled: false,
       onClick: e => {
         var _this$_buttonClickAct;
-        const {
-          opened
-        } = this.option();
-        this.option('opened', !opened);
+        this.option('opened', !this.option('opened'));
         (_this$_buttonClickAct = this._buttonClickAction) === null || _this$_buttonClickAct === void 0 || _this$_buttonClickAct.call(this, e);
       }
     });
@@ -262542,13 +261357,13 @@ class DropDownMenu extends _widget.default {
     this._button._toggleActiveState($element[0], value);
   }
   _toggleMenuVisibility(opened) {
-    var _this$_popup2, _this$_popup3;
-    const state = opened ?? !((_this$_popup2 = this._popup) !== null && _this$_popup2 !== void 0 && _this$_popup2.option('visible'));
+    var _this$_popup3, _this$_popup4;
+    const state = opened ?? !((_this$_popup3 = this._popup) !== null && _this$_popup3 !== void 0 && _this$_popup3.option('visible'));
     if (opened) {
       this._renderPopup();
     }
     // eslint-disable-next-line @typescript-eslint/no-floating-promises
-    (_this$_popup3 = this._popup) === null || _this$_popup3 === void 0 || _this$_popup3.toggle(state);
+    (_this$_popup4 = this._popup) === null || _this$_popup4 === void 0 || _this$_popup4.toggle(state);
     this.setAria('expanded', state);
   }
   _renderPopup() {
@@ -262559,13 +261374,11 @@ class DropDownMenu extends _widget.default {
     const {
       rtlEnabled,
       container,
-      animation,
-      allowKeyboardNavigation
+      animation
     } = this.option();
     this._popup = this._createComponent(this._$popup, _popup.default, {
-      focusStateEnabled: !allowKeyboardNavigation,
       wrapperAttr: {
-        class: [DROP_DOWN_MENU_POPUP_WRAPPER_CLASS, DROP_DOWN_MENU_POPUP_CLASS, allowKeyboardNavigation ? DROP_DOWN_MENU_LIST_FOCUS_MODE_CLASS : ''].filter(Boolean).join(' ')
+        class: [DROP_DOWN_MENU_POPUP_WRAPPER_CLASS, DROP_DOWN_MENU_POPUP_CLASS].filter(Boolean).join(' ')
       },
       deferRendering: false,
       preventScrollEvents: false,
@@ -262589,29 +261402,6 @@ class DropDownMenu extends _widget.default {
         } = _ref;
         if (name === 'visible') {
           this.option('opened', value);
-        }
-      },
-      onShown: () => {
-        const {
-          allowKeyboardNavigation: enabled
-        } = this.option();
-        if (enabled) {
-          if (this._openFocusTarget === 'last') {
-            var _this$_list3;
-            (_this$_list3 = this._list) === null || _this$_list3 === void 0 || _this$_list3.focusLastItem();
-          } else {
-            var _this$_list4;
-            (_this$_list4 = this._list) === null || _this$_list4 === void 0 || _this$_list4.focusFirstItem();
-          }
-          this._openFocusTarget = null;
-        }
-      },
-      onHiding: () => {
-        var _this$_popup4;
-        const popupEl = (_this$_popup4 = this._popup) === null || _this$_popup4 === void 0 ? void 0 : _this$_popup4.$overlayContent().get(0);
-        if (popupEl !== null && popupEl !== void 0 && popupEl.contains(document.activeElement)) {
-          var _this$_button;
-          (0, _roving.focusElement)((_this$_button = this._button) === null || _this$_button === void 0 ? void 0 : _this$_button.$element());
         }
       },
       container,
@@ -262641,11 +261431,6 @@ class DropDownMenu extends _widget.default {
       }
     });
   }
-  openWithFocus() {
-    let focusTarget = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'first';
-    this._openFocusTarget = focusTarget;
-    this.option('opened', true);
-  }
   _getMaxHeight() {
     var _$element$offset;
     const $element = this.$element();
@@ -262667,8 +261452,7 @@ class DropDownMenu extends _widget.default {
     $content.addClass(DROP_DOWN_MENU_LIST_CLASS);
     const {
       itemTemplate,
-      onItemRendered,
-      allowKeyboardNavigation
+      onItemRendered
     } = this.option();
     this._list = this._createComponent($content, _toolbarMenu.default, {
       dataSource: this._getListDataSource(),
@@ -262680,7 +261464,7 @@ class DropDownMenu extends _widget.default {
         this._itemClickHandler(e);
       },
       tabIndex: -1,
-      focusStateEnabled: allowKeyboardNavigation,
+      focusStateEnabled: false,
       activeStateEnabled: true,
       onItemRendered,
       _itemAttributes: {
@@ -262688,21 +261472,12 @@ class DropDownMenu extends _widget.default {
       },
       _onItemsRendered: () => {
         // T1322123
-        const {
-          templatesRenderAsynchronously
-        } = this.option();
-        if (templatesRenderAsynchronously) {
+        if (this.option('templatesRenderAsynchronously')) {
           var _this$_popup7;
           (_this$_popup7 = this._popup) === null || _this$_popup7 === void 0 || _this$_popup7._renderGeometry();
         }
       }
     });
-    this._list._onEscapePress = () => {
-      this.option('opened', false);
-    };
-    this._list._onTabPress = () => {
-      this.option('opened', false);
-    };
   }
   _popupKeyHandler(e) {
     if ((0, _renderer.default)(e.target).closest(`.${_toolbarMenu.TOOLBAR_MENU_ACTION_CLASS}`).length) {
@@ -262723,9 +261498,9 @@ class DropDownMenu extends _widget.default {
     (_this$_itemClickActio = this._itemClickAction) === null || _this$_itemClickActio === void 0 || _this$_itemClickActio.call(this, e);
   }
   _itemOptionChanged(item, property, value) {
-    var _this$_list5;
-    (_this$_list5 = this._list) === null || _this$_list5 === void 0 || _this$_list5._itemOptionChanged(item, property, value);
-    this._updateFocusableItemsTabIndex();
+    var _this$_list3;
+    (_this$_list3 = this._list) === null || _this$_list3 === void 0 || _this$_list3._itemOptionChanged(item, property, value);
+    (0, _toolbar.toggleItemFocusableElementTabIndex)(this._list, item);
   }
   _getListDataSource() {
     const {
@@ -262735,8 +261510,8 @@ class DropDownMenu extends _widget.default {
     return dataSource ?? items;
   }
   _setListDataSource() {
-    var _this$_list6;
-    (_this$_list6 = this._list) === null || _this$_list6 === void 0 || _this$_list6.option('dataSource', this._getListDataSource());
+    var _this$_list4;
+    (_this$_list4 = this._list) === null || _this$_list4 === void 0 || _this$_list4.option('dataSource', this._getListDataSource());
     delete this._deferRendering;
   }
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -262744,12 +261519,12 @@ class DropDownMenu extends _widget.default {
     return super._getKeyboardListeners().concat([this._list]);
   }
   _toggleVisibility(visible) {
-    var _this$_button2;
+    var _this$_button;
     super._toggleVisibility(visible);
-    (_this$_button2 = this._button) === null || _this$_button2 === void 0 || _this$_button2.option('visible', visible);
+    (_this$_button = this._button) === null || _this$_button === void 0 || _this$_button.option('visible', visible);
   }
   _optionChanged(args) {
-    var _this$_list7, _this$_list8, _this$_popup8, _this$_popup9, _this$_list9, _this$_popup0;
+    var _this$_list5, _this$_list6, _this$_list7, _this$_popup8;
     const {
       name,
       value
@@ -262757,19 +261532,14 @@ class DropDownMenu extends _widget.default {
     switch (name) {
       case 'items':
       case 'dataSource':
-        {
-          const {
-            opened
-          } = this.option();
-          if (!opened) {
-            this._deferRendering = true;
-          } else {
-            this._setListDataSource();
-          }
-          break;
+        if (!this.option('opened')) {
+          this._deferRendering = true;
+        } else {
+          this._setListDataSource();
         }
+        break;
       case 'itemTemplate':
-        (_this$_list7 = this._list) === null || _this$_list7 === void 0 || _this$_list7.option(name, this._getTemplate(value));
+        (_this$_list5 = this._list) === null || _this$_list5 === void 0 || _this$_list5.option(name, this._getTemplate(value));
         break;
       case 'onItemClick':
         this._initItemClickAction();
@@ -262781,15 +261551,11 @@ class DropDownMenu extends _widget.default {
         this._invalidate();
         break;
       case 'focusStateEnabled':
+        (_this$_list6 = this._list) === null || _this$_list6 === void 0 || _this$_list6.option(name, value);
         super._optionChanged(args);
         break;
-      case 'allowKeyboardNavigation':
-        (_this$_list8 = this._list) === null || _this$_list8 === void 0 || _this$_list8.option('focusStateEnabled', value);
-        (_this$_popup8 = this._popup) === null || _this$_popup8 === void 0 || _this$_popup8.option('focusStateEnabled', !value);
-        (_this$_popup9 = this._popup) === null || _this$_popup9 === void 0 || (_this$_popup9 = _this$_popup9.$wrapper()) === null || _this$_popup9 === void 0 || _this$_popup9.toggleClass(DROP_DOWN_MENU_LIST_FOCUS_MODE_CLASS, !!value);
-        break;
       case 'onItemRendered':
-        (_this$_list9 = this._list) === null || _this$_list9 === void 0 || _this$_list9.option(name, value);
+        (_this$_list7 = this._list) === null || _this$_list7 === void 0 || _this$_list7.option(name, value);
         break;
       case 'opened':
         if (this._deferRendering) {
@@ -262801,7 +261567,7 @@ class DropDownMenu extends _widget.default {
       case 'closeOnClick':
         break;
       case 'container':
-        (_this$_popup0 = this._popup) === null || _this$_popup0 === void 0 || _this$_popup0.option(name, value);
+        (_this$_popup8 = this._popup) === null || _this$_popup8 === void 0 || _this$_popup8.option(name, value);
         break;
       case 'disabled':
         if (this._list) {
@@ -262813,19 +261579,10 @@ class DropDownMenu extends _widget.default {
     }
   }
   _updateFocusableItemsTabIndex() {
-    if (this._list) {
-      const {
-        allowKeyboardNavigation
-      } = this.option();
-      if (allowKeyboardNavigation) {
-        this._list._resetRovingTabIndex();
-      } else {
-        const {
-          items = []
-        } = this.option();
-        items.forEach(item => (0, _toolbar.toggleItemFocusableElementTabIndex)(this._list, item));
-      }
-    }
+    const {
+      items = []
+    } = this.option();
+    items.forEach(item => (0, _toolbar.toggleItemFocusableElementTabIndex)(this._list, item));
   }
 }
 exports["default"] = DropDownMenu;
@@ -262846,11 +261603,7 @@ Object.defineProperty(exports, "__esModule", ({
 exports["default"] = exports.TOOLBAR_MENU_ACTION_CLASS = void 0;
 var _renderer = _interopRequireDefault(__webpack_require__(/*! ../../../../core/renderer */ 64553));
 var _iterator = __webpack_require__(/*! ../../../../core/utils/iterator */ 21274);
-var _m_element = __webpack_require__(/*! ../../../core/m_element */ 93630);
 var _list = __webpack_require__(/*! ../../../ui/list/list.base */ 74319);
-var _keyboard = __webpack_require__(/*! ../../../ui/toolbar/internal/keyboard.navigation */ 62554);
-var _roving = __webpack_require__(/*! ../../../ui/toolbar/internal/roving.utils */ 48015);
-var _toolbar = __webpack_require__(/*! ../../../ui/toolbar/toolbar.utils */ 90859);
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 const TOOLBAR_MENU_ACTION_CLASS = exports.TOOLBAR_MENU_ACTION_CLASS = 'dx-toolbar-menu-action';
 const TOOLBAR_HIDDEN_BUTTON_CLASS = 'dx-toolbar-hidden-button';
@@ -262862,12 +261615,6 @@ const SCROLLVIEW_CONTENT_CLASS = 'dx-scrollview-content';
 class ToolbarMenuList extends _list.ListBase {
   _activeStateUnit() {
     return `.${TOOLBAR_MENU_ACTION_CLASS}:not(.${TOOLBAR_HIDDEN_BUTTON_GROUP_CLASS})`;
-  }
-  _toggleFocusClass() {}
-  _refreshActiveDescendant() {}
-  _refreshItemId() {}
-  _getItemData(itemElement) {
-    return super._getItemData(itemElement);
   }
   _initMarkup() {
     this._renderSections();
@@ -262884,7 +261631,9 @@ class ToolbarMenuList extends _list.ListBase {
     const $container = this._itemContainer();
     (0, _iterator.each)(['before', 'center', 'after', 'menu'], (_, section) => {
       const sectionName = `_$${section}Section`;
-      this[sectionName] ?? (this[sectionName] = (0, _renderer.default)('<div>').addClass(TOOLBAR_MENU_SECTION_CLASS));
+      if (!this[sectionName]) {
+        this[sectionName] = (0, _renderer.default)('<div>').addClass(TOOLBAR_MENU_SECTION_CLASS);
+      }
       this[sectionName].appendTo($container);
     });
   }
@@ -262945,118 +261694,12 @@ class ToolbarMenuList extends _list.ListBase {
       paginate: false
     };
   }
-  _supportedKeys() {
-    const keys = super._supportedKeys();
-    (0, _roving.wrapSpaceKey)(keys);
-    (0, _roving.releaseNavigationKeys)(keys);
-    return keys;
-  }
-  _attachKeyboardEvents() {
-    this._detachKeyboardEvents();
-    const {
-      focusStateEnabled
-    } = this.option();
-    if (!focusStateEnabled) {
-      super._attachKeyboardEvents();
-      return;
-    }
-    const {
-      listenerId,
-      navigator
-    } = (0, _keyboard.setupRovingKeyboard)(this, {
-      itemsSelector: this._itemSelector(),
-      direction: 'vertical',
-      onEscape: () => {
-        var _this$_onEscapePress;
-        return (_this$_onEscapePress = this._onEscapePress) === null || _this$_onEscapePress === void 0 ? void 0 : _this$_onEscapePress.call(this);
-      },
-      onTab: () => {
-        var _this$_onTabPress;
-        return (_this$_onTabPress = this._onTabPress) === null || _this$_onTabPress === void 0 ? void 0 : _this$_onTabPress.call(this);
-      }
-    });
-    this._keyboardListenerId = listenerId;
-    this._navigator = navigator;
-  }
-  _detachKeyboardEvents() {
-    var _this$_navigator;
-    (_this$_navigator = this._navigator) === null || _this$_navigator === void 0 || _this$_navigator.detach();
-    this._navigator = undefined;
-    super._detachKeyboardEvents();
-  }
-  _getItemFocusTarget($item) {
-    return (0, _toolbar.getItemFocusTarget)($item) ?? ($item.hasClass(TOOLBAR_MENU_ACTION_CLASS) ? $item : (0, _renderer.default)());
-  }
-  _enterKeyHandler(e) {
-    var _this$_navigator2;
-    const {
-      focusedElement
-    } = this.option();
-    (_this$_navigator2 = this._navigator) === null || _this$_navigator2 === void 0 || _this$_navigator2.handleEnterKey(e, {
-      focusedElement,
-      activateAtNavLevel: _roving.handleMenuActivation
-    });
-    super._enterKeyHandler(e);
-  }
-  _setFocusedItem($target) {
-    var _this$_navigator3;
-    super._setFocusedItem($target);
-    (_this$_navigator3 = this._navigator) === null || _this$_navigator3 === void 0 || _this$_navigator3.updateRovingTabIndex($target);
-  }
-  _focusOutHandler(e) {
-    if (!this._navigator || this._navigator.shouldDelegateFocusOut(e)) {
-      super._focusOutHandler(e);
-    }
-  }
-  _getAvailableItems($itemElements) {
-    return (0, _roving.getAvailableItems)(this._getVisibleItems($itemElements), !!this.option().disabled, $item => this._getItemFocusTarget($item));
-  }
-  _focusInHandler(e) {
-    var _this$_navigator4;
-    super._focusInHandler(e);
-    (_this$_navigator4 = this._navigator) === null || _this$_navigator4 === void 0 || _this$_navigator4.focusInHandler(e);
-  }
-  _resetRovingTabIndex() {
-    var _this$_navigator5;
-    (_this$_navigator5 = this._navigator) === null || _this$_navigator5 === void 0 || _this$_navigator5.resetRovingTabIndex(this.$element());
-  }
-  // eslint-disable-next-line @typescript-eslint/no-invalid-void-type
-  _moveFocus(location) {
-    if (!this._navigator) {
-      return super._moveFocus(location);
-    }
-    (0, _roving.beforeRovingMoveFocus)(this);
-    const result = super._moveFocus(location);
-    (0, _roving.afterRovingMoveFocus)(this);
-    return result;
-  }
-  focusFirstItem() {
-    const $first = this._getAvailableItems().first();
-    if ($first.length) {
-      this.option('focusedElement', (0, _m_element.getPublicElement)($first));
-      (0, _roving.focusItemFocusTarget)($first);
-    }
-  }
-  focusLastItem() {
-    const $last = this._getAvailableItems().last();
-    if ($last.length) {
-      this.option('focusedElement', (0, _m_element.getPublicElement)($last));
-      (0, _roving.focusItemFocusTarget)($last);
-    }
-  }
-  _postProcessRenderItems() {
-    super._postProcessRenderItems();
-    this._resetRovingTabIndex();
-  }
   _itemClickHandler(e, args, config) {
     if ((0, _renderer.default)(e.target).closest(`.${TOOLBAR_MENU_ACTION_CLASS}`).length) {
       super._itemClickHandler(e, args, config);
     }
   }
   _clean() {
-    var _this$_navigator6;
-    (_this$_navigator6 = this._navigator) === null || _this$_navigator6 === void 0 || _this$_navigator6.detach();
-    this._navigator = undefined;
     this._getSections().empty();
     super._clean();
   }
@@ -263108,7 +261751,6 @@ class MultiLineStrategy {
     $label.css('maxWidth', elementWidth - labelPaddings);
   }
   _hideOverflowItems() {}
-  _openOverflowMenu() {}
   _dimensionChanged() {}
   _itemOptionChanged() {}
   _optionChanged() {}
@@ -263128,7 +261770,7 @@ exports.MultiLineStrategy = MultiLineStrategy;
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
-exports.TOOLBAR_DROP_DOWN_MENU_CONTAINER_CLASS = exports.SingleLineStrategy = void 0;
+exports.SingleLineStrategy = void 0;
 var _renderer = _interopRequireDefault(__webpack_require__(/*! ../../../../core/renderer */ 64553));
 var _common = __webpack_require__(/*! ../../../../core/utils/common */ 17781);
 var _data = __webpack_require__(/*! ../../../../core/utils/data */ 31000);
@@ -263137,7 +261779,7 @@ var _size = __webpack_require__(/*! ../../../../core/utils/size */ 57653);
 var _toolbar = _interopRequireDefault(__webpack_require__(/*! ../../../ui/toolbar/internal/toolbar.menu */ 36633));
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 const INVISIBLE_STATE_CLASS = 'dx-state-invisible';
-const TOOLBAR_DROP_DOWN_MENU_CONTAINER_CLASS = exports.TOOLBAR_DROP_DOWN_MENU_CONTAINER_CLASS = 'dx-toolbar-menu-container';
+const TOOLBAR_DROP_DOWN_MENU_CONTAINER_CLASS = 'dx-toolbar-menu-container';
 const TOOLBAR_BUTTON_CLASS = 'dx-toolbar-button';
 const TOOLBAR_AUTO_HIDE_ITEM_CLASS = 'dx-toolbar-item-auto-hide';
 const TOOLBAR_HIDDEN_ITEM = 'dx-toolbar-item-invisible';
@@ -263163,12 +261805,10 @@ class SingleLineStrategy {
     const menuItemTemplate = this._toolbar._getTemplateByOption('menuItemTemplate');
     const {
       disabled,
-      allowKeyboardNavigation,
       menuContainer
     } = this._toolbar.option();
     this._menu = this._toolbar._createComponent($menu, _toolbar.default, {
       disabled,
-      allowKeyboardNavigation,
       // eslint-disable-next-line @typescript-eslint/no-unsafe-return
       itemTemplate: () => menuItemTemplate,
       onItemClick: e => {
@@ -263263,10 +261903,7 @@ class SingleLineStrategy {
     return [...overflowItems, ...menuItems];
   }
   _hasVisibleMenuItems(items) {
-    const {
-      items: toolbarItems
-    } = this._toolbar.option();
-    const menuItems = items ?? toolbarItems;
+    const menuItems = items ?? this._toolbar.option('items');
     let result = false;
     const optionGetter = (0, _data.compileGetter)('visible');
     const overflowGetter = (0, _data.compileGetter)('locateInMenu');
@@ -263298,10 +261935,6 @@ class SingleLineStrategy {
     this._hideOverflowItems(elementWidth);
     return elementWidth;
   }
-  _openOverflowMenu(focusTarget) {
-    var _this$_menu;
-    (_this$_menu = this._menu) === null || _this$_menu === void 0 || _this$_menu.openWithFocus(focusTarget);
-  }
   _hideOverflowItems(width) {
     const overflowItems = this._toolbar.$element().find(`.${TOOLBAR_AUTO_HIDE_ITEM_CLASS}`);
     if (!overflowItems.length) {
@@ -263324,8 +261957,8 @@ class SingleLineStrategy {
     // @ts-expect-error ts-error
     if (property === 'disabled' || property === 'options.disabled') {
       if (this._toolbar._isMenuItem(item)) {
-        var _this$_menu2;
-        (_this$_menu2 = this._menu) === null || _this$_menu2 === void 0 || _this$_menu2._itemOptionChanged(item, 'disabled', value);
+        var _this$_menu;
+        (_this$_menu = this._menu) === null || _this$_menu === void 0 || _this$_menu._itemOptionChanged(item, 'disabled', value);
         return;
       }
     }
@@ -263337,25 +261970,22 @@ class SingleLineStrategy {
     }
   }
   _optionChanged(name, value) {
-    var _this$_menu3, _this$_menu4, _this$_menu5, _this$_menu6, _this$_menu7, _this$_menu8;
+    var _this$_menu2, _this$_menu3, _this$_menu4, _this$_menu5, _this$_menu6;
     switch (name) {
       case 'disabled':
-        (_this$_menu3 = this._menu) === null || _this$_menu3 === void 0 || _this$_menu3.option(name, value);
-        break;
-      case 'allowKeyboardNavigation':
-        (_this$_menu4 = this._menu) === null || _this$_menu4 === void 0 || _this$_menu4.option('allowKeyboardNavigation', value);
+        (_this$_menu2 = this._menu) === null || _this$_menu2 === void 0 || _this$_menu2.option(name, value);
         break;
       case 'overflowMenuVisible':
-        (_this$_menu5 = this._menu) === null || _this$_menu5 === void 0 || _this$_menu5.option('opened', value);
+        (_this$_menu3 = this._menu) === null || _this$_menu3 === void 0 || _this$_menu3.option('opened', value);
         break;
       case 'onItemClick':
-        (_this$_menu6 = this._menu) === null || _this$_menu6 === void 0 || _this$_menu6.option(name, value);
+        (_this$_menu4 = this._menu) === null || _this$_menu4 === void 0 || _this$_menu4.option(name, value);
         break;
       case 'menuContainer':
-        (_this$_menu7 = this._menu) === null || _this$_menu7 === void 0 || _this$_menu7.option('container', value);
+        (_this$_menu5 = this._menu) === null || _this$_menu5 === void 0 || _this$_menu5.option('container', value);
         break;
       case 'menuItemTemplate':
-        (_this$_menu8 = this._menu) === null || _this$_menu8 === void 0 || _this$_menu8.option('itemTemplate', value);
+        (_this$_menu6 = this._menu) === null || _this$_menu6 === void 0 || _this$_menu6.option('itemTemplate', value);
         break;
       default:
         break;
@@ -263377,26 +262007,23 @@ exports.SingleLineStrategy = SingleLineStrategy;
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
-exports["default"] = exports.TOOLBAR_ITEM_CLASS = exports.TOOLBAR_BEFORE_CLASS = exports.TOOLBAR_AFTER_CLASS = void 0;
+exports["default"] = exports.TOOLBAR_BEFORE_CLASS = exports.TOOLBAR_AFTER_CLASS = void 0;
 var _animation = __webpack_require__(/*! ../../../common/core/animation */ 16826);
 var _component_registrator = _interopRequireDefault(__webpack_require__(/*! ../../../core/component_registrator */ 92848));
 var _renderer = _interopRequireDefault(__webpack_require__(/*! ../../../core/renderer */ 64553));
+var _bindable_template = __webpack_require__(/*! ../../../core/templates/bindable_template */ 27286);
 var _iterator = __webpack_require__(/*! ../../../core/utils/iterator */ 21274);
 var _size = __webpack_require__(/*! ../../../core/utils/size */ 57653);
 var _type = __webpack_require__(/*! ../../../core/utils/type */ 11528);
 var _themes = __webpack_require__(/*! ../../../ui/themes */ 52071);
-var _m_bindable_template = __webpack_require__(/*! ../../core/templates/m_bindable_template */ 52820);
 var _collection_widget = _interopRequireDefault(__webpack_require__(/*! ../../ui/collection/collection_widget.async */ 12191));
-var _keyboard = __webpack_require__(/*! ../../ui/toolbar/internal/keyboard.navigation */ 62554);
-var _roving = __webpack_require__(/*! ../../ui/toolbar/internal/roving.utils */ 48015);
-var _toolbar = __webpack_require__(/*! ../../ui/toolbar/toolbar.utils */ 90859);
 var _constants = __webpack_require__(/*! ./constants */ 50634);
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 const TOOLBAR_BEFORE_CLASS = exports.TOOLBAR_BEFORE_CLASS = 'dx-toolbar-before';
 const TOOLBAR_CENTER_CLASS = 'dx-toolbar-center';
 const TOOLBAR_AFTER_CLASS = exports.TOOLBAR_AFTER_CLASS = 'dx-toolbar-after';
 const TOOLBAR_MINI_CLASS = 'dx-toolbar-mini';
-const TOOLBAR_ITEM_CLASS = exports.TOOLBAR_ITEM_CLASS = 'dx-toolbar-item';
+const TOOLBAR_ITEM_CLASS = 'dx-toolbar-item';
 const TOOLBAR_LABEL_CLASS = 'dx-toolbar-label';
 const TOOLBAR_BUTTON_CLASS = 'dx-toolbar-button';
 const TOOLBAR_ITEMS_CONTAINER_CLASS = 'dx-toolbar-items-container';
@@ -263413,20 +262040,13 @@ class ToolbarBase extends _collection_widget.default {
   }
   _initTemplates() {
     super._initTemplates();
-    const {
-      integrationOptions
-    } = this.option();
-    const template = new _m_bindable_template.BindableTemplate(($container, data, rawModel) => {
+    const template = new _bindable_template.BindableTemplate(($container, data, rawModel) => {
       if ((0, _type.isPlainObject)(data)) {
         const {
           text,
           html,
           widget
         } = data;
-        const {
-          useFlatButtons,
-          useDefaultButtons
-        } = this.option();
         if (text) {
           $container.text(text).wrapInner('<div>');
         }
@@ -263436,15 +262056,15 @@ class ToolbarBase extends _collection_widget.default {
         if (widget === 'dxDropDownButton') {
           data.options = data.options ?? {};
           if (!(0, _type.isDefined)(data.options.stylingMode)) {
-            data.options.stylingMode = useFlatButtons ? TEXT_BUTTON_MODE : DEFAULT_DROPDOWNBUTTON_STYLING_MODE;
+            data.options.stylingMode = this.option('useFlatButtons') ? TEXT_BUTTON_MODE : DEFAULT_DROPDOWNBUTTON_STYLING_MODE;
           }
         }
         if (widget === 'dxButton') {
-          if (useFlatButtons) {
+          if (this.option('useFlatButtons')) {
             data.options = data.options ?? {};
             data.options.stylingMode = data.options.stylingMode ?? TEXT_BUTTON_MODE;
           }
-          if (useDefaultButtons) {
+          if (this.option('useDefaultButtons')) {
             data.options = data.options ?? {};
             data.options.type = data.options.type ?? DEFAULT_BUTTON_TYPE;
           }
@@ -263457,26 +262077,18 @@ class ToolbarBase extends _collection_widget.default {
         model: rawModel,
         parent: this
       });
-    }, ['text', 'html', 'widget', 'options'], integrationOptions === null || integrationOptions === void 0 ? void 0 : integrationOptions.watchMethod);
+    }, ['text', 'html', 'widget', 'options'], this.option('integrationOptions.watchMethod'));
     this._templateManager.addDefaultTemplates({
       item: template,
       menuItem: template
     });
-  }
-  _init() {
-    super._init();
-    if (!this.option('allowKeyboardNavigation')) {
-      this.option('focusStateEnabled', false);
-    }
   }
   _getDefaultOptions() {
     return Object.assign({}, super._getDefaultOptions(), {
       renderAs: 'topToolbar',
       grouped: false,
       useFlatButtons: false,
-      useDefaultButtons: false,
-      focusStateEnabled: true,
-      allowKeyboardNavigation: true
+      useDefaultButtons: false
     });
   }
   _defaultOptionsRules() {
@@ -263489,130 +262101,6 @@ class ToolbarBase extends _collection_widget.default {
         useFlatButtons: true
       }
     }]);
-  }
-  _toggleFocusClass() {}
-  _supportedKeys() {
-    const keys = super._supportedKeys();
-    (0, _roving.wrapSpaceKey)(keys);
-    (0, _roving.releaseNavigationKeys)(keys);
-    keys.upArrow = e => this._handleOverflowOpenAtNavLevel(e);
-    keys.downArrow = e => this._handleOverflowOpenAtNavLevel(e);
-    return keys;
-  }
-  _getItemFocusTarget($item) {
-    return (0, _toolbar.getItemFocusTarget)($item);
-  }
-  _enterKeyHandler(e) {
-    var _this$_navigator;
-    const {
-      focusedElement
-    } = this.option();
-    const isOverflowButton = this._isOverflowItem((0, _renderer.default)(focusedElement));
-    (_this$_navigator = this._navigator) === null || _this$_navigator === void 0 || _this$_navigator.handleEnterKey(e, {
-      focusedElement,
-      activateAtNavLevel: ($focused, event) => this._handleActivationAtNavLevel($focused, event)
-    });
-    if (isOverflowButton) {
-      return;
-    }
-    super._enterKeyHandler(e);
-  }
-  _setFocusedItem($target) {
-    var _this$_navigator2;
-    super._setFocusedItem($target);
-    (_this$_navigator2 = this._navigator) === null || _this$_navigator2 === void 0 || _this$_navigator2.updateRovingTabIndex($target);
-  }
-  _focusOutHandler(e) {
-    if (!this._navigator || this._navigator.shouldDelegateFocusOut(e)) {
-      super._focusOutHandler(e);
-    }
-  }
-  _getAvailableItems($itemElements) {
-    return (0, _roving.getAvailableItems)(this._getVisibleItems($itemElements), !!this.option().disabled, $item => this._getItemFocusTarget($item));
-  }
-  _focusInHandler(e) {
-    var _this$_navigator3;
-    super._focusInHandler(e);
-    (_this$_navigator3 = this._navigator) === null || _this$_navigator3 === void 0 || _this$_navigator3.focusInHandler(e);
-  }
-  _renderFocusTarget() {
-    this._focusTarget().removeAttr('tabIndex');
-  }
-  _refreshActiveDescendant() {}
-  _refreshItemId() {}
-  _attachKeyboardEvents() {
-    const {
-      allowKeyboardNavigation
-    } = this.option();
-    if (!allowKeyboardNavigation) {
-      super._attachKeyboardEvents();
-      return;
-    }
-    this._detachKeyboardEvents();
-    const {
-      listenerId,
-      navigator
-    } = (0, _keyboard.setupRovingKeyboard)(this, {
-      itemsSelector: `${this._itemSelector()}, .${_constants.DROP_DOWN_MENU_BUTTON_CLASS}`,
-      direction: 'horizontal'
-    });
-    this._keyboardListenerId = listenerId;
-    this._navigator = navigator;
-  }
-  _detachKeyboardEvents() {
-    var _this$_navigator4;
-    (_this$_navigator4 = this._navigator) === null || _this$_navigator4 === void 0 || _this$_navigator4.detach();
-    this._navigator = undefined;
-    super._detachKeyboardEvents();
-  }
-  _isOverflowItem($item) {
-    return $item.hasClass(_constants.DROP_DOWN_MENU_BUTTON_CLASS);
-  }
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  _openOverflowMenu(focusTarget) {
-    // overridden in Toolbar
-  }
-  _getVisibleItems($itemElements) {
-    const $items = $itemElements ?? this._itemContainer().find(`${this._itemSelector()}, .${_constants.DROP_DOWN_MENU_BUTTON_CLASS}`);
-    return $items.filter(':visible');
-  }
-  _resetRovingTabIndex() {
-    var _this$_navigator5;
-    (_this$_navigator5 = this._navigator) === null || _this$_navigator5 === void 0 || _this$_navigator5.resetRovingTabIndex(this._itemContainer());
-  }
-  _handleActivationAtNavLevel($focused, e) {
-    if ($focused.length && !(0, _roving.isItemComponentOpened)($focused) && this._isOverflowItem($focused)) {
-      e.preventDefault();
-      e.stopPropagation();
-      this._openOverflowMenu('first');
-      return;
-    }
-    (0, _roving.handleMenuActivation)($focused, e);
-  }
-  _handleOverflowOpenAtNavLevel(e) {
-    const {
-      focusedElement
-    } = this.option();
-    const $focused = (0, _renderer.default)(focusedElement);
-    if (!$focused.length || !this._isOverflowItem($focused)) {
-      return;
-    }
-    e.preventDefault();
-    e.stopPropagation();
-    this._openOverflowMenu(e.key === 'ArrowUp' ? 'last' : 'first');
-  }
-  // eslint-disable-next-line @typescript-eslint/no-invalid-void-type
-  _moveFocus(location, e) {
-    if (!this._navigator) {
-      const {
-        focusedElement
-      } = this.option();
-      return focusedElement ? super._moveFocus(location, e) : undefined;
-    }
-    (0, _roving.beforeRovingMoveFocus)(this);
-    const result = super._moveFocus(location, e);
-    (0, _roving.afterRovingMoveFocus)(this);
-    return result;
   }
   _itemContainer() {
     return this._$toolbarItemsContainer.find([`.${TOOLBAR_BEFORE_CLASS}`, `.${TOOLBAR_CENTER_CLASS}`, `.${TOOLBAR_AFTER_CLASS}`].join(','));
@@ -263642,32 +262130,9 @@ class ToolbarBase extends _collection_widget.default {
   }
   _postProcessRenderItems() {
     this._arrangeItems();
-    this._updateFocusableItemsTabIndex();
-    const target = this._pendingFocusTarget;
-    this._pendingFocusTarget = undefined;
-    if (target !== undefined) {
-      var _this$_navigator6;
-      (_this$_navigator6 = this._navigator) === null || _this$_navigator6 === void 0 || _this$_navigator6.restoreFocus(target);
-    }
-  }
-  _updateFocusableItemsTabIndex() {
-    this._resetRovingTabIndex();
-  }
-  _invalidate() {
-    var _this$_navigator7;
-    const captured = (_this$_navigator7 = this._navigator) === null || _this$_navigator7 === void 0 ? void 0 : _this$_navigator7.captureFocusedItem();
-    if (captured === null) {
-      this._pendingFocusTarget = undefined;
-    } else if (captured !== undefined) {
-      this._pendingFocusTarget = captured;
-    }
-    super._invalidate();
   }
   _renderToolbar() {
-    const {
-      allowKeyboardNavigation
-    } = this.option();
-    this.$element().addClass(_constants.TOOLBAR_CLASS).toggleClass(_constants.TOOLBAR_FOCUS_MODE_CLASS, !!allowKeyboardNavigation);
+    this.$element().addClass(_constants.TOOLBAR_CLASS);
     this._$toolbarItemsContainer = (0, _renderer.default)('<div>').addClass(TOOLBAR_ITEMS_CONTAINER_CLASS).appendTo(this.$element());
     this.setAria('role', 'toolbar');
   }
@@ -263721,9 +262186,7 @@ class ToolbarBase extends _collection_widget.default {
       return;
     }
     this._alignSection(this._$centerSection, elementWidth - beforeWidth - afterWidth);
-    const {
-      rtlEnabled: isRTL
-    } = this.option();
+    const isRTL = this.option('rtlEnabled');
     const leftWidth = isRTL ? afterWidth : beforeWidth;
     const rightWidth = isRTL ? beforeWidth : afterWidth;
     const centerEl = this._$centerSection.get(0);
@@ -263784,10 +262247,7 @@ class ToolbarBase extends _collection_widget.default {
   _applyCompactMode() {
     const $element = (0, _renderer.default)(this.element());
     $element.removeClass(TOOLBAR_COMPACT_CLASS);
-    const {
-      compactMode
-    } = this.option();
-    if (compactMode && this._getSummaryItemsSize('width', this._itemElements(), true) > (0, _size.getWidth)($element)) {
+    if (this.option('compactMode') && this._getSummaryItemsSize('width', this._itemElements(), true) > (0, _size.getWidth)($element)) {
       $element.addClass(TOOLBAR_COMPACT_CLASS);
     }
   }
@@ -263814,10 +262274,7 @@ class ToolbarBase extends _collection_widget.default {
     return $itemElement;
   }
   _renderGroupedItems() {
-    const {
-      items: groups = []
-    } = this.option();
-    (0, _iterator.each)(groups, (groupIndex, group) => {
+    (0, _iterator.each)(this.option('items'), (groupIndex, group) => {
       const groupItems = group.items;
       const $container = (0, _renderer.default)('<div>').addClass(TOOLBAR_GROUP_CLASS);
       const location = group.location ?? 'center';
@@ -263831,11 +262288,8 @@ class ToolbarBase extends _collection_widget.default {
     });
   }
   _renderItems(items) {
-    const {
-      grouped: isGroupedOption
-    } = this.option();
     // @ts-expect-error ts-error
-    const grouped = isGroupedOption && items.length && items[0].items;
+    const grouped = this.option('grouped') && items.length && items[0].items;
     if (grouped) {
       this._renderGroupedItems();
     } else {
@@ -263862,7 +262316,6 @@ class ToolbarBase extends _collection_widget.default {
     return false;
   }
   _clean() {
-    super._clean();
     this._$toolbarItemsContainer.children().empty();
     this.$element().empty();
     // @ts-expect-error ts-error
@@ -263889,8 +262342,7 @@ class ToolbarBase extends _collection_widget.default {
   }
   _optionChanged(args) {
     const {
-      name,
-      value
+      name
     } = args;
     switch (name) {
       case 'width':
@@ -263905,11 +262357,6 @@ class ToolbarBase extends _collection_widget.default {
       case 'compactMode':
         this._applyCompactMode();
         break;
-      case 'allowKeyboardNavigation':
-        this.$element().toggleClass(_constants.TOOLBAR_FOCUS_MODE_CLASS, !!value);
-        this.option('focusStateEnabled', !!value);
-        this._updateFocusableItemsTabIndex();
-        break;
       case 'grouped':
         break;
       default:
@@ -263919,15 +262366,6 @@ class ToolbarBase extends _collection_widget.default {
   _dispose() {
     super._dispose();
     clearTimeout(this._waitParentAnimationTimeout);
-  }
-  setLabelAttribute(name) {
-    let value = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
-    const $label = this.$element().find(`.${TOOLBAR_LABEL_CLASS}`).eq(0);
-    if (!$label.length) {
-      return false;
-    }
-    $label.attr(name, value);
-    return true;
   }
   _updateDimensionsInMaterial() {
     if ((0, _themes.isMaterial)((0, _themes.current)())) {
@@ -263991,11 +262429,10 @@ Object.defineProperty(exports, "__esModule", ({
 }));
 exports["default"] = void 0;
 var _component_registrator = _interopRequireDefault(__webpack_require__(/*! ../../../core/component_registrator */ 92848));
-var _focus = __webpack_require__(/*! ../../core/utils/focus */ 82312);
-var _toolbar = __webpack_require__(/*! ../../ui/toolbar/strategy/toolbar.multiline */ 56527);
-var _toolbar2 = __webpack_require__(/*! ../../ui/toolbar/strategy/toolbar.singleline */ 40096);
-var _toolbar3 = _interopRequireDefault(__webpack_require__(/*! ../../ui/toolbar/toolbar.base */ 28793));
-var _toolbar4 = __webpack_require__(/*! ../../ui/toolbar/toolbar.utils */ 90859);
+var _toolbar = __webpack_require__(/*! ./strategy/toolbar.multiline */ 56527);
+var _toolbar2 = __webpack_require__(/*! ./strategy/toolbar.singleline */ 40096);
+var _toolbar3 = _interopRequireDefault(__webpack_require__(/*! ./toolbar.base */ 28793));
+var _toolbar4 = __webpack_require__(/*! ./toolbar.utils */ 90859);
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 const TOOLBAR_MULTILINE_CLASS = 'dx-toolbar-multiline';
 const TOOLBAR_AUTO_HIDE_TEXT_CLASS = 'dx-toolbar-text-auto-hide';
@@ -264013,16 +262450,12 @@ class Toolbar extends _toolbar3.default {
     } = this.option();
     return multiline;
   }
-  _openOverflowMenu(focusTarget) {
-    this._layoutStrategy._openOverflowMenu(focusTarget);
-  }
   _dimensionChanged(dimension) {
     if (dimension === 'height') {
       return;
     }
     super._dimensionChanged();
     this._layoutStrategy._dimensionChanged();
-    this._updateFocusableItemsTabIndex();
   }
   _initMarkup() {
     super._initMarkup();
@@ -264088,50 +262521,20 @@ class Toolbar extends _toolbar3.default {
     }
   }
   _itemOptionChanged(item, property, value, prevValue) {
-    var _this$_navigator;
-    // @ts-expect-error ts-error
-    const isDisabledChange = property === 'disabled' || property === 'options.disabled';
-    const isMenuItem = this._isMenuItem(item);
-    const captured = isDisabledChange && value && !isMenuItem ? (_this$_navigator = this._navigator) === null || _this$_navigator === void 0 ? void 0 : _this$_navigator.captureItemIfFocused(this._findItemElementByItem(item)) : undefined;
-    if (!isMenuItem) {
+    if (!this._isMenuItem(item)) {
       super._itemOptionChanged(item, property, value, prevValue);
     }
     this._layoutStrategy._itemOptionChanged(item, property, value);
-    if (isDisabledChange) {
-      if (isMenuItem) {
-        (0, _toolbar4.toggleItemFocusableElementTabIndex)(this, item);
-      } else {
-        this._updateFocusableItemsTabIndex();
-        if (captured !== undefined) {
-          var _this$_navigator2;
-          (_this$_navigator2 = this._navigator) === null || _this$_navigator2 === void 0 || _this$_navigator2.restoreFocus(captured);
-        }
-      }
+    // @ts-expect-error ts-error
+    if (property === 'disabled' || property === 'options.disabled') {
+      (0, _toolbar4.toggleItemFocusableElementTabIndex)(this, item);
     }
     if (property === 'location') {
       this.repaint();
     }
   }
   _updateFocusableItemsTabIndex() {
-    const {
-      allowKeyboardNavigation
-    } = this.option();
-    this._getToolbarItems().forEach(item => {
-      if (this._isMenuItem(item) || !allowKeyboardNavigation) {
-        (0, _toolbar4.toggleItemFocusableElementTabIndex)(this, item);
-      }
-    });
-    if (allowKeyboardNavigation) {
-      this._resetRovingTabIndex();
-    }
-  }
-  focusFirstItem() {
-    if (this.option('disabled')) {
-      return false;
-    }
-    const target = (0, _focus.getFirstFocusableElement)(this.$element().get(0));
-    target === null || target === void 0 || target.focus();
-    return Boolean(target);
+    this._getToolbarItems().forEach(item => (0, _toolbar4.toggleItemFocusableElementTabIndex)(this, item));
   }
   _isMenuItem(itemData) {
     return itemData.locateInMenu === 'always';
@@ -264153,7 +262556,6 @@ class Toolbar extends _toolbar3.default {
       case 'multiline':
         this._invalidate();
         break;
-      case 'allowKeyboardNavigation':
       case 'disabled':
         super._optionChanged(args);
         this._updateFocusableItemsTabIndex();
@@ -264183,46 +262585,19 @@ var _default = exports["default"] = Toolbar;
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
-exports.getItemComponentInstance = getItemComponentInstance;
-exports.getItemFocusTarget = getItemFocusTarget;
 exports.toggleItemFocusableElementTabIndex = toggleItemFocusableElementTabIndex;
 var _renderer = _interopRequireDefault(__webpack_require__(/*! ../../../core/renderer */ 64553));
-var _m_public_component = __webpack_require__(/*! ../../core/utils/m_public_component */ 871);
-var _button_group = __webpack_require__(/*! ../../ui/button_group */ 3559);
-var _constants = __webpack_require__(/*! ../../ui/toolbar/constants */ 50634);
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
-function resolveFocusTarget(instance) {
-  var _instance$_focusTarge;
-  const $focusTarget = ((_instance$_focusTarge = instance._focusTarget) === null || _instance$_focusTarge === void 0 ? void 0 : _instance$_focusTarge.call(instance)) ?? (0, _renderer.default)(instance.element());
-  const $buttonGroup = $focusTarget.find(`.${_button_group.BUTTON_GROUP_CLASS}`).first();
-  return $buttonGroup.length ? $buttonGroup : $focusTarget;
-}
-function getItemComponentInstance($item) {
-  const $component = $item.find(_constants.TOOLBAR_COMPONENTS_SELECTOR).first();
-  return $component.length ? (0, _m_public_component.getComponentInstance)($component) : undefined;
-}
-function getItemFocusTarget($item) {
-  if ($item.hasClass(_constants.DROP_DOWN_MENU_BUTTON_CLASS)) {
-    return $item;
-  }
-  const $components = $item.find(_constants.TOOLBAR_COMPONENTS_SELECTOR);
-  if (!$components.length) {
-    const $nativeFocusable = $item.find(_constants.NATIVE_FOCUSABLE_SELECTOR).first();
-    return $nativeFocusable.length ? $nativeFocusable : undefined;
-  }
-  const $component = $components.first();
-  const itemInstance = (0, _m_public_component.getComponentInstance)($component);
-  if (!itemInstance) {
-    return undefined;
-  }
-  if ($component.hasClass(_constants.MENU_CLASS)) {
-    return $item;
-  }
-  if ($component.hasClass(_constants.TEXTEDITOR_CLASS)) {
-    return (0, _renderer.default)(itemInstance.element());
-  }
-  return resolveFocusTarget(itemInstance);
-}
+const BUTTON_GROUP_CLASS = 'dx-buttongroup';
+const TOOLBAR_ITEMS = ['dxAutocomplete', 'dxButton', 'dxCheckBox', 'dxDateBox', 'dxMenu', 'dxSelectBox', 'dxTabs', 'dxTextBox', 'dxButtonGroup', 'dxDropDownButton'];
+const getItemInstance = $element => {
+  // @ts-expect-error ts-error
+  const itemData = $element === null || $element === void 0 ? void 0 : $element.data();
+  // @ts-expect-error ts-error
+  const dxComponents = itemData === null || itemData === void 0 ? void 0 : itemData.dxComponents;
+  const widgetName = dxComponents === null || dxComponents === void 0 ? void 0 : dxComponents[0];
+  return widgetName && itemData[widgetName];
+};
 function toggleItemFocusableElementTabIndex(context, item) {
   var _itemData$options;
   if (!context) return;
@@ -264231,24 +262606,31 @@ function toggleItemFocusableElementTabIndex(context, item) {
     return;
   }
   const itemData = context._getItemData($item);
-  const {
-    disabled
-  } = context.option();
-  const isItemNotFocusable = !!((_itemData$options = itemData.options) !== null && _itemData$options !== void 0 && _itemData$options.disabled || itemData.disabled || disabled);
+  const isItemNotFocusable = !!((_itemData$options = itemData.options) !== null && _itemData$options !== void 0 && _itemData$options.disabled || itemData.disabled || context.option('disabled'));
   const {
     widget
   } = itemData;
-  if (widget && _constants.TOOLBAR_ITEMS.includes(widget)) {
-    const $component = $item.find(widget.toLowerCase().replace('dx', '.dx-'));
-    if ($component.length) {
-      var _itemData$options2;
-      const itemInstance = (0, _m_public_component.getComponentInstance)($component);
+  if (widget && TOOLBAR_ITEMS.includes(widget)) {
+    const $widget = $item.find(widget.toLowerCase().replace('dx', '.dx-'));
+    if ($widget.length) {
+      var _itemInstance$_focusT, _itemData$options2;
+      const itemInstance = getItemInstance($widget);
       if (!itemInstance) {
         return;
       }
-      const $focusTarget = resolveFocusTarget(itemInstance);
+      let $focusTarget = (_itemInstance$_focusT = itemInstance._focusTarget) === null || _itemInstance$_focusT === void 0 ? void 0 : _itemInstance$_focusT.call(itemInstance);
+      if (widget === 'dxDropDownButton') {
+        var _$focusTarget;
+        $focusTarget = (_$focusTarget = $focusTarget) === null || _$focusTarget === void 0 ? void 0 : _$focusTarget.find(`.${BUTTON_GROUP_CLASS}`);
+      } else {
+        $focusTarget = $focusTarget ?? (0, _renderer.default)(itemInstance.element());
+      }
       const tabIndex = (_itemData$options2 = itemData.options) === null || _itemData$options2 === void 0 ? void 0 : _itemData$options2.tabIndex;
-      $focusTarget === null || $focusTarget === void 0 || $focusTarget.attr('tabIndex', isItemNotFocusable ? -1 : tabIndex ?? 0);
+      if (isItemNotFocusable) {
+        $focusTarget.attr('tabIndex', -1);
+      } else {
+        $focusTarget.attr('tabIndex', tabIndex ?? 0);
+      }
     }
   }
 }
@@ -264268,6 +262650,9 @@ Object.defineProperty(exports, "__esModule", ({
 }));
 exports["default"] = void 0;
 var _component_registrator = _interopRequireDefault(__webpack_require__(/*! ../../core/component_registrator */ 92848));
+var _guid = _interopRequireDefault(__webpack_require__(/*! ../../core/guid */ 19427));
+var _renderer = _interopRequireDefault(__webpack_require__(/*! ../../core/renderer */ 64553));
+var _type = __webpack_require__(/*! ../../core/utils/type */ 11528);
 var _ui = _interopRequireDefault(__webpack_require__(/*! ../../ui/popover/ui.popover */ 98894));
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 const TOOLTIP_CLASS = 'dx-tooltip';
@@ -264293,11 +262678,27 @@ class Tooltip extends _ui.default {
     (_this$$wrapper = this.$wrapper()) === null || _this$$wrapper === void 0 || _this$$wrapper.addClass(TOOLTIP_WRAPPER_CLASS);
     super._render();
   }
-  _getAriaRole() {
+  _renderContent() {
+    super._renderContent();
+    this._toggleAriaAttributes();
+  }
+  _toggleAriaDescription(showing) {
     const {
-      toolbarItems
+      target
     } = this.option();
-    return toolbarItems !== null && toolbarItems !== void 0 && toolbarItems.length ? 'dialog' : 'tooltip';
+    const $target = (0, _renderer.default)(target);
+    const label = showing ? this._contentId : undefined;
+    if (!(0, _type.isWindow)($target.get(0))) {
+      this.setAria('describedby', label, $target);
+    }
+  }
+  _toggleAriaAttributes() {
+    this._contentId = `dx-${new _guid.default()}`;
+    // @ts-expect-error dxElementWrapper typings
+    this.$overlayContent().attr({
+      id: this._contentId
+    });
+    this._toggleAriaDescription(true);
   }
 }
 (0, _component_registrator.default)('dxTooltip', Tooltip);
@@ -284454,7 +282855,8 @@ const baseWidget = isServerSide ? getEmptyComponent() : _dom_component.default.i
   },
   _getDefaultOptions() {
     return (0, _extend.extend)(this.callBase(), {
-      onIncidentOccurred: defaultOnIncidentOccurred
+      onIncidentOccurred: defaultOnIncidentOccurred,
+      encodeHtml: false
     });
   },
   _useLinks: true,
@@ -290190,46 +288592,6 @@ SeriesFamily.prototype = {
     this.series = (0, _utils.map)(series, singleSeries => singleSeries.type === type ? singleSeries : null);
   }
 };
-
-/***/ },
-
-/***/ 40608
-/*!*********************************************************************************************!*\
-  !*** ./artifacts/transpiled-renovation-npm/__internal/viz/core/themes/fluent-next/index.js ***!
-  \*********************************************************************************************/
-(__unused_webpack_module, exports, __webpack_require__) {
-
-
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-exports["default"] = void 0;
-var _accent_color_scheme = __webpack_require__(/*! ../../../../viz/core/themes/shared/accent_color_scheme */ 93197);
-const themes = [{
-  baseThemeName: 'fluent.blue.light',
-  theme: {
-    name: 'fluent-next.blue.light',
-    defaultPalette: 'Fluent Next'
-  }
-}, {
-  baseThemeName: 'fluent-next.blue.light',
-  theme: {
-    name: 'fluent-next.blue.light.compact'
-  }
-}, {
-  baseThemeName: 'fluent.blue.dark',
-  theme: Object.assign({
-    name: 'fluent-next.blue.dark',
-    defaultPalette: 'Fluent Next'
-  }, (0, _accent_color_scheme.getAccentColorScheme)('#4B90D9'))
-}, {
-  baseThemeName: 'fluent-next.blue.dark',
-  theme: {
-    name: 'fluent-next.blue.dark.compact'
-  }
-}];
-var _default = exports["default"] = themes;
 
 /***/ },
 
@@ -301681,12 +300043,6 @@ const palettes = {
     accentColor: '#1db2f5'
   },
   office: officePalette,
-  'fluent next': {
-    simpleSet: ['#0078d4', '#c83d3d', '#008f04', '#eaa300', '#e43ba6', '#865cbf'],
-    indicatingSet: ['#008f04', '#eaa300', '#c83d3d'],
-    gradientSet: ['#0078d4', '#008f04'],
-    accentColor: '#0f6cbd'
-  },
   'harmony light': {
     simpleSet: ['#fcb65e', '#679ec5', '#ad79ce', '#7abd5c', '#e18e92', '#b6d623', '#b7abea', '#85dbd5'],
     indicatingSet: ['#b6d623', '#fcb65e', '#e18e92'],
@@ -316429,16 +314785,15 @@ var _extend2 = __webpack_require__(/*! ../../core/utils/extend */ 52576);
 var _type = __webpack_require__(/*! ../../core/utils/type */ 11528);
 var _themes = __webpack_require__(/*! ../../ui/themes */ 52071);
 var _index = _interopRequireDefault(__webpack_require__(/*! ../viz/core/themes/fluent/index */ 12638));
-var _index2 = _interopRequireDefault(__webpack_require__(/*! ../viz/core/themes/fluent-next/index */ 40608));
 var _carmine = _interopRequireDefault(__webpack_require__(/*! ../viz/core/themes/generic/carmine */ 58208));
 var _contrast = _interopRequireDefault(__webpack_require__(/*! ../viz/core/themes/generic/contrast */ 2611));
 var _dark = _interopRequireDefault(__webpack_require__(/*! ../viz/core/themes/generic/dark */ 52541));
 var _darkmoon = _interopRequireDefault(__webpack_require__(/*! ../viz/core/themes/generic/darkmoon */ 9940));
 var _darkviolet = _interopRequireDefault(__webpack_require__(/*! ../viz/core/themes/generic/darkviolet */ 26374));
 var _greenmist = _interopRequireDefault(__webpack_require__(/*! ../viz/core/themes/generic/greenmist */ 29431));
-var _index3 = _interopRequireDefault(__webpack_require__(/*! ../viz/core/themes/generic/light/index */ 4702));
+var _index2 = _interopRequireDefault(__webpack_require__(/*! ../viz/core/themes/generic/light/index */ 4702));
 var _softblue = _interopRequireDefault(__webpack_require__(/*! ../viz/core/themes/generic/softblue */ 56829));
-var _index4 = _interopRequireDefault(__webpack_require__(/*! ../viz/core/themes/material/index */ 55073));
+var _index3 = _interopRequireDefault(__webpack_require__(/*! ../viz/core/themes/material/index */ 55073));
 var _utils = __webpack_require__(/*! ../viz/core/utils */ 98013);
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 /* eslint-disable import/no-import-module-exports */
@@ -316701,7 +315056,7 @@ function refreshTheme() {
 if ((0, _type.isEmptyObject)(themes) && (0, _type.isEmptyObject)(themesMapping) && !defaultTheme) {
   [].concat(
   // @ts-expect-error
-  _index3.default, _carmine.default, _dark.default, _contrast.default, _darkmoon.default, _darkviolet.default, _greenmist.default, _softblue.default, _index4.default, _index.default, _index2.default).forEach(t => {
+  _index2.default, _carmine.default, _dark.default, _contrast.default, _darkmoon.default, _darkviolet.default, _greenmist.default, _softblue.default, _index3.default, _index.default).forEach(t => {
     // @ts-expect-error
     registerTheme(t.theme, t.baseThemeName);
   });
@@ -330451,8 +328806,8 @@ var _m_window = __webpack_require__(/*! ../../__internal/core/utils/m_window */ 
 
 
 exports.version = exports.fullVersion = void 0;
-const version = exports.version = '26.2.0';
-const fullVersion = exports.fullVersion = '26.2.0';
+const version = exports.version = '26.1.4';
+const fullVersion = exports.fullVersion = '26.1.4';
 
 /***/ },
 

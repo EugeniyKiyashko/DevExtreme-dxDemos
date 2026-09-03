@@ -7,7 +7,6 @@
 <style>
   /* A classic, space-taking scrollbar on every OS, so this shows the same thing
      on macOS (overlay scrollbars by default) as it does on Windows. */
-  html { overflow-y: scroll; }
   ::-webkit-scrollbar { width: 15px; background: #eceff1; }
   ::-webkit-scrollbar-thumb { background: #90a4ae; border-radius: 8px; }
 
@@ -26,6 +25,7 @@
 <div class="dx-viewport">
   <h2 id="head">loading…</h2>
 
+  <div id="text">
   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
   <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit.</p>
   <p>Integer in mauris eu nibh euismod gravida. Duis ac tellus et risus vulputate vehicula. Donec lobortis risus a elit. Etiam tempor. Ut ullamcorper, ligula eu tempor congue, eros est euismod turpis, id tincidunt sapien risus a quam.</p>
@@ -41,6 +41,8 @@
   <p>Ut ultrices ultrices enim. Curabitur sit amet mauris. Morbi in dui quis est pulvinar ullamcorper. Nulla facilisi. Integer lacinia sollicitudin massa. Cras metus. Sed aliquet risus a tortor.</p>
   <p>Proin sodales libero eget ante. Nulla quam. Aenean laoreet. Vestibulum nisi lectus, commodo ac, facilisis ac, ultricies eu, pede. Ut orci risus, accumsan porttitor, cursus quis, aliquet eget, justo.</p>
 
+  </div>
+
   <div id="fab"></div>
 </div>
 
@@ -54,8 +56,16 @@
   var params = new URLSearchParams(location.search);
   var build = params.get('build') === 'before' ? 'before' : 'after';
   var outer = params.get('outer') || 'auto';
+  var lateScrollbar = params.get('scrollbar') === 'late';
+
+  var text = document.getElementById('text');
+
+  if (lateScrollbar) {
+    text.style.display = 'none';
+  }
 
   document.getElementById('head').textContent = 'dx.all.debug.' + build + '.js';
+
 
   var realOuterWidth = window.outerWidth;
   var realOuterHeight = window.outerHeight;
@@ -103,7 +113,14 @@
       DevExpress.ui.repaintFloatingActionButton();
 
       // The FAB shows with an animation; measure once it has settled.
-      setTimeout(function () { report(measure(outerAtCreate)); }, 400);
+      setTimeout(function () {
+        if (lateScrollbar) {
+          text.style.display = '';
+        }
+
+        setTimeout(function () { report(measure(outerAtCreate)); }, 500);
+        setTimeout(function () { report(measure(outerAtCreate)); }, 1300);
+      }, 400);
     });
   }
 

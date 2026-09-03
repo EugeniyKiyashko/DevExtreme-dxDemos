@@ -61,14 +61,20 @@ window.__lifecycle = [];
 
 <header>
   <h1>dxSpeedDialAction: the 16px right offset is swallowed by the scrollbar</h1>
-  <p>The FAB is placed against the window. <code>calculatePosition</code> in
-  <code>__internal/common/core/animation/m_position.ts</code> took the window's width as
-  <code>innerWidth</code> whenever <code>innerWidth &gt; outerWidth</code>. <code>innerWidth</code> includes the
-  classic scrollbar, <code>documentElement.clientWidth</code> does not, so the whole 16px offset is spent on the
-  scrollbar and the button ends up flush against it. Chrome reports <code>outerWidth === 0</code> until the first
-  frame is painted, which is exactly when widgets are created on document ready, so the comparison fires by mistake.
-  Any later window resize repopulates <code>outerWidth</code> and the overlay re-renders its geometry, which is why
-  resizing "fixes" the button.</p>
+  <p>The FAB is placed against the window, 16px from its right edge. It ends up flush against the
+  scrollbar instead, and a window resize puts it right. Two independent causes were found, both fixed here.</p>
+
+  <p><b>1. The window's width was taken as <code>innerWidth</code>.</b> <code>calculatePosition</code> in
+  <code>__internal/common/core/animation/m_position.ts</code> used <code>innerWidth</code> whenever
+  <code>innerWidth &gt; outerWidth</code>. <code>innerWidth</code> includes the classic scrollbar,
+  <code>documentElement.clientWidth</code> does not, so the whole offset is spent on the scrollbar. Chrome reports
+  <code>outerWidth === 0</code> until the first frame is painted, which is exactly when widgets are created on
+  document ready, so the comparison fires by mistake.</p>
+
+  <p><b>2. The overlay never learned that the scrollbar had appeared.</b> An overlay re-renders its geometry on a
+  window resize, and the window resize event is not raised when only a scrollbar appears or disappears. A FAB created
+  while the page still fits the screen keeps its old coordinate once content arrives and the scrollbar shows up.
+  This one reproduces in every browser.</p>
 </header>
 
 <section>
@@ -83,7 +89,20 @@ window.__lifecycle = [];
 +   : getWidth(of);
 + v.atSize = (isOuterSizeKnown &amp;&amp; of[0].innerHeight &gt; of[0].outerHeight) || IS_SAFARI
 +   ? of[0].innerHeight
-+   : getHeight(of);</span></pre>
++   : getHeight(of);</span>
+
+<i>overlay.ts, on top of the window resize subscription</i>
+<span class="now">+ _toggleDocumentSizeSubscription(subscribe) {
++   this._documentSizeChangedHandler ??= () =&gt; { this._renderGeometry(); };
++
++   const isVisualContainerWindow = isWindow(this._positionController.$visualContainer?.get(0));
++
++   if (subscribe &amp;&amp; isVisualContainerWindow) {
++     documentSizeCallbacks.add(this._documentSizeChangedHandler);
++   } else {
++     documentSizeCallbacks.remove(this._documentSizeChangedHandler);
++   }
++ }</span></pre>
   </details>
 </section>
 
@@ -102,17 +121,24 @@ window.__lifecycle = [];
   <h2>Frames</h2>
   <div class="bar">
     <span>
-      <code>window.outerWidth</code> at the moment the FAB is created:
-      <label><input type="radio" name="outer" value="zero" checked> <b>0</b> &mdash; before the first frame</label>
-      <label><input type="radio" name="outer" value="auto"> as the browser reports it</label>
+      the scrollbar appears
+      <label><input type="radio" name="scrollbar" value="late" checked> <b>after</b> the FAB is created</label>
+      <label><input type="radio" name="scrollbar" value="early"> before it</label>
+    </span>
+    <span>
+      <code>window.outerWidth</code> when the FAB is created:
+      <label><input type="radio" name="outer" value="auto" checked> as the browser reports it</label>
+      <label><input type="radio" name="outer" value="zero"> <b>0</b> &mdash; before the first frame</label>
       <label><input type="radio" name="outer" value="small"> 200 &mdash; smaller than innerWidth</label>
     </span>
     <button id="reload">Reload frames</button>
     <button id="workaround">Restore outerWidth and resize</button>
   </div>
   <p class="muted" style="margin-top:8px">
-    Both frames run 26.2.0 built from the same tree; the only difference between the two bundles is the change above.
-    Each frame forces a 15px classic scrollbar so the effect looks the same on macOS as on Windows.
+    Both frames run 26.1.4 built from the same tree; the only difference between the two bundles are the changes above.
+    A classic, space-taking scrollbar is what the offset is measured against: Chromium is asked for one through
+    <code>::-webkit-scrollbar</code>, Firefox follows the system setting, so on macOS with overlay scrollbars
+    (the default) there is no gap to lose and nothing to see here.
     The dashed red line marks <code>clientWidth - 16</code>, where the right edge of the button belongs.
     "Restore outerWidth and resize" reproduces the workaround from the report.
   </p>
@@ -163,13 +189,24 @@ window.__lifecycle = [];
     return document.querySelector('input[name=outer]:checked').value;
   }
 
+  function currentScrollbar() {
+    return document.querySelector('input[name=scrollbar]:checked').value;
+  }
+
   function reload() {
     rows = {};
     renderResults();
     Object.keys(frames).forEach(function (build) {
       document.getElementById('verdict-' + build).textContent = '…';
-      frames[build].src = 'frame.html?build=' + build + '&outer=' + currentOuter() + '&t=' + Date.now();
+      frames[build].src = 'frame.html?build=' + build + '&outer=' + currentOuter()
+        + '&scrollbar=' + currentScrollbar() + '&t=' + Date.now();
     });
+  }
+
+  function verdictText(r) {
+    if (r.delta === 0) { return 'correct'; }
+    if (r.delta === r.scrollbar) { return 'under the scrollbar'; }
+    return 'off by ' + (r.delta > 0 ? '+' : '') + r.delta + 'px';
   }
 
   function renderResults() {
@@ -183,7 +220,7 @@ window.__lifecycle = [];
       html += '<tr><td>' + r.build + '</td><td>' + r.outerAtCreate + '</td><td>' + r.clientWidth + '</td><td>' +
         r.innerWidth + '</td><td>' + r.scrollbar + '</td><td>' + r.fabRight + '</td><td>' + r.expectedRight +
         '</td><td>' + (r.delta > 0 ? '+' + r.delta : r.delta) + '</td><td class="' + (ok ? 'pass' : 'fail') + '">' +
-        (ok ? 'correct' : 'under the scrollbar') + '</td></tr>';
+        verdictText(r) + '</td></tr>';
     });
     body.innerHTML = html || '<tr><td class="muted" colspan="9">waiting for the frames…</td></tr>';
   }
@@ -201,11 +238,11 @@ window.__lifecycle = [];
     document.getElementById('verdict-' + r.build).innerHTML =
       'right edge <b>' + r.fabRight + '</b>, expected <b>' + r.expectedRight + '</b> &mdash; ' +
       '<span class="' + (ok ? 'pass' : 'fail') + '">' +
-      (ok ? 'gap of 16px kept' : 'off by ' + r.delta + 'px, the width of the scrollbar') + '</span>';
+      (ok ? 'gap of 16px kept' : verdictText(r)) + '</span>';
   });
 
   document.getElementById('reload').addEventListener('click', reload);
-  document.querySelectorAll('input[name=outer]').forEach(function (input) {
+  document.querySelectorAll('input[name=outer], input[name=scrollbar]').forEach(function (input) {
     input.addEventListener('change', reload);
   });
 
