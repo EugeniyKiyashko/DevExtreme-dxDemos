@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>fluent-next: disabled coverage sweep</title>
+<link id="theme" rel="stylesheet" type="text/css">
+<script src="js/jquery.js"></script>
+<script src="js/dx-quill.js"></script>
+<script src="js/dx-gantt.js"></script>
+<script src="js/dx-diagram.js"></script>
+<script src="js/dx.all.debug.js" charset="utf-8"></script>
+<style>
+  body { font: 13px/1.5 -apple-system, Segoe UI, sans-serif; margin: 0; }
+  #stage { position: absolute; left: -10000px; top: 0; width: 900px; }
+  .pair { display: flex; gap: 12px; margin-bottom: 8px; }
+  .pair > div { width: 300px; }
+  #out { padding: 16px; white-space: pre-wrap; font-family: ui-monospace, monospace; font-size: 12px; }
+</style>
+<div id="stage"></div>
+<div id="out">running...</div>
+<script>
+/* Every widget the build registers is instantiated twice - once plain, once disabled - and the two
+trees are compared element for element. A widget is only reported where an element inside the
+disabled tree kept both its colours and its effective opacity: that is the signature of a state the
+theme states nowhere, which is what the blanket dim used to hide. */
+const params = new URLSearchParams(location.search);
+const THEME = params.get('theme') || 'fluent-next.blue.light';
+document.getElementById('theme').href = `css/dx.${THEME}.css`;
+
+const items = ['One', 'Two', 'Three'];
+const rows = [{ id: 1, name: 'Alpha', qty: 3 }, { id: 2, name: 'Beta', qty: 7 }];
+// Only widgets that render nothing useful from defaults need an entry here.
+const OPTS = {
+  dxDataGrid: { dataSource: rows, keyExpr: 'id' },
+  dxTreeList: { dataSource: rows, keyExpr: 'id', parentIdExpr: 'pid' },
+  dxCardView: { dataSource: rows, keyExpr: 'id' },
+  dxPivotGrid: { dataSource: { fields: [{ dataField: 'name', area: 'row' }, { dataField: 'qty', area: 'data' }], store: rows } },
+  dxList: { items }, dxSelectBox: { items, value: 'One' }, dxTagBox: { items, value: ['One'] },
+  dxLookup: { items }, dxDropDownBox: { items, value: 'One' }, dxRadioGroup: { items, value: 'One' },
+  dxCheckBox: { value: true }, dxSwitch: { value: true }, dxTabs: { items },
+  dxTabPanel: { items: items.map((t) => ({ title: t, text: t })) },
+  dxAccordion: { items: items.map((t) => ({ title: t, text: t })) },
+  dxMenu: { items: items.map((t) => ({ text: t })) },
+  dxContextMenu: { items: items.map((t) => ({ text: t })), visible: true },
+  dxToolbar: { items: [{ widget: 'dxButton', options: { text: 'Go' } }, { text: 'Label' }] },
+  dxButtonGroup: { items: items.map((t) => ({ text: t })) },
+  dxStepper: { items: items.map((t) => ({ label: t })) },
+  dxTileView: { items: items.map((t) => ({ text: t })) },
+  dxTreeView: { items: [{ text: 'Root', items: [{ text: 'Child' }] }] },
+  dxScheduler: { dataSource: [], currentDate: new Date(2026, 0, 5), height: 260 },
+  dxGantt: { tasks: { dataSource: [{ id: 1, title: 'Task', start: new Date(2025, 11, 28), end: new Date(2025, 11, 30) }] }, height: 220 },
+  dxFileManager: { fileSystemProvider: [{ name: 'Folder', isDirectory: true }], height: 220 },
+  dxChat: { items: [{ text: 'Hi', author: { id: 1 } }] },
+  dxForm: { formData: { name: 'Text' } },
+  dxFilterBuilder: { fields: [{ dataField: 'qty', dataType: 'number' }], value: ['qty', '=', 2] },
+  dxPagination: { itemCount: 250, pageSize: 10 },
+  dxDataSource: null, dxValidator: null,
+  dxPopup: { visible: true, container: '#stage', title: 'Title', contentTemplate: () => 'Body' },
+  dxPopover: null, dxTooltip: null, dxToast: null, dxLoadPanel: null, dxOverlay: null,
+  dxValidationMessage: null, dxDraggable: null, dxSortable: null, dxResizable: null,
+  dxScrollable: null, dxScrollView: null, dxToolbarBase: null, dxDeferRendering: null,
+};
+
+const eo = (el) => { let o = 1, n = el; while (n && n.nodeType === 1) { o *= parseFloat(getComputedStyle(n).opacity || '1'); n = n.parentElement; } return Math.round(o * 1000) / 1000; };
+const ink = (el) => {
+  const cs = getComputedStyle(el);
+  if (cs.display === 'none' || cs.visibility === 'hidden') return false;
+  for (const n of el.childNodes) if (n.nodeType === 3 && n.nodeValue.trim()) return true;
+  const b = getComputedStyle(el, '::before').content;
+  if (b && b !== 'none' && b !== 'normal') return true;
+  return /(^|\s)dx-icon(\s|$)/.test(el.className || '');
+};
+/* Pseudo-elements are read too: a switch handle, for one, paints its visible fill on ::before and
+the element's own background sits invisible underneath, so reading the element alone reports a
+state that changed as a state that did not. */
+const surfaces = (el) => ['', '::before', '::after'].map((q) => getComputedStyle(el, q || null).backgroundColor).join('/');
+const key = (el) => { const cs = getComputedStyle(el); return [cs.color, surfaces(el), cs.borderTopColor, eo(el)].join('|'); };
+const walk = (root) => { const m = new Map(); const list = [root, ...root.querySelectorAll('*')]; list.forEach((el, i) => { if (ink(el)) m.set(i, el); }); return m; };
+
+const names = Object.keys($.fn).filter((n) => /^dx[A-Z]/.test(n));
+const stage = document.getElementById('stage');
+const report = [];
+const skipped = [];
+
+names.forEach((name) => {
+  if (name in OPTS && OPTS[name] === null) { skipped.push(name + ' (no inline rendering)'); return; }
+  const pair = $('<div class="pair">').appendTo(stage);
+  const a = $('<div>').appendTo(pair)[0];
+  const b = $('<div>').appendTo(pair)[0];
+  /* Third instance: the widget is not disabled, the thing around it is. DevExtreme puts the state
+  class on the container and lets CSS reach in, so a rule written only as `.dx-widget.dx-state-
+  disabled` covers the first case and misses this one entirely. */
+  const nest = $('<div class="dx-state-disabled">').appendTo(pair);
+  const c = $('<div>').appendTo(nest)[0];
+  const o = OPTS[name] || { items };
+  try { $(a)[name]({ ...o }); $(b)[name]({ ...o, disabled: true }); $(c)[name]({ ...o }); } catch (e) { skipped.push(name + ' (' + e.message.slice(0, 40) + ')'); pair.remove(); return; }
+  pair.attr('data-widget', name);
+});
+
+setTimeout(() => {
+  document.querySelectorAll('.pair[data-widget]').forEach((pair) => {
+    const [a, b, nest] = pair.children;
+    const hits = {};
+    [['self', b], ['nested', nest.firstElementChild]].forEach(([axis, target]) => {
+    const ea = [a, ...a.querySelectorAll('*')];
+    const eb = [target, ...target.querySelectorAll('*')];
+    if (ea.length !== eb.length) { skipped.push(pair.dataset.widget + '/' + axis + ' (trees differ: ' + ea.length + ' vs ' + eb.length + ')'); return; }
+    eb.forEach((el, i) => {
+      if (!ink(el) || !el.closest('.dx-state-disabled')) return;
+      const before = ea[i];
+      if (!before || before.closest('.dx-state-disabled')) return;
+      const cs = getComputedStyle(el);
+      const wholeSame = key(before) === key(el);
+      /* An element that changed nothing is the obvious miss. The subtler one is an element that
+      greyed its text but kept an opaque fill: the state reached its content and not its surface,
+      which is what leaves one chip darker than every chip beside it. */
+      const surfaceStuck = !wholeSame
+        && surfaces(el) !== 'rgba(0, 0, 0, 0)/rgba(0, 0, 0, 0)/rgba(0, 0, 0, 0)'
+        && surfaces(before) === surfaces(el);
+      /* The mirror image, and the one that shipped in the filter builder: the fill moved to the
+      disabled surface and the text written on it did not, because the two are stated in different
+      rules and only one of them was written in both forms. */
+      const contentStuck = !wholeSame && !surfaceStuck
+        && getComputedStyle(before).color === cs.color
+        && surfaces(before) !== surfaces(el);
+      if (!wholeSame && !surfaceStuck && !contentStuck) return;
+      const cls = (el.className || '').toString().split(/\s+/).filter((c) => /^dx-/.test(c)).slice(0, 2).join(' ') || el.tagName.toLowerCase();
+      const what = wholeSame ? 'nothing changed' : (surfaceStuck ? 'surface kept   ' : 'content kept   ');
+      const k = axis.padEnd(7) + what + '  ' + cls + '  ' + (surfaceStuck ? surfaces(el).split('/')[0] : cs.color);
+      hits[k] = (hits[k] || 0) + 1;
+    });
+    });
+    const keys = Object.keys(hits);
+    if (keys.length) report.push({ widget: pair.dataset.widget, hits });
+  });
+  const lines = [`theme: ${THEME}`, `widgets instantiated: ${document.querySelectorAll('.pair[data-widget]').length}, reported: ${report.length}`, ''];
+  report.sort((x, y) => Object.values(y.hits).reduce((s, n) => s + n, 0) - Object.values(x.hits).reduce((s, n) => s + n, 0));
+  report.forEach((r) => { lines.push(r.widget + ':'); Object.entries(r.hits).sort((x, y) => y[1] - x[1]).forEach(([k, n]) => lines.push('    x' + n + '  ' + k)); });
+  lines.push('', 'skipped: ' + skipped.join(', '));
+  document.getElementById('out').textContent = lines.join('\n');
+  window.__sweep = report;
+}, 9000);
+</script>

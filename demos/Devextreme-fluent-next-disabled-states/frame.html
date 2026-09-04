@@ -108,7 +108,12 @@ const CASES = [
   ['dateRangeBox', 'DateRangeBox', 100, (h, f) => $(h).dxDateRangeBox({ value: [new Date(2026, 0, 1), new Date(2026, 0, 8)], labelMode: 'static', ...f })],
   ['fileUploader', 'FileUploader', 150, (h, f) => $(h).dxFileUploader({ selectButtonText: 'Select file', labelText: 'or drop file here', ...f })],
   ['rangeSlider', 'RangeSlider', 90, (h, f) => $(h).dxRangeSlider({ start: 20, end: 60, min: 0, max: 100, ...f })],
-  ['pagination', 'Pagination', 80, (h, f) => $(h).dxPagination({ itemCount: 90, pageSize: 10, pageIndex: 2, showNavigationButtons: true, ...f })],
+  ['pagination', 'Pagination  (light mode)', 80, (h, f) => $(h).dxPagination({ itemCount: 90, pageSize: 10, pageIndex: 2, showNavigationButtons: true, ...f })],
+  // the light mode collapses the pages into an editor; the full mode is where the selected page is
+  // a filled disc, and that is the part the disabled state has to answer for
+  ['paginationFull', 'Pagination  (full mode, selected page)', 90, (h, f) => $(h).dxPagination({
+    itemCount: 90, pageSize: 10, pageIndex: 1, showNavigationButtons: true,
+    showPageSizeSelector: true, allowedPageSizes: [5, 10], displayMode: 'full', ...f })],
   ['tabPanel', 'TabPanel', 160, (h, f) => $(h).dxTabPanel({ dataSource: [{ title: 'One', text: 'A' }, { title: 'Two', text: 'B' }], height: 130, ...f })],
   // without an explicit height the rows never leave the virtual placeholder, and the case showed
   // a header and nothing else - no rows means no expander to judge
@@ -192,6 +197,15 @@ const CASES = [
   // by side, so the intended contrast is judged directly rather than inferred.
   ['listItem', 'List  (2nd item disabled)', 110, (h, f) => $(h).dxList({
     items: [{ text: 'Enabled item' }, { text: 'Disabled item', disabled: true }], ...f })],
+  /* Two things a disabled item used to get for free from the blanket dim and now has to be painted:
+  its icon, which is coloured rather than inherited, and the delete button beside it, which the list
+  renders without a surface - so the button must not take the contained disabled fill. */
+  ['listItemIconDelete', 'List  (disabled item: icon, delete button)', 130, (h, f) => $(h).dxList({
+    items: [
+      { text: 'Enabled item', icon: 'export' },
+      { text: 'Disabled item', icon: 'exportselected', disabled: true },
+    ],
+    allowItemDeleting: true, itemDeleteMode: 'static', ...f })],
   ['treeViewItem', 'TreeView  (2nd item disabled)', 110, (h, f) => $(h).dxTreeView({
     items: [{ text: 'Enabled item' }, { text: 'Disabled item', disabled: true }], ...f })],
   // The expander is the point of this case: disabling one item does NOT disable its expander -
@@ -217,6 +231,28 @@ const CASES = [
     { location: 'before', widget: 'dxButton', options: { text: 'Enabled' } },
     { location: 'before', widget: 'dxButton', options: { text: 'Disabled', disabled: true } },
   ], ...f })],
+
+  /* A toolbar button can be turned off in two places - `disabled` on the item, which lands on the
+  toolbar item wrapper, or `disabled` inside `options`, which lands on the button root - and each
+  styling mode paints a different part. Gantt's toolbar is the reason these are here: its commands
+  disable themselves, so this is the shape that regressed without any widget being disabled. */
+  ['toolbarButtonKinds', 'Toolbar  (disabled button kinds)', 90, (h, f) => $(h).dxToolbar({ items: [
+    { location: 'before', widget: 'dxButton', options: { text: 'enabled' } },
+    { location: 'before', widget: 'dxButton', disabled: true, options: { text: 'item' } },
+    { location: 'before', widget: 'dxButton', options: { text: 'options', disabled: true } },
+    { location: 'before', widget: 'dxButton', options: { icon: 'refresh', disabled: true } },
+    { location: 'before', widget: 'dxButton', options: { text: 'icon+text', icon: 'save', disabled: true } },
+    { location: 'before', widget: 'dxButton', options: { text: 'contained', stylingMode: 'contained', type: 'default', disabled: true } },
+    { location: 'before', widget: 'dxButton', options: { text: 'outlined', stylingMode: 'outlined', disabled: true } },
+    { location: 'before', widget: 'dxButton', options: { text: 'text', stylingMode: 'text', disabled: true } },
+    { location: 'before', widget: 'dxDropDownButton', options: { text: 'menu', items, disabled: true } },
+    { location: 'before', widget: 'dxCheckBox', options: { text: 'check', value: true, disabled: true } },
+  ], ...f })],
+  ['ganttToolbar', 'Gantt  (undo/redo unavailable)', 250, (h, f) => $(h).dxGantt({
+    tasks: { dataSource: [{ id: 1, title: 'Task', start: new Date(2026, 0, 1), end: new Date(2026, 0, 5), progress: 20 }] },
+    columns: [{ dataField: 'title', caption: 'Task' }],
+    toolbar: { items: ['undo', 'redo', 'zoomIn', 'zoomOut', 'collapseAll', 'expandAll'] },
+    height: 230, ...f })],
 
   /* Every collection widget inherits item.disabled from the base collection item, so the
   item-level state is not a property of a few components - it is available on all of them. These
@@ -269,6 +305,73 @@ const CASES = [
       { title: 'Enabled', items: ['Name'] },
       { title: 'Disabled', disabled: true, items: ['Count'] },
     ] }], ...f })],
+  /* Opacity audit cases. Each one is a place the theme used to state a state with element opacity
+  and now states it with a colour role, so the column comparison shows the role doing the work. */
+  /* Drag states cannot be captured by standing still, so these stamp the classes dxSortable and
+  the scheduler put on the elements themselves. What the columns should show: the source keeps its
+  resting look, the clone carries the shadow, and a resizing appointment keeps its dim. */
+  /* The scene the e2e etalon sortable-indicator-first captures: Field B is being dragged to the
+  front. Three things have to read at once - which slot the item left, what is being carried, and
+  where it will land - so all three classes are stamped on a real header panel. */
+  ['sortableDragStates', 'CardView header  (mid-drag: source, clone, drop indicator)', 150, (h, f) => {
+    $(h).dxCardView({
+      dataSource: [{ 'Field A': 1, 'Field B': 2, 'Field C': 3 }],
+      columns: ['Field A', 'Field B', 'Field C'],
+      allowColumnReordering: true, width: 360, height: 120, ...f,
+    });
+    setTimeout(() => {
+      const items = $(h).find('.dx-cardview-header-item');
+      const source = items.eq(1);
+      if (!source.length) { return; }
+      source.addClass('dx-sortable-source');
+
+      /* Both of these live outside the header panel: it is a .dx-sortable, and that clips to its
+      own box, which is why a clone dropped into it disappears. */
+      const panel = source.parent();
+      const first = items.eq(0);
+      const stage = $(h).css('position', 'relative');
+      const at = (el) => { const o = el.offset(), s = stage.offset(); return { left: o.left - s.left, top: o.top - s.top }; };
+
+      $('<div>').addClass('dx-sortable-placeholder').css({
+        position: 'absolute', ...at(first), width: 0, height: first.outerHeight(),
+      }).css('left', at(first).left - 3).appendTo(stage);
+
+      $('<div>').addClass('dx-sortable-clone dx-sortable-dragging').css({
+        position: 'absolute', left: at(source).left + 26, top: at(source).top + source.outerHeight() + 12,
+      }).append(source.clone().removeClass('dx-sortable-source')).appendTo(stage);
+    }, 400);
+  }],
+  ['schedulerResizing', 'Scheduler  (appointment resizing)', 250, (h, f) => {
+    $(h).dxScheduler({
+      dataSource: [{ text: 'Being resized', startDate: new Date(2026, 0, 5, 10), endDate: new Date(2026, 0, 5, 12) }],
+      currentDate: new Date(2026, 0, 5), currentView: 'day', height: 220, ...f,
+    });
+    setTimeout(() => $(h).find('.dx-scheduler-appointment').addClass('dx-resizable-resizing'), 700);
+  }],
+
+  ['gridCommandLinks', 'DataGrid  (row editing, disabled command)', 190, (h, f) => $(h).dxDataGrid({
+    dataSource: [{ id: 1, name: 'Alpha' }, { id: 2, name: 'Beta' }], keyExpr: 'id', showBorders: true,
+    editing: { mode: 'row', allowUpdating: true, allowDeleting: (e) => e.row.data.id === 1, useIcons: false }, ...f })],
+  ['dropDownEditorActive', 'SelectBox  (drop-down open)', 90, (h, f) => {
+    h.__inst = $(h).dxSelectBox({ items: ['One', 'Two', 'Three'], value: 'One', ...f }).dxSelectBox('instance');
+  }, (inst, on) => inst.option('opened', on)],
+
+  ['schedulerAgenda', 'Scheduler  (agenda, details line)', 240, (h, f) => $(h).dxScheduler({
+    dataSource: [{ text: 'Review', startDate: new Date(2026, 0, 5, 10), endDate: new Date(2026, 0, 5, 11), recurrenceRule: 'FREQ=DAILY' }],
+    currentDate: new Date(2026, 0, 5), currentView: 'agenda', views: ['agenda'], height: 210, ...f })],
+
+  ['paginationInfo', 'Pagination  (page-count line)', 80, (h, f) => $(h).dxPagination({
+    itemCount: 250, pageSize: 10, showInfo: true, showNavigationButtons: true, ...f })],
+  ['filterBuilderRange', 'FilterBuilder  (range separator)', 130, (h, f) => $(h).dxFilterBuilder({
+    fields: [{ dataField: 'qty', dataType: 'number' }],
+    value: ['qty', 'between', [2, 8]], ...f })],
+
+  ['schedulerOtherMonth', 'Scheduler  (adjacent-month cells)', 300, (h, f) => $(h).dxScheduler({
+    dataSource: [], currentDate: new Date(2026, 0, 15), currentView: 'month', height: 260, ...f })],
+  ['tabsNavButton', 'Tabs  (overflow, nav buttons)', 90, (h, f) => $(h).dxTabs({
+    items: Array.from({ length: 14 }, (_, i) => ({ text: `Tab ${i + 1}` })),
+    showNavButtons: true, scrollingEnabled: true, width: 260, ...f })],
+
   ['schedulerAppointment', 'Scheduler  (appointment disabled)', 300, (h, f) => $(h).dxScheduler({
     dataSource: [
       { text: 'Enabled', startDate: new Date(2026, 0, 5, 10), endDate: new Date(2026, 0, 5, 11) },

@@ -1,7 +1,7 @@
 /*!
  * DevExpress Gantt (dx-gantt)
- * Version: 4.1.69
- * Build date: Wed May 20 2026
+ * Version: 4.1.70
+ * Build date: Wed Sep 02 2026
  *
  * Copyright (c) 2012 - 2026 Developer Express Inc. ALL RIGHTS RESERVED
  * Read about DevExpress licensing here: https://www.devexpress.com/Support/EULAs
@@ -232,8 +232,6 @@ var Browser = (function () {
         }
         documentElementClassName += 'dxBrowserVersion-' + Browser.MajorVersion;
         if (typeof document !== 'undefined' && document && document.documentElement) {
-            if (document.documentElement.className !== '')
-                documentElementClassName = ' ' + documentElementClassName;
             Browser.Info = documentElementClassName;
             Browser.applyClassNamesOnDemand(document.documentElement, documentElementClassName);
         }
@@ -242,6 +240,8 @@ var Browser = (function () {
         return new Promise(function (resolve) {
             resolveBrowserClassNames = resolve;
         }).then(function () {
+            if (documentElement.className !== '')
+                documentElementClassName = ' ' + documentElementClassName;
             documentElement.className += documentElementClassName;
         });
     };

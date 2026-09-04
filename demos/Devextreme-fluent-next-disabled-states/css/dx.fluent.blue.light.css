@@ -2,7 +2,7 @@
 /**
 * DevExtreme (dx.fluent.blue.light.css)
 * Version: 26.2.0
-* Build date: Wed Sep 02 2026
+* Build date: Fri Sep 04 2026
 *
 * Copyright (c) 2012 - 2026 Developer Express Inc. ALL RIGHTS RESERVED
 * Read about DevExtreme licensing here: https://js.devexpress.com/Licensing/
@@ -6417,7 +6417,7 @@
   pointer-events: none;
   position: absolute;
   top: 50%;
-  margin-top: -9px;
+  transform: translateY(-50%);
   width: 18px;
   height: 18px;
 }
@@ -8722,12 +8722,7 @@
   top: 50%;
   left: 50%;
   position: absolute;
-  margin-top: -16px;
-  margin-left: -16px;
-}
-.dx-loadindicator-container > .dx-loadindicator.dx-loadindicator {
-  margin-top: -16px;
-  margin-left: -16px;
+  transform: translate(-50%,-50%);
 }
 .dx-loadindicator-content {
   width: 100%;
@@ -11138,7 +11133,7 @@
   pointer-events: none;
   position: absolute;
   top: 50%;
-  margin-top: -9px;
+  transform: translateY(-50%);
   width: 18px;
   height: 18px;
   inset-inline-end: 20px;
@@ -11713,7 +11708,7 @@
   z-index: 1;
   width: 15px;
   height: 15px;
-  margin-top: -7.5px;
+  transform: translateY(-50%);
   inset-inline-start: 14px;
 }
 .dx-colorbox .dx-colorbox-color-is-not-defined .dx-texteditor-input-container::before {
@@ -14582,7 +14577,7 @@
   pointer-events: none;
   position: absolute;
   top: 50%;
-  margin-top: -9px;
+  transform: translateY(-50%);
   width: 18px;
   height: 18px;
   inset-inline-end: 3px;
@@ -17218,7 +17213,7 @@ input.dx-hidden {
   pointer-events: none;
   position: absolute;
   top: 50%;
-  margin-top: -9px;
+  transform: translateY(-50%);
   width: 18px;
   height: 18px;
   inset-inline-end: 3px;
@@ -21401,6 +21396,9 @@ td[style*="text-align: right"] .dx-command-ai-header-button {
 .dx-scheduler-header-panel-empty-cell {
   margin-top: 0;
 }
+.dx-scheduler-work-space.dx-scheduler-work-space-month .dx-scheduler-date-table-other-month.dx-state-hover {
+  color: #242424;
+}
 .dx-layout-manager .dx-field-empty-item {
   width: 100%;
 }
@@ -23789,8 +23787,9 @@ td[style*="text-align: right"] .dx-command-ai-header-button {
 }
 .dx-diagram-loading-indicator {
   position: absolute;
-  top: calc(50% - 32px);
-  left: calc(50% - 32px);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
   width: 64px;
   height: 64px;
 }

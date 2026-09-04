@@ -10,8 +10,9 @@ A collection of online demos showing variously scenario using DevExtreme widgets
 
 ## fluent-next - theme review
 
-* [Disabled and read-only states, live comparison](https://eugeniykiyashko.github.io/DevExtreme-dxDemos/demos/Devextreme-fluent-next-disabled-states/index.html) - 123 configurations, three columns each: enabled, disabled, legacy fluent. Light and dark.
-* [The same, as measured values](https://eugeniykiyashko.github.io/DevExtreme-dxDemos/demos/Devextreme-fluent-next-disabled-states/review.html) - one static file, no library needed.
+* [Disabled and read-only states, live comparison](https://eugeniykiyashko.github.io/DevExtreme-dxDemos/demos/Devextreme-fluent-next-disabled-states/index.html) - 136 configurations, three columns each: enabled, disabled, legacy fluent. Light and dark.
+* [Coverage sweep, every widget](https://eugeniykiyashko.github.io/DevExtreme-dxDemos/demos/Devextreme-fluent-next-disabled-states/sweep.html) - builds all 89 instantiable widgets three times over - plain, disabled, and sitting inside a disabled container - and diffs the trees element for element. It reports what did not respond to the state: nothing changed, the surface stayed, or the text greyed and the fill did not. Add `?theme=fluent-next.blue.dark` for dark.
+* [The same, as measured values](https://eugeniykiyashko.github.io/DevExtreme-dxDemos/demos/Devextreme-fluent-next-disabled-states/review.html) - one static file, no library needed. A snapshot of 2 September; the live pages above are current.
 
 ## Fix validation
 
