@@ -1,7 +1,7 @@
 /*!
 * DevExtreme (dx.all.debug.js)
 * Version: 26.1.4
-* Build date: Wed Sep 02 2026
+* Build date: Sat Sep 05 2026
 *
 * Copyright (c) 2012 - 2026 Developer Express Inc. ALL RIGHTS RESERVED
 * Read about DevExtreme licensing here: https://js.devexpress.com/Licensing/
@@ -12432,9 +12432,8 @@ const calculatePosition = function (what, options) {
         h.atSize = of[0].visualViewport.width;
         v.atSize = of[0].visualViewport.height;
       } else {
-        const isOuterSizeKnown = of[0].outerWidth > 0 && of[0].outerHeight > 0;
-        h.atSize = isOuterSizeKnown && of[0].innerWidth > of[0].outerWidth ? of[0].innerWidth : (0, _size.getWidth)(of);
-        v.atSize = isOuterSizeKnown && of[0].innerHeight > of[0].outerHeight || IS_SAFARI ? of[0].innerHeight : (0, _size.getHeight)(of);
+        h.atSize = (0, _size.getWidth)(of);
+        v.atSize = IS_SAFARI ? of[0].innerHeight : (0, _size.getHeight)(of);
       }
     } else if (of[0].nodeType === 9) {
       h.atLocation = 0;

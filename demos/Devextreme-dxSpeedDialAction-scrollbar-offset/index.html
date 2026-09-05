@@ -64,12 +64,13 @@ window.__lifecycle = [];
   <p>The FAB is placed against the window, 16px from its right edge. It ends up flush against the
   scrollbar instead, and a window resize puts it right. Two independent causes were found, both fixed here.</p>
 
-  <p><b>1. The window's width was taken as <code>innerWidth</code>.</b> <code>calculatePosition</code> in
+  <p><b>1. The window's size was taken as <code>innerWidth</code>.</b> <code>calculatePosition</code> in
   <code>__internal/common/core/animation/m_position.ts</code> used <code>innerWidth</code> whenever
   <code>innerWidth &gt; outerWidth</code>. <code>innerWidth</code> includes the classic scrollbar,
-  <code>documentElement.clientWidth</code> does not, so the whole offset is spent on the scrollbar. Chrome reports
-  <code>outerWidth === 0</code> until the first frame is painted, which is exactly when widgets are created on
-  document ready, so the comparison fires by mistake.</p>
+  <code>documentElement.clientWidth</code> does not, so the whole offset is spent on the scrollbar. That branch is
+  reached on a zoomed out page, where the viewport in CSS pixels is wider than the window, and before the first
+  frame is painted, where Chrome still reports <code>outerWidth</code> as <code>0</code> - which is exactly when
+  widgets are created on document ready. The window is now always measured by its client size.</p>
 
   <p><b>2. The overlay never learned that the scrollbar had appeared.</b> An overlay re-renders its geometry on a
   window resize, and the window resize event is not raised when only a scrollbar appears or disappears. A FAB created
@@ -80,16 +81,11 @@ window.__lifecycle = [];
 <section>
   <details>
     <summary><h2 style="display:inline">The change</h2></summary>
-<pre><span class="was">- h.atSize = of[0].innerWidth &gt; of[0].outerWidth ? of[0].innerWidth : getWidth(of);
+<pre><i>m_position.ts, the window branch of calculatePosition</i>
+<span class="was">- h.atSize = of[0].innerWidth &gt; of[0].outerWidth ? of[0].innerWidth : getWidth(of);
 - v.atSize = of[0].innerHeight &gt; of[0].outerHeight || IS_SAFARI ? of[0].innerHeight : getHeight(of);</span>
-<span class="now">+ const isOuterSizeKnown = of[0].outerWidth &gt; 0 &amp;&amp; of[0].outerHeight &gt; 0;
-+
-+ h.atSize = isOuterSizeKnown &amp;&amp; of[0].innerWidth &gt; of[0].outerWidth
-+   ? of[0].innerWidth
-+   : getWidth(of);
-+ v.atSize = (isOuterSizeKnown &amp;&amp; of[0].innerHeight &gt; of[0].outerHeight) || IS_SAFARI
-+   ? of[0].innerHeight
-+   : getHeight(of);</span>
+<span class="now">+ h.atSize = getWidth(of);
++ v.atSize = IS_SAFARI ? of[0].innerHeight : getHeight(of);</span>
 
 <i>overlay.ts, on top of the window resize subscription</i>
 <span class="now">+ _toggleDocumentSizeSubscription(subscribe) {
@@ -129,7 +125,7 @@ window.__lifecycle = [];
       <code>window.outerWidth</code> when the FAB is created:
       <label><input type="radio" name="outer" value="auto" checked> as the browser reports it</label>
       <label><input type="radio" name="outer" value="zero"> <b>0</b> &mdash; before the first frame</label>
-      <label><input type="radio" name="outer" value="small"> 200 &mdash; smaller than innerWidth</label>
+      <label><input type="radio" name="outer" value="small"> 200 &mdash; smaller than innerWidth, as on a zoomed out page</label>
     </span>
     <button id="reload">Reload frames</button>
     <button id="workaround">Restore outerWidth and resize</button>
