@@ -1,7 +1,7 @@
 /*!
 * DevExtreme (dx.all.debug.js)
 * Version: 26.1.4
-* Build date: Wed Sep 02 2026
+* Build date: Sun Sep 06 2026
 *
 * Copyright (c) 2012 - 2026 Developer Express Inc. ALL RIGHTS RESERVED
 * Read about DevExtreme licensing here: https://js.devexpress.com/Licensing/
@@ -24657,11 +24657,6 @@ const defaultMessages = exports.defaultMessages = {
     "dxPivotGrid-dataFieldArea": "Drop Data Fields Here",
     "dxPivotGrid-rowFieldArea": "Drop Row Fields Here",
     "dxPivotGrid-filterFieldArea": "Drop Filter Fields Here",
-    "dxPivotGrid-ariaFieldLabel": "Field: {0}",
-    "dxPivotGrid-ariaFieldHeaderFilterLabel": "Header filter applied",
-    "dxPivotGrid-ariaFieldSortAscLabel": "Sort order: ascending",
-    "dxPivotGrid-ariaFieldSortDescLabel": "Sort order: descending",
-    "dxPivotGrid-ariaDescription": "Press Alt + Down arrow to open a header filter",
     "dxScheduler-dateRange": "from {0} to {1}",
     "dxScheduler-ariaLabel": "Scheduler. {0} view: {1} with {2} appointments",
     "dxScheduler-ariaLabel-currentIndicator-present": "The current time indicator is visible in the view",
@@ -24840,8 +24835,6 @@ const defaultMessages = exports.defaultMessages = {
     "dxFilterBuilder-filterAriaItemField": "Item field",
     "dxFilterBuilder-filterAriaItemOperation": "Item operation",
     "dxFilterBuilder-filterAriaItemValue": "Item value",
-    "dxHtmlEditor-editorAriaLabel": "Editor content",
-    "dxHtmlEditor-ariaEscapeInstruction": "Press Ctrl + Shift + Up arrow or Ctrl + Shift + Down arrow to move focus out of the editing area",
     "dxHtmlEditor-dialogColorCaption": "Change Font Color",
     "dxHtmlEditor-dialogBackgroundCaption": "Change Background Color",
     "dxHtmlEditor-dialogLinkCaption": "Add Link",

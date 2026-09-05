@@ -55,6 +55,9 @@ window.__lifecycle = [];
   .pass { color: #1b5e20; font-weight: 600; }
   .fail { color: #b71c1c; font-weight: 600; }
   .muted { color: #607d8b; }
+  #overlay-note { margin: 0; padding: 12px 18px; background: #fff3e0; border-bottom: 1px solid #ffb74d;
+                  color: #6d4c00; font-size: 13px; }
+  #overlay-note b { display: block; margin-bottom: 3px; font-size: 14px; }
 </style>
 </head>
 <body>
@@ -139,6 +142,14 @@ window.__lifecycle = [];
     "Restore outerWidth and resize" reproduces the workaround from the report.
   </p>
 </section>
+
+<p id="overlay-note" hidden>
+  <b>This browser paints overlay scrollbars, so there is nothing to measure here.</b>
+  They take no layout space &mdash; <code>innerWidth</code> equals <code>documentElement.clientWidth</code>, the
+  scrollbar is drawn on top of the 16px gap rather than next to it, and both columns below will read "correct"
+  whatever the build does. To see the reported defect, open this page in Chromium, or switch macOS to
+  System Settings &rarr; Appearance &rarr; Show scroll bars &rarr; Always.
+</p>
 
 <div class="cols">
   <div class="col">
@@ -229,6 +240,8 @@ window.__lifecycle = [];
     var r = e.data.data;
     rows[r.build] = r;
     renderResults();
+
+    document.getElementById('overlay-note').hidden = r.scrollbar !== 0;
 
     var ok = r.delta === 0;
     document.getElementById('verdict-' + r.build).innerHTML =
