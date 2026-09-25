@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>dxChart: a visualRange rejected by the zoom limit leaves the chart half-rendered (T1335913)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root { color-scheme: light; }
+  body { margin: 0; font: 13px/1.6 -apple-system, "Segoe UI", Roboto, sans-serif; color: #263238; background: #fff; }
+  header { padding: 14px 18px; border-bottom: 1px solid #cfd8dc; }
+  header h1 { margin: 0 0 4px; font-size: 16px; }
+  header p { margin: 0 0 8px; max-width: 110ch; color: #546e7a; }
+  code { font-family: ui-monospace, Menlo, Consolas, monospace; background: #eceff1; padding: 1px 4px; border-radius: 3px; }
+  section { padding: 12px 18px; border-bottom: 1px solid #cfd8dc; }
+  summary { cursor: pointer; }
+  summary::marker { color: #607d8b; }
+  section > h2, summary h2 { margin: 0 0 8px; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: .04em; color: #607d8b; }
+  pre { margin: 8px 0 0; padding: 10px 12px; background: #eceff1; border-radius: 4px; overflow-x: auto;
+        font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 12px; line-height: 1.5; }
+  pre .was { color: #b71c1c; }
+  pre .now { color: #1b5e20; }
+  table { border-collapse: collapse; font-size: 12px; }
+  th, td { padding: 4px 10px; border: 1px solid #cfd8dc; text-align: left; white-space: nowrap; }
+  thead th { background: #eceff1; font-weight: 600; }
+  .bar { display: flex; gap: 20px; align-items: center; flex-wrap: wrap; }
+  .bar label { display: inline-flex; gap: 5px; align-items: center; }
+  button { font: inherit; padding: 4px 12px; border: 1px solid #90a4ae; border-radius: 4px; background: #fff; color: inherit; cursor: pointer; }
+  button:hover { background: #eceff1; }
+  .col { border-bottom: 1px solid #cfd8dc; }
+  .col > h3 { margin: 0; padding: 8px 18px; font-size: 12px; font-weight: 600; background: #eceff1; border-bottom: 1px solid #cfd8dc; }
+  .col > h3 small { font-weight: 400; color: #607d8b; margin-left: 8px; }
+  iframe { width: 100%; height: 560px; border: 0; display: block; }
+  .verdict { padding: 8px 18px; font-size: 12px; border-top: 1px solid #cfd8dc; }
+  .pass { color: #1b5e20; font-weight: 600; }
+  .fail { color: #b71c1c; font-weight: 600; }
+  .muted { color: #607d8b; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>dxChart: a visualRange rejected by the zoom limit leaves the chart half-rendered</h1>
+  <p><b>T1335913.</b> A live line chart with aggregation follows the newest data: every second the new
+  <code>dataSource</code> and the new <code>argumentAxis.visualRange</code> go in as one option update. After
+  "Zoom In" narrows the window to 30 s, hovering the line throws <code>Cannot read properties of null (reading 'styles')</code>
+  on every mouse move, the tooltip never appears and the argument axis stops following the data.</p>
+
+  <p><b>What happens.</b> A visual range that arrives together with something that needs a full render (new data,
+  a new <code>tickInterval</code>) is applied in one pass: the points are recreated, the chart is drawn, and only then
+  the <code>zoomEnd</code> handlers run. Without <code>minVisualRangeLength</code> the axis rejects any window shorter
+  than <i>whole range / plot width</i> (24 h over ~1180 px is about 73 s), so the 30 s zoom is canceled and the previous
+  range is restored. The restore goes through the same visual range handler, which skips its render because the
+  "full render" flag is still set - although that render has already happened. The axis ends up with the old
+  range while the DOM shows the rejected one; with aggregation the restore also recreates the points, which disposes
+  the ones that were just drawn, and the tracker's hit-test cache keeps pointing at them. Every next update
+  repeats the cancel, so it never recovers. The same inconsistency exists without aggregation and when a
+  <code>zoomEnd</code> handler sets <code>e.cancel = true</code>, only without the crash; and a polar chart never raised
+  <code>zoomEnd</code> for a batched <code>valueAxis.visualRange</code> at all.</p>
+
+  <p><b>The fix.</b> The full render clears its own flag once it is done, so a visual range change requested after it
+  (the restore, or an API call from a <code>zoomEnd</code> handler) renders itself; raising <code>zoomEnd</code> after the
+  full render moved from <code>dxChart</code> to the shared <code>AdvancedChart</code>, so polar charts get it too.
+  The rejection itself is by design: to zoom below the limit, set <code>minVisualRangeLength</code>
+  (the "workaround" switch below does exactly that).</p>
+</header>
+
+<section>
+  <details>
+    <summary><h2 style="display:inline">The change</h2></summary>
+<pre><i>core/helpers.ts, Flags</i>
+<span class="now">+ remove(code) {
++   this._flags[code] = 0;
++ },</span>
+  count() {
+<span class="was">-   return Object.keys(this._flags).length;</span>
+<span class="now">+   return Object.keys(this._flags).filter((code) =&gt; this.has(code)).length;</span>
+  },
+
+<i>chart_components/base_chart.ts</i>
+  _change_FULL_RENDER() {
+    this._forceRender();
+<span class="now">+   this._changes.remove('FULL_RENDER');</span>
+  }
+
+<i>chart_components/advanced_chart.ts (moved here from chart.ts)</i>
+<span class="now">+ _change_FULL_RENDER(): void {
++   super._change_FULL_RENDER();
++   if (this._changes.has(VISUAL_RANGE)) {
++     this._raiseZoomEndHandlers();
++   }
++ }</span>
+  _change_VISUAL_RANGE(): void {
+    this._recreateSizeDependentObjects(false);
+    if (!this._changes.has('FULL_RENDER')) {   <i>// now false after the full render of the same pass</i>
+      this._doRender({ ... });
+      this._raiseZoomEndHandlers();
+    }
+  }</pre>
+  </details>
+</section>
+
+<section>
+  <h2>Frames</h2>
+  <div class="bar">
+    <label><input type="checkbox" id="workaround"> <code>argumentAxis.minVisualRangeLength: { seconds: 1 }</code> - the workaround from the ticket, the 30 s zoom is then accepted by both builds</label>
+    <button id="reload">Reload frames</button>
+    <button id="zoom">Zoom In</button>
+    <button id="hover">Hover the line</button>
+  </div>
+  <p class="muted" style="margin-top:8px">
+    Both frames run the sample from the ticket on 26.2.0 built from the same tree, the only difference between the two
+    bundles is the change above. Each frame zooms in and hovers the line by itself 1.5 s after it loads; data keeps
+    arriving every second, exactly as in the sample. "Hover the line" moves the pointer over the middle of the drawn line
+    the way a mouse would - a real hover does the same. The log at the bottom of each frame records every update:
+    the axis range against the requested one, whether the rendered ticks lie inside that range, and how many drawn
+    points are already disposed.
+  </p>
+</section>
+
+<div class="col">
+  <h3>before the fix <small>js/dx.all.debug.before.js</small></h3>
+  <iframe id="frame-before" title="before the fix"></iframe>
+  <div class="verdict" id="verdict-before">…</div>
+</div>
+<div class="col">
+  <h3>with the fix <small>js/dx.all.debug.after.js</small></h3>
+  <iframe id="frame-after" title="with the fix"></iframe>
+  <div class="verdict" id="verdict-after">…</div>
+</div>
+
+<section>
+  <h2>Measurements</h2>
+  <table id="results">
+    <thead>
+      <tr><th>build</th><th>last update</th><th>axis range</th><th>requested</th><th>zoomEnd canceled</th>
+          <th>rendered ticks inside the range</th><th>drawn points</th><th>disposed (drawn / in trackers)</th>
+          <th>errors</th><th>hover</th><th>verdict</th></tr>
+    </thead>
+    <tbody><tr><td class="muted" colspan="11">waiting for the frames…</td></tr></tbody>
+  </table>
+</section>
+
+<script>
+(function () {
+  var frames = {
+    before: document.getElementById('frame-before'),
+    after: document.getElementById('frame-after')
+  };
+  var rows = {};
+
+  function workaround() {
+    return document.getElementById('workaround').checked ? '1' : '0';
+  }
+
+  function reload() {
+    rows = {};
+    renderResults();
+    Object.keys(frames).forEach(function (build) {
+      document.getElementById('verdict-' + build).textContent = '…';
+      frames[build].src = 'frame.html?build=' + build + '&workaround=' + workaround() + '&t=' + Date.now();
+    });
+  }
+
+  function send(type) {
+    Object.keys(frames).forEach(function (build) {
+      try { frames[build].contentWindow.postMessage({ type: type }, '*'); } catch (err) { /* not loaded */ }
+    });
+  }
+
+  function consistent(r) {
+    var m = r.measure;
+    return !!m && m.ticksInsideRange && m.disposedDrawn === 0 && m.disposedInTrackers === 0 && r.errors === 0;
+  }
+
+  function verdictText(r) {
+    var m = r.measure;
+    if (!m) { return r.measureError || 'no measurements'; }
+    var problems = [];
+    if (!m.ticksInsideRange) { problems.push('axis drawn for another range'); }
+    if (m.disposedDrawn) { problems.push(m.disposedDrawn + ' of ' + m.drawnPoints + ' drawn points disposed'); }
+    if (m.disposedInTrackers) { problems.push(m.disposedInTrackers + ' disposed points in the hit-test cache'); }
+    if (r.errors) { problems.push(r.errors + ' error' + (r.errors > 1 ? 's' : '') + ': ' + r.lastError); }
+    if (r.hover && !r.hover.ok) { problems.push(r.hover.threw ? 'hover throws' : 'no tooltip on hover'); }
+    if (problems.length) { return problems.join('; '); }
+    return 'chart matches its range' + (r.hover ? ', tooltip shown on hover' : '') +
+      (r.canceled ? ' (the ' + m.requestedSec + ' s zoom is rejected by the limit, ' + m.rangeSec + ' s kept)' : '');
+  }
+
+  function renderResults() {
+    var body = document.querySelector('#results tbody');
+    var html = '';
+    ['before', 'after'].forEach(function (build) {
+      var r = rows[build];
+      if (!r) { return; }
+      var m = r.measure || {};
+      var ok = consistent(r) && !(r.hover && !r.hover.ok);
+      html += '<tr><td>' + r.build + '</td><td>' + (r.lastAction || '') + '</td><td>' + m.rangeSec + ' s</td><td>' + m.requestedSec + ' s</td>' +
+        '<td>' + r.canceled + ' of ' + r.zoomEnds + '</td><td>' + (m.ticksInsideRange ? 'yes' : 'no') + ' (' + m.labels + ')</td>' +
+        '<td>' + m.drawnPoints + '</td><td>' + m.disposedDrawn + ' / ' + m.disposedInTrackers + '</td><td>' + r.errors + '</td>' +
+        '<td>' + (r.hover ? (r.hover.ok ? 'tooltip shown' : (r.hover.threw ? 'throws' : 'no tooltip')) : '-') + '</td>' +
+        '<td class="' + (ok ? 'pass' : 'fail') + '">' + (ok ? 'consistent' : 'inconsistent') + '</td></tr>';
+    });
+    body.innerHTML = html || '<tr><td class="muted" colspan="11">waiting for the frames…</td></tr>';
+  }
+
+  window.addEventListener('message', function (e) {
+    if (!e.data || e.data.type !== 'chart-probe') { return; }
+    var fromOurFrame = Object.keys(frames).some(function (b) { return frames[b].contentWindow === e.source; });
+    if (!fromOurFrame) { return; }
+
+    var r = e.data.data;
+    rows[r.build] = r;
+    renderResults();
+
+    var ok = consistent(r) && !(r.hover && !r.hover.ok);
+    document.getElementById('verdict-' + r.build).innerHTML =
+      '<span class="' + (ok ? 'pass' : 'fail') + '">' + verdictText(r) + '</span>';
+  });
+
+  document.getElementById('reload').addEventListener('click', reload);
+  document.getElementById('workaround').addEventListener('change', reload);
+  document.getElementById('zoom').addEventListener('click', function () { send('zoom-in'); });
+  document.getElementById('hover').addEventListener('click', function () { send('hover'); });
+
+  reload();
+}());
+</script>
+</body>
+</html>

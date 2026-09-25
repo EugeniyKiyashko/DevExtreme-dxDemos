@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>dxChart frame</title>
+<link rel="stylesheet" type="text/css" href="css/dx.light.css">
+<style>
+  body { margin: 0; font: 13px/1.5 -apple-system, "Segoe UI", Roboto, sans-serif; color: #37474f; background: #fff; }
+  #head { margin: 0; padding: 8px 12px; font-size: 12px; font-weight: 600; font-family: ui-monospace, Menlo, Consolas, monospace;
+          background: #eceff1; border-bottom: 1px solid #cfd8dc; }
+  #bar { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; padding: 8px 12px; }
+  #bar .note { color: #607d8b; font-size: 12px; }
+  #chart { margin: 0 10px; }
+  #log { margin: 0; padding: 6px 12px 10px; font: 11px/1.5 ui-monospace, Menlo, Consolas, monospace; color: #455a64;
+         white-space: pre-wrap; border-top: 1px solid #cfd8dc; max-height: 96px; overflow: auto; }
+  #log .err { color: #b71c1c; }
+  #log .ok { color: #1b5e20; }
+</style>
+</head>
+<body>
+<div class="dx-viewport">
+  <h2 id="head">loading…</h2>
+  <div id="bar">
+    <div id="btn"></div>
+    <div id="hover"></div>
+    <span class="note" id="limit"></span>
+  </div>
+  <div id="chart"></div>
+  <pre id="log"></pre>
+</div>
+
+<script src="js/jquery.js"></script>
+<script>
+(function () {
+  var params = new URLSearchParams(location.search);
+  var build = params.get('build') === 'before' ? 'before' : 'after';
+  var useWorkaround = params.get('workaround') === '1';
+  var autorun = params.get('autorun') !== '0';
+
+  document.getElementById('head').textContent = 'dx.all.debug.' + build + '.js' + (useWorkaround ? '  +  minVisualRangeLength: { seconds: 1 }' : '');
+
+  // --- the sample from the ticket, verbatim except for the chart width -------------------------------------
+  var chart = null;
+
+  var CHART_WIDTH = Math.max(600, Math.min(1200, document.documentElement.clientWidth - 20));
+  var CHART_SIZE = { width: CHART_WIDTH, height: 380 };
+  var VALUE_MIN = 10;
+  var VALUE_MAX = 90;
+  var LINE_COLOR = '#40c4ff';
+  var PLOT_BG = '#000000';
+  var GRID_COLOR = '#808080';
+  var AXIS_FONT_COLOR = '#333333';
+
+  var TICK_MS = 1000;
+  var PRELOAD_MS = 5 * 60 * 1000;
+  var HISTORY_MS = 60 * 60 * 1000;
+  var AGGREGATION_GROUP_WIDTH = 10;
+
+  // The zoom limit is (whole range / plot px) = 24 h / plot width.
+  var WHOLE_RANGE_MS = 24 * 60 * 60 * 1000;
+
+  var ZOOM_STEPS = [
+    { ms: 5 * 1000, tick: { milliseconds: 1000 } },
+    { ms: 15 * 1000, tick: { milliseconds: 3000 } },
+    { ms: 30 * 1000, tick: { milliseconds: 6000 } },
+    { ms: 60 * 1000, tick: { milliseconds: 12000 } },
+    { ms: 2 * 60 * 1000, tick: { milliseconds: 24000 } },
+    { ms: 5 * 60 * 1000, tick: { milliseconds: 60000 } },
+    { ms: 15 * 60 * 1000, tick: { milliseconds: 180000 } },
+    { ms: 60 * 60 * 1000, tick: { milliseconds: 720000 } }
+  ];
+  var DEFAULT_ZOOM_INDEX = 3; // one minute
+  var zoomIndex = DEFAULT_ZOOM_INDEX;
+
+  function nextValue(previous) {
+    var span = VALUE_MAX - VALUE_MIN;
+    var value = previous + (Math.random() - 0.5) * span * 0.08;
+    if (value < VALUE_MIN) value = VALUE_MIN + (VALUE_MIN - value);
+    if (value > VALUE_MAX) value = VALUE_MAX - (value - VALUE_MAX);
+    return Math.min(VALUE_MAX, Math.max(VALUE_MIN, value));
+  }
+
+  function makeRow(millis, previous) {
+    return { t: new Date(millis), v: nextValue(previous ? previous.v : (VALUE_MIN + VALUE_MAX) / 2) };
+  }
+
+  // No value, so it produces no point. All it does is stretch the whole range.
+  function spacerRow(millis) {
+    return { t: new Date(millis), v: null };
+  }
+
+  function withSpacers(rows) {
+    if (!rows.length) { return rows; }
+    var newest = rows[rows.length - 1].t.getTime();
+    return [spacerRow(newest - WHOLE_RANGE_MS)].concat(rows, [spacerRow(newest)]);
+  }
+
+  function seedHistory() {
+    var end = Math.floor(Date.now() / TICK_MS) * TICK_MS;
+    var rows = [];
+    var previous = null;
+    for (var t = end - PRELOAD_MS; t <= end; t += TICK_MS) {
+      previous = makeRow(t, previous);
+      rows.push(previous);
+    }
+    return rows;
+  }
+
+  // Seeded right before the chart is created (see start), so the history has no gap
+  // between the page load and the moment the bundle has finished loading.
+  var chartData = [];
+  var lagMs = 0;
+  var windowMs = ZOOM_STEPS[DEFAULT_ZOOM_INDEX].ms;
+
+  function calcVisualRange() {
+    var firstTime = chartData[0].t.getTime();
+    var lastTime = chartData[chartData.length - 1].t.getTime();
+    var end = lastTime - lagMs;
+    var minEnd = firstTime + windowMs;
+    if (end < minEnd) end = minEnd;
+    if (end > lastTime) end = lastTime;
+    var start = end - windowMs;
+    return { startValue: new Date(start), endValue: new Date(end) };
+  }
+
+  function startRowsTimer() {
+    setInterval(function () {
+      var t = Math.floor(Date.now() / TICK_MS) * TICK_MS;
+      var last = chartData.length ? chartData[chartData.length - 1] : null;
+      if (last && last.t.getTime() >= t) { return; }
+      var next = chartData.concat(makeRow(t, last));
+      var cutoff = t - HISTORY_MS;
+      var drop = 0;
+      while (drop < next.length && next[drop].t.getTime() < cutoff) { drop += 1; }
+      chartData = drop > 0 ? next.slice(drop) : next;
+      // the window follows the live edge, and the new data and the new visualRange
+      // go in as ONE option update (devextreme-react batches prop changes the same way)
+      chart.option({
+        dataSource: withSpacers(chartData),
+        'argumentAxis.visualRange': calcVisualRange()
+      });
+      afterUpdate('tick');
+    }, TICK_MS);
+  }
+
+  function zoomIn() {
+    zoomIndex = Math.max(0, zoomIndex - 1);
+    windowMs = ZOOM_STEPS[zoomIndex].ms;
+    chart.option({
+      'argumentAxis.visualRange': calcVisualRange(),
+      'argumentAxis.tickInterval': ZOOM_STEPS[zoomIndex].tick
+    });
+    afterUpdate('zoom in to ' + (windowMs / 1000) + ' s');
+  }
+
+  // --- instrumentation ---------------------------------------------------------------------------------------
+  var state = {
+    build: build,
+    workaround: useWorkaround,
+    errors: 0,
+    lastError: null,
+    zoomEnds: 0,
+    canceled: 0,
+    lastAction: null,
+    hover: null
+  };
+  var logEl = document.getElementById('log');
+
+  function log(text, cls) {
+    var line = document.createElement('div');
+    if (cls) { line.className = cls; }
+    line.textContent = new Date().toLocaleTimeString() + '  ' + text;
+    logEl.appendChild(line);
+    logEl.scrollTop = logEl.scrollHeight;
+  }
+
+  window.addEventListener('error', function (e) {
+    state.errors += 1;
+    state.lastError = e.message;
+    log('error: ' + e.message, 'err');
+    report();
+  });
+
+  function measure() {
+    var axis = chart.getArgumentAxis();
+    var series = chart.getAllSeries()[0];
+    var range = axis.visualRange();
+    var ticks = axis.getTicksValues().majorTicksValues || [];
+    var drawn = series.getVisiblePoints();
+    var translator = series._trackersTranslator || [];
+    var disposedInTrackers = 0;
+    translator.forEach(function (entry) {
+      (Array.isArray(entry) ? entry : [entry]).forEach(function (p) { if (!p.getOptions()) { disposedInTrackers += 1; } });
+    });
+    var labels = [].slice.call(document.querySelectorAll('#chart .dxc-arg-elements text')).map(function (t) { return t.textContent; });
+    var newest = chartData[chartData.length - 1].t.getTime();
+
+    return {
+      rangeSec: Math.round((range.endValue - range.startValue) / 1000),
+      requestedSec: windowMs / 1000,
+      lagSec: Math.round((newest - range.endValue.getTime()) / 1000),
+      ticksInsideRange: ticks.every(function (t) { return t >= range.startValue && t <= range.endValue; }),
+      ticksCount: ticks.length,
+      labels: labels.slice(0, 4).join(', ') + (labels.length > 4 ? ', …' : ''),
+      drawnPoints: drawn.length,
+      disposedDrawn: drawn.filter(function (p) { return !p.getOptions(); }).length,
+      disposedInTrackers: disposedInTrackers
+    };
+  }
+
+  function report() {
+    var data = {};
+    Object.keys(state).forEach(function (k) { data[k] = state[k]; });
+    try { data.measure = measure(); } catch (e) { data.measureError = String(e && e.message || e); }
+    try { parent.postMessage({ type: 'chart-probe', data: data }, '*'); } catch (e) { /* standalone */ }
+    return data;
+  }
+
+  function afterUpdate(action) {
+    state.lastAction = action;
+    var m = report().measure;
+    if (m) {
+      log(action + ': axis ' + m.rangeSec + ' s (requested ' + m.requestedSec + ' s), rendered ticks ' + (m.ticksInsideRange ? 'inside' : 'OUTSIDE') +
+        ' the range, drawn points ' + m.drawnPoints + ', disposed ' + m.disposedDrawn + ', disposed in trackers ' + m.disposedInTrackers,
+        (m.ticksInsideRange && !m.disposedDrawn) ? 'ok' : 'err');
+    }
+  }
+
+  // Moves the mouse over the series, the way a user hovers the line to get the tooltip.
+  function simulateHover() {
+    var series = chart.getAllSeries()[0];
+    var points = series.getVisiblePoints();
+    var point = points[Math.floor(points.length / 2)];
+    var tracker = document.querySelector('#chart .dxc-trackers path');
+    var root = document.querySelector('#chart svg');
+    if (!point || !tracker || !root) {
+      state.hover = { ok: false, reason: 'nothing to hover' };
+      report();
+      return;
+    }
+    var box = root.getBoundingClientRect();
+    var x = box.left + point.vx;
+    var y = box.top + point.vy;
+    var errorsBefore = state.errors;
+    var EventCtor = window.PointerEvent || window.MouseEvent;
+    var init = { bubbles: true, cancelable: true, clientX: x, clientY: y, pointerType: 'mouse', pointerId: 1, isPrimary: true };
+    tracker.dispatchEvent(new EventCtor('pointermove', init));
+    tracker.dispatchEvent(new MouseEvent('mousemove', init));
+
+    setTimeout(function () {
+      var tooltip = document.querySelector('.dxc-tooltip');
+      var shown = !!tooltip && getComputedStyle(tooltip).display !== 'none' && tooltip.textContent.trim().length > 0;
+      var threw = state.errors > errorsBefore;
+      state.hover = { ok: !threw && shown, threw: threw, tooltipShown: shown, error: threw ? state.lastError : null };
+      log('hover over the line: ' + (threw ? 'ERROR ' + state.lastError : (shown ? 'tooltip shown' : 'no tooltip')), state.hover.ok ? 'ok' : 'err');
+      report();
+    }, 200);
+  }
+
+  function start() {
+    $(function () {
+      chartData = seedHistory();
+      var argumentAxis = {
+        argumentType: 'datetime',
+        visualRange: calcVisualRange(),
+        valueMarginsEnabled: false,
+        tickInterval: ZOOM_STEPS[DEFAULT_ZOOM_INDEX].tick,
+        axisDivisionFactor: 50,
+        aggregationGroupWidth: AGGREGATION_GROUP_WIDTH,
+        label: { font: { color: AXIS_FONT_COLOR } },
+        grid: { visible: true, color: GRID_COLOR }
+      };
+      if (useWorkaround) {
+        argumentAxis.minVisualRangeLength = { seconds: 1 };
+      }
+
+      chart = $('#chart').dxChart({
+        dataSource: withSpacers(chartData),
+        size: CHART_SIZE,
+        redrawOnResize: false,
+        disableTwoWayBinding: true,
+        margin: { left: 10, right: 10, top: 10, bottom: 0 },
+        commonSeriesSettings: {
+          argumentField: 't',
+          type: 'line',
+          hoverMode: 'none',
+          selectionMode: 'none',
+          point: { visible: false }
+        },
+        series: {
+          valueField: 'v',
+          name: 'Value',
+          color: LINE_COLOR,
+          width: 2,
+          aggregation: { enabled: true, method: 'max' }
+        },
+        argumentAxis: argumentAxis,
+        valueAxis: {
+          visualRange: { startValue: 0, endValue: 100 },
+          label: { font: { color: AXIS_FONT_COLOR } },
+          grid: { visible: true, color: GRID_COLOR }
+        },
+        commonPaneSettings: { backgroundColor: PLOT_BG },
+        scrollBar: { visible: true, position: 'bottom' },
+        zoomAndPan: { argumentAxis: 'both', dragToZoom: true, allowMouseWheel: true, allowTouchGestures: false },
+        legend: { visible: false },
+        tooltip: { enabled: true },
+        animation: { enabled: false },
+        onZoomEnd: function (e) {
+          state.zoomEnds += 1;
+          if (e.cancel) { state.canceled += 1; }
+          log('zoomEnd: ' + Math.round((e.range.endValue - e.range.startValue) / 1000) + ' s requested, ' +
+            (e.cancel ? 'canceled, ' + Math.round((e.previousRange.endValue - e.previousRange.startValue) / 1000) + ' s restored' : 'applied'));
+        }
+      }).dxChart('instance');
+
+      $('#btn').dxButton({ text: 'Zoom In', onClick: zoomIn });
+      $('#hover').dxButton({ text: 'Hover the line', onClick: simulateHover });
+
+      var translator = chart.getArgumentAxis().getTranslator();
+      var businessRange = translator.getBusinessRange();
+      var limitSec = (businessRange.max - businessRange.min) / translator.canvasLength / 1000;
+      document.getElementById('limit').textContent = 'zoom limit without minVisualRangeLength: 24 h / ' + translator.canvasLength + ' px = ' +
+        limitSec.toFixed(1) + ' s; the window is 60 s, Zoom In asks for 30 s';
+
+      startRowsTimer();
+      afterUpdate('created');
+
+      window.addEventListener('message', function (e) {
+        if (!e.data) { return; }
+        if (e.data.type === 'zoom-in') { zoomIn(); }
+        if (e.data.type === 'hover') { simulateHover(); }
+      });
+
+      if (autorun) {
+        setTimeout(zoomIn, 1500);
+        setTimeout(simulateHover, 2600);
+      }
+    });
+  }
+
+  var script = document.createElement('script');
+  script.src = 'js/dx.all.debug.' + build + '.js';
+  script.charset = 'utf-8';
+  script.onload = start;
+  document.head.appendChild(script);
+}());
+</script>
+</body>
+</html>

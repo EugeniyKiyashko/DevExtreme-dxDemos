@@ -17,6 +17,7 @@ A collection of online demos showing variously scenario using DevExtreme widgets
 
 ## Fix validation
 
+* [dxChart - a visualRange rejected by the zoom limit leaves the chart half-rendered (T1335913)](https://eugeniykiyashko.github.io/DevExtreme-dxDemos/demos/Devextreme-dxChart-zoomEnd-cancel-redraw/index.html) - the live chart from the ticket runs on two 26.2.0 builds, before and after the fix: each frame zooms in past the limit, hovers the line and reports whether the drawn axis, the points and the tooltip still match the range the chart claims to show.
 * [dxSpeedDialAction - the 16px right offset swallowed by the scrollbar](https://eugeniykiyashko.github.io/DevExtreme-dxDemos/demos/Devextreme-dxSpeedDialAction-scrollbar-offset/index.html) - the same page runs two 26.2.0 builds side by side, before and after the `m_position` fix, and measures where the button lands.
 
 ## DevExtreme Demos - JQuery approach.
