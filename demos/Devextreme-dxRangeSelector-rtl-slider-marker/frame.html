@@ -124,19 +124,33 @@
     return data;
   }
 
+  function slidersSettled() {
+    return rangeSelector._slidersController._sliders.every(function (slider) {
+      var match = /translate\(([-\d.]+)/.exec(slider._sliderGroup.element.getAttribute("transform") || "");
+      return !!match && Math.abs(parseFloat(match[1]) - slider._position) < 0.5;
+    });
+  }
+
   function afterAction(action) {
     state.lastAction = action;
-    // the sliders animate into place and the marker recalculates its cloud 75 ms after every update: measure once both have settled
-    setTimeout(function () {
-      var m = report().measure;
-      if (!m) { return; }
-      document.getElementById('state').textContent = 'rtlEnabled: ' + m.rtlEnabled + ', svg direction="' + m.svgDirection + '"';
-      m.markers.forEach(function (marker) {
-        log(action + ': "' + marker.text + '" text-anchor=' + marker.anchor + ', text ' + marker.textBox[0] + '..' + marker.textBox[1] +
-          ' px, marker ' + marker.markerBox[0] + '..' + marker.markerBox[1] + ' px, ' +
-          (marker.inside ? 'inside the marker' : 'OUTSIDE by ' + marker.overflow + ' px'), marker.inside ? 'ok' : 'err');
-      });
-    }, 600);
+    var started = Date.now();
+    // the sliders animate into place and the marker recalculates its cloud 75 ms after every update:
+    // measure once every slider group stands at its target position and both have settled
+    (function poll() {
+      var elapsed = Date.now() - started;
+      if ((slidersSettled() && elapsed >= 200) || elapsed > 5000) {
+        var m = report().measure;
+        if (!m) { return; }
+        document.getElementById("state").textContent = "rtlEnabled: " + m.rtlEnabled + ", svg direction=\"" + m.svgDirection + "\"";
+        m.markers.forEach(function (marker) {
+          log(action + ": \"" + marker.text + "\" text-anchor=" + marker.anchor + ", text " + marker.textBox[0] + ".." + marker.textBox[1] +
+            " px, marker " + marker.markerBox[0] + ".." + marker.markerBox[1] + " px, " +
+            (marker.inside ? "inside the marker" : "OUTSIDE by " + marker.overflow + " px"), marker.inside ? "ok" : "err");
+        });
+      } else {
+        setTimeout(poll, 50);
+      }
+    }());
   }
 
   function setRtl(value) {
