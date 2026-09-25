@@ -17,6 +17,7 @@ A collection of online demos showing variously scenario using DevExtreme widgets
 
 ## Fix validation
 
+* [dxRangeSelector - the slider marker text leaves its marker in RTL mode (5228)](https://eugeniykiyashko.github.io/DevExtreme-dxDemos/demos/Devextreme-dxRangeSelector-rtl-slider-marker/index.html) - the sample from the issue runs on two 26.2.0 builds, before and after the fix: each frame creates the range selector with `rtlEnabled: true`, the buttons switch the option at runtime in both frames, and every action reports where the text of each slider marker lies against its marker.
 * [dxChart - a visualRange rejected by the zoom limit leaves the chart half-rendered (T1335913)](https://eugeniykiyashko.github.io/DevExtreme-dxDemos/demos/Devextreme-dxChart-zoomEnd-cancel-redraw/index.html) - the live chart from the ticket runs on two 26.2.0 builds, before and after the fix: each frame zooms in past the limit, hovers the line and reports whether the drawn axis, the points and the tooltip still match the range the chart claims to show.
 * [dxSpeedDialAction - the 16px right offset swallowed by the scrollbar](https://eugeniykiyashko.github.io/DevExtreme-dxDemos/demos/Devextreme-dxSpeedDialAction-scrollbar-offset/index.html) - the same page runs two 26.2.0 builds side by side, before and after the `m_position` fix, and measures where the button lands.
 

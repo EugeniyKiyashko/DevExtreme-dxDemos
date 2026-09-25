@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>dxRangeSelector frame</title>
+<link rel="stylesheet" type="text/css" href="css/dx.light.css">
+<style>
+  body { margin: 0; font: 13px/1.5 -apple-system, "Segoe UI", Roboto, sans-serif; color: #37474f; background: #fff; }
+  #head { margin: 0; padding: 8px 12px; font-size: 12px; font-weight: 600; font-family: ui-monospace, Menlo, Consolas, monospace;
+          background: #eceff1; border-bottom: 1px solid #cfd8dc; }
+  #bar { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; padding: 8px 12px; }
+  #bar .note { color: #607d8b; font-size: 12px; }
+  #range-selector { height: 250px; margin: 0 10px; }
+  #log { margin: 0; padding: 6px 12px 10px; font: 11px/1.5 ui-monospace, Menlo, Consolas, monospace; color: #455a64;
+         white-space: pre-wrap; border-top: 1px solid #cfd8dc; max-height: 96px; overflow: auto; }
+  #log .err { color: #b71c1c; }
+  #log .ok { color: #1b5e20; }
+</style>
+</head>
+<body>
+<div class="dx-viewport">
+  <h2 id="head">loading…</h2>
+  <div id="bar">
+    <div id="rtl-on"></div>
+    <div id="rtl-off"></div>
+    <div id="recreate-rtl"></div>
+    <div id="recreate-ltr"></div>
+    <span class="note" id="state"></span>
+  </div>
+  <div id="range-selector"></div>
+  <pre id="log"></pre>
+</div>
+
+<script src="js/jquery.js"></script>
+<script>
+(function () {
+  var params = new URLSearchParams(location.search);
+  var build = params.get('build') === 'before' ? 'before' : 'after';
+  var rtlAtStart = params.get('rtl') !== '0';
+
+  document.getElementById('head').textContent = 'dx.all.debug.' + build + '.js';
+
+  var rangeSelector = null;
+  var state = { build: build, lastAction: null, errors: 0, lastError: null };
+  var logEl = document.getElementById('log');
+
+  function log(text, cls) {
+    var line = document.createElement('div');
+    if (cls) { line.className = cls; }
+    line.textContent = new Date().toLocaleTimeString() + '  ' + text;
+    logEl.appendChild(line);
+    logEl.scrollTop = logEl.scrollHeight;
+  }
+
+  window.addEventListener('error', function (e) {
+    state.errors += 1;
+    state.lastError = e.message;
+    log('error: ' + e.message, 'err');
+  });
+
+  // --- the sample from the issue, verbatim ---------------------------------------------------------------
+  function createRangeSelector(rtlEnabled) {
+    if (rangeSelector) {
+      rangeSelector.dispose();
+      $('#range-selector').empty();
+    }
+    rangeSelector = $('#range-selector').dxRangeSelector({
+      rtlEnabled: rtlEnabled,
+      margin: {
+        top: 50,
+      },
+      scale: {
+        startValue: new Date(2011, 1, 1),
+        endValue: new Date(2011, 6, 1),
+        minorTickInterval: 'day',
+        tickInterval: 'week',
+        minRange: 'week',
+        maxRange: 'month',
+        minorTick: {
+          visible: false,
+        },
+      },
+      sliderMarker: {
+        format: 'monthAndDay',
+      },
+      value: [new Date(2011, 1, 5), new Date(2011, 2, 5)],
+      title: 'Select a Vacation Period',
+    }).dxRangeSelector('instance');
+  }
+
+  // --- instrumentation: where is the marker text against its marker --------------------------------------
+  function measure() {
+    var svg = document.querySelector('#range-selector svg');
+    var svgRect = svg.getBoundingClientRect();
+    var markers = [].slice.call(document.querySelectorAll('#range-selector .slider-marker')).map(function (g) {
+      var area = g.querySelector('path').getBoundingClientRect();
+      var text = g.querySelector('text');
+      var textRect = text.getBoundingClientRect();
+      var overflowLeft = Math.max(0, area.left - textRect.left);
+      var overflowRight = Math.max(0, textRect.right - area.right);
+      return {
+        text: text.textContent,
+        anchor: text.getAttribute('text-anchor'),
+        direction: getComputedStyle(text).direction,
+        markerBox: [Math.round(area.left - svgRect.left), Math.round(area.right - svgRect.left)],
+        textBox: [Math.round(textRect.left - svgRect.left), Math.round(textRect.right - svgRect.left)],
+        overflow: Math.round(Math.max(overflowLeft, overflowRight)),
+        inside: overflowLeft < 0.5 && overflowRight < 0.5
+      };
+    });
+    return {
+      rtlEnabled: rangeSelector.option('rtlEnabled'),
+      svgDirection: svg.getAttribute('direction'),
+      markers: markers,
+      allInside: markers.length === 2 && markers.every(function (m) { return m.inside; })
+    };
+  }
+
+  function report() {
+    var data = {};
+    Object.keys(state).forEach(function (k) { data[k] = state[k]; });
+    try { data.measure = measure(); } catch (e) { data.measureError = String(e && e.message || e); }
+    try { parent.postMessage({ type: 'marker-probe', data: data }, '*'); } catch (e) { /* standalone */ }
+    return data;
+  }
+
+  function afterAction(action) {
+    state.lastAction = action;
+    // the sliders animate into place and the marker recalculates its cloud 75 ms after every update: measure once both have settled
+    setTimeout(function () {
+      var m = report().measure;
+      if (!m) { return; }
+      document.getElementById('state').textContent = 'rtlEnabled: ' + m.rtlEnabled + ', svg direction="' + m.svgDirection + '"';
+      m.markers.forEach(function (marker) {
+        log(action + ': "' + marker.text + '" text-anchor=' + marker.anchor + ', text ' + marker.textBox[0] + '..' + marker.textBox[1] +
+          ' px, marker ' + marker.markerBox[0] + '..' + marker.markerBox[1] + ' px, ' +
+          (marker.inside ? 'inside the marker' : 'OUTSIDE by ' + marker.overflow + ' px'), marker.inside ? 'ok' : 'err');
+      });
+    }, 600);
+  }
+
+  function setRtl(value) {
+    rangeSelector.option('rtlEnabled', value);
+    afterAction('option("rtlEnabled", ' + value + ')');
+  }
+
+  function recreate(value) {
+    createRangeSelector(value);
+    afterAction('created with rtlEnabled: ' + value);
+  }
+
+  function start() {
+    $(function () {
+      $('#rtl-on').dxButton({ text: 'rtlEnabled: true', onClick: function () { setRtl(true); } });
+      $('#rtl-off').dxButton({ text: 'rtlEnabled: false', onClick: function () { setRtl(false); } });
+      $('#recreate-rtl').dxButton({ text: 'Recreate with rtlEnabled: true', onClick: function () { recreate(true); } });
+      $('#recreate-ltr').dxButton({ text: 'Recreate with rtlEnabled: false', onClick: function () { recreate(false); } });
+
+      window.addEventListener('message', function (e) {
+        if (!e.data) { return; }
+        if (e.data.type === 'rtl-on') { setRtl(true); }
+        if (e.data.type === 'rtl-off') { setRtl(false); }
+        if (e.data.type === 'recreate-rtl') { recreate(true); }
+        if (e.data.type === 'recreate-ltr') { recreate(false); }
+      });
+
+      recreate(rtlAtStart);
+    });
+  }
+
+  var script = document.createElement('script');
+  script.src = 'js/dx.all.debug.' + build + '.js';
+  script.charset = 'utf-8';
+  script.onload = start;
+  document.head.appendChild(script);
+}());
+</script>
+</body>
+</html>
