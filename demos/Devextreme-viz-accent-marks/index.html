@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fluent Next: accent in SVG marks</title>
+<link rel="stylesheet" href="css/dx.fluent-next.blue.light.css">
+<link id="accent-css" rel="stylesheet" href="css/accents/blue.css">
+<script src="js/jquery.js"></script>
+<script src="js/dx.all.debug.js"></script>
+<script src="js/vectormap-data/world.js"></script>
+<style>
+  body { margin: 0; font: 13px/1.45 'Segoe UI', system-ui, sans-serif; background: var(--dx-viz-bg); color: var(--dx-viz-content); }
+  header { padding: 16px 20px 12px; border-bottom: 1px solid var(--dx-viz-border); display: grid; gap: 10px; max-width: 1180px; }
+  h1 { margin: 0; font-size: 18px; font-weight: 600; }
+  h2 { margin: 0 0 10px; font-size: 15px; font-weight: 600; }
+  code { font-family: ui-monospace, Menlo, monospace; font-size: 12px; }
+  .row { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+  .row button, .row input[type=color] { font: inherit; padding: 4px 10px; border: 1px solid var(--dx-viz-border); border-radius: 4px; background: var(--dx-viz-bg); color: var(--dx-viz-content); cursor: pointer; display: inline-flex; gap: 6px; align-items: center; }
+  .row input[type=color] { padding: 0 2px; width: 36px; height: 26px; }
+  .row button.active { outline: 2px solid var(--dxds-primary-100); outline-offset: 1px; }
+  .swatch { width: 12px; height: 12px; border-radius: 50%; display: inline-block; border: 1px solid rgba(128, 128, 128, .5); }
+  .readout { font-family: ui-monospace, Menlo, monospace; font-size: 12px; color: var(--dx-viz-content-subtler); }
+  .mode { padding: 16px 20px 24px; background: var(--dx-viz-bg); color: var(--dx-viz-content); }
+  table { border-collapse: collapse; }
+  th, td { padding: 8px 12px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--dx-viz-grid); }
+  th { font-weight: 600; color: var(--dx-viz-content-subtle); }
+  td.what { width: 220px; color: var(--dx-viz-content-subtle); }
+  .host { display: inline-block; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Fluent Next: which SVG marks follow the accent</h1>
+  <div>
+    Left column: the theme as shipped by DevExtreme PR 35275 (map markers, the bullet bar and the gauge value indicators on the data blue <code>--dx-viz-blue</code>).
+    Right column: PR 35482, the same marks on <code>--dx-viz-primary</code>, as the range selector already was.
+    Series, subvalue markers and the sparkline line stay on the data palette in both.
+    Pick an accent to see every widget repaint in place; the dark block is a <code>dx-theme-mode-dark</code> scope.
+  </div>
+  <div class="row" id="accents"></div>
+  <div class="row">
+    <span>Custom accent:</span>
+    <input type="color" id="custom" value="#a703ff">
+    <button id="apply-custom">themes.customAccentColor(color)</button>
+    <button id="clear-custom">clear</button>
+    <span class="readout" id="primary"></span>
+  </div>
+</header>
+<main id="main"></main>
+<script>
+(function () {
+  var ACCENTS = ['blue', 'cool-blue', 'desert', 'mint', 'moss', 'orchid', 'purple', 'rose', 'rust', 'steel', 'storm'];
+  var AFTER = 'fluent-next.blue.light';
+  var BEFORE = 'fluent-next.blue.light.before';
+  var BLUE = 'var(--dx-viz-blue, #0078d4)';
+
+  DevExpress.viz.registerTheme({
+    name: BEFORE,
+    map: {
+      'layer:marker:dot': { color: BLUE },
+      'layer:marker:bubble': { color: BLUE },
+      legend: { markerColor: BLUE }
+    },
+    bullet: { color: BLUE },
+    gauge: { valueIndicators: { rangebar: { color: BLUE }, textcloud: { color: BLUE } } }
+  }, AFTER);
+
+  var CITIES = [
+    { name: 'London', coordinates: [-0.1262, 51.5002], value: 8900 },
+    { name: 'Paris', coordinates: [2.3522, 48.8566], value: 2100 },
+    { name: 'Berlin', coordinates: [13.405, 52.52], value: 3600 },
+    { name: 'Madrid', coordinates: [-3.7038, 40.4168], value: 3200 },
+    { name: 'Rome', coordinates: [12.4964, 41.9028], value: 2800 },
+    { name: 'Warsaw', coordinates: [21.0122, 52.2297], value: 1800 }
+  ];
+  var MARKERS = {
+    type: 'FeatureCollection',
+    features: CITIES.map(function (city) {
+      return { type: 'Feature', geometry: { type: 'Point', coordinates: city.coordinates }, properties: { name: city.name, value: city.value } };
+    })
+  };
+  var CHART_DATA = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'].map(function (arg, i) {
+    return { arg: arg, a: 20 + i * 6, b: 35 - i * 3, c: 18 + (i % 3) * 9 };
+  });
+
+  var WIDGETS = [
+    {
+      what: 'VectorMap: dot markers, bubble markers, size legend',
+      create: function (host, theme) {
+        $(host).dxVectorMap({
+          theme: theme,
+          layers: [
+            { dataSource: DevExpress.viz.map.sources.world, hoverEnabled: false },
+            { name: 'dots', type: 'marker', elementType: 'dot', dataSource: MARKERS, label: { enabled: true, dataField: 'name' } },
+            { name: 'bubbles', type: 'marker', elementType: 'bubble', dataSource: MARKERS, dataField: 'value', minSize: 14, maxSize: 34, sizeGroups: [0, 2000, 3500, 10000], opacity: 0.8 }
+          ],
+          legends: [{ source: { layer: 'bubbles', grouping: 'size' }, markerShape: 'circle', verticalAlignment: 'bottom', horizontalAlignment: 'left' }],
+          bounds: [-14, 60, 32, 35],
+          controlBar: { enabled: false },
+          tooltip: { enabled: false },
+          size: { width: 380, height: 230 }
+        });
+      }
+    },
+    {
+      what: 'Bullet: the value bar (the target stays on the content colour)',
+      create: function (host, theme) {
+        $(host).dxBullet({ theme: theme, value: 68, target: 82, startScaleValue: 0, endScaleValue: 100, tooltip: { enabled: false }, size: { width: 300, height: 40 } });
+      }
+    },
+    {
+      what: 'CircularGauge: range bar value, text cloud subvalue',
+      create: function (host, theme) {
+        $(host).dxCircularGauge({
+          theme: theme,
+          scale: { startValue: 0, endValue: 100, tickInterval: 20 },
+          value: 62, subvalues: [24],
+          valueIndicator: { type: 'rangebar' }, subvalueIndicator: { type: 'textcloud' },
+          animation: { enabled: false }, tooltip: { enabled: false },
+          size: { width: 300, height: 190 }
+        });
+      }
+    },
+    {
+      what: 'LinearGauge: range bar value, triangle subvalue markers (stay on the data blue)',
+      create: function (host, theme) {
+        $(host).dxLinearGauge({
+          theme: theme,
+          scale: { startValue: 0, endValue: 100, tickInterval: 20 },
+          value: 58, subvalues: [30, 80],
+          valueIndicator: { type: 'rangebar' },
+          animation: { enabled: false }, tooltip: { enabled: false },
+          size: { width: 300, height: 90 }
+        });
+      }
+    },
+    {
+      what: 'RangeSelector: reference, followed the accent before this change',
+      create: function (host, theme) {
+        $(host).dxRangeSelector({
+          theme: theme,
+          scale: { startValue: 0, endValue: 100, tickInterval: 10, minorTickInterval: 2 },
+          value: [20, 60], behavior: { animationEnabled: false },
+          size: { width: 380, height: 90 }
+        });
+      }
+    },
+    {
+      what: 'Chart: reference, the series palette does not follow the accent',
+      create: function (host, theme) {
+        $(host).dxChart({
+          theme: theme,
+          dataSource: CHART_DATA,
+          commonSeriesSettings: { argumentField: 'arg' },
+          series: [{ valueField: 'a', name: 'Series 1', type: 'bar' }, { valueField: 'b', name: 'Series 2', type: 'bar' }, { valueField: 'c', name: 'Series 3', type: 'line' }],
+          legend: { verticalAlignment: 'bottom', horizontalAlignment: 'center' },
+          animation: { enabled: false }, tooltip: { enabled: false },
+          size: { width: 380, height: 200 }
+        });
+      }
+    }
+  ];
+
+  function luminance(hex) {
+    var c = [1, 3, 5].map(function (i) {
+      var v = parseInt(hex.substr(i, 2), 16) / 255;
+      return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4);
+    });
+    return 0.2126 * c[0] + 0.7152 * c[1] + 0.0722 * c[2];
+  }
+  function contrast(a, b) {
+    var la = luminance(a), lb = luminance(b);
+    return ((Math.max(la, lb) + 0.05) / (Math.min(la, lb) + 0.05)).toFixed(2);
+  }
+  function asHex(resolved) {
+    var m = resolved.match(/[\d.]+/g) || [];
+    if (resolved.indexOf('color(') === 0) { m = m.map(function (v) { return v * 255; }); }
+    return '#' + m.slice(0, 3).map(function (v) { return Math.round(Math.min(255, Math.max(0, +v))).toString(16).padStart(2, '0'); }).join('');
+  }
+  function resolve(scope, name) {
+    var probe = document.createElement('div');
+    scope.appendChild(probe);
+    probe.style.backgroundColor = 'rgb(from var(' + name + ') r g b)';
+    var hex = asHex(getComputedStyle(probe).backgroundColor);
+    probe.remove();
+    return hex;
+  }
+
+  var readouts = [];
+  function updateReadouts() {
+    var primary = resolve(document.body, '--dxds-primary-100');
+    document.getElementById('primary').textContent = '--dxds-primary-100 = ' + primary;
+    readouts.forEach(function (entry) {
+      var area = resolve(entry.scope, '--dx-viz-gray-subtle');
+      var surface = resolve(entry.scope, '--dx-viz-bg');
+      var blue = resolve(entry.scope, '--dx-viz-blue');
+      entry.node.textContent = 'accent ' + primary + ' vs map area ' + area + ' = ' + contrast(primary, area)
+        + ', vs surface ' + surface + ' = ' + contrast(primary, surface)
+        + ' | data blue ' + blue + ' vs map area = ' + contrast(blue, area) + ', vs surface = ' + contrast(blue, surface);
+    });
+  }
+
+  var accentsNode = document.getElementById('accents');
+  var accentCss = document.getElementById('accent-css');
+  ACCENTS.forEach(function (name) {
+    var button = document.createElement('button');
+    button.innerHTML = '<span class="swatch"></span>' + name;
+    button.dataset.accent = name;
+    button.onclick = function () { setAccent(name); };
+    accentsNode.appendChild(button);
+  });
+  function paintSwatches() {
+    Array.prototype.forEach.call(accentsNode.children, function (button) {
+      var probe = document.createElement('link');
+      var swatch = button.querySelector('.swatch');
+      var sheet = Array.prototype.find.call(document.styleSheets, function (s) { return s.href && s.href.indexOf('/accents/' + button.dataset.accent + '.css') >= 0; });
+      if (sheet) { swatch.style.background = 'var(--dxds-primary-100)'; }
+    });
+  }
+  function setAccent(name) {
+    Array.prototype.forEach.call(accentsNode.children, function (button) { button.classList.toggle('active', button.dataset.accent === name); });
+    accentCss.onload = updateReadouts;
+    accentCss.href = 'css/accents/' + name + '.css';
+    DevExpress.ui.themes.customAccentColor(null);
+  }
+  document.getElementById('apply-custom').onclick = function () {
+    Array.prototype.forEach.call(accentsNode.children, function (button) { button.classList.remove('active'); });
+    DevExpress.ui.themes.customAccentColor(document.getElementById('custom').value);
+    updateReadouts();
+  };
+  document.getElementById('clear-custom').onclick = function () {
+    DevExpress.ui.themes.customAccentColor(null);
+    updateReadouts();
+    var active = accentsNode.querySelector('.active') || accentsNode.children[0];
+    active.classList.add('active');
+  };
+
+  var main = document.getElementById('main');
+  ['light', 'dark'].forEach(function (mode) {
+    var section = document.createElement('section');
+    section.className = 'mode dx-theme-mode-' + mode;
+    var readout = document.createElement('div');
+    readout.className = 'readout';
+    section.innerHTML = '<h2>' + mode + ' scope</h2>';
+    section.appendChild(readout);
+    readouts.push({ scope: section, node: readout });
+    var table = document.createElement('table');
+    table.innerHTML = '<tr><th></th><th>before: PR 35275 (data blue)</th><th>after: PR 35482 (accent)</th></tr>';
+    WIDGETS.forEach(function (widget) {
+      var tr = document.createElement('tr');
+      var what = document.createElement('td');
+      what.className = 'what';
+      what.textContent = widget.what;
+      tr.appendChild(what);
+      [BEFORE, AFTER].forEach(function (theme) {
+        var td = document.createElement('td');
+        var host = document.createElement('div');
+        host.className = 'host';
+        td.appendChild(host);
+        tr.appendChild(td);
+        widget.create(host, theme);
+      });
+      table.appendChild(tr);
+    });
+    section.appendChild(table);
+    main.appendChild(section);
+  });
+
+  accentsNode.children[0].classList.add('active');
+  updateReadouts();
+  window.pageReady = true;
+})();
+</script>
+</body>
+</html>
