@@ -1,0 +1,419 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Label Overlapping per Series</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+  /* Layout: one column of controls, two chart panels side by side (stacked on phones), code below. */
+  :root {
+    --bg: #f3f6f7;
+    --surface: #ffffff;
+    --fg: #1b272c;
+    --muted: #586a71;
+    --line: #d6dee1;
+    --accent: #2c6a75;
+    --accent-soft: #e2eef0;
+    --warn: #a33a3e;
+    --warn-soft: #f8e4e4;
+    --ok: #2f6b45;
+    --ok-soft: #e1f0e6;
+    --code-bg: #eef2f3;
+    --freight: #5f8b95;
+    --orders: #ba4d51;
+    --font-body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+    --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #11181b; --surface: #182125; --fg: #e2eaec; --muted: #98a9af; --line: #2b383d;
+      --accent: #84bec8; --accent-soft: #1f3338; --warn: #f0989a; --warn-soft: #3a2224;
+      --ok: #8fd0a6; --ok-soft: #1c3226; --code-bg: #141c1f; --freight: #7aa5ae; --orders: #d46a6e;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #11181b; --surface: #182125; --fg: #e2eaec; --muted: #98a9af; --line: #2b383d;
+    --accent: #84bec8; --accent-soft: #1f3338; --warn: #f0989a; --warn-soft: #3a2224;
+    --ok: #8fd0a6; --ok-soft: #1c3226; --code-bg: #141c1f; --freight: #7aa5ae; --orders: #d46a6e;
+    color-scheme: dark;
+  }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-body);
+    font-size: 15px;
+    line-height: 1.55;
+  }
+  .page {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding-block: 32px 56px;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+    display: grid;
+    gap: 28px;
+  }
+  header { display: grid; gap: 10px; max-width: 72ch; }
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  h1 { margin: 0; font-size: 28px; font-weight: 600; line-height: 1.2; text-wrap: balance; }
+  h2 { margin: 0; font-size: 17px; font-weight: 600; text-wrap: balance; }
+  p { margin: 0; }
+  code { font-family: var(--font-mono); font-size: 0.92em; }
+  .muted { color: var(--muted); }
+
+  .controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px 32px;
+    align-items: end;
+    padding: 18px 20px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+  }
+  .control { display: grid; gap: 6px; min-width: 0; }
+  .control-label { font-size: 13px; font-weight: 500; display: flex; align-items: center; gap: 8px; }
+  .swatch { width: 10px; height: 10px; border-radius: 2px; flex: none; }
+  .segmented { display: inline-flex; border: 1px solid var(--line); border-radius: 7px; overflow: hidden; }
+  .segmented input { position: absolute; opacity: 0; pointer-events: none; }
+  .segmented label {
+    padding: 6px 16px;
+    font-size: 14px;
+    cursor: pointer;
+    user-select: none;
+    color: var(--muted);
+  }
+  .segmented label + input + label { border-left: 1px solid var(--line); }
+  .segmented input:checked + label { background: var(--accent-soft); color: var(--fg); font-weight: 500; }
+  .segmented input:focus-visible + label { outline: 2px solid var(--accent); outline-offset: -2px; }
+  .check { display: flex; align-items: center; gap: 8px; font-size: 14px; cursor: pointer; padding-block: 6px; }
+  .check input { width: 16px; height: 16px; accent-color: var(--accent); }
+  .range { display: flex; align-items: center; gap: 10px; }
+  .range input { width: 160px; accent-color: var(--accent); }
+  .range output { font-family: var(--font-mono); font-size: 13px; font-variant-numeric: tabular-nums; min-width: 6ch; }
+
+  .compare { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 500px), 1fr)); gap: 20px; }
+  .panel {
+    display: grid;
+    gap: 12px;
+    align-content: start;
+    padding: 18px 20px 20px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    min-width: 0;
+  }
+  .panel-head { display: grid; gap: 4px; }
+  .panel-head p { font-size: 13.5px; color: var(--muted); max-width: 60ch; }
+  .chart-scroll { overflow-x: auto; min-width: 0; }
+  .chart { height: 520px; }
+
+  .tally { display: grid; gap: 6px; margin: 0; padding: 0; list-style: none; }
+  .tally li {
+    display: grid;
+    grid-template-columns: auto 1fr auto auto;
+    align-items: center;
+    gap: 10px;
+    font-size: 13.5px;
+  }
+  .chip {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    padding: 1px 8px;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    color: var(--muted);
+  }
+  .count { font-variant-numeric: tabular-nums; min-width: 13ch; text-align: right; }
+  .count.bad { color: var(--warn); font-weight: 500; }
+  .count.good { color: var(--ok); }
+  .verdict { font-size: 13.5px; padding: 8px 12px; border-radius: 7px; }
+  .verdict.bad { background: var(--warn-soft); color: var(--warn); }
+  .verdict.good { background: var(--ok-soft); color: var(--ok); }
+
+  .code-section { display: grid; gap: 12px; }
+  .code-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 12px; }
+  .code-head p { font-size: 14px; color: var(--muted); max-width: 72ch; }
+  .copy {
+    font: 500 13px var(--font-body);
+    color: var(--fg);
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 7px;
+    padding: 6px 14px;
+    cursor: pointer;
+  }
+  .copy:hover { border-color: var(--accent); }
+  .copy:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  pre {
+    margin: 0;
+    padding: 16px 18px;
+    background: var(--code-bg);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    overflow-x: auto;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    line-height: 1.6;
+    tab-size: 2;
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+  <header>
+    <span class="eyebrow">DevExtreme Chart &middot; Dashboard chart item</span>
+    <h1>Label overlapping per series</h1>
+    <p>In Dashboard, Overlapping Mode is set for each series, but DevExtreme Chart has one setting for the whole chart.
+      So as soon as one series uses Hide, the dashboard turns hiding on for every pane.
+      Switch the modes below and compare the two charts.</p>
+  </header>
+
+  <section class="controls" aria-label="Chart settings">
+    <div class="control">
+      <span class="control-label"><span class="swatch" style="background: var(--freight)"></span>Freight (Sum)</span>
+      <div class="segmented" role="radiogroup" aria-label="Freight (Sum) overlapping mode">
+        <input type="radio" name="freight" id="freight-hide" value="Hide"><label for="freight-hide">Hide</label>
+        <input type="radio" name="freight" id="freight-none" value="None" checked><label for="freight-none">None</label>
+      </div>
+    </div>
+    <div class="control">
+      <span class="control-label"><span class="swatch" style="background: var(--orders)"></span>Orders Count</span>
+      <div class="segmented" role="radiogroup" aria-label="Orders Count overlapping mode">
+        <input type="radio" name="orders" id="orders-hide" value="Hide" checked><label for="orders-hide">Hide</label>
+        <input type="radio" name="orders" id="orders-none" value="None"><label for="orders-none">None</label>
+      </div>
+    </div>
+    <div class="control">
+      <span class="control-label">Chart width</span>
+      <div class="range">
+        <input type="range" id="width" min="300" max="760" step="20" value="460">
+        <output for="width" id="width-out">460 px</output>
+      </div>
+    </div>
+    <label class="check" for="same-pane"><input type="checkbox" id="same-pane">Both series in one pane</label>
+  </section>
+
+  <section class="compare">
+    <article class="panel">
+      <div class="panel-head">
+        <h2>Today</h2>
+        <p>Any series with Hide turns on <code>resolveLabelOverlapping: 'hide'</code> and <code>resolveLabelsOverlapping: true</code> for the whole chart.</p>
+      </div>
+      <div class="chart-scroll"><div class="chart" id="chart-today"></div></div>
+      <ul class="tally" id="tally-today"></ul>
+      <p class="verdict" id="verdict-today"></p>
+    </article>
+    <article class="panel">
+      <div class="panel-head">
+        <h2>With the workaround</h2>
+        <p>Both options are off. <code>onDrawn</code> hides labels only in series set to Hide.</p>
+      </div>
+      <div class="chart-scroll"><div class="chart" id="chart-fixed"></div></div>
+      <ul class="tally" id="tally-fixed"></ul>
+      <p class="verdict" id="verdict-fixed"></p>
+    </article>
+  </section>
+
+  <section class="code-section">
+    <div class="code-head">
+      <div>
+        <h2>Workaround code</h2>
+        <p>This is the code the right-hand chart runs. It uses only the public Chart API. The mode reaches the chart through the series <code>tag</code>.</p>
+      </div>
+      <button class="copy" id="copy" type="button">Copy code</button>
+    </div>
+    <pre id="code"></pre>
+  </section>
+
+</div>
+
+<script src="https://cdn3.devexpress.com/jslib/26.1.6/js/dx.all.js"></script>
+<script id="workaround">
+function intersects(a, b) {
+  return a.x < b.x + b.width && b.x < a.x + a.width
+    && a.y < b.y + b.height && b.y < a.y + a.height;
+}
+
+function coversBar(label, bar) {
+  return intersects(label, bar)
+    && ((label.x <= bar.x && label.x + label.width >= bar.x + bar.width)
+      || (label.y <= bar.y && label.y + label.height >= bar.y + bar.height));
+}
+
+function hideOverlappingLabels(chart, isHideSeries) {
+  const labels = [];
+  chart.getAllSeries()
+    .filter((series) => series.isVisible() && isHideSeries(series))
+    .forEach((series) => series.getVisiblePoints().forEach((point) => {
+      const isBar = series.type.includes('bar');
+      [].concat(point.getLabel()).forEach((label) => {
+        if (!label.isVisible()) return;
+        if (isBar && coversBar(label.getBoundingRect(), point.getBoundingRect())) {
+          label.hide();
+        } else {
+          labels.push(label);
+        }
+      });
+    }));
+
+  labels.forEach((label, i) => {
+    if (!label.isVisible()) return;
+    const rect = label.getBoundingRect();
+    labels.slice(i + 1).forEach((next) => {
+      if (next.isVisible() && intersects(rect, next.getBoundingRect())) next.hide();
+    });
+  });
+}
+</script>
+<script>
+const usage = `
+$('#chart').dxChart({
+  resolveLabelOverlapping: 'none',
+  resolveLabelsOverlapping: false,
+  // ...
+  onDrawn(e) {
+    hideOverlappingLabels(e.component,
+      (series) => ['Hide', 'Reposition'].includes(series.tag?.labelOverlapping));
+  },
+});`;
+document.getElementById('code').textContent = document.getElementById('workaround').textContent.trim() + '\n' + usage;
+
+const DATA = [
+  ['Q3 2021', 11700, 70], ['Q4 2021', 20400, 82], ['Q1 2022', 18700, 92], ['Q2 2022', 27800, 93],
+  ['Q3 2022', 29200, 103], ['Q4 2022', 31000, 120], ['Q1 2023', 45700, 182], ['Q2 2023', 22800, 88],
+].map(([quarter, freight, orders]) => ({ quarter, freight, orders }));
+
+const state = { freight: 'None', orders: 'Hide', samePane: false, width: 460 };
+const isHideSeries = (series) => ['Hide', 'Reposition'].includes(series.tag?.labelOverlapping);
+
+function isDark() {
+  const theme = document.documentElement.getAttribute('data-theme');
+  if (theme) return theme === 'dark';
+  return window.matchMedia('(prefers-color-scheme: dark)').matches;
+}
+
+function token(name) {
+  return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+}
+
+function formatFreight() {
+  return `$${(this.value / 1000).toFixed(1).replace(/\.0$/, '')}K`;
+}
+
+function chartOptions(mode) {
+  const today = mode === 'today';
+  const anyHide = state.freight === 'Hide' || state.orders === 'Hide';
+  const ordersPane = state.samePane ? 'top' : 'bottom';
+  return {
+    theme: isDark() ? 'generic.dark' : 'generic.light',
+    size: { width: state.width, height: 520 },
+    dataSource: DATA,
+    animation: { enabled: false },
+    resolveLabelOverlapping: today && anyHide ? 'hide' : 'none',
+    resolveLabelsOverlapping: today && anyHide,
+    panes: state.samePane ? [{ name: 'top' }] : [{ name: 'top' }, { name: 'bottom' }],
+    commonSeriesSettings: { argumentField: 'quarter', type: 'bar', label: { visible: true } },
+    series: [
+      {
+        pane: 'top', axis: 'freight', valueField: 'freight', name: 'Freight (Sum)', color: token('--freight'),
+        tag: { labelOverlapping: state.freight }, label: { customizeText: formatFreight },
+      },
+      {
+        pane: ordersPane, axis: 'orders', valueField: 'orders', name: 'Orders Count', color: token('--orders'),
+        tag: { labelOverlapping: state.orders }, label: { position: 'inside' },
+      },
+    ],
+    valueAxis: [
+      { name: 'freight', pane: 'top', title: 'Freight (Sum)', label: { customizeText: formatFreight } },
+      { name: 'orders', pane: ordersPane, title: 'Orders Count', position: state.samePane ? 'right' : 'left' },
+    ],
+    legend: { verticalAlignment: 'bottom', horizontalAlignment: 'center' },
+    onDrawn(e) {
+      if (!today) hideOverlappingLabels(e.component, isHideSeries);
+      report(mode, e.component);
+    },
+  };
+}
+
+function report(mode, chart) {
+  const rows = chart.getAllSeries().map((series) => {
+    const points = series.getVisiblePoints();
+    const hidden = points.filter((point) => !point.getLabel().isVisible()).length;
+    return { name: series.name, color: series.getColor(), mode: series.tag.labelOverlapping, hidden, total: points.length };
+  });
+  const wrong = rows.filter((row) => row.mode === 'None' && row.hidden > 0);
+
+  document.getElementById(`tally-${mode}`).replaceChildren(...rows.map((row) => {
+    const li = document.createElement('li');
+    const bad = row.mode === 'None' && row.hidden > 0;
+    li.innerHTML = `<span class="swatch"></span><span></span><span class="chip"></span><span class="count"></span>`;
+    li.children[0].style.background = row.color;
+    li.children[1].textContent = row.name;
+    li.children[2].textContent = row.mode;
+    li.children[3].textContent = `${row.hidden} of ${row.total} hidden`;
+    li.children[3].classList.add(bad ? 'bad' : 'good');
+    return li;
+  }));
+
+  const verdict = document.getElementById(`verdict-${mode}`);
+  verdict.className = `verdict ${wrong.length ? 'bad' : 'good'}`;
+  verdict.textContent = wrong.length
+    ? `${wrong.map((row) => row.name).join(' and ')} ${wrong.length > 1 ? 'are' : 'is'} set to None but still ${wrong.length > 1 ? 'lose' : 'loses'} labels.`
+    : 'Each series follows its own mode.';
+}
+
+const charts = {
+  today: new DevExpress.viz.dxChart(document.getElementById('chart-today'), chartOptions('today')),
+  fixed: new DevExpress.viz.dxChart(document.getElementById('chart-fixed'), chartOptions('fixed')),
+};
+
+function update() {
+  charts.today.option(chartOptions('today'));
+  charts.fixed.option(chartOptions('fixed'));
+}
+
+document.querySelectorAll('input[name="freight"], input[name="orders"]').forEach((input) => {
+  input.addEventListener('change', () => { state[input.name] = input.value; update(); });
+});
+document.getElementById('same-pane').addEventListener('change', (e) => { state.samePane = e.target.checked; update(); });
+document.getElementById('width').addEventListener('input', (e) => {
+  state.width = Number(e.target.value);
+  document.getElementById('width-out').textContent = `${state.width} px`;
+  update();
+});
+
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', update);
+new MutationObserver(update).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+
+document.getElementById('copy').addEventListener('click', async (e) => {
+  const button = e.currentTarget;
+  try {
+    await navigator.clipboard.writeText(document.getElementById('code').textContent);
+    button.textContent = 'Copied';
+  } catch {
+    const range = document.createRange();
+    range.selectNodeContents(document.getElementById('code'));
+    const selection = window.getSelection();
+    selection.removeAllRanges();
+    selection.addRange(range);
+    button.textContent = 'Press Ctrl+C to copy';
+  }
+  setTimeout(() => { button.textContent = 'Copy code'; }, 2000);
+});
+</script>
+</body>
+</html>

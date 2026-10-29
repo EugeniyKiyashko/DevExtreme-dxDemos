@@ -21,6 +21,10 @@ A collection of online demos showing variously scenario using DevExtreme widgets
 * [dxChart - a visualRange rejected by the zoom limit leaves the chart half-rendered (T1335913)](https://eugeniykiyashko.github.io/DevExtreme-dxDemos/demos/Devextreme-dxChart-zoomEnd-cancel-redraw/index.html) - the live chart from the ticket runs on two 26.2.0 builds, before and after the fix: each frame zooms in past the limit, hovers the line and reports whether the drawn axis, the points and the tooltip still match the range the chart claims to show.
 * [dxSpeedDialAction - the 16px right offset swallowed by the scrollbar](https://eugeniykiyashko.github.io/DevExtreme-dxDemos/demos/Devextreme-dxSpeedDialAction-scrollbar-offset/index.html) - the same page runs two 26.2.0 builds side by side, before and after the `m_position` fix, and measures where the button lands.
 
+## Workarounds
+
+* [dxChart - label overlapping per series, as Dashboard sets it](https://eugeniykiyashko.github.io/DevExtreme-dxDemos/demos/Devextreme-dxChart-label-overlapping-per-series/index.html) - Dashboard sets Hide or None for each series, while the chart hides overlapping labels for all panes at once. Two charts on DevExtreme 26.1.6 side by side: the left one hides labels for the whole chart as soon as one series uses Hide, the right one turns both options off and hides labels in `onDrawn` only in series set to Hide. Each chart counts the hidden labels per series; the workaround code is on the page.
+
 ## DevExtreme Demos - JQuery approach.
 
 * [DataGrid - Export To PDF](https://eugeniykiyashko.github.io/DevExtreme-dxDemos/demos/Devextreme-dxDataGrid-export-to-PDF/index.html)
